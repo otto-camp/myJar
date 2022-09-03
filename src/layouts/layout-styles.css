@@ -1,0 +1,12 @@
+.nav-link {
+  color: #252525;
+}
+
+@media screen and (min-width: 768px) {
+  .nav-space {
+    margin-left: auto !important;
+  }
+}
+.min-h{
+  min-height: 100vh ;
+}

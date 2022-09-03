@@ -1,0 +1,5 @@
+@media screen and (min-width: 650px) {
+    .main-text{
+        font-size: calc(2.5rem + 2.5vw)
+    }
+}
