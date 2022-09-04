@@ -7,10 +7,11 @@ import Profile from "../pages/Profile/Profile";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import ForgotPassword from "./ForgotPassword";
-import { AuthProvider, useAuth } from "../services/AuthContext";
+import { AuthProvider } from "../services/AuthContext";
 import Footer from "./Footer";
 import Messages from "../pages/Messages/Messages";
 import Settings from "../pages/Settings/Settings";
+import CreateProfile from "./CreateProfile";
 
 export default function Mainpage() {
   return (
@@ -21,11 +22,11 @@ export default function Mainpage() {
             <Route path="/" element={<Home />} exact />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/create-profile" element={<CreateProfile />} />
             <Route path="/forgotpassword" element={<ForgotPassword />} />
-            <Route path=":id" element={<Profile />} />
-            <Route path="/messages" element={<Messages />} />
+            <Route path="/profile/:id" element={<Profile />} />
+            <Route path="/messages/:id" element={<Messages />} />
             <Route path="/settings" element={<Settings />} />
-
           </Routes>
         </AuthProvider>
       </Row>

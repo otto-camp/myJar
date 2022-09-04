@@ -22,10 +22,9 @@ export default function SignUp() {
       setError("");
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
-      navigate("/");
+      navigate("/create-profile");
     } catch {
       setError("Failed to create an account");
-      console.log(emailRef.current.value, passwordRef.current.value);
     }
     setLoading(false);
   }
@@ -47,7 +46,7 @@ export default function SignUp() {
                 <Form.Label>Email</Form.Label>
                 <Form.Control type="email" ref={emailRef} required />
               </Form.Group>
-              
+
               <Form.Group id="password" className="mt-2">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
@@ -57,7 +56,7 @@ export default function SignUp() {
                   aria-describedby="passwordHelpBlock"
                 />
                 <Form.Text id="passwordHelpBlock" muted>
-                  Minumum 6 character
+                  Password should be at least 6 characters
                 </Form.Text>
               </Form.Group>
               <Form.Group id="password-confirm" className="mt-2">
@@ -69,7 +68,7 @@ export default function SignUp() {
                   aria-describedby="passwordHelpBlock"
                 />
                 <Form.Text id="passwordHelpBlock" muted>
-                  Minumum 6 character
+                  Password should be at least 6 characters
                 </Form.Text>
               </Form.Group>
               <Button disabled={loading} className="w-100 mt-2" type="submit">

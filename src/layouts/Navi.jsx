@@ -7,20 +7,22 @@ import {
   Form,
   Button,
 } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../services/AuthContext";
 import { auth } from "../services/firebase";
 import "./layout-styles.css";
 
 export default function Navi() {
   const { currentUser } = useAuth();
+  const navigate = useNavigate();
 
   const handleSignOut = async (e) => {
     e.preventDefault();
     try {
       await auth.signOut();
+      navigate("/");
     } catch {
       console.log(e);
-      console.log("error");
     }
   };
 
