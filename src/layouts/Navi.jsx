@@ -7,10 +7,12 @@ import {
   Form,
   Button,
 } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../services/AuthContext";
 import { auth } from "../services/firebase";
 import "./layout-styles.css";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Navi() {
   const { currentUser } = useAuth();
@@ -30,7 +32,7 @@ export default function Navi() {
     <Container fluid className="m-0 p-0">
       <Navbar
         color="light"
-        expand="md"
+        expand="lg"
         light
         fixed="top"
         className="position-relative mx-2"
@@ -50,21 +52,29 @@ export default function Navi() {
                     className="me-2"
                     aria-label="Search"
                   />
-                  <Button variant="primary">Search</Button>
+                  <Button variant="primary">
+                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                  </Button>
                 </Form>
-                <Nav.Link href="/" className="me-2 ms-2 fs-5 nav-space">
+                <Link to={"/"} className="me-2 ms-2 fs-5 nav-space nav-link">
                   Home
-                </Nav.Link>
-                <Nav.Link href="/profile" className="me-2 ms-2 fs-5 ">
+                </Link>
+                <Link
+                  to={"/profile/" + currentUser.uid}
+                  className="me-2 ms-2 fs-5 nav-link"
+                >
                   Profile
-                </Nav.Link>
-                <Nav.Link href="/messages" className="me-2 ms-2 fs-5">
+                </Link>
+                <Link
+                  to={"/messages/" + currentUser.uid}
+                  className="me-2 ms-2 fs-5 nav-link"
+                >
                   Messages
-                </Nav.Link>
+                </Link>
                 <NavDropdown
                   title="Account"
                   id="basic-nav-dropdown"
-                  className="mx-3 ms-3 fs-5"
+                  className="mx-3 ms-2 fs-5"
                 >
                   <NavDropdown.Item href="/settings">Settings</NavDropdown.Item>
                   <NavDropdown.Divider />

@@ -1,226 +1,308 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navi from "../../layouts/Navi";
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  ListGroup,
+  Row,
+  Toast,
+  ToastContainer,
+} from "react-bootstrap";
 import "./profile.css";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../services/firebase";
-import { useAuth } from "../../services/AuthContext";
+import { useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPenToSquare,
+  faGlobe,
+  faArrowRightLong,
+  faCirclePlus,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebook,
+  faGithub,
+  faInstagram,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import CreatePostModal from "../../components/Modal/CreatePostModal";
 
 export default function Profile() {
   const [user, setUser] = useState();
-  const uid = useAuth().currentUser.uid;
+  const { id } = useParams();
+  const [modalShow, setModalShow] = useState(false);
+  const [toastShow, setToastShow] = useState(false);
 
   useEffect(() => {
     const getProfile = async () => {
-      const docRef = doc(db, "profile", uid);
+      const docRef = doc(db, "profile", id);
       const docSnap = await getDoc(docRef);
       setUser(docSnap.data());
       console.log(docSnap.data());
     };
     getProfile();
-  }, [uid]);
+  }, [id]);
 
   return (
     <>
       <Navi />
-      <Suspense fallback={<h1>Loading</h1>}>
-        <Container>
-          <Row className="gutters-sm">
-            <Col md={4} className="mb-3">
-              <Card>
-                <Card.Body>
-                  <div className="d-flex flex-column align-items-center text-center">
+      <Container>
+        <Row>
+          <Col lg={5}>
+            {/* PROFILE HEADER */}
+            <Card>
+              <Card.Body>
+                <Button className="float-end ">
+                  <FontAwesomeIcon icon={faPenToSquare} />
+                </Button>
+
+                <div className="d-flex align-items-start ">
+                  <img
+                    src={user ? user.photoURL : ""}
+                    alt="hero"
+                    className="rounded-circle avatar-lg img-thumbnail"
+                  />
+                  <div className="w-100 ms-3">
+                    <h4>{user ? user.fname + " " + user.lname : "Name"}</h4>
+                    <p className="text-secondary mb-1">Friends Count</p>
+                  </div>
+                </div>
+                <div className="mt-3">
+                  <h4 className="fs-5 text-uppercase">About Me :</h4>
+                  <p className="text-muted fs-6 mb-3">
+                    {user ? user.about : ""}
+                  </p>
+                  <p className="text-muted mb-2 fs-6">
+                    <strong>Email :</strong>{" "}
+                    <span className="ms-2">{user ? user.email : ""}</span>
+                  </p>
+                  <p className="text-muted mb-2 fs-6">
+                    <strong>Birth Date :</strong>{" "}
+                    <span className="ms-2">{user ? user.birthDate : ""}</span>
+                  </p>
+                  <div className="d-flex justify-content-center">
+                    <Button variant="primary me-2">Follow</Button>
+                    <Button variant="outline-primary">Message</Button>
+                  </div>
+                </div>
+              </Card.Body>
+            </Card>
+            {/* SOCIALS */}
+            <Card className=" mt-3">
+              <Card.Body>
+                <h4 className="header-title mb-3">Social Links</h4>
+                <ListGroup variant="flush">
+                  <ListGroup.Item className="d-flex align-items-center flex-wrap li-height">
+                    <a
+                      className="btn link-button"
+                      href={user ? "https://" + user.website : "/"}
+                    >
+                      <FontAwesomeIcon icon={faGlobe} />
+                      <strong className="text-muted mx-1">Website</strong>
+                    </a>
+                  </ListGroup.Item>
+                  <ListGroup.Item className="d-flex align-items-center flex-wrap li-height">
+                    <a
+                      className="btn link-button"
+                      href={user ? "https://" + user.github : "/"}
+                    >
+                      <FontAwesomeIcon icon={faGithub} />
+                      <strong className="text-muted mx-1">Github</strong>
+                    </a>
+                  </ListGroup.Item>
+                  <ListGroup.Item className="d-flex align-items-center flex-wrap li-height">
+                    <a
+                      className="btn link-button"
+                      href={user ? "https://" + user.twitter : "/"}
+                    >
+                      <FontAwesomeIcon icon={faTwitter} />
+                      <strong className="text-muted mx-1">Twitter</strong>
+                    </a>
+                  </ListGroup.Item>
+                  <ListGroup.Item className="d-flex align-items-center flex-wrap li-height">
+                    <a
+                      className="btn link-button"
+                      href={user ? "https://" + user.facebook : "/"}
+                    >
+                      <FontAwesomeIcon icon={faFacebook} />
+                      <strong className="text-muted mx-1">Facebook</strong>
+                    </a>
+                  </ListGroup.Item>
+                  <ListGroup.Item className="d-flex align-items-center flex-wrap li-height">
+                    <a
+                      className="btn link-button"
+                      href={user ? "https://" + user.instagram : "/"}
+                    >
+                      <FontAwesomeIcon icon={faInstagram} />
+                      <strong className="text-muted mx-1">Instagram</strong>
+                    </a>
+                  </ListGroup.Item>
+                </ListGroup>
+              </Card.Body>
+            </Card>
+            {/* FRIENDS */}
+            <Card className="mt-3 mb-3">
+              <Card.Body>
+                <h4 className="header-title mb-3">Friends</h4>
+
+                <ListGroup>
+                  <a
+                    href="/"
+                    className="list-group-item list-group-item-action"
+                  >
+                    <div
+                      className="d-flex align-items-center pb-1"
+                      id="tooltips-container"
+                    >
+                      <img
+                        src="https://bootdey.com/img/Content/avatar/avatar5.png"
+                        className="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent"
+                        alt="hero"
+                      />
+                      <div className="w-100 ms-2">
+                        <h5 className="mb-1">Herbert Stewart</h5>
+                        <p className="mb-0 font-13 text-muted">Friends Count</p>
+                      </div>
+                      <FontAwesomeIcon icon={faArrowRightLong} />
+                    </div>
+                  </a>
+                  <a
+                    href="/"
+                    className="list-group-item list-group-item-action"
+                  >
+                    <div
+                      className="d-flex align-items-center pb-1"
+                      id="tooltips-container"
+                    >
+                      <img
+                        src="https://bootdey.com/img/Content/avatar/avatar3.png"
+                        className="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent"
+                        alt=""
+                      />
+                      <div className="w-100 ms-2">
+                        <h5 className="mb-1">Terry Mouser</h5>
+                        <p className="mb-0 font-13 text-muted">Friends Count</p>
+                      </div>
+                      <FontAwesomeIcon icon={faArrowRightLong} />
+                    </div>
+                  </a>
+                  <a
+                    href="/"
+                    className="list-group-item list-group-item-action"
+                  >
+                    <div
+                      className="d-flex align-items-center pb-1"
+                      id="tooltips-container"
+                    >
+                      <img
+                        src="https://bootdey.com/img/Content/avatar/avatar8.png"
+                        className="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent"
+                        alt=""
+                      />
+                      <div className="w-100 ms-2">
+                        <h5 className="mb-1">Adam Barney</h5>
+                        <p className="mb-0 font-13 text-muted">Friends Count</p>
+                      </div>
+                      <FontAwesomeIcon icon={faArrowRightLong} />
+                    </div>
+                  </a>
+                  <a
+                    href="/"
+                    className="list-group-item list-group-item-action"
+                  >
+                    <div
+                      className="d-flex align-items-center pb-1"
+                      id="tooltips-container"
+                    >
+                      <img
+                        src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                        className="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent"
+                        alt=""
+                      />
+                      <div className="w-100 ms-2">
+                        <h5 className="mb-1">Michal Chang</h5>
+                        <p className="mb-0 font-13 text-muted">Friends Count</p>
+                      </div>
+                      <FontAwesomeIcon icon={faArrowRightLong} />
+                    </div>
+                  </a>
+                </ListGroup>
+              </Card.Body>
+            </Card>
+          </Col>
+          {/* POSTS */}
+          <Col lg={7}>
+            <Card>
+              <Card.Body>
+                <div className="w-100">
+                  <h4 className="font-13 d-inline-block">Posts</h4>
+                  <Button
+                    variant="primary"
+                    className="float-end"
+                    onClick={() => setModalShow(true)}
+                  >
+                    <FontAwesomeIcon icon={faCirclePlus} />
+                  </Button>
+                  <CreatePostModal
+                    id={id}
+                    show={modalShow}
+                    onHide={() => {
+                      setModalShow(false);
+                      setToastShow(true);
+                    }}
+                  />
+                </div>
+                <hr />
+                <div className="border border-light p-2 mb-3">
+                  <div className="d-flex align-items-start">
                     <img
-                      src={user ? user.photoURL : ""}
-                      alt="hero"
-                      width="150"
+                      className="me-2 avatar-sm rounded-circle"
+                      src="https://bootdey.com/img/Content/avatar/avatar4.png"
+                      alt="post hero"
                     />
-                    <div className="mt-3">
-                      <h4>{user ? user.fname + " " + user.lname : "Name"}</h4>
-                      <p className="text-secondary mb-1">
-                        Full Stack Developer
-                      </p>
-                      <p className="text-muted font-size-sm">
-                        Bay Area, San Francisco, CA
-                      </p>
-                      <Button variant="primary">Follow</Button>
-                      <Button variant="outline-primary">Message</Button>
+                    <div className="w-100">
+                      <h5>
+                        Thelma Fridley{" "}
+                        <small className="text-muted"> 1 hour ago</small>
+                      </h5>
+                      <div>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel
+                        metus scelerisque ante sollicitudin. Cras purus odio,
+                        vestibulum in vulputate at, tempus viverra turpis. Duis
+                        sagittis ipsum. Praesent mauris. Fusce nec tellus sed
+                        augue semper porta. Mauris massa.
+                        <br />
+                        <a
+                          href="/"
+                          className="text-muted font-13 d-inline-block mt-2"
+                        >
+                          Reply
+                        </a>
+                      </div>
                     </div>
                   </div>
-                </Card.Body>
-              </Card>
-              <Card className=" mt-3">
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 className="mb-0">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="feather feather-globe mr-2 icon-inline"
-                      >
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="2" y1="12" x2="22" y2="12"></line>
-                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                      </svg>
-                      Website
-                    </h6>
-                    <span className="text-secondary">https://bootdey.com</span>
-                  </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 className="mb-0">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="feather feather-github mr-2 icon-inline"
-                      >
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                      </svg>
-                      Github
-                    </h6>
-                    <span className="text-secondary">bootdey</span>
-                  </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 className="mb-0">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="feather feather-twitter mr-2 icon-inline text-info"
-                      >
-                        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                      </svg>
-                      Twitter
-                    </h6>
-                    <span className="text-secondary">@bootdey</span>
-                  </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 className="mb-0">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="feather feather-instagram mr-2 icon-inline text-danger"
-                      >
-                        <rect
-                          x="2"
-                          y="2"
-                          width="20"
-                          height="20"
-                          rx="5"
-                          ry="5"
-                        ></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                      </svg>
-                      Instagram
-                    </h6>
-                    <span className="text-secondary">bootdey</span>
-                  </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 className="mb-0">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="feather feather-facebook mr-2 icon-inline text-primary"
-                      >
-                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                      </svg>
-                      Facebook
-                    </h6>
-                    <span className="text-secondary">bootdey</span>
-                  </li>
-                </ul>
-              </Card>
-            </Col>
-            <Col md={8}>
-              <Card className=" mb-3">
-                <Card.Body>
-                  <Row>
-                    <Col sm={3}>
-                      <h6 className="mb-0">Full Name</h6>
-                    </Col>
-                    <Col className=" text-secondary" sm={9}>
-                      Kenneth Valdez
-                    </Col>
-                  </Row>
-                  <hr />
-                  <Row>
-                    <Col sm={3}>
-                      <h6 className="mb-0">Email</h6>
-                    </Col>
-                    <Col sm={9} className="text-secondary">
-                      {user ? user.email : ""}
-                    </Col>
-                  </Row>
-                  <hr />
-                  <Row>
-                    <Col sm={3}>
-                      <h6 className="mb-0">Mobile</h6>
-                    </Col>
-                    <Col sm={9} className="text-secondary">
-                      {user ? user.phoneNumber : ""}
-                    </Col>
-                  </Row>
-                  <hr />
-                  <Row>
-                    <Col sm={3}>
-                      <h6 className="mb-0">Address</h6>
-                    </Col>
-                    <Col sm={9} className="text-secondary">
-                      Bay Area, San Francisco, CA
-                    </Col>
-                  </Row>
-                  <hr />
-                  <Row>
-                    <Col sm={12}>
-                      <a
-                        className="btn btn-info "
-                        target="__blank"
-                        href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills"
-                      >
-                        Edit
-                      </a>
-                    </Col>
-                  </Row>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
-      </Suspense>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+      <ToastContainer position="top-end" className="p-3 ">
+        <Toast
+          onClose={() => setToastShow(false)}
+          show={toastShow}
+          delay={3000}
+          autohide
+        >
+          <Toast.Header>
+            <strong className="me-auto">Bootstrap</strong>
+            <small className="text-muted">just now</small>
+          </Toast.Header>
+          <Toast.Body>See? Just like this.</Toast.Body>
+        </Toast>
+      </ToastContainer>
     </>
   );
 }

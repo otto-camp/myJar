@@ -1,0 +1,35 @@
+.avatar-lg {
+  height: 4.5rem;
+  width: 4.5rem;
+}
+
+.avatar-md {
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+.avatar-sm {
+  height: 2.25rem;
+  width: 2.25rem;
+}
+
+.bg-transparent {
+  --bs-bg-opacity: 1;
+  background-color: transparent !important;
+}
+
+.li-height {
+  min-height: 3rem;
+}
+
+.link-button {
+  width: 100%;
+  background: transparent;
+  color: var(--bs-dark) !important;
+}
+
+.link-button:hover,
+::after,
+::before {
+  background: var(--bs-gray-300) !important;
+}
