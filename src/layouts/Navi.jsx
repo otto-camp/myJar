@@ -61,6 +61,7 @@ export default function Navi() {
                 </Link>
                 <Link
                   to={"/profile/" + currentUser.uid}
+                  reloadDocument
                   className="me-2 ms-2 fs-5 nav-link"
                 >
                   Profile

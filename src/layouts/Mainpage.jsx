@@ -3,7 +3,6 @@ import { Container, Row } from "react-bootstrap";
 import "./layout-styles.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home/Home";
-import Profile from "../pages/Profile/Profile";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import ForgotPassword from "./ForgotPassword";
@@ -12,6 +11,7 @@ import Footer from "./Footer";
 import Messages from "../pages/Messages/Messages";
 import Settings from "../pages/Settings/Settings";
 import CreateProfile from "./CreateProfile";
+import Profile from "../pages/Profile/Profile";
 
 export default function Mainpage() {
   return (

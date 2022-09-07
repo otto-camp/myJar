@@ -28,8 +28,14 @@ export default function CreateProfile() {
         fname: fnameRef.current.value,
         lname: lnameRef.current.value,
         email: user.email,
-        birthDate: birthDate.toISOString().split("T")[0],
+        birthDate: birthDate.toISOString().split("T")[0].replaceAll("-", "/"),
         phoneNumber: phoneRef.current.value,
+        about: "Write something about yourself",
+        facebook: "https://www.facebook.com",
+        github: "https://www.github.com",
+        instagram: "https://www.instagram.com",
+        twitter: "https://www.twitter.com",
+        website: "https://www.google.com",
         photoURL:
           "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/upp.png?alt=media&token=3bffcde1-935a-40f9-8f97-2dbe9ba2c698",
       });
