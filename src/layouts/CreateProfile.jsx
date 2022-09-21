@@ -1,18 +1,18 @@
-import { doc, setDoc } from "firebase/firestore";
-import React, { useRef, useState } from "react";
-import { Alert, Button, Card, Col, Form, Navbar, Row } from "react-bootstrap";
-import { db } from "../services/firebase";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { useAuth } from "../services/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { doc, setDoc } from 'firebase/firestore';
+import React, { useRef, useState } from 'react';
+import { Alert, Button, Card, Col, Form, Navbar, Row } from 'react-bootstrap';
+import { db } from '../services/firebase';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { useAuth } from '../services/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function CreateProfile() {
   const fnameRef = useRef();
   const lnameRef = useRef();
   const phoneRef = useRef();
   const [birthDate, setBirthDate] = useState(new Date());
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -22,26 +22,28 @@ export default function CreateProfile() {
   async function createProfile(e) {
     e.preventDefault();
     try {
-      setError("");
+      setError('');
       setLoading(true);
-      await setDoc(doc(db, "profile", id), {
+      await setDoc(doc(db, 'profile', id), {
+        id: id,
         fname: fnameRef.current.value,
         lname: lnameRef.current.value,
         email: user.email,
-        birthDate: birthDate.toISOString().split("T")[0].replaceAll("-", "/"),
+        birthDate: birthDate.toISOString().split('T')[0].replaceAll('-', '/'),
         phoneNumber: phoneRef.current.value,
-        about: "Write something about yourself",
-        facebook: "https://www.facebook.com",
-        github: "https://www.github.com",
-        instagram: "https://www.instagram.com",
-        twitter: "https://www.twitter.com",
-        website: "https://www.google.com",
+        about: 'Write something about yourself',
+        facebook: '',
+        github: '',
+        instagram: '',
+        twitter: '',
+        website: '',
+        likedPosts: [],
         photoURL:
-          "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/upp.png?alt=media&token=3bffcde1-935a-40f9-8f97-2dbe9ba2c698",
+          'https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/upp.png?alt=media&token=3bffcde1-935a-40f9-8f97-2dbe9ba2c698'
       });
-      navigate("/profile/" + id);
+      navigate('/profile/' + id);
     } catch (r) {
-      setError("Failed to create a profile");
+      setError('Failed to create a profile');
     }
     setLoading(false);
   }
@@ -79,7 +81,7 @@ export default function CreateProfile() {
               </Form.Group>
               <p>Birth Date</p>
               <DatePicker
-                dateFormat={"yyyy/MM/dd"}
+                dateFormat={'yyyy/MM/dd'}
                 selected={birthDate}
                 onChange={(d) => setBirthDate(d)}
               />

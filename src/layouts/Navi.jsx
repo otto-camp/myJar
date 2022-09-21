@@ -1,18 +1,18 @@
-import React from "react";
+import React from 'react';
 import {
   Container,
   Navbar,
   Nav,
   NavDropdown,
   Form,
-  Button,
-} from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../services/AuthContext";
-import { auth } from "../services/firebase";
-import "./layout-styles.css";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+  Button
+} from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../services/AuthContext';
+import { auth } from '../services/firebase';
+import './layout-styles.css';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Navi() {
   const { currentUser } = useAuth();
@@ -22,7 +22,7 @@ export default function Navi() {
     e.preventDefault();
     try {
       await auth.signOut();
-      navigate("/");
+      navigate('/');
     } catch {
       console.log(e);
     }
@@ -33,7 +33,7 @@ export default function Navi() {
       <Navbar
         color="light"
         expand="lg"
-        light
+        variant="light"
         fixed="top"
         className="position-relative mx-2"
       >
@@ -56,18 +56,18 @@ export default function Navi() {
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                   </Button>
                 </Form>
-                <Link to={"/"} className="me-2 ms-2 fs-5 nav-space nav-link">
+                <Link to={'/'} className="me-2 ms-2 fs-5 nav-space nav-link">
                   Home
                 </Link>
                 <Link
-                  to={"/profile/" + currentUser.uid}
+                  to={'/profile'}
                   reloadDocument
                   className="me-2 ms-2 fs-5 nav-link"
                 >
                   Profile
                 </Link>
                 <Link
-                  to={"/messages/" + currentUser.uid}
+                  to={'/messages/' + currentUser.uid}
                   className="me-2 ms-2 fs-5 nav-link"
                 >
                   Messages

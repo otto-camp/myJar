@@ -1,13 +1,13 @@
-import React, { useRef, useState } from "react";
-import { Alert, Button, Card, Col, Form, Navbar, Row } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../services/AuthContext";
+import React, { useRef, useState } from 'react';
+import { Alert, Button, Card, Col, Form, Navbar, Row } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../services/AuthContext';
 
 export default function SignUp() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { signup } = useAuth();
   const navigate = useNavigate();
@@ -19,12 +19,12 @@ export default function SignUp() {
     }
 
     try {
-      setError("");
+      setError('');
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
-      navigate("/create-profile");
+      navigate('/create-profile');
     } catch {
-      setError("Failed to create an account");
+      setError('Failed to create an account');
     }
     setLoading(false);
   }

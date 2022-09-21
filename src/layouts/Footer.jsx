@@ -1,12 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
     <footer className="d-flex flex-wrap justify-content-between align-items-center px-1 mb-2 border-top mt-5">
       <div className="col-md-4 d-flex align-items-center ">
         <Link
-          to={"/"}
+          to={'/'}
           className="fs-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"
         >
           myjar
@@ -18,7 +18,7 @@ export default function Footer() {
           <a
             className="text-muted"
             href="https://github.com/otto-camp"
-            target={"_blank"}
+            target={'_blank'}
             rel="noreferrer"
           >
             <svg
@@ -35,7 +35,7 @@ export default function Footer() {
           <a
             className="text-muted"
             href="https://www.linkedin.com/in/ismail-yarar/"
-            target={"_blank"}
+            target={'_blank'}
             rel="noreferrer"
           >
             <svg

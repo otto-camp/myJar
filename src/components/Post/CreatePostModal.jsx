@@ -1,25 +1,21 @@
-import { addDoc, collection } from "firebase/firestore";
-import React, { useState } from "react";
-import { useRef } from "react";
-import { Alert, Button, Form, Modal } from "react-bootstrap";
-import { db } from "../../services/firebase";
+import React, { useState } from 'react';
+import { Alert, Button, Form, Modal } from 'react-bootstrap';
+import { usePost } from './PostContext';
 
 export default function CreatePostModal(props) {
   const [count, setCount] = useState(0);
-  const [errorText, setErrorText] = useState();
-  const textRef = useRef();
+  const [errorText, setErrorText] = useState('');
+  const [postText, setPostText] = useState('');
+  const { createPost } = usePost();
 
-  async function createPost(e) {
-    setErrorText("");
+  async function handleCreatePost() {
     try {
-      await addDoc(collection(db, "post"), {
-        id: props.id,
-        postText: textRef.current.value,
-        timestamp: new Date().getTime(),
-      });
       props.onHide();
-    } catch (r) {
-      setErrorText(r);
+      await createPost(postText);
+    } catch (e) {
+      setErrorText(e);
+    } finally {
+      window.location.reload(false);
     }
   }
 
@@ -28,8 +24,7 @@ export default function CreatePostModal(props) {
       {...props}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
+      centered>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
           Create Post
@@ -38,13 +33,16 @@ export default function CreatePostModal(props) {
       {errorText && <Alert variant="danger">{errorText}</Alert>}
       <Modal.Body>
         <Form>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+          <Form.Group className="mb-3">
             <Form.Control
               as="textarea"
-              ref={textRef}
               rows={3}
               maxLength={255}
-              onChange={(e) => setCount(e.target.value.length)}
+              onChange={(e) => {
+                setCount(e.target.value.length);
+                setPostText(e.target.value);
+              }}
+              value={postText}
             />
             <p className="float-end text-muted">{count}/255</p>
           </Form.Group>
@@ -54,8 +52,8 @@ export default function CreatePostModal(props) {
         <Button variant="secondary" onClick={props.onHide}>
           Close
         </Button>
-        <Button variant="primary" onClick={createPost}>
-          Save Changes
+        <Button variant="primary" onClick={handleCreatePost}>
+          Save
         </Button>
       </Modal.Footer>
     </Modal>

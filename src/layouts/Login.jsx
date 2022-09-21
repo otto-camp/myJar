@@ -1,13 +1,13 @@
-import React, { useRef, useState } from "react";
-import { Alert, Button, Card, Col, Form, Navbar, Row } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../services/AuthContext";
+import React, { useRef, useState } from 'react';
+import { Alert, Button, Card, Col, Form, Navbar, Row } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../services/AuthContext';
 
 export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const { login } = useAuth();
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -15,11 +15,11 @@ export default function Login() {
     e.preventDefault();
     setLoading(true);
     try {
-      setError("");
+      setError('');
       await login(emailRef.current.value, passwordRef.current.value);
-      navigate("/");
+      navigate('/');
     } catch {
-      setError("Failed to login");
+      setError('Failed to login');
     }
     setLoading(false);
   }

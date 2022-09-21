@@ -1,46 +1,48 @@
-import { doc, updateDoc } from "firebase/firestore";
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import { useContext } from "react";
-import { Button, Form, Modal } from "react-bootstrap";
-import { useParams } from "react-router-dom";
-import { UserContext } from "../../pages/Profile/Profile";
-import { db } from "../../services/firebase";
+import { doc, updateDoc } from 'firebase/firestore';
+import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { Button, Form, Modal } from 'react-bootstrap';
+import { useAuth } from '../../services/AuthContext';
+import { db } from '../../services/firebase';
 
 export default function UpdateProfileModal(props) {
-  const { id } = useParams();
-  const { user } = useContext(UserContext);
-  const [fname, setFname] = useState("First name");
-  const [lname, setLname] = useState("Last name");
-  const [about, setAbout] = useState("About");
+  const [fname, setFname] = useState('');
+  const [lname, setLname] = useState('');
+  const [about, setAbout] = useState('');
   const [count, setCount] = useState(0);
+  const { currentUser } = useAuth();
 
   useEffect(() => {
-    const getInfo = async () => {
-      await setFname(user.fname);
-      await setLname(user.lname);
-      await setAbout(user.about);
-      await setCount(user.about.length);
-    };
-    getInfo();
-  }, [user]);
+    function getUser() {
+      if (props.user === undefined) {
+        return () => {
+          getUser();
+        };
+      } else {
+        setFname(props.user.fname);
+        setLname(props.user.lname);
+        setAbout(props.user.about);
+      }
+    }
+    getUser();
+  }, [props.user]);
 
   const updateProfile = async () => {
-    await updateDoc(doc(db, "profile", id), {
+    await updateDoc(doc(db, 'profile', currentUser.uid), {
       fname: fname,
       lname: lname,
-      about: about,
+      about: about
     });
     window.location.reload();
   };
 
   return (
     <Modal
-      {...props}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      {...props}
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
