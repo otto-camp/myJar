@@ -4,7 +4,7 @@ import './layout-styles.css';
 import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
 import { AuthProvider } from '../services/AuthContext';
-import { PostProvider } from '../components/Post/PostContext';
+import { PostProvider } from '../services/PostContext';
 const Home = lazy(() => import('../pages/Home/Home'));
 const Login = lazy(() => import('./Login'));
 const SignUp = lazy(() => import('./SignUp'));
@@ -13,7 +13,6 @@ const Footer = lazy(() => import('./Footer'));
 const Messages = lazy(() => import('../pages/Messages/Messages'));
 const Settings = lazy(() => import('../pages/Settings/Settings'));
 const CreateProfile = lazy(() => import('./CreateProfile'));
-const Profile = lazy(() => import('../pages/Profile/Profile'));
 const MyProfile = lazy(() => import('../pages/Profile/MyProfile'));
 
 export default function Mainpage() {
@@ -30,9 +29,7 @@ export default function Mainpage() {
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/create-profile" element={<CreateProfile />} />
                 <Route path="/forgotpassword" element={<ForgotPassword />} />
-                <Route path="/profile" element={<MyProfile />}>
-                  <Route path=":id" element={Profile} />
-                </Route>
+                <Route path="/profile/:name" element={<MyProfile />} />
                 <Route path="/messages/:id" element={<Messages />} />
                 <Route path="/settings" element={<Settings />} />
               </Routes>

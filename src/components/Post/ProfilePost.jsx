@@ -4,7 +4,7 @@ import { Button, Card } from 'react-bootstrap';
 import { db } from '../../services/firebase';
 import CreatePostModal from './CreatePostModal';
 import moment from 'moment';
-import LikeButton from '../Button/LikeButton';
+import LikePostButton from '../Button/LikePostButton';
 
 export default function ProfilePost(props) {
   const uid = useRef(props.uid);
@@ -22,7 +22,7 @@ export default function ProfilePost(props) {
     }
     getUserPosts();
   }, []);
-
+  
   return (
     <Card>
       <Card.Body>
@@ -62,7 +62,7 @@ export default function ProfilePost(props) {
                 <div>
                   {p.postText}
                   <br />
-                  <LikeButton post={p} user={user ? user : null} />
+                  <LikePostButton post={p} user={user.current ? user.current : null} />
                   <Button variant="none" className="text-muted font-13 d-inline-block mt-2">
                     Reply
                   </Button>

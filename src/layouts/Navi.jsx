@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Container,
-  Navbar,
-  Nav,
-  NavDropdown,
-  Form,
-  Button
-} from 'react-bootstrap';
+import { Container, Navbar, Nav, NavDropdown, Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../services/AuthContext';
 import { auth } from '../services/firebase';
@@ -35,8 +28,7 @@ export default function Navi() {
         expand="lg"
         variant="light"
         fixed="top"
-        className="position-relative mx-2"
-      >
+        className="position-relative mx-2">
         <Navbar.Brand href="/" className="ms-2 fs-1 p-2 fw-bolder">
           myJar
         </Navbar.Brand>
@@ -59,29 +51,16 @@ export default function Navi() {
                 <Link to={'/'} className="me-2 ms-2 fs-5 nav-space nav-link">
                   Home
                 </Link>
-                <Link
-                  to={'/profile'}
-                  reloadDocument
-                  className="me-2 ms-2 fs-5 nav-link"
-                >
+                <Link to={'/profile/' + currentUser.uid} className="me-2 ms-2 fs-5 nav-link">
                   Profile
                 </Link>
-                <Link
-                  to={'/messages/' + currentUser.uid}
-                  className="me-2 ms-2 fs-5 nav-link"
-                >
+                <Link to={'/messages/' + currentUser.uid} className="me-2 ms-2 fs-5 nav-link">
                   Messages
                 </Link>
-                <NavDropdown
-                  title="Account"
-                  id="basic-nav-dropdown"
-                  className="mx-3 ms-2 fs-5"
-                >
+                <NavDropdown title="Account" id="basic-nav-dropdown" className="mx-3 ms-2 fs-5">
                   <NavDropdown.Item href="/settings">Settings</NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item onClick={handleSignOut}>
-                    Sign Out
-                  </NavDropdown.Item>
+                  <NavDropdown.Item onClick={handleSignOut}>Sign Out</NavDropdown.Item>
                 </NavDropdown>
               </Nav>
             </Navbar.Collapse>

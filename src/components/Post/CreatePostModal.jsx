@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { Alert, Button, Form, Modal } from 'react-bootstrap';
-import { usePost } from './PostContext';
+import { usePost } from '../../services/PostContext';
 
 export default function CreatePostModal(props) {
   const [count, setCount] = useState(0);
   const [errorText, setErrorText] = useState('');
   const [postText, setPostText] = useState('');
+  const [postTitle, setPostTitle] = useState('');
   const { createPost } = usePost();
 
   async function handleCreatePost() {
     try {
       props.onHide();
-      await createPost(postText);
+      await createPost(postText, postTitle);
     } catch (e) {
       setErrorText(e);
     } finally {
@@ -20,19 +21,24 @@ export default function CreatePostModal(props) {
   }
 
   return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered>
+    <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Create Post
-        </Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">Create Post</Modal.Title>
       </Modal.Header>
       {errorText && <Alert variant="danger">{errorText}</Alert>}
       <Modal.Body>
         <Form>
+          <Form.Group className="mb-3">
+            <Form.Control
+              as="textarea"
+              rows={3}
+              maxLength={255}
+              onChange={(e) => {
+                setPostTitle(e.target.value);
+              }}
+              value={postTitle}
+            />
+          </Form.Group>
           <Form.Group className="mb-3">
             <Form.Control
               as="textarea"

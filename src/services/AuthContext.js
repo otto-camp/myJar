@@ -1,5 +1,6 @@
+import { doc, getDoc } from 'firebase/firestore';
 import React, { useContext, useState, useEffect } from 'react';
-import { auth } from './firebase';
+import { auth, db } from './firebase';
 
 const AuthContext = React.createContext();
 
@@ -8,6 +9,7 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
+  const [currentUserProfile, setCurrentUserProfile] = useState();
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
 
@@ -36,15 +38,17 @@ export function AuthProvider({ children }) {
   }
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
       setCurrentUser(user);
       setLoading(false);
+      const docSnap = await getDoc(doc(db, 'profile', user.uid));
+      setCurrentUserProfile(docSnap.data())
     });
-
     return unsubscribe;
-  }, []);
+  }, [currentUser]);
 
   const value = {
+    currentUserProfile,
     currentUser,
     login,
     signup,

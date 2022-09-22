@@ -38,6 +38,7 @@ export default function CreateProfile() {
         twitter: '',
         website: '',
         likedPosts: [],
+        friends: [],
         photoURL:
           'https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/upp.png?alt=media&token=3bffcde1-935a-40f9-8f97-2dbe9ba2c698'
       });
@@ -63,21 +64,11 @@ export default function CreateProfile() {
             <Form onSubmit={createProfile}>
               <Form.Group id="fname" className="mt-2">
                 <Form.Label>First Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  ref={fnameRef}
-                  required
-                  aria-describedby="fname"
-                />
+                <Form.Control type="text" ref={fnameRef} required aria-describedby="fname" />
               </Form.Group>
               <Form.Group id="lname" className="mt-2">
                 <Form.Label>Last Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  ref={lnameRef}
-                  required
-                  aria-describedby="lname"
-                />
+                <Form.Control type="text" ref={lnameRef} required aria-describedby="lname" />
               </Form.Group>
               <p>Birth Date</p>
               <DatePicker
@@ -87,12 +78,7 @@ export default function CreateProfile() {
               />
               <Form.Group id="phone" className="mt-2">
                 <Form.Label>Phone Number</Form.Label>
-                <Form.Control
-                  type="tel"
-                  ref={phoneRef}
-                  required
-                  aria-describedby="phone"
-                />
+                <Form.Control type="tel" ref={phoneRef} required aria-describedby="phone" />
               </Form.Group>
               <Button disabled={loading} className="w-100 mt-2" type="submit">
                 Finish Profile
