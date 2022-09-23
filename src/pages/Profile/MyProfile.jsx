@@ -77,7 +77,15 @@ export default function MyProfile() {
               </Card.Body>
             </Card>
             <Suspense fallback={<div>Loading</div>}>
-              <SocialsSection user={currentUserProfile} />
+              <Card className=" mt-3">
+                <Card.Body>
+                  <Button className="float-end">
+                    <FontAwesomeIcon icon={faPenToSquare} />
+                  </Button>
+                  <h4 className="header-title mb-3">Social Links</h4>
+                  <SocialsSection user={currentUserProfile} />
+                </Card.Body>
+              </Card>
               <FriendsSection />
             </Suspense>
           </Col>

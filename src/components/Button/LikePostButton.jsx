@@ -59,7 +59,7 @@ export default class LikePostButton extends Component {
 
   render() {
     return (
-      <Button variant={this.state.variant} onClick={this.handleLike} className="me-3 font-13">
+      <Button variant={this.state.variant} onClick={this.handleLike} className="me-3 ">
         <FontAwesomeIcon icon={faThumbsUp} className="me-1" />
         {this.state.postLike}
       </Button>

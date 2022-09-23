@@ -5,6 +5,7 @@ import { db } from '../../services/firebase';
 import CreatePostModal from './CreatePostModal';
 import moment from 'moment';
 import LikePostButton from '../Button/LikePostButton';
+import EditPostButton from '../Button/EditPostButton';
 
 export default function ProfilePost(props) {
   const uid = useRef(props.uid);
@@ -14,15 +15,15 @@ export default function ProfilePost(props) {
 
   useEffect(() => {
     async function getUserPosts() {
-      const q = query(collection(db, 'posts'), where('id', '==', uid.current), limit(25));
+      const q = query(collection(db, 'posts'), where('createrId', '==', uid.current), limit(25));
       const snapshot = await getDocs(q);
       snapshot.forEach((doc) => {
         setPosts((prevPosts) => [...prevPosts, { ...doc.data(), pid: doc.id }]);
+        console.log();
       });
     }
     getUserPosts();
   }, []);
-  
   return (
     <Card>
       <Card.Body>
@@ -47,14 +48,9 @@ export default function ProfilePost(props) {
         {posts.map((p, index) => (
           <div className="border border-light p-2 mb-3" key={index}>
             <div className="d-flex align-items-start">
-              <img
-                className="me-2 avatar-sm rounded-circle"
-                src={user.current.photoURL}
-                alt="post hero"
-              />
               <div className="w-100">
                 <h5>
-                  {user.current.fname + ' ' + user.current.lname}
+                  {p.postTitle}
                   <small className="text-black-50 float-end fs-6">
                     {moment.utc(p.timestamp.seconds, 'X').fromNow()}
                   </small>
@@ -63,9 +59,7 @@ export default function ProfilePost(props) {
                   {p.postText}
                   <br />
                   <LikePostButton post={p} user={user.current ? user.current : null} />
-                  <Button variant="none" className="text-muted font-13 d-inline-block mt-2">
-                    Reply
-                  </Button>
+                  <EditPostButton/>
                 </div>
               </div>
             </div>

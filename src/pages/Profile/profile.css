@@ -8,11 +8,6 @@
   width: 3.5rem;
 }
 
-.avatar-sm {
-  height: 2.25rem;
-  width: 2.25rem;
-}
-
 .bg-transparent {
   --bs-bg-opacity: 1;
   background-color: transparent !important;

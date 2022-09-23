@@ -32,7 +32,7 @@ export default function CreatePostModal(props) {
             <Form.Control
               as="textarea"
               rows={3}
-              maxLength={255}
+              maxLength={50}
               onChange={(e) => {
                 setPostTitle(e.target.value);
               }}
@@ -43,14 +43,14 @@ export default function CreatePostModal(props) {
             <Form.Control
               as="textarea"
               rows={3}
-              maxLength={255}
+              maxLength={500}
               onChange={(e) => {
                 setCount(e.target.value.length);
                 setPostText(e.target.value);
               }}
               value={postText}
             />
-            <p className="float-end text-muted">{count}/255</p>
+            <p className="float-end text-muted">{count}/500</p>
           </Form.Group>
         </Form>
       </Modal.Body>

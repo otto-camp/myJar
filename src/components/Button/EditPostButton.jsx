@@ -1,4 +1,7 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faComment } from '@fortawesome/free-solid-svg-icons';
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 
 export default class EditPostButton extends Component {
   constructor(props) {
@@ -6,6 +9,10 @@ export default class EditPostButton extends Component {
     this.state = {};
   }
   render() {
-    return <div>EditPostButton</div>;
+    return (
+      <Button variant="none">
+        <FontAwesomeIcon icon={faComment} />
+      </Button>
+    );
   }
 }

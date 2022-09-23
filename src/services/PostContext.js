@@ -1,5 +1,6 @@
 import {
   addDoc,
+  arrayUnion,
   collection,
   deleteDoc,
   doc,
@@ -19,18 +20,25 @@ export function usePost() {
 }
 
 export function PostProvider({ children }) {
-  const { currentUser } = useAuth();
+  const { currentUser, currentUserProfile } = useAuth();
   const postRef = collection(db, 'posts');
 
   function createPost(postText, postTitle) {
     addDoc(postRef, {
       postTitle: postTitle,
       postText: postText,
-      id: currentUser.uid,
+      photoURLs: '',
+      createrId: currentUser.uid,
+      createrName: currentUserProfile.fname + " " + currentUserProfile.lname,
+      createrPhotoURL: currentUserProfile.photoURL,
       timestamp: new Date(Timestamp.now().seconds * 1000),
       comments: [],
       likes: 0,
-    });
+    }).then(async (doc) => {
+      await updateDoc(doc(db, 'profile', currentUser.uid), {
+        createdPosts: arrayUnion(doc.id)
+      });
+    })
   }
 
   function deletePost(id) {
