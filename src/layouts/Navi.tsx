@@ -4,14 +4,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../services/AuthContext';
 import { auth } from '../services/firebase';
 import './layout-styles.css';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Navi() {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
 
-  const handleSignOut = async (e) => {
+  const handleSignOut = async (e: any) => {
     e.preventDefault();
     try {
       await auth.signOut();
@@ -44,9 +42,7 @@ export default function Navi() {
                     className="me-2"
                     aria-label="Search"
                   />
-                  <Button variant="primary">
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
-                  </Button>
+                  <Button variant="primary">Search</Button>
                 </Form>
                 <Link to={'/'} className="me-2 ms-2 fs-5 nav-space nav-link">
                   Home
@@ -68,7 +64,7 @@ export default function Navi() {
         )}
         {!currentUser && (
           <>
-            <Button primary className="fs-5 mx-3 px-4 ms-auto" href="/login">
+            <Button variant="primary" className="fs-5 mx-3 px-4 ms-auto" href="/login">
               Login
             </Button>
           </>

@@ -6,7 +6,11 @@ import { Button } from 'react-bootstrap';
 export default class EditPostButton extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      postId: props.post.pid,
+      postComments: props.post.comments,
+      currentUser: props.user
+    };
   }
   render() {
     return (

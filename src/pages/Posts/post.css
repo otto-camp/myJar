@@ -1,0 +1,36 @@
+.post-container {
+  height: 100%;
+  padding: 0rem;
+  margin: 0rem;
+}
+
+.post-column{
+    height: 100%;
+}
+
+.post-thumnail {
+  object-fit: cover;
+  height: 30%;
+  width: 100%;
+}
+
+.post-creater-photo {
+  width: 2rem;
+  height: 2rem;
+  object-fit: scale-down;
+}
+
+.post-text{
+    line-height: 1.7rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .post-thumnail {
+    height: 40%;
+  }
+
+  .post-creater-photo{
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}

@@ -13,7 +13,7 @@ export default function FriendsSection() {
           <a href="/" className="list-group-item list-group-item-action">
             <div className="d-flex align-items-center pb-1" id="tooltips-container">
               <img
-                loading="lzy"
+                loading="lazy"
                 src="https://bootdey.com/img/Content/avatar/avatar5.png"
                 className="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent"
                 alt="hero"
@@ -28,7 +28,7 @@ export default function FriendsSection() {
           <a href="/" className="list-group-item list-group-item-action">
             <div className="d-flex align-items-center pb-1" id="tooltips-container">
               <img
-                loading="lzy"
+                loading="lazy"
                 src="https://bootdey.com/img/Content/avatar/avatar3.png"
                 className="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent"
                 alt=""
@@ -43,7 +43,7 @@ export default function FriendsSection() {
           <a href="/" className="list-group-item list-group-item-action">
             <div className="d-flex align-items-center pb-1" id="tooltips-container">
               <img
-                loading="lzy"
+                loading="lazy"
                 src="https://bootdey.com/img/Content/avatar/avatar8.png"
                 className="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent"
                 alt=""
@@ -58,7 +58,7 @@ export default function FriendsSection() {
           <a href="/" className="list-group-item list-group-item-action">
             <div className="d-flex align-items-center pb-1" id="tooltips-container">
               <img
-                loading="lzy"
+                loading="lazy"
                 src="https://bootdey.com/img/Content/avatar/avatar6.png"
                 className="rounded-circle img-fluid avatar-md img-thumbnail bg-transparent"
                 alt=""

@@ -1,15 +1,28 @@
-.post-card{
+.post-card {
   margin: 0rem 1rem 0rem 1rem;
+}
+
+.post-title {
+  font-size: calc(1.2rem + 1.2vw);
+}
+
+.post-username {
+  color: #000;
+}
+
+.post-username:hover {
+  color: #393aba;
+  transition: ease-out 0.3s;
+  -webkit-transition: ease-out 0.3s;
+  -moz-transition: ease-out 0.3s;
+  -ms-transition: ease-out 0.3s;
+  -o-transition: ease-out 0.3s;
 }
 
 .post-creater-photo {
   width: 3rem;
   height: 3rem;
   object-fit: scale-down;
-}
-
-.post-title {
-  font-size: calc(1.2rem + 1.2vw);
 }
 
 .post-creatername {
@@ -31,18 +44,20 @@
   font-size: 1rem;
 }
 
-@media only screen and (min-width: 768px) {
-  .post-card{
-    max-width: 67vw;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.readmore-text {
+  text-decoration: none;
+}
 
+.resize-none {
+  resize: none;
+}
+
+@media only screen and (min-width: 768px) {
   .post-date {
     font-size: calc(1rem + 0.4vw);
   }
 
   .post-text {
-    font-size: calc(1rem + 0.7vw);
+    font-size: calc(0.8rem + 0.7vw);
   }
 }

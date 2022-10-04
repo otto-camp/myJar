@@ -41,8 +41,10 @@ export function AuthProvider({ children }) {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
       setCurrentUser(user);
       setLoading(false);
-      const docSnap = await getDoc(doc(db, 'profile', user.uid));
-      setCurrentUserProfile(docSnap.data())
+      if (user) {
+        const docSnap = await getDoc(doc(db, 'profile', user.uid));
+        setCurrentUserProfile(docSnap.data());
+      }
     });
     return unsubscribe;
   }, [currentUser]);
@@ -58,9 +60,5 @@ export function AuthProvider({ children }) {
     updatePassword
   };
 
-  return (
-    <AuthContext.Provider value={value}>
-      {!loading && children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>;
 }

@@ -1,0 +1,32 @@
+import { Timestamp } from 'firebase/firestore';
+
+export type PostType = {
+  postTitle?: string;
+  postText?: string;
+  timestamp?: Timestamp;
+  photoURLs?: string[];
+  likes?: number;
+  createrPhotoURL?: string;
+  createrName?: string;
+  createrId?: string;
+  comments?: object[];
+};
+
+/*export type UserType = {
+  id: string;
+  fname: string;
+  lname: string;
+  email: string;
+  birthDate: string;
+  phoneNumber: string;
+  about: string;
+  facebook: string;
+  github: string;
+  instagram: string;
+  twitter: string;
+  website: string;
+  likedPosts: string[];
+  createdPosts: string[];
+  friends: string[];
+  photoURL: string;
+};*/

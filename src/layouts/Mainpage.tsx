@@ -5,6 +5,8 @@ import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
 import { AuthProvider } from '../services/AuthContext';
 import { PostProvider } from '../services/PostContext';
+const CreatePost = lazy(() => import('../pages/Posts/CreatePost'));
+const Post = lazy(() => import('../pages/Posts/Post'));
 const Home = lazy(() => import('../pages/Home/Home'));
 const Login = lazy(() => import('./Login'));
 const SignUp = lazy(() => import('./SignUp'));
@@ -29,6 +31,8 @@ export default function Mainpage() {
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/create-profile" element={<CreateProfile />} />
                 <Route path="/forgotpassword" element={<ForgotPassword />} />
+                <Route path="/create-post" element={<CreatePost />} />
+                <Route path="/post/:id" element={<Post />} />
                 <Route path="/profile/:name" element={<MyProfile />} />
                 <Route path="/messages/:id" element={<Messages />} />
                 <Route path="/settings" element={<Settings />} />

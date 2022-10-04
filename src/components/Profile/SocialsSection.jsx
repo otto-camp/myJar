@@ -4,7 +4,7 @@ import { faFacebook, faGithub, faInstagram, faTwitter } from '@fortawesome/free-
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export default function SocialsSection({ user }) {
+const SocialsSection = (user) => {
   return (
     <Row className="justify-content-between">
       <a className="btn link-button" href={user ? 'https://' + user.website : '/'}>
@@ -24,4 +24,6 @@ export default function SocialsSection({ user }) {
       </a>
     </Row>
   );
-}
+};
+
+export default SocialsSection;

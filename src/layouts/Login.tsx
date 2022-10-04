@@ -4,19 +4,19 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../services/AuthContext';
 
 export default function Login() {
-  const emailRef = useRef();
-  const passwordRef = useRef();
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
   const { login } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  async function handleLogin(e) {
+  async function handleLogin(e: any) {
     e.preventDefault();
     setLoading(true);
     try {
       setError('');
-      await login(emailRef.current.value, passwordRef.current.value);
+      await login(emailRef.current?.value, passwordRef.current?.value);
       navigate('/');
     } catch {
       setError('Failed to login');

@@ -13,7 +13,7 @@ import SocialsSection from '../../components/Profile/SocialsSection';
 const ProfilePost = React.lazy(() => import('../../components/Post/ProfilePost'));
 const UpdateProfileModal = React.lazy(() => import('../../components/Profile/UpdateProfileModal'));
 
-export default function MyProfile() {
+const MyProfile: React.FC = () => {
   const [profileModalShow, setProfileModalShow] = useState(false);
   const { currentUserProfile, currentUser } = useAuth();
 
@@ -100,4 +100,6 @@ export default function MyProfile() {
       </Container>
     </>
   );
-}
+};
+
+export default MyProfile;

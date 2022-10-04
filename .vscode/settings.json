@@ -1,3 +1,5 @@
 {
-    "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "prettier.endOfLine": "lf",
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }

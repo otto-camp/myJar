@@ -27,7 +27,7 @@ export function PostProvider({ children }) {
     addDoc(postRef, {
       postTitle: postTitle,
       postText: postText,
-      photoURLs: '',
+      photoURLs: [],
       createrId: currentUser.uid,
       createrName: currentUserProfile.fname + " " + currentUserProfile.lname,
       createrPhotoURL: currentUserProfile.photoURL,

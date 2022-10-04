@@ -4,19 +4,19 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../services/AuthContext';
 
 export default function ForgotPassword() {
-  const emailRef = useRef();
+  const emailRef = useRef<HTMLInputElement>(null);
   const [error, setError] = useState('');
   const { forgotPassword } = useAuth();
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: any) {
     e.preventDefault();
     try {
       setMessage('');
       setError('');
       setLoading(true);
-      await forgotPassword(emailRef.current.value);
+      await forgotPassword(emailRef.current?.value);
       setMessage('Check your inbox for further instructions');
     } catch {
       setError('Failed to reset password');

@@ -8,9 +8,9 @@ import { useAuth } from '../services/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 export default function CreateProfile() {
-  const fnameRef = useRef();
-  const lnameRef = useRef();
-  const phoneRef = useRef();
+  const fnameRef = useRef<HTMLInputElement>(null);
+  const lnameRef = useRef<HTMLInputElement>(null);
+  const phoneRef = useRef<HTMLInputElement>(null);
   const [birthDate, setBirthDate] = useState(new Date());
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -19,18 +19,18 @@ export default function CreateProfile() {
   const user = useAuth().currentUser;
   const id = user.uid;
 
-  async function createProfile(e) {
+  async function createProfile(e: any) {
     e.preventDefault();
     try {
       setError('');
       setLoading(true);
       await setDoc(doc(db, 'profile', id), {
         id: id,
-        fname: fnameRef.current.value,
-        lname: lnameRef.current.value,
+        fname: fnameRef.current?.value,
+        lname: lnameRef.current?.value,
         email: user.email,
         birthDate: birthDate.toISOString().split('T')[0].replaceAll('-', '/'),
-        phoneNumber: phoneRef.current.value,
+        phoneNumber: phoneRef.current?.value,
         about: 'Write something about yourself',
         facebook: '',
         github: '',
@@ -38,7 +38,7 @@ export default function CreateProfile() {
         twitter: '',
         website: '',
         likedPosts: [],
-        createdPosts:[],
+        createdPosts: [],
         friends: [],
         photoURL:
           'https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/upp.png?alt=media&token=3bffcde1-935a-40f9-8f97-2dbe9ba2c698'
@@ -75,7 +75,7 @@ export default function CreateProfile() {
               <DatePicker
                 dateFormat={'yyyy/MM/dd'}
                 selected={birthDate}
-                onChange={(d) => setBirthDate(d)}
+                onChange={(d: any) => setBirthDate(d)}
               />
               <Form.Group id="phone" className="mt-2">
                 <Form.Label>Phone Number</Form.Label>

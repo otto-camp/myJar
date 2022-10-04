@@ -6,7 +6,7 @@ import { Button, Form, Modal } from 'react-bootstrap';
 import { useAuth } from '../../services/AuthContext';
 import { db } from '../../services/firebase';
 
-export default function UpdateProfileModal(props) {
+const UpdateProfileModal = (props) => {
   const [fname, setFname] = useState('');
   const [lname, setLname] = useState('');
   const [about, setAbout] = useState('');
@@ -38,16 +38,9 @@ export default function UpdateProfileModal(props) {
   };
 
   return (
-    <Modal
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-      {...props}
-    >
+    <Modal size="lg" aria-labelledby="contained-modal-title-vcenter" centered {...props}>
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Update Profile
-        </Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">Update Profile</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form>
@@ -96,4 +89,6 @@ export default function UpdateProfileModal(props) {
       </Modal.Footer>
     </Modal>
   );
-}
+};
+
+export default UpdateProfileModal;
