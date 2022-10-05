@@ -11,7 +11,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Navi />
-      <Container className="p-0 m-0" fluid>
+      <Container className="p-0 m-0 min-h" fluid>
         <div className="w-100 pb-3">
           <div className="homepage-container">
             <p className="welcome-text">

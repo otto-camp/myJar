@@ -5,7 +5,7 @@ import { Card, ListGroup } from 'react-bootstrap';
 
 export default function FriendsSection() {
   return (
-    <Card className="mt-3 mb-3">
+    <Card className="mt-3 mb-3 profile-m m-left ">
       <Card.Body>
         <h4 className="header-title mb-3">Friends</h4>
         <ListGroup>

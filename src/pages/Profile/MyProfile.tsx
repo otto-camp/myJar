@@ -20,10 +20,10 @@ const MyProfile: React.FC = () => {
   return (
     <>
       <Navi />
-      <Container>
+      <Container className="min-h">
         <Row>
           <Col lg={5}>
-            <Card>
+            <Card className="profile-m m-left ">
               <Card.Body>
                 <Button
                   className="float-end rounded-pill"
@@ -77,7 +77,7 @@ const MyProfile: React.FC = () => {
               </Card.Body>
             </Card>
             <Suspense fallback={<div>Loading</div>}>
-              <Card className=" mt-3">
+              <Card className=" mt-3 profile-m m-left ">
                 <Card.Body>
                   <Button className="float-end rounded-pill d-none">
                     <FontAwesomeIcon icon={faPenToSquare} />

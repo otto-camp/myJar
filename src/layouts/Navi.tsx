@@ -20,7 +20,7 @@ export default function Navi() {
   };
 
   return (
-    <Container fluid className="m-0 p-0">
+    <Container fluid className="m-0 p-0 navi-container">
       <Navbar
         color="light"
         expand="lg"

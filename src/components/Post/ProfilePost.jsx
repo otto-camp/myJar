@@ -29,7 +29,7 @@ export default function ProfilePost(props) {
   const limitText = (text) => text.substr(0, 100);
 
   return (
-    <Card>
+    <Card className='profile-m m-right'>
       <Card.Body>
         <div className="w-100 ">
           <h4 className="font-13 d-inline-block">Posts</h4>

@@ -29,7 +29,7 @@ const Post: React.FC = () => {
   return (
     <Suspense fallback={<div>Loading</div>}>
       <Navi />
-      <Row className="post-container">
+      <Row className="post-container min-h">
         <Col className="post-column">
           {post ? (
             <>
