@@ -26,7 +26,7 @@ const MyProfile: React.FC = () => {
             <Card>
               <Card.Body>
                 <Button
-                  className="float-end"
+                  className="float-end rounded-pill"
                   onClick={() => {
                     setProfileModalShow(true);
                   }}>
@@ -79,7 +79,7 @@ const MyProfile: React.FC = () => {
             <Suspense fallback={<div>Loading</div>}>
               <Card className=" mt-3">
                 <Card.Body>
-                  <Button className="float-end">
+                  <Button className="float-end rounded-pill d-none">
                     <FontAwesomeIcon icon={faPenToSquare} />
                   </Button>
                   <h4 className="header-title mb-3">Social Links</h4>

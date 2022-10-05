@@ -26,34 +26,36 @@ export default function Navi() {
         expand="lg"
         variant="light"
         fixed="top"
-        className="position-relative mx-2">
-        <Navbar.Brand href="/" className="ms-2 fs-1 p-2 fw-bolder">
+        className="position-relative navi">
+        <Navbar.Brand href="/" className="fs-1 navi-logo fw-bolder">
           myJar
         </Navbar.Brand>
         {currentUser && (
           <>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Toggle aria-controls="basic-navbar-nav" className='navi-toggle' />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="w-100">
                 <Form className="d-flex mx-2 ">
                   <Form.Control
                     type="search"
                     placeholder="Search"
-                    className="me-2"
+                    className="me-2 rounded-pill"
                     aria-label="Search"
                   />
-                  <Button variant="primary">Search</Button>
+                  <Button variant="primary" className="rounded-pill">
+                    Search
+                  </Button>
                 </Form>
                 <Link to={'/'} className="me-2 ms-2 fs-5 nav-space nav-link">
                   Home
                 </Link>
-                <Link to={'/profile/' + currentUser.uid} className="me-2 ms-2 fs-5 nav-link">
+                <Link to={'/profile/' + currentUser.uid} className="mx-2  fs-5 nav-link">
                   Profile
                 </Link>
-                <Link to={'/messages/' + currentUser.uid} className="me-2 ms-2 fs-5 nav-link">
+                <Link to={'/messages/' + currentUser.uid} className="mx-2  fs-5 nav-link">
                   Messages
                 </Link>
-                <NavDropdown title="Account" id="basic-nav-dropdown" className="mx-3 ms-2 fs-5">
+                <NavDropdown title="Account" id="basic-nav-dropdown" className="mx-2 fs-5">
                   <NavDropdown.Item href="/settings">Settings</NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item onClick={handleSignOut}>Sign Out</NavDropdown.Item>

@@ -6,12 +6,12 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 import CreatePostButton from './CreatePostButton';
 
-const LikePostButton = React.lazy(() => import('../Button/LikePostButton'));
-const EditPostButton = React.lazy(() => import('../Button/EditPostButton'));
+//const LikePostButton = React.lazy(() => import('../Button/LikePostButton'));
+//const EditPostButton = React.lazy(() => import('../Button/EditPostButton'));
 
 export default function ProfilePost(props) {
   const uid = useRef(props.uid);
-  const user = useRef(props.user);
+  //const user = useRef(props.user);
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export default function ProfilePost(props) {
         <div className="w-100 ">
           <h4 className="font-13 d-inline-block">Posts</h4>
           <div className='float-end'>
-          <CreatePostButton />
+          <CreatePostButton text={'Write a story'} className={'rounded-pill'}/>
           </div>
         </div>
         <hr />
@@ -55,8 +55,6 @@ export default function ProfilePost(props) {
                       ...read more
                     </Link>
                     <br />
-                    <LikePostButton post={p} user={user.current ? user.current : null} />
-                    <EditPostButton user={user} post={p} />
                   </div>
                 </div>
               </div>

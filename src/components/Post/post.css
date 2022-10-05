@@ -1,9 +1,80 @@
+:root {
+  --post-creater: calc(0.7rem + 0.7vw);
+}
+
 .post-card {
   margin: 0rem 1rem 0rem 1rem;
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
+  -webkit-transition: transform 0.2s ease;
+  -moz-transition: transform 0.2s ease;
+  -ms-transition: transform 0.2s ease;
+  -o-transition: transform 0.2s ease;
 }
 
 .post-title {
-  font-size: calc(1.2rem + 1.2vw);
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+}
+
+.post-image {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
+  border-top-left-radius: var(--bs-border-radius);
+  border-bottom-left-radius: var(--bs-border-radius);
+  -webkit-transition: transform 0.3s ease;
+  -moz-transition: transform 0.3s ease;
+  -ms-transition: transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+}
+
+.post-title::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000 !important;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  -webkit-transition: transform 0.25s ease-out;
+  -moz-transition: transform 0.25s ease-out;
+  -ms-transition: transform 0.25s ease-out;
+  -o-transition: transform 0.25s ease-out;
+}
+
+.post-title:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.post-image:hover {
+  transform: scale(1.01);
+  -webkit-transform: scale(1.01);
+  -moz-transform: scale(1.01);
+  -ms-transform: scale(1.01);
+  -o-transform: scale(1.01);
+}
+
+.post-card:hover {
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
 }
 
 .post-username {
@@ -20,17 +91,16 @@
 }
 
 .post-creater-photo {
-  width: 3rem;
-  height: 3rem;
-  object-fit: scale-down;
+  display: none;
 }
 
 .post-creatername {
-  font-size: calc(0.7rem + 1vw);
+  font-size: var(--post-creater);
 }
 
 .post-date {
-  font-size: calc(0.6rem + 1.1vw);
+  width: max-content;
+  font-size: var(--post-creater);
   color: rgba(0, 0, 0, 0.72);
 }
 
@@ -40,8 +110,8 @@
   background-color: rgba(0, 0, 0, 0.15);
 }
 
-.post-text {
-  font-size: 1rem;
+.card-body {
+  display: none;
 }
 
 .readmore-text {
@@ -52,12 +122,51 @@
   resize: none;
 }
 
-@media only screen and (min-width: 768px) {
-  .post-date {
-    font-size: calc(1rem + 0.4vw);
+@media only screen and (min-width: 500px) {
+  .post-creater-photo {
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    object-fit: scale-down;
+  }
+  .post-text {
+    font-size: 100%;
+  }
+  .card-body {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .post-title {
+    font-size: calc(1.4rem + 1vw);
   }
 
-  .post-text {
-    font-size: calc(0.8rem + 0.7vw);
+  .post-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .post-creatername {
+    font-size: 1.2rem;
+  }
+
+  .post-date {
+    font-size: 1.2rem;
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .post-image {
+    width: 100%;
+    height: 15rem !important;
+    object-fit: cover;
+    border-bottom-left-radius: 0 !important;
+    border-top-right-radius: var(--bs-border-radius);
+  }
+  .post-date {
+    float: right;
   }
 }

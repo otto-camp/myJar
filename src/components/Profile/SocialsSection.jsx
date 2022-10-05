@@ -7,19 +7,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const SocialsSection = (user) => {
   return (
     <Row className="justify-content-between">
-      <a className="btn link-button" href={user ? 'https://' + user.website : '/'}>
+      <a className="btn link-button" href={user ? 'https://' + user.user.website : '/'}>
         <FontAwesomeIcon icon={faGlobe} className="fa-xl" />
       </a>
-      <a className="btn link-button" href={user ? 'https://' + user.github : '/'}>
+      <a className="btn link-button" href={user ? 'https://' + user.user.github : '/'}>
         <FontAwesomeIcon icon={faGithub} className="fa-xl" />
       </a>
-      <a className="btn link-button" href={user ? 'https://' + user.twitter : '/'}>
+      <a className="btn link-button" href={user ? 'https://' + user.user.twitter : '/'}>
         <FontAwesomeIcon icon={faTwitter} className="fa-xl" />
       </a>
-      <a className="btn link-button" href={user ? 'https://' + user.facebook : '/'}>
+      <a className="btn link-button" href={user ? 'https://' + user.user.facebook : '/'}>
         <FontAwesomeIcon icon={faFacebook} className="fa-xl" />
       </a>
-      <a className="btn link-button" href={user ? 'https://' + user.instagram : '/'}>
+      <a className="btn link-button" href={user ? 'https://' + user.user.instagram : '/'}>
         <FontAwesomeIcon icon={faInstagram} className="fa-xl" />
       </a>
     </Row>

@@ -34,7 +34,7 @@ const Post: React.FC = () => {
           {post ? (
             <>
               <Image src="https://picsum.photos/1000/400" className="post-thumnail" />
-              <h1 className="post-title">{post.postTitle}</h1>
+              <h1 className="title">{post.postTitle}</h1>
               <div className="py-2">
                 <Image src={post.createrPhotoURL} className="post-creater-photo" />
                 <h5 className="d-inline-block ms-1">{post.createrName}</h5>

@@ -19,7 +19,7 @@ const MyProfile = lazy(() => import('../pages/Profile/MyProfile'));
 
 export default function Mainpage() {
   return (
-    <Container>
+    <Container fluid>
       <Row className="min-h">
         <AuthProvider>
           <PostProvider>

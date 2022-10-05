@@ -8,7 +8,6 @@ export default function FriendsSection() {
     <Card className="mt-3 mb-3">
       <Card.Body>
         <h4 className="header-title mb-3">Friends</h4>
-
         <ListGroup>
           <a href="/" className="list-group-item list-group-item-action">
             <div className="d-flex align-items-center pb-1" id="tooltips-container">

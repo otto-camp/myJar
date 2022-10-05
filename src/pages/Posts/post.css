@@ -33,4 +33,10 @@
     width: 3.5rem;
     height: 3.5rem;
   }
+
+  .post-column{
+    padding: 0rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
 }

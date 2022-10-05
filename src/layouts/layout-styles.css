@@ -2,11 +2,33 @@
   color: #252525;
 }
 
+.navi-logo {
+  margin-left: 1rem;
+}
+
+.navi-toggle {
+  margin-right: 1rem;
+}
+
 @media screen and (min-width: 992px) {
   .nav-space {
     margin-left: auto !important;
   }
 }
+
+@media screen and (min-width: 768px) {
+  .navi {
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+  .navi-logo {
+    margin-left: 0rem;
+  }
+  .navi-toggle {
+    margin-right: 0rem;
+  }
+}
+
 .min-h {
   min-height: 100vh;
 }

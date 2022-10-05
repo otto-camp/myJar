@@ -1,5 +1,4 @@
 .homepage-container {
-  width: 100%;
   margin: 1rem;
 }
 
@@ -7,10 +6,35 @@
   display: grid;
 }
 
-@media screen and (min-width:992px) {
-  .homepage-grid{
+.welcome-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.welcome-subtext {
+  margin: 0rem;
+  color: var(--bs-gray-800);
+  display: inline-flex;
+}
+
+@media screen and (min-width: 768px) {
+  .homepage-grid {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     gap: 1rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+  .homepage-container {
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+
+  .welcome-text {
+    font-size: calc(1rem + 1vw);
+  }
+
+  .welcome-subtext {
+    font-size: calc(0.7rem + 0.7vw);
   }
 }

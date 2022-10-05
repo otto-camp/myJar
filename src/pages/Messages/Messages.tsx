@@ -6,7 +6,8 @@ const Messages: React.FC = () => {
   return (
     <>
       <Navi />
-      <main className="content">
+      <img src='https://cdn-icons-png.flaticon.com/512/5578/5578703.png' alt='wip' className='w-50 h-50 m-auto' />
+      {/*<main className="content">
         <div className="container p-0">
           <div className="card">
             <div className="row g-0">
@@ -371,7 +372,7 @@ const Messages: React.FC = () => {
             </div>
           </div>
         </div>
-      </main>
+  </main>*/}
     </>
   );
 };
