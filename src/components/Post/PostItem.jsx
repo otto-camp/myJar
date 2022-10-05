@@ -4,7 +4,7 @@ import React, { Suspense } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { db } from '../../services/firebase';
 import './post.css';
 import ReactHTMLParser from 'react-html-parser';
@@ -68,9 +68,6 @@ export default function PostItem() {
                 <Card.Body>
                   <Card.Text className="post-text">
                     {ReactHTMLParser(limitText(p.postText))}
-                    <Link to={'/post/' + p.pid} className="readmore-text">
-                      ...read more
-                    </Link>
                   </Card.Text>
                 </Card.Body>
               </Col>

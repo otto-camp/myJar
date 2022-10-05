@@ -42,7 +42,7 @@ export default function Navi() {
                     className="me-2 rounded-pill"
                     aria-label="Search"
                   />
-                  <Button variant="primary" className="rounded-pill">
+                  <Button variant="primary" className="rounded-pill px-3">
                     Search
                   </Button>
                 </Form>

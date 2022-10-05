@@ -114,8 +114,8 @@
   display: none;
 }
 
-.readmore-text {
-  text-decoration: none;
+.post-text{
+  cursor: pointer;
 }
 
 .resize-none {
