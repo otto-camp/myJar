@@ -2,5 +2,5 @@
   "git.ignoreLimitWarning": true,
   "prettier.endOfLine": "lf",
   "typescript.tsdk": "node_modules\\typescript\\lib",
-  "editor.fontSize": 11
+  "editor.fontSize": 15
 }

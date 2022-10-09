@@ -19,6 +19,15 @@
   width: 100%;
 }
 
+.post-creater-name{
+  font-size: 1em;
+}
+
+.post-date{
+  font-size: 1em;
+  float: right;
+}
+
 .post-creater-photo {
   width: 2rem;
   height: 2rem;
@@ -27,10 +36,12 @@
 
 .post-title {
   word-wrap: break-word;
+  font-size: 1em;
 }
 
 .post-subtitle {
   font-weight: 400;
+  font-size: 0.85em;
   color: #757575;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -38,7 +49,8 @@
 }
 
 .post-text {
-  line-height: 1.7rem;
+  font-size: 0.78em;
+  line-height: 1.7em;
   cursor: text;
   word-wrap: break-word;
 }
@@ -71,6 +83,28 @@
 @media screen and (min-width:500px) {
   .post-thumnail{
     height: 23%;
+  }
+  .post-title{
+    font-size: calc(1.2em + 1vw);
+  }
+
+  .post-subtitle{
+    font-size: calc(1em + 0.7vw);
+  }
+
+  .post-text{
+    font-size: calc(1em + 0.7vw);
+    line-height: 1.5em;
+  }
+
+  .post-creater-photo{
+    width: 2.5em;
+    height: 2.5em;
+  }
+
+  .post-creater-name,
+  .post-date{
+    font-size: calc(1em + 0.5vw);
   }
 }
 

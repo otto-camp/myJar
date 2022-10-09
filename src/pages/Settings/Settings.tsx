@@ -4,7 +4,7 @@ import Navi from '../../layouts/Navi';
 export default function Settings() {
   return (
     <>
-      <div className='navi-wrapper p-0'>
+      <div className="navi-wrapper p-0">
         <Navi />
       </div>
       <img

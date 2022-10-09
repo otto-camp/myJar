@@ -26,13 +26,14 @@ export default function Navi() {
         expand="lg"
         variant="light"
         fixed="top"
-        className="position-relative navi">
+        className="position-relative navi"
+      >
         <Navbar.Brand href="/" className="fs-1 navi-logo fw-bolder">
           myJar
         </Navbar.Brand>
         {currentUser && (
           <>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" className='navi-toggle' />
+            <Navbar.Toggle aria-controls="basic-navbar-nav" className="navi-toggle" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="w-100">
                 <Form className="d-flex mx-2 ">

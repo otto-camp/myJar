@@ -26,8 +26,6 @@ export default function ProfilePost(props) {
     getUserPosts();
   }, []);
 
-  const limitText = (text) => text.substr(0, 100);
-
   return (
     <Card className='profile-m m-right'>
       <Card.Body>
@@ -50,7 +48,7 @@ export default function ProfilePost(props) {
                     </small>
                   </h5>
                   <div>
-                    {limitText(p.postText)}
+                    {p.postSubTitle}
                     <Link to={'/post/' + p.pid} className="readmore-text">
                       ...read more
                     </Link>

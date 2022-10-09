@@ -19,7 +19,7 @@ const MyProfile: React.FC = () => {
 
   return (
     <>
-      <div className='navi-wrapper p-0'>
+      <div className="navi-wrapper p-0">
         <Navi />
       </div>
       <Container className="min-h">
