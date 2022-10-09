@@ -19,7 +19,9 @@ const MyProfile: React.FC = () => {
 
   return (
     <>
-      <Navi />
+      <div className='navi-wrapper p-0'>
+        <Navi />
+      </div>
       <Container className="min-h">
         <Row>
           <Col lg={5}>

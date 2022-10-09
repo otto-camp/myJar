@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 import { db } from '../../services/firebase';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
-import CreatePostButton from './CreatePostButton';
+import CreatePostButton from '../Button/CreatePostButton';
 
 //const LikePostButton = React.lazy(() => import('../Button/LikePostButton'));
 //const EditPostButton = React.lazy(() => import('../Button/EditPostButton'));

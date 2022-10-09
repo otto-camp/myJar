@@ -1,3 +1,11 @@
 body {
   overflow-x: hidden;
 }
+
+.resize-none {
+  resize: none;
+}
+
+.min-h {
+  min-height: 100vh !important;
+}

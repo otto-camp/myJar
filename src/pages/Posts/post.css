@@ -1,16 +1,21 @@
-.post-container {
-  height: 100%;
-  padding: 0rem;
-  margin: 0rem;
+.post-navi-wrapper{
+  width: 100%;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
 }
 
-.post-column{
-    height: 100%;
+.post-container {
+  padding: 0rem;
+  margin: 0rem 2rem 4rem 2rem;
+}
+
+.post-column {
+  height: 100%;
 }
 
 .post-thumnail {
   object-fit: cover;
-  height: 30%;
+  height: 12%;
   width: 100%;
 }
 
@@ -20,23 +25,85 @@
   object-fit: scale-down;
 }
 
-.post-text{
-    line-height: 1.7rem;
+.post-title {
+  word-wrap: break-word;
+}
+
+.post-subtitle {
+  font-weight: 400;
+  color: #757575;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+}
+
+.post-text {
+  line-height: 1.7rem;
+  cursor: text;
+  word-wrap: break-word;
+}
+
+.postcreate-header,
+.postcreate-main {
+  margin-bottom: 1.2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.postcreate-title {
+  min-height: auto;
+  max-height: 5rem;
+}
+
+.postcreate-story {
+  min-height: 80vh;
+}
+
+.ql-container {
+  height: 80vh;
+}
+
+.postcreate-footer {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width:500px) {
+  .post-thumnail{
+    height: 23%;
+  }
 }
 
 @media only screen and (min-width: 768px) {
   .post-thumnail {
-    height: 40%;
+    height: 20%;
   }
 
-  .post-creater-photo{
+  .post-creater-photo {
     width: 3.5rem;
     height: 3.5rem;
   }
 
-  .post-column{
+  .margin-div {
     padding: 0rem;
-    margin-left: 4rem;
-    margin-right: 4rem;
+  }
+
+  .post-create-section{
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .post-navi-wrapper{
+    padding: 0rem !important;
+  }
+  .reponsive-post {
+    width: 80% !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .post-container{
+    margin: 0rem;
   }
 }

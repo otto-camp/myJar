@@ -2,9 +2,10 @@ import { Timestamp } from 'firebase/firestore';
 
 export type PostType = {
   postTitle?: string;
+  postSubTitle?: string;
   postText?: string;
+  postThumbnail?: string;
   timestamp?: Timestamp;
-  photoURLs?: string[];
   likes?: number;
   createrPhotoURL?: string;
   createrName?: string;

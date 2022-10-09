@@ -10,25 +10,34 @@
   margin-right: 1rem;
 }
 
-@media screen and (min-width: 992px) {
-  .nav-space {
-    margin-left: auto !important;
-  }
-}
-
 @media screen and (min-width: 768px) {
-  .navi {
-    margin-left: 4rem;
-    margin-right: 4rem;
+  .navi-wrapper {
+    width: 100%;
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
   }
+
   .navi-logo {
     margin-left: 0rem;
   }
   .navi-toggle {
     margin-right: 0rem;
   }
+
+  .footer-left {
+    margin-left: 3.5rem;
+  }
+
+  .footer-right {
+    margin-right: 3.5rem;
+  }
 }
 
-.min-h {
-  min-height: 100vh;
+@media screen and (min-width: 992px) {
+  .nav-space {
+    margin-left: auto !important;
+  }
+  .navi {
+    margin: 0rem;
+  }
 }

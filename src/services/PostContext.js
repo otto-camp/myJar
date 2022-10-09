@@ -23,21 +23,21 @@ export function PostProvider({ children }) {
   const { currentUser, currentUserProfile } = useAuth();
   const postRef = collection(db, 'posts');
 
-  function createPost(postText, postTitle) {
+  function createPost(postText, postTitle, postSubTitle, postThumnail) {
     addDoc(postRef, {
       postTitle: postTitle,
+      postSubTitle: postSubTitle,
       postText: postText,
-      photoURLs: [],
+      postThumnail: postThumnail,
       createrId: currentUser.uid,
       createrName: currentUserProfile.fname + " " + currentUserProfile.lname,
       createrPhotoURL: currentUserProfile.photoURL,
       timestamp: new Date(Timestamp.now().seconds * 1000),
-      comments: [],
       likes: 0,
-    }).then(async (doc) => {
+    }).then(async (d) => {
       await updateDoc(doc(db, 'profile', currentUser.uid), {
-        createdPosts: arrayUnion(doc.id)
-      });
+        createdPosts: arrayUnion(d.id)
+      }).catch(err => console.log(err));
     })
   }
 

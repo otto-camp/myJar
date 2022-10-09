@@ -19,7 +19,6 @@ export default function SignUp() {
     }
 
     try {
-      setError('');
       setLoading(true);
       await signup(emailRef.current?.value, passwordRef.current?.value);
       navigate('/create-profile');
@@ -30,7 +29,7 @@ export default function SignUp() {
   }
 
   return (
-    <Row className="justify-content-center align-content-center text-center h-50">
+    <Row className="justify-content-center align-content-center text-center h-50 min-h">
       <Col sm="8" md="6" xl="5" lg="6" xxl="4">
         <Navbar className="d-flex justify-content-center">
           <Navbar.Brand href="/" className="ms-2 fs-1 p-2 fw-bolder">

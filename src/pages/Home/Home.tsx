@@ -3,14 +3,16 @@ import './home.css';
 import { Container } from 'react-bootstrap';
 import Navi from '../../layouts/Navi';
 import PostItem from '../../components/Post/PostItem';
-import CreatePostButton from '../../components/Post/CreatePostButton';
+import CreatePostButton from '../../components/Button/CreatePostButton';
 import { useAuth } from '../../services/AuthContext';
 
 const Home: React.FC = () => {
   const { currentUser } = useAuth();
   return (
     <>
-      <Navi />
+      <div className="navi-wrapper p-0 ">
+        <Navi />
+      </div>
       <Container className="p-0 m-0 min-h" fluid>
         <div className="w-100 pb-3">
           <div className="homepage-container">

@@ -28,30 +28,35 @@ const Post: React.FC = () => {
 
   return (
     <Suspense fallback={<div>Loading</div>}>
-      <Navi />
-      <Row className="post-container min-h">
-        <Col className="post-column">
-          {post ? (
-            <>
-              <Image src="https://picsum.photos/1000/400" className="post-thumnail" />
-              <h1 className="title">{post.postTitle}</h1>
-              <div className="py-2">
-                <Image src={post.createrPhotoURL} className="post-creater-photo" />
-                <h5 className="d-inline-block ms-1">{post.createrName}</h5>
-                <p className="d-inline-block float-end">
-                  {moment.utc(post.timestamp!.seconds, 'X').fromNow()}
-                </p>
-              </div>
-              <div className="py-2">
-                <p className="post-text">{ReactHTMLParser(post.postText!)}</p>
-              </div>
-              <div className="py-2"></div>
-            </>
-          ) : (
-            ''
-          )}
-        </Col>
-      </Row>
+      <div className="reponsive-post">
+        <div className="navi-wrapper post-navi-wrapper p-0 ">
+          <Navi />
+        </div>
+        <Row className="post-container min-h">
+          <Col className="post-column margin-div">
+            {post ? (
+              <>
+                <Image src="https://picsum.photos/1000/400" className="post-thumnail" />
+                <h1 className="post-title">{post.postTitle}</h1>
+                <h3 className="post-subtitle">{post.postSubTitle}</h3>
+                <div className="py-2">
+                  <Image src={post.createrPhotoURL} className="post-creater-photo" />
+                  <h5 className="d-inline-block ms-1 ">{post.createrName}</h5>
+                  <p className="d-inline-block float-end">
+                    {moment.utc(post.timestamp!.seconds, 'X').fromNow()}
+                  </p>
+                </div>
+                <div className="py-2">
+                  <div className="post-text">{ReactHTMLParser(post.postText!)}</div>
+                </div>
+                <div className="py-2"></div>
+              </>
+            ) : (
+              ''
+            )}
+          </Col>
+        </Row>
+      </div>
     </Suspense>
   );
 };

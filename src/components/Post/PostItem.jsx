@@ -7,7 +7,6 @@ import { Card, Col, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../../services/firebase';
 import './post.css';
-import ReactHTMLParser from 'react-html-parser';
 
 export default function PostItem() {
   const [posts, setPosts] = useState([]);
@@ -23,16 +22,14 @@ export default function PostItem() {
     };
     getPosts();
   }, []);
-
-  const limitText = (text) => text.substr(0, 100);
-
+  
   return (
     <>
       <Suspense fallback={<div>Loading</div>}>
         {posts.map((p, index) => (
           <Card
             key={index}
-            className="mb-3 post-card bg-light"
+            className="mb-3 postitem-card bg-light"
             onClick={() => {
               navigate('/post/' + p.pid);
             }}>
@@ -42,33 +39,32 @@ export default function PostItem() {
                   loading="lazy"
                   src="https://picsum.photos/500/500"
                   alt={p.postTitle}
-                  className="img-fluid post-image"
+                  className="img-fluid postitem-image"
                 />
               </Col>
               <Col xs={6} md={12}>
                 <Card.Header className="border-0 bg-light">
                   <Card.Title>
                     {' '}
-                    <h5 className=" d-inline position-relative post-title">{p.postTitle}</h5>
+                    <h5 className="postitem-title">{p.postTitle}</h5>
                   </Card.Title>
-
-                  <a href="/" className="text-decoration-none post-username">
-                    <Card.Img
-                      src={p.createrPhotoURL}
-                      alt="creater photo"
-                      className="post-creater-photo"
-                    />
-                    <Card.Subtitle className="d-inline-block post-creatername">
-                      {p.createrName}
-                    </Card.Subtitle>
-                  </a>
-                  <div className="post-date">{moment.utc(p.timestamp.seconds, 'X').fromNow()}</div>
+                  <div className="postitem-subheader">
+                    <a href="/" className="text-decoration-none postitem-username">
+                      <Card.Img
+                        src={p.createrPhotoURL}
+                        alt="creater photo"
+                        className="postitem-creater-photo"
+                      />
+                      <div className="postitem-creatername">{p.createrName}</div>
+                    </a>
+                    <div className="postitem-date ">
+                      {moment.utc(p.timestamp.seconds, 'X').fromNow()}
+                    </div>
+                  </div>
                 </Card.Header>
-                {/*<div className="bar"></div>*/}
+                <div className="bar"></div>
                 <Card.Body>
-                  <Card.Text className="post-text">
-                    {ReactHTMLParser(limitText(p.postText))}
-                  </Card.Text>
+                  <div className="postitem-text">{p.postSubTitle}</div>
                 </Card.Body>
               </Col>
             </Row>
