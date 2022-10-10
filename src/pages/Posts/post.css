@@ -1,4 +1,4 @@
-.post-navi-wrapper{
+.post-navi-wrapper {
   width: 100%;
   padding-left: 2rem !important;
   padding-right: 2rem !important;
@@ -19,11 +19,11 @@
   width: 100%;
 }
 
-.post-creater-name{
+.post-creater-name {
   font-size: 1em;
 }
 
-.post-date{
+.post-date {
   font-size: 1em;
   float: right;
 }
@@ -80,30 +80,30 @@
   justify-content: center;
 }
 
-@media screen and (min-width:500px) {
-  .post-thumnail{
+@media screen and (min-width: 500px) {
+  .post-thumnail {
     height: 23%;
   }
-  .post-title{
+  .post-title {
     font-size: calc(1.2em + 1vw);
   }
 
-  .post-subtitle{
+  .post-subtitle {
     font-size: calc(1em + 0.7vw);
   }
 
-  .post-text{
+  .post-text {
     font-size: calc(1em + 0.7vw);
     line-height: 1.5em;
   }
 
-  .post-creater-photo{
+  .post-creater-photo {
     width: 2.5em;
     height: 2.5em;
   }
 
   .post-creater-name,
-  .post-date{
+  .post-date {
     font-size: calc(1em + 0.5vw);
   }
 }
@@ -122,14 +122,14 @@
     padding: 0rem;
   }
 
-  .post-create-section{
+  .post-create-section {
     padding-left: 4rem !important;
     padding-right: 4rem !important;
   }
 }
 
 @media screen and (min-width: 992px) {
-  .post-navi-wrapper{
+  .post-navi-wrapper {
     padding: 0rem !important;
   }
   .reponsive-post {
@@ -137,7 +137,7 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .post-container{
+  .post-container {
     margin: 0rem;
   }
 }

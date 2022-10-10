@@ -5,19 +5,30 @@ import { usePost } from '../../services/PostContext';
 import Editor from '../../utils/Editor';
 import './post.css';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { getDownloadURL, ref } from 'firebase/storage';
+import { storage } from '../../services/firebase';
 
 const CreatePost: React.FC = () => {
   const [title, setTitle] = useState<string>('');
   const [subTitle, setSubTitle] = useState<string>('');
-  const [thumbnail, setThumbnail] = useState<HTMLInputElement | null>(null);
+  const [thumbnail, setThumbnail] = useState<Blob | null>(null);
+  const [thumbnailName, setThumbnailName] = useState<string>('');
   const [story, setStory] = useState<string>('');
   const [error, setError] = useState('');
   const { createPost } = usePost();
   const navigate = useNavigate();
 
+  const imagePath = ref(
+    storage,
+    'gs://myjar-8ff23.appspot.com/hie9wM3vi5fYlCKjzCEMphLJqSF3/vzbq1yn0W2e3YeiKxiP1'
+  );
+  getDownloadURL(imagePath).then((url) => {
+    console.log(url);
+  });
+
   const uploadImage = async (e: any) => {
-    console.log(thumbnail);
+    setThumbnail(e.target.files[0]);
+    setThumbnailName(e.target.files[0].name);
   };
 
   const submitPost = async (e: any) => {
@@ -34,7 +45,7 @@ const CreatePost: React.FC = () => {
       } else if (story.length < 300) {
         setError('Story must be more than 300 characters');
       } else {
-        await createPost(story, title, subTitle);
+        await createPost(story, title, subTitle, thumbnail, thumbnailName);
         navigate('/');
       }
     } catch (e: any) {
@@ -55,11 +66,11 @@ const CreatePost: React.FC = () => {
         <main className="margin-div postcreate-main">
           <Form>
             <Form.Group className="mb-3">
-              <Form.Label>Thumbnail</Form.Label>
-              <Form.Control type="file" onChange={(e) => uploadImage(e)} />
+              <Form.Label className="fs-3 fw-semibold">Thumbnail</Form.Label>
+              <Form.Control type={'file'} onChange={(e) => uploadImage(e)} accept={'image/*'} />
             </Form.Group>
             <Form.Group className="mb-2">
-              <Form.Label>Title</Form.Label>
+              <Form.Label className="fs-3 fw-semibold">Title</Form.Label>
               <Form.Control
                 onChange={(e) => setTitle(e.target.value)}
                 required
@@ -69,7 +80,7 @@ const CreatePost: React.FC = () => {
               />
             </Form.Group>
             <Form.Group className="mb-2">
-              <Form.Label>Subtitle</Form.Label>
+              <Form.Label className="fs-3 fw-semibold">Subtitle</Form.Label>
               <Form.Control
                 onChange={(e) => setSubTitle(e.target.value)}
                 required
@@ -79,7 +90,7 @@ const CreatePost: React.FC = () => {
               />
             </Form.Group>
             <Form.Group className="mb-2">
-              <Form.Label>Story</Form.Label>
+              <Form.Label className="fs-3 fw-semibold">Story</Form.Label>
               <Editor story={story} setStory={setStory} />
             </Form.Group>
           </Form>

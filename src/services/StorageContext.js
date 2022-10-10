@@ -1,8 +1,9 @@
-import { getStorage, ref } from 'firebase/storage';
-import { useContext, useState } from 'react';
+import { ref, uploadBytes } from 'firebase/storage';
+import React, { createContext, useContext } from 'react';
 import { useAuth } from './AuthContext';
+import { storage } from './firebase';
 
-const StorageContext = React.createContext();
+const StorageContext = createContext();
 
 export function useStorage() {
   return useContext(StorageContext);
@@ -10,16 +11,19 @@ export function useStorage() {
 
 export function StorageProvider({ children }) {
   const { currentUser } = useAuth();
-  const [loading, setLoading] = useState(true);
-  const storage = getStorage();
 
   function uploadPostImage(postId, image, filename) {
-    uploadImage(ref(storage, postId), image, filename);
+    uploadBytes(ref(storage, currentUser.uid + '/' + postId), image, filename);
+  }
+
+  function uploadProfileImage(image, filename) {
+    uploadBytes(ref(storage, currentUser.uid), image, filename);
   }
 
   const value = {
-    uploadPostImage
+    uploadPostImage,
+    uploadProfileImage
   };
 
-  return <StorageContext.Provider value={value}>{!loading && children}</StorageContext.Provider>;
+  return <StorageContext.Provider value={value}>{children}</StorageContext.Provider>;
 }
