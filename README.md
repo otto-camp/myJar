@@ -1,14 +1,17 @@
 
 # myJar
 
-It is an application created by the user,
- consisting of caption, text and optionally added photos.
+myJar is content management application built with React. 
+ In this application user can create a story using rich text editor.
+ 
+
+[LIVE DEMO](https://myjar-8ff23.web.app/)
 ### Roadmap
 
+- Adding image support to posts.
 - Adding multi image support to posts.
 - Creation of the page about updating user information.
 - Creating in-app chat.
-- Leaving bootstrap and migrating to Tailwind
 ### Installation
 
 Clone Project

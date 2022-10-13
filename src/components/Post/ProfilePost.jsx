@@ -27,12 +27,12 @@ export default function ProfilePost(props) {
   }, []);
 
   return (
-    <Card className='profile-m m-right'>
+    <Card className="profile-m m-right">
       <Card.Body>
         <div className="w-100 ">
           <h4 className="font-13 d-inline-block">Posts</h4>
-          <div className='float-end'>
-          <CreatePostButton text={'Write a story'} className={'rounded-pill'}/>
+          <div className="float-end">
+            <CreatePostButton text={'Write a story'} className={'rounded-pill'} />
           </div>
         </div>
         <hr />

@@ -1,34 +1,22 @@
 import React, { useState } from 'react';
-import { Alert, Button, Form, Image } from 'react-bootstrap';
+import { Alert, Button, Form } from 'react-bootstrap';
 import Navi from '../../layouts/Navi';
 import { usePost } from '../../services/PostContext';
 import Editor from '../../utils/Editor';
 import './post.css';
 import { useNavigate } from 'react-router-dom';
-import { getDownloadURL, ref } from 'firebase/storage';
-import { storage } from '../../services/firebase';
 
 const CreatePost: React.FC = () => {
   const [title, setTitle] = useState<string>('');
   const [subTitle, setSubTitle] = useState<string>('');
   const [thumbnail, setThumbnail] = useState<Blob | null>(null);
-  const [thumbnailName, setThumbnailName] = useState<string>('');
   const [story, setStory] = useState<string>('');
   const [error, setError] = useState('');
   const { createPost } = usePost();
   const navigate = useNavigate();
 
-  const imagePath = ref(
-    storage,
-    'gs://myjar-8ff23.appspot.com/hie9wM3vi5fYlCKjzCEMphLJqSF3/vzbq1yn0W2e3YeiKxiP1'
-  );
-  getDownloadURL(imagePath).then((url) => {
-    console.log(url);
-  });
-
   const uploadImage = async (e: any) => {
     setThumbnail(e.target.files[0]);
-    setThumbnailName(e.target.files[0].name);
   };
 
   const submitPost = async (e: any) => {
@@ -45,7 +33,7 @@ const CreatePost: React.FC = () => {
       } else if (story.length < 300) {
         setError('Story must be more than 300 characters');
       } else {
-        await createPost(story, title, subTitle, thumbnail, thumbnailName);
+        await createPost(story, title, subTitle, thumbnail);
         navigate('/');
       }
     } catch (e: any) {
@@ -67,7 +55,11 @@ const CreatePost: React.FC = () => {
           <Form>
             <Form.Group className="mb-3">
               <Form.Label className="fs-3 fw-semibold">Thumbnail</Form.Label>
-              <Form.Control type={'file'} onChange={(e) => uploadImage(e)} accept={'image/*'} />
+              <Form.Control
+                type={'file'}
+                onChange={(e) => uploadImage(e)}
+                accept={'.jpg, .png, .jpeg'}
+              />
             </Form.Group>
             <Form.Group className="mb-2">
               <Form.Label className="fs-3 fw-semibold">Title</Form.Label>

@@ -1,5 +1,5 @@
 import { doc, updateDoc } from 'firebase/firestore';
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
@@ -38,56 +38,58 @@ const UpdateProfileModal = (props) => {
   };
 
   return (
-    <Modal size="lg" aria-labelledby="contained-modal-title-vcenter" centered {...props}>
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Update Profile</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <Form>
-          <Form.Group className="mb-3">
-            <Form.Label>First Name</Form.Label>
-            <Form.Control
-              type="text"
-              value={fname}
-              id="fnameInput"
-              onChange={(e) => setFname(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Last Name</Form.Label>
-            <Form.Control
-              type="text"
-              value={lname}
-              id="lnameInput"
-              onChange={(e) => setLname(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>First Name</Form.Label>
-            <Form.Control
-              as="textarea"
-              value={about}
-              rows={3}
-              maxLength={255}
-              id="aboutInput"
-              onChange={(e) => {
-                setAbout(e.target.value);
-                setCount(e.target.value.length);
-              }}
-            />
-          </Form.Group>
-          <p className="float-end text-muted">{count}/255</p>
-        </Form>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide} variant="secondary">
-          Close
-        </Button>
-        <Button variant="primary" onClick={updateProfile}>
-          Save
-        </Button>
-      </Modal.Footer>
-    </Modal>
+    <Suspense fallback={<div>Loading</div>}>
+      <Modal size="lg" aria-labelledby="contained-modal-title-vcenter" centered {...props}>
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">Update Profile</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-3">
+              <Form.Label>First Name</Form.Label>
+              <Form.Control
+                type="text"
+                value={fname}
+                id="fnameInput"
+                onChange={(e) => setFname(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control
+                type="text"
+                value={lname}
+                id="lnameInput"
+                onChange={(e) => setLname(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>First Name</Form.Label>
+              <Form.Control
+                as="textarea"
+                value={about}
+                rows={3}
+                maxLength={255}
+                id="aboutInput"
+                onChange={(e) => {
+                  setAbout(e.target.value);
+                  setCount(e.target.value.length);
+                }}
+              />
+            </Form.Group>
+            <p className="float-end text-muted">{count}/255</p>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={props.onHide} variant="secondary">
+            Close
+          </Button>
+          <Button variant="primary" onClick={updateProfile}>
+            Save
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </Suspense>
   );
 };
 

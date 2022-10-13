@@ -16,7 +16,7 @@ const UpdateProfileModal = React.lazy(() => import('../../components/Profile/Upd
 const MyProfile: React.FC = () => {
   const [profileModalShow, setProfileModalShow] = useState(false);
   const { currentUserProfile, currentUser } = useAuth();
-
+  
   return (
     <>
       <div className="navi-wrapper p-0">
@@ -31,19 +31,16 @@ const MyProfile: React.FC = () => {
                   className="float-end rounded-pill"
                   onClick={() => {
                     setProfileModalShow(true);
-                  }}
-                >
+                  }}>
                   <FontAwesomeIcon icon={faPenToSquare} />
                 </Button>
-                <Suspense fallback={<div>Loading</div>}>
-                  <UpdateProfileModal
-                    user={currentUserProfile}
-                    show={profileModalShow}
-                    onHide={() => {
-                      setProfileModalShow(false);
-                    }}
-                  />
-                </Suspense>
+                <UpdateProfileModal
+                  user={currentUserProfile}
+                  show={profileModalShow}
+                  onHide={() => {
+                    setProfileModalShow(false);
+                  }}
+                />
                 <div className="d-flex align-items-start ">
                   <img
                     src={currentUserProfile ? currentUserProfile.photoURL : ''}
@@ -56,7 +53,9 @@ const MyProfile: React.FC = () => {
                         ? currentUserProfile.fname + ' ' + currentUserProfile.lname
                         : 'Name'}
                     </h4>
-                    <p className="text-secondary mb-1">Friends Count</p>
+                    <p className="text-secondary mb-1">
+                      Friends:{currentUserProfile ? ' ' + currentUserProfile.friends.length : '0'}
+                    </p>
                   </div>
                 </div>
                 <div className="mt-3">
@@ -79,18 +78,8 @@ const MyProfile: React.FC = () => {
                 </div>
               </Card.Body>
             </Card>
-            <Suspense fallback={<div>Loading</div>}>
-              <Card className=" mt-3 profile-m m-left ">
-                <Card.Body>
-                  <Button className="float-end rounded-pill d-none">
-                    <FontAwesomeIcon icon={faPenToSquare} />
-                  </Button>
-                  <h4 className="header-title mb-3">Social Links</h4>
-                  <SocialsSection user={currentUserProfile} />
-                </Card.Body>
-              </Card>
-              <FriendsSection />
-            </Suspense>
+            <SocialsSection user={currentUserProfile } />
+            <FriendsSection />
           </Col>
           <Suspense fallback={<div>Loading</div>}>
             <Col lg={7}>

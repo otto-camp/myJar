@@ -13,7 +13,7 @@ export type PostType = {
   comments?: object[];
 };
 
-/*export type UserType = {
+export type UserType = {
   id: string;
   fname: string;
   lname: string;
@@ -30,4 +30,4 @@ export type PostType = {
   createdPosts: string[];
   friends: string[];
   photoURL: string;
-};*/
+};

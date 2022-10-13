@@ -25,24 +25,22 @@ export function PostProvider({ children }) {
   const { uploadPostImage } = useStorage();
   const postRef = collection(db, 'posts');
 
-  function createPost(postText, postTitle, postSubTitle, postThumnail, postThumnailName) {
+  function createPost(postText, postTitle, postSubTitle, postThumnail) {
     addDoc(postRef, {
       postTitle: postTitle,
       postSubTitle: postSubTitle,
       postText: postText,
-      postThumnail: '',
+      postThumbnail: '',
       createrId: currentUser.uid,
       createrName: currentUserProfile.fname + " " + currentUserProfile.lname,
       createrPhotoURL: currentUserProfile.photoURL,
       timestamp: new Date(Timestamp.now().seconds * 1000),
       likes: 0,
     }).then(async (d) => {
-      await uploadPostImage(d.id, postThumnail, postThumnailName);
+      await uploadPostImage(d.id, postThumnail);
       await updateDoc(doc(db, 'profile', currentUser.uid), {
         createdPosts: arrayUnion(d.id)
       })
-      
-
     })
   }
 

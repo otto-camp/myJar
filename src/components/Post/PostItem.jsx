@@ -1,4 +1,4 @@
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, limit, orderBy, query } from 'firebase/firestore';
 import moment from 'moment';
 import React, { Suspense } from 'react';
 import { useState } from 'react';
@@ -15,14 +15,15 @@ export default function PostItem() {
 
   useEffect(() => {
     const getPosts = async () => {
-      const postSnap = await getDocs(postRef);
+      const q = query(postRef, orderBy('timestamp', 'desc'), limit(10));
+      const postSnap = await getDocs(q);
       postSnap.forEach((doc) => {
         setPosts((prevPosts) => [...prevPosts, { ...doc.data(), pid: doc.id }]);
       });
     };
     getPosts();
   }, []);
-  
+
   return (
     <>
       <Suspense fallback={<div>Loading</div>}>
@@ -37,7 +38,7 @@ export default function PostItem() {
               <Col xs={6} md={12} className="align-self-center">
                 <img
                   loading="lazy"
-                  src="https://picsum.photos/500/500"
+                  src={p.postThumbnail || 'https://picsum.photos/500/500'}
                   alt={p.postTitle}
                   className="img-fluid postitem-image"
                 />
