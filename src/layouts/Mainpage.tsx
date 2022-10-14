@@ -1,8 +1,7 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import './layout-styles.css';
 import { Routes, Route } from 'react-router-dom';
-import { lazy } from 'react';
 import { AuthProvider } from '../services/AuthContext';
 import { PostProvider } from '../services/PostContext';
 import { StorageProvider } from '../services/StorageContext';
@@ -16,7 +15,7 @@ const Footer = lazy(() => import('./Footer'));
 const Messages = lazy(() => import('../pages/Messages/Messages'));
 const Settings = lazy(() => import('../pages/Settings/Settings'));
 const CreateProfile = lazy(() => import('./CreateProfile'));
-const MyProfile = lazy(() => import('../pages/Profile/MyProfile'));
+const Profile = lazy(() => import('../pages/Profile/Profile'));
 
 export default function Mainpage() {
   return (
@@ -35,7 +34,9 @@ export default function Mainpage() {
                   <Route path="/forgotpassword" element={<ForgotPassword />} />
                   <Route path="/create-post" element={<CreatePost />} />
                   <Route path="/post/:id" element={<Post />} />
-                  <Route path="/profile/:name" element={<MyProfile />} />
+                  <Route path="profile/">
+                    <Route path=":id" element={<Profile />} />
+                  </Route>
                   <Route path="/messages/:id" element={<Messages />} />
                   <Route path="/settings" element={<Settings />} />
                 </Routes>

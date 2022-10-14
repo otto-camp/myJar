@@ -20,7 +20,6 @@ export default function ProfilePost(props) {
       const snapshot = await getDocs(q);
       snapshot.forEach((doc) => {
         setPosts((prevPosts) => [...prevPosts, { ...doc.data(), pid: doc.id }]);
-        console.log();
       });
     }
     getUserPosts();

@@ -4,7 +4,7 @@ import React, { Suspense } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { db } from '../../services/firebase';
 import './post.css';
 
@@ -28,43 +28,48 @@ export default function PostItem() {
     <>
       <Suspense fallback={<div>Loading</div>}>
         {posts.map((p, index) => (
-          <Card
-            key={index}
-            className="mb-3 postitem-card bg-light"
-            onClick={() => {
-              navigate('/post/' + p.pid);
-            }}>
+          <Card key={index} className="mb-3 postitem-card bg-light">
             <Row className="g-0">
-              <Col xs={6} md={12} className="align-self-center">
+              <Col xs={12} md={12} className="align-self-center">
                 <img
                   loading="lazy"
-                  src={p.postThumbnail || 'https://picsum.photos/500/500'}
+                  src={p.postThumbnail || 'https://picsum.photos/1500/500'}
                   alt={p.postTitle}
                   className="img-fluid postitem-image"
+                  onClick={() => {
+                    navigate('/post/' + p.pid);
+                  }}
                 />
               </Col>
-              <Col xs={6} md={12}>
+              <Col xs={12} md={12}>
                 <Card.Header className="border-0 bg-light">
-                  <Card.Title>
+                  <Card.Title
+                    onClick={() => {
+                      navigate('/post/' + p.pid);
+                    }}>
                     {' '}
                     <h5 className="postitem-title">{p.postTitle}</h5>
                   </Card.Title>
                   <div className="postitem-subheader">
-                    <a href="/" className="text-decoration-none postitem-username">
+                    <Link to={'profile/'+p.createrId} className="text-decoration-none postitem-username">
                       <Card.Img
                         src={p.createrPhotoURL}
                         alt="creater photo"
                         className="postitem-creater-photo"
                       />
                       <div className="postitem-creatername">{p.createrName}</div>
-                    </a>
+                    </Link>
+
                     <div className="postitem-date ">
                       {moment.utc(p.timestamp.seconds, 'X').fromNow()}
                     </div>
                   </div>
                 </Card.Header>
                 <div className="bar"></div>
-                <Card.Body>
+                <Card.Body
+                  onClick={() => {
+                    navigate('/post/' + p.pid);
+                  }}>
                   <div className="postitem-text">{p.postSubTitle}</div>
                 </Card.Body>
               </Col>

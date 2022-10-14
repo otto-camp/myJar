@@ -2,8 +2,10 @@ import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Card, ListGroup } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 
 export default function FriendsSection() {
+  const { id } = useParams();
   return (
     <Card className="mt-3 mb-3 profile-m m-left ">
       <Card.Body>

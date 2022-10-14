@@ -15,7 +15,7 @@ export default function Navi() {
       await auth.signOut();
       navigate('/');
     } catch {
-      console.log(e);
+      console.error(e);
     }
   };
 

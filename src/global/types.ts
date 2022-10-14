@@ -14,20 +14,20 @@ export type PostType = {
 };
 
 export type UserType = {
-  id: string;
-  fname: string;
-  lname: string;
-  email: string;
-  birthDate: string;
-  phoneNumber: string;
-  about: string;
-  facebook: string;
-  github: string;
-  instagram: string;
-  twitter: string;
-  website: string;
-  likedPosts: string[];
-  createdPosts: string[];
-  friends: string[];
-  photoURL: string;
+  id?: string;
+  fname?: string;
+  lname?: string;
+  email?: string;
+  birthDate?: string;
+  phoneNumber?: string;
+  about?: string;
+  facebook?: string;
+  github?: string;
+  instagram?: string;
+  twitter?: string;
+  website?: string;
+  likedPosts?: string[];
+  createdPosts?: string[];
+  friends?: string[];
+  photoURL?: string;
 };

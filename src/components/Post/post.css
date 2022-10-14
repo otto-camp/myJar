@@ -14,7 +14,7 @@
 
 .postitem-title {
   line-height: 1.5em;
-  height: 4.5em;
+  max-height: 3em;
   width: 100%;
   white-space: normal;
   overflow: hidden;
@@ -29,7 +29,7 @@
   transition: transform 0.3s ease;
   box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
   border-top-left-radius: var(--bs-border-radius);
-  border-bottom-left-radius: var(--bs-border-radius);
+  border-top-right-radius: var(--bs-border-radius);
   -webkit-transition: transform 0.3s ease;
   -moz-transition: transform 0.3s ease;
   -ms-transition: transform 0.3s ease;
@@ -59,6 +59,7 @@
 .postitem-username {
   color: #000;
   display: flex;
+  cursor: pointer;
 }
 
 .postitem-username:hover {
@@ -71,7 +72,10 @@
 }
 
 .postitem-creater-photo {
-  display: none;
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  object-fit: scale-down;
 }
 
 .postitem-creatername {
@@ -79,23 +83,22 @@
   height: fit-content;
   margin-top: auto;
   margin-bottom: auto;
+  margin-left: 0.75rem;
 }
 
 .postitem-date {
   width: max-content;
   font-size: var(--postitem-creater);
   color: rgba(0, 0, 0, 0.72);
+  margin-top: auto;
+  margin-bottom: auto;
+  height: fit-content;
 }
 
 .bar {
-  display: none;
   width: 100%;
   height: 2px;
   background-color: rgba(0, 0, 0, 0.15);
-}
-
-.card-body {
-  display: none;
 }
 
 .postitem-text {
@@ -110,36 +113,13 @@
   display: flex;
   align-content: center;
   justify-content: space-between;
-  flex-direction: column;
+  flex-direction: row;
   vertical-align: middle;
 }
 
 @media only screen and (min-width: 500px) {
-  .bar {
-    display: block;
-  }
-
-  .postitem-creater-photo {
-    display: inline-block;
-    width: 3rem;
-    height: 3rem;
-    object-fit: scale-down;
-  }
-
-  .postitem-title {
-    height: 3em;
-  }
-
   .postitem-text {
     font-size: 100%;
-  }
-  .card-body {
-    display: block;
-  }
-
-  .postitem-creatername {
-    display: inline-block;
-    margin-left: 1rem;
   }
 
   .postitem-date {
@@ -172,23 +152,13 @@
 }
 
 @media screen and (min-width: 768px) {
+  .postitem-title {
+    height: 3em;
+  }
+
   .postitem-image {
     width: 100%;
     height: 15rem !important;
     object-fit: cover;
-    border-bottom-left-radius: 0 !important;
-    border-top-right-radius: var(--bs-border-radius);
-  }
-}
-
-@media screen and (min-width: 880px) {
-  .postitem-subheader {
-    flex-direction: row;
-  }
-
-  .postitem-date {
-    margin-top: auto;
-    margin-bottom: auto;
-    height: fit-content;
   }
 }
