@@ -18,3 +18,5 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MYJAR_8FF23 }}'
           channelId: live
           projectId: myjar-8ff23
+        env:
+          FIREBASE_CONFIG: '${{secrets.FIREBASE_CONFIG}}'
