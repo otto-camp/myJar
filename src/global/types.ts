@@ -28,6 +28,7 @@ export type UserType = {
   website?: string;
   likedPosts?: string[];
   createdPosts?: string[];
-  friends?: string[];
+  follows?: string[];
+  followers?: string[];
   photoURL?: string;
 };

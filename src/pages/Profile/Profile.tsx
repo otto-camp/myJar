@@ -72,8 +72,11 @@ const Profile: React.FC = () => {
                   />
                   <div className="w-100 ms-3">
                     <h4>{user ? user.fname + ' ' + user.lname : 'Name'}</h4>
-                    <p className="text-secondary mb-1">
-                      Friends:{user ? ' ' + user.friends?.length : '0'}
+                    <p className="text-secondary mb-1 d-inline-block">
+                      Follows:{user ? ' ' + user.follows?.length : '0'}
+                    </p>
+                    <p className="text-secondary mb-1 d-inline-block ms-sm-3 ms-1">
+                      Followers:{user ? ' ' + user.followers?.length : '0'}
                     </p>
                   </div>
                 </div>

@@ -7,7 +7,7 @@ import { follow, unfollow } from '../../utils/ProfileActions/FollowProfile';
 
 export default function ProfileActionButton(props) {
   const { currentUserProfile } = useAuth();
-  const [isFriend, setIsFriend] = useState(false);
+  const [isFollow, setIsFollow] = useState(false);
 
   const navigate = useNavigate();
 
@@ -19,8 +19,8 @@ export default function ProfileActionButton(props) {
 
   useEffect(() => {
     if (props.user !== undefined) {
-      if (currentUserProfile.friends?.includes(props.user.id)) {
-        setIsFriend(true);
+      if (currentUserProfile.follows?.includes(props.user.id)) {
+        setIsFollow(true);
       }
     }
   }, [props]);
@@ -30,18 +30,20 @@ export default function ProfileActionButton(props) {
       navigate('/login');
     } else {
       follow(props.user, currentUserProfile);
+      setIsFollow(true);
     }
   };
 
   const handleUnfollow = () => {
     unfollow(props.user, currentUserProfile);
+    setIsFollow(true);
   };
 
   return (
     <Suspense fallback={<div>Loading</div>}>
       <Row>
         <ButtonGroup aria-label="Profile actions">
-          {!isFriend ? (
+          {!isFollow ? (
             <Button className="rounded-pill me-4 w-50" onClick={handleFollow}>
               Follow
             </Button>
