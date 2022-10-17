@@ -6,12 +6,8 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 import CreatePostButton from '../Button/CreatePostButton';
 
-//const LikePostButton = React.lazy(() => import('../Button/LikePostButton'));
-//const EditPostButton = React.lazy(() => import('../Button/EditPostButton'));
-
 export default function ProfilePost(props) {
   const uid = useRef(props.uid);
-  //const user = useRef(props.user);
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Alert, Button, Form } from 'react-bootstrap';
 import Navi from '../../layouts/Navi';
 import { usePost } from '../../services/PostContext';
-import Editor from '../../utils/Editor';
+import Editor from '../../utils/Editor/Editor';
 import './post.css';
 import { useNavigate } from 'react-router-dom';
 

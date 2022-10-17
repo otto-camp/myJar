@@ -39,7 +39,8 @@ export default function CreateProfile() {
         website: '',
         likedPosts: [],
         createdPosts: [],
-        friends: [],
+        follows: [],
+        follower:[],
         photoURL:
           'https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/upp.png?alt=media&token=3bffcde1-935a-40f9-8f97-2dbe9ba2c698'
       });

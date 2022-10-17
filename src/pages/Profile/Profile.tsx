@@ -9,9 +9,8 @@ import { useAuth } from '../../services/AuthContext';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../services/firebase';
 import { UserType } from '../../global/types';
-import ProfileActionButton from '../../components/Button/ProfileActionButton';
 
-const FriendsSection = lazy(() => import('../../components/Profile/FriendsSection'));
+const ProfileActionButton = lazy(() => import('../../components/Button/ProfileActionButton'));
 const SocialsSection = lazy(() => import('../../components/Profile/SocialsSection'));
 const ProfilePost = lazy(() => import('../../components/Post/ProfilePost'));
 const UpdateProfileModal = lazy(() => import('../../components/Profile/UpdateProfileModal'));
@@ -27,10 +26,8 @@ const Profile: React.FC = () => {
     setUser(docSnap.data());
   };
 
-  console.log(user);
-
   useEffect(() => {
-    if (currentUser === null) {
+    if (currentUser === null || currentUser.uid !== id) {
       getProfile();
     } else if (currentUser.uid === id) {
       setUser(currentUserProfile);
@@ -76,7 +73,7 @@ const Profile: React.FC = () => {
                   <div className="w-100 ms-3">
                     <h4>{user ? user.fname + ' ' + user.lname : 'Name'}</h4>
                     <p className="text-secondary mb-1">
-                      Friends:{user ? ' ' + user.friends!.length : '0'}
+                      Friends:{user ? ' ' + user.friends?.length : '0'}
                     </p>
                   </div>
                 </div>
@@ -91,15 +88,10 @@ const Profile: React.FC = () => {
                     <span className="ms-2">{user ? user.birthDate : ''}</span>
                   </p>
                 </div>
-                <ProfileActionButton user={user} />
+                {user !== currentUserProfile ? <ProfileActionButton user={user} /> : ''}
               </Card.Body>
             </Card>
-            {user && (
-              <>
-                <SocialsSection user={user} />
-                <FriendsSection />
-              </>
-            )}
+            {user && <SocialsSection user={user} />}
           </Col>
 
           <Suspense fallback={<div>Loading</div>}>
