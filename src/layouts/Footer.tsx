@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="d-flex flex-wrap justify-content-between align-items-center px-1 border-top mt-5">
+    <footer className="d-flex flex-wrap justify-content-between align-items-center p-md-4 p-1 border-top mt-5">
       <div className="col-md-4 d-flex align-items-center footer-left mt-2">
         <Link to={'/'} className="fs-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
           myjar

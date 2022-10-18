@@ -19,7 +19,7 @@ const SocialsSection: React.FC<ISocials> = ({ user }) => {
     <Suspense fallback={<div>Loading</div>}>
       <Card className=" my-3 profile-m m-left ">
         <Card.Body>
-          {currentUser.uid === user?.id && (
+          {currentUser !== null && currentUser.uid === user?.id && (
             <>
               <Button className="float-end rounded-pill" onClick={() => setSocialModalShow(true)}>
                 <FontAwesomeIcon icon={faPenToSquare} />

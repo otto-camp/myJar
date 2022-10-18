@@ -18,8 +18,8 @@ export default function ProfileActionButton(props) {
   };
 
   useEffect(() => {
-    if (props.user !== undefined) {
-      if (currentUserProfile.friends?.includes(props.user.id)) {
+    if (!checkUserIsNull(props.user)) {
+      if (currentUserProfile.follows?.includes(props.user.id)) {
         setIsFriend(true);
       }
     }

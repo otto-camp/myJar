@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Alert, Button, Form } from 'react-bootstrap';
 import Navi from '../../layouts/Navi';
-import { usePost } from '../../services/PostContext';
 import Editor from '../../utils/Editor/Editor';
 import './post.css';
 import { useNavigate } from 'react-router-dom';
+import { createPost } from '../../utils/PostCRUD/Post';
 
 const CreatePost: React.FC = () => {
   const [title, setTitle] = useState<string>('');
@@ -12,7 +12,6 @@ const CreatePost: React.FC = () => {
   const [thumbnail, setThumbnail] = useState<Blob | null>(null);
   const [story, setStory] = useState<string>('');
   const [error, setError] = useState('');
-  const { createPost } = usePost();
   const navigate = useNavigate();
 
   const uploadImage = async (e: any) => {

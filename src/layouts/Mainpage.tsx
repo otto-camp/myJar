@@ -3,8 +3,7 @@ import { Container, Row } from 'react-bootstrap';
 import './layout-styles.css';
 import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from '../services/AuthContext';
-import { PostProvider } from '../services/PostContext';
-import { StorageProvider } from '../services/StorageContext';
+
 const CreatePost = lazy(() => import('../pages/Posts/CreatePost'));
 const Post = lazy(() => import('../pages/Posts/Post'));
 const Home = lazy(() => import('../pages/Home/Home'));
@@ -22,27 +21,23 @@ export default function Mainpage() {
     <Container fluid>
       <Row>
         <AuthProvider>
-          <StorageProvider>
-            <PostProvider>
-              <Suspense fallback={<div>Loading</div>}>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="*" element={<Home />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/signup" element={<SignUp />} />
-                  <Route path="/create-profile" element={<CreateProfile />} />
-                  <Route path="/forgotpassword" element={<ForgotPassword />} />
-                  <Route path="/create-post" element={<CreatePost />} />
-                  <Route path="/post/:id" element={<Post />} />
-                  <Route path="profile/">
-                    <Route path=":id" element={<Profile />} />
-                  </Route>
-                  <Route path="/messages/:id" element={<Messages />} />
-                  <Route path="/settings" element={<Settings />} />
-                </Routes>
-              </Suspense>
-            </PostProvider>
-          </StorageProvider>
+          <Suspense fallback={<div>Loading</div>}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="*" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/create-profile" element={<CreateProfile />} />
+              <Route path="/forgotpassword" element={<ForgotPassword />} />
+              <Route path="/create-post" element={<CreatePost />} />
+              <Route path="/post/:id" element={<Post />} />
+              <Route path="profile/">
+                <Route path=":id" element={<Profile />} />
+              </Route>
+              <Route path="/messages/:id" element={<Messages />} />
+              <Route path="/settings" element={<Settings />} />
+            </Routes>
+          </Suspense>
         </AuthProvider>
       </Row>
       <Footer />
