@@ -15,7 +15,14 @@ export function uploadPostImage(postId, image) {
   });
 }
 
-export function uploadProfileImage(image, filename) {
+export function uploadProfilePicture(picture: Blob) {
   const { currentUser } = useAuth();
-  uploadBytes(ref(storage, currentUser.uid), image, filename);
+  uploadBytes(ref(storage, currentUser.uid + '/profile-picture'), picture).then(() => {
+    const urlRef = ref(storage, 'gs://myjar-8ff23.appspot.com/' + currentUser.uid + '/profile-picture');
+    getDownloadURL(urlRef).then(async (res) => {
+      await updateDoc(doc(db, 'profile', currentUser.uid), {
+        photoURL: res
+      });
+    });
+  });
 }

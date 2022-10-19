@@ -14,7 +14,7 @@ const CreatePost: React.FC = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const uploadImage = async (e: any) => {
+  const uploadImage = (e: any) => {
     setThumbnail(e.target.files[0]);
   };
 
@@ -35,8 +35,8 @@ const CreatePost: React.FC = () => {
         await createPost(story, title, subTitle, thumbnail);
         navigate('/');
       }
-    } catch (e: any) {
-      setError(e);
+    } catch (err: any) {
+      setError(err);
     }
   };
 
@@ -87,7 +87,7 @@ const CreatePost: React.FC = () => {
           </Form>
         </main>
         <footer className="postcreate-footer">
-          <Button variant="primary" className="rounded-pill fs-5" onClick={submitPost}>
+          <Button variant="primary" className="rounded-pill fs-5" onClick={(e) => submitPost(e)}>
             Submit
           </Button>
         </footer>

@@ -5,7 +5,11 @@ import { UserType } from '../../global/types';
 import { useAuth } from '../../services/AuthContext';
 import { follow, unfollow } from '../../utils/ProfileActions/FollowProfile';
 
-export default function ProfileActionButton(props) {
+interface IProfileActions {
+  user: UserType | undefined;
+}
+
+const ProfileActionButton: React.FC<IProfileActions> = ({ user }) => {
   const { currentUserProfile } = useAuth();
   const [isFriend, setIsFriend] = useState(false);
 
@@ -18,23 +22,23 @@ export default function ProfileActionButton(props) {
   };
 
   useEffect(() => {
-    if (!checkUserIsNull(props.user)) {
-      if (currentUserProfile.follows?.includes(props.user.id)) {
+    if (!checkUserIsNull(user!)) {
+      if (currentUserProfile.follows?.includes(user?.id)) {
         setIsFriend(true);
       }
     }
-  }, [props]);
+  }, [user]);
 
   const handleFollow = () => {
     if (checkUserIsNull(currentUserProfile)) {
       navigate('/login');
     } else {
-      follow(props.user, currentUserProfile);
+      follow(user, currentUserProfile);
     }
   };
 
   const handleUnfollow = () => {
-    unfollow(props.user, currentUserProfile);
+    unfollow(user, currentUserProfile);
   };
 
   return (
@@ -55,4 +59,6 @@ export default function ProfileActionButton(props) {
       </Row>
     </Suspense>
   );
-}
+};
+
+export default ProfileActionButton;

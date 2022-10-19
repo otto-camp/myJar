@@ -14,6 +14,7 @@ export default function Footer() {
         <li className="ms-3">
           <a
             className="text-muted"
+            aria-label="Github link"
             href="https://github.com/otto-camp"
             target={'_blank'}
             rel="noreferrer">
@@ -25,6 +26,7 @@ export default function Footer() {
         <li className="ms-3">
           <a
             className="text-muted"
+            aria-label="LindkedIn link"
             href="https://www.linkedin.com/in/ismail-yarar/"
             target={'_blank'}
             rel="noreferrer">
