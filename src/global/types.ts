@@ -10,7 +10,6 @@ export type PostType = {
   createrPhotoURL?: string;
   createrName?: string;
   createrId?: string;
-  category?: string;
 };
 
 export type UserType = {
