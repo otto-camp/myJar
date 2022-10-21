@@ -60,7 +60,8 @@ const Profile: React.FC = () => {
                       className="float-end rounded-pill"
                       onClick={() => {
                         setProfileModalShow(true);
-                      }}>
+                      }}
+                    >
                       <FontAwesomeIcon icon={faPenToSquare} />
                     </Button>
                     <UpdateProfileModal
@@ -86,11 +87,7 @@ const Profile: React.FC = () => {
                     onHide={() => setPictureModalShow(false)}
                   />
                   <div className="w-100 ms-3">
-<<<<<<< HEAD
                     <h4>{user ? user.fname + ' ' + user.lname : 'Name'}</h4>
-=======
-                    <h4 aria-label="username">{user ? user.fname + ' ' + user.lname : 'Name'}</h4>
->>>>>>> 9f18ee1e9dd1dc929592b927d8b91c7efbe5f00d
                     <p className="text-secondary mb-1 d-inline-block">
                       Follows:{user ? ' ' + user.follows?.length : '0'}
                     </p>

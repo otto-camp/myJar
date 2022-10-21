@@ -38,23 +38,43 @@ const UpdateSocialModal: React.FC<ISocialModal> = (props) => {
           <Form>
             <Form.Group className="mb-3">
               <Form.Label>Website</Form.Label>
-              <Form.Control type={'text'} defaultValue={currentUserProfile.website} ref={websiteRef} />
+              <Form.Control
+                type={'text'}
+                defaultValue={currentUserProfile.website}
+                ref={websiteRef}
+              />
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Github</Form.Label>
-              <Form.Control type={'text'} defaultValue={currentUserProfile.github} ref={githubRef} />
+              <Form.Control
+                type={'text'}
+                defaultValue={currentUserProfile.github}
+                ref={githubRef}
+              />
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Twitter</Form.Label>
-              <Form.Control type={'text'} defaultValue={currentUserProfile.twitter} ref={twitterRef} />
+              <Form.Control
+                type={'text'}
+                defaultValue={currentUserProfile.twitter}
+                ref={twitterRef}
+              />
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Facebook</Form.Label>
-              <Form.Control type={'text'} defaultValue={currentUserProfile.facebook} ref={facebookRef} />
+              <Form.Control
+                type={'text'}
+                defaultValue={currentUserProfile.facebook}
+                ref={facebookRef}
+              />
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Instagram</Form.Label>
-              <Form.Control type={'text'} defaultValue={currentUserProfile.instagram} ref={instagramRef} />
+              <Form.Control
+                type={'text'}
+                defaultValue={currentUserProfile.instagram}
+                ref={instagramRef}
+              />
             </Form.Group>
           </Form>
         </Modal.Body>

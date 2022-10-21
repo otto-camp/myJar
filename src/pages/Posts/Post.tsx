@@ -36,7 +36,10 @@ const Post: React.FC = () => {
           <Col className="post-column margin-div">
             {post ? (
               <>
-                <Image src={post.postThumbnail || 'https://picsum.photos/1500/500'} className="post-thumnail" />
+                <Image
+                  src={post.postThumbnail || 'https://picsum.photos/1500/500'}
+                  className="post-thumnail"
+                />
                 <h1 className="post-title">{post.postTitle}</h1>
                 <h3 className="post-subtitle">{post.postSubTitle}</h3>
                 <div className="py-2">
