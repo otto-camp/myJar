@@ -5,7 +5,11 @@ import { UserType } from '../../global/types';
 import { useAuth } from '../../services/AuthContext';
 import { follow, unfollow } from '../../utils/ProfileActions/FollowProfile';
 
-export default function ProfileActionButton(props) {
+interface IProfileActions {
+  user: UserType | undefined;
+}
+
+const ProfileActionButton: React.FC<IProfileActions> = ({ user }) => {
   const { currentUserProfile } = useAuth();
   const [isFollow, setIsFollow] = useState(false);
 
@@ -18,30 +22,45 @@ export default function ProfileActionButton(props) {
   };
 
   useEffect(() => {
+<<<<<<< HEAD
     if (props.user !== undefined) {
       if (currentUserProfile.follows?.includes(props.user.id)) {
         setIsFollow(true);
+=======
+    if (!checkUserIsNull(user!) && !checkUserIsNull(currentUserProfile)) {
+      if (currentUserProfile.follows?.includes(user?.id)) {
+        setIsFriend(true);
+>>>>>>> 9f18ee1e9dd1dc929592b927d8b91c7efbe5f00d
       }
     }
-  }, [props]);
+  }, [user]);
 
   const handleFollow = () => {
     if (checkUserIsNull(currentUserProfile)) {
       navigate('/login');
     } else {
+<<<<<<< HEAD
       follow(props.user, currentUserProfile);
       setIsFollow(true);
+=======
+      follow(user, currentUserProfile);
+>>>>>>> 9f18ee1e9dd1dc929592b927d8b91c7efbe5f00d
     }
   };
 
   const handleUnfollow = () => {
+<<<<<<< HEAD
     unfollow(props.user, currentUserProfile);
     setIsFollow(true);
+=======
+    unfollow(user, currentUserProfile);
+>>>>>>> 9f18ee1e9dd1dc929592b927d8b91c7efbe5f00d
   };
 
   return (
     <Suspense fallback={<div>Loading</div>}>
       <Row>
+<<<<<<< HEAD
         <ButtonGroup aria-label="Profile actions">
           {!isFollow ? (
             <Button className="rounded-pill me-4 w-50" onClick={handleFollow}>
@@ -54,7 +73,25 @@ export default function ProfileActionButton(props) {
           )}
           <Button className="rounded-pill ms-4 w-50">Message</Button>
         </ButtonGroup>
+=======
+        {currentUserProfile && (
+          <ButtonGroup aria-label="Profile actions">
+            {!isFriend ? (
+              <Button className="rounded-pill me-4 w-50" onClick={handleFollow}>
+                Follow
+              </Button>
+            ) : (
+              <Button className="rounded-pill me-4 w-50" onClick={handleUnfollow}>
+                Unfollow
+              </Button>
+            )}
+            <Button className="rounded-pill ms-4 w-50">Message</Button>
+          </ButtonGroup>
+        )}
+>>>>>>> 9f18ee1e9dd1dc929592b927d8b91c7efbe5f00d
       </Row>
     </Suspense>
   );
-}
+};
+
+export default ProfileActionButton;

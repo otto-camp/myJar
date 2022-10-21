@@ -10,6 +10,9 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../services/firebase';
 import { UserType } from '../../global/types';
 
+const UpdateProfilePictureModal = lazy(
+  () => import('../../components/Profile/UpdateProfilePictureModal')
+);
 const ProfileActionButton = lazy(() => import('../../components/Button/ProfileActionButton'));
 const SocialsSection = lazy(() => import('../../components/Profile/SocialsSection'));
 const ProfilePost = lazy(() => import('../../components/Post/ProfilePost'));
@@ -17,6 +20,7 @@ const UpdateProfileModal = lazy(() => import('../../components/Profile/UpdatePro
 
 const Profile: React.FC = () => {
   const [profileModalShow, setProfileModalShow] = useState(false);
+  const [pictureModalShow, setPictureModalShow] = useState(false);
   const [user, setUser] = useState<UserType>();
   const { currentUser, currentUserProfile } = useAuth();
   const { id } = useParams();
@@ -27,15 +31,23 @@ const Profile: React.FC = () => {
   };
 
   useEffect(() => {
-    if (currentUser === null || currentUser.uid !== id) {
+    if (currentUser == null || currentUser.uid !== id) {
       getProfile();
-    } else if (currentUser.uid === id) {
+    } else {
       setUser(currentUserProfile);
     }
-  }, [id]);
+  }, [currentUserProfile]);
+
+  const updateProfilePicture = () => {
+    if (currentUser !== null && currentUser.uid === id) {
+      setPictureModalShow(true);
+    }
+  };
 
   return (
     <>
+      <title>myJar Profile</title>
+      <meta />
       <div className="navi-wrapper p-0">
         <Navi />
       </div>
@@ -68,10 +80,19 @@ const Profile: React.FC = () => {
                   <img
                     src={user ? user.photoURL : ''}
                     alt="hero"
+                    onClick={updateProfilePicture}
                     className="rounded-circle avatar-lg img-thumbnail"
                   />
+                  <UpdateProfilePictureModal
+                    show={pictureModalShow}
+                    onHide={() => setPictureModalShow(false)}
+                  />
                   <div className="w-100 ms-3">
+<<<<<<< HEAD
                     <h4>{user ? user.fname + ' ' + user.lname : 'Name'}</h4>
+=======
+                    <h4 aria-label="username">{user ? user.fname + ' ' + user.lname : 'Name'}</h4>
+>>>>>>> 9f18ee1e9dd1dc929592b927d8b91c7efbe5f00d
                     <p className="text-secondary mb-1 d-inline-block">
                       Follows:{user ? ' ' + user.follows?.length : '0'}
                     </p>

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Alert, Button, Form } from 'react-bootstrap';
 import Navi from '../../layouts/Navi';
-import { usePost } from '../../services/PostContext';
 import Editor from '../../utils/Editor/Editor';
 import './post.css';
 import { useNavigate } from 'react-router-dom';
+import { createPost } from '../../utils/PostCRUD/Post';
 
 const CreatePost: React.FC = () => {
   const [title, setTitle] = useState<string>('');
@@ -12,10 +12,9 @@ const CreatePost: React.FC = () => {
   const [thumbnail, setThumbnail] = useState<Blob | null>(null);
   const [story, setStory] = useState<string>('');
   const [error, setError] = useState('');
-  const { createPost } = usePost();
   const navigate = useNavigate();
 
-  const uploadImage = async (e: any) => {
+  const uploadImage = (e: any) => {
     setThumbnail(e.target.files[0]);
   };
 
@@ -36,8 +35,8 @@ const CreatePost: React.FC = () => {
         await createPost(story, title, subTitle, thumbnail);
         navigate('/');
       }
-    } catch (e: any) {
-      setError(e);
+    } catch (err: any) {
+      setError(err);
     }
   };
 
@@ -88,7 +87,7 @@ const CreatePost: React.FC = () => {
           </Form>
         </main>
         <footer className="postcreate-footer">
-          <Button variant="primary" className="rounded-pill fs-5" onClick={submitPost}>
+          <Button variant="primary" className="rounded-pill fs-5" onClick={(e) => submitPost(e)}>
             Submit
           </Button>
         </footer>

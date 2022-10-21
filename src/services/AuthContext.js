@@ -22,7 +22,9 @@ export function AuthProvider({ children }) {
   }
 
   function signOut() {
-    return auth.signOut();
+    return auth.signOut().then(() => {
+      localStorage.removeItem('profile')
+    })
   }
 
   function forgotPassword(email) {
@@ -37,13 +39,11 @@ export function AuthProvider({ children }) {
     return currentUser.updatePassword(password);
   }
 
-
-
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
       setCurrentUser(user);
       setLoading(false);
-      if (user) {
+      if (user !== null) {
         const docSnap = await getDoc(doc(db, 'profile', user.uid));
         setCurrentUserProfile(docSnap.data());
       }

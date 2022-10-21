@@ -32,9 +32,11 @@ export default function PostItem() {
             <Row className="g-0">
               <Col xs={12} md={12} className="align-self-center">
                 <img
-                  loading="lazy"
+                  loading="eager"
                   src={p.postThumbnail || 'https://picsum.photos/1500/500'}
                   alt={p.postTitle}
+                  width={1000}
+                  height={500}
                   className="img-fluid postitem-image"
                   onClick={() => {
                     navigate('/post/' + p.pid);
@@ -51,7 +53,9 @@ export default function PostItem() {
                     <h5 className="postitem-title">{p.postTitle}</h5>
                   </Card.Title>
                   <div className="postitem-subheader">
-                    <Link to={'profile/'+p.createrId} className="text-decoration-none postitem-username">
+                    <Link
+                      to={'profile/' + p.createrId}
+                      className="text-decoration-none postitem-username">
                       <Card.Img
                         src={p.createrPhotoURL}
                         alt="creater photo"

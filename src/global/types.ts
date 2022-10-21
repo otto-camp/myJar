@@ -10,7 +10,7 @@ export type PostType = {
   createrPhotoURL?: string;
   createrName?: string;
   createrId?: string;
-  comments?: object[];
+  category?: string;
 };
 
 export type UserType = {
