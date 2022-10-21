@@ -30,8 +30,10 @@ export default function Mainpage() {
               <Route path="/create-profile" element={<CreateProfile />} />
               <Route path="/forgotpassword" element={<ForgotPassword />} />
               <Route path="/create-post" element={<CreatePost />} />
-              <Route path="/post/:id" element={<Post />} />
-              <Route path="profile/">
+              <Route path="/post/">
+                <Route path=":id" element={<Post />} />
+              </Route>
+              <Route path="/profile/">
                 <Route path=":id" element={<Profile />} />
               </Route>
               <Route path="/messages/:id" element={<Messages />} />

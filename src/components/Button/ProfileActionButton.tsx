@@ -22,7 +22,7 @@ const ProfileActionButton: React.FC<IProfileActions> = ({ user }) => {
   };
 
   useEffect(() => {
-    if (!checkUserIsNull(user!)) {
+    if (!checkUserIsNull(user!) && !checkUserIsNull(currentUserProfile)) {
       if (currentUserProfile.follows?.includes(user?.id)) {
         setIsFriend(true);
       }
@@ -44,18 +44,20 @@ const ProfileActionButton: React.FC<IProfileActions> = ({ user }) => {
   return (
     <Suspense fallback={<div>Loading</div>}>
       <Row>
-        <ButtonGroup aria-label="Profile actions">
-          {!isFriend ? (
-            <Button className="rounded-pill me-4 w-50" onClick={handleFollow}>
-              Follow
-            </Button>
-          ) : (
-            <Button className="rounded-pill me-4 w-50" onClick={handleUnfollow}>
-              Unfollow
-            </Button>
-          )}
-          <Button className="rounded-pill ms-4 w-50">Message</Button>
-        </ButtonGroup>
+        {currentUserProfile && (
+          <ButtonGroup aria-label="Profile actions">
+            {!isFriend ? (
+              <Button className="rounded-pill me-4 w-50" onClick={handleFollow}>
+                Follow
+              </Button>
+            ) : (
+              <Button className="rounded-pill me-4 w-50" onClick={handleUnfollow}>
+                Unfollow
+              </Button>
+            )}
+            <Button className="rounded-pill ms-4 w-50">Message</Button>
+          </ButtonGroup>
+        )}
       </Row>
     </Suspense>
   );

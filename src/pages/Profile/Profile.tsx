@@ -46,6 +46,8 @@ const Profile: React.FC = () => {
 
   return (
     <>
+      <title>myJar Profile</title>
+      <meta />
       <div className="navi-wrapper p-0">
         <Navi />
       </div>

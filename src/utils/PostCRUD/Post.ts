@@ -11,7 +11,7 @@ import { useAuth } from '../../services/AuthContext';
 import { db } from '../../services/firebase';
 import { uploadPostImage } from '../StorageCRUD/Storage';
 
-export function createPost(postText, postTitle, postSubTitle, postThumnail) {
+export function createPost(postText, postTitle, postSubTitle, postThumbnail) {
   const { currentUser, currentUserProfile } = useAuth();
 
   addDoc(collection(db, 'posts'), {
@@ -23,9 +23,10 @@ export function createPost(postText, postTitle, postSubTitle, postThumnail) {
     createrName: currentUserProfile.fname + ' ' + currentUserProfile.lname,
     createrPhotoURL: currentUserProfile.photoURL,
     timestamp: new Date(Timestamp.now().seconds * 1000),
-    likes: 0
+    likes: 0,
+    category: ''
   }).then(async (d) => {
-    await uploadPostImage(d.id, postThumnail);
+    await uploadPostImage(d.id, postThumbnail);
     await updateDoc(doc(db, 'profile', currentUser.uid), {
       createdPosts: arrayUnion(d.id)
     });

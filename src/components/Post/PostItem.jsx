@@ -32,7 +32,7 @@ export default function PostItem() {
             <Row className="g-0">
               <Col xs={12} md={12} className="align-self-center">
                 <img
-                  loading="lazy"
+                  loading="eager"
                   src={p.postThumbnail || 'https://picsum.photos/1500/500'}
                   alt={p.postTitle}
                   width={1000}

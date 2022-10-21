@@ -2,5 +2,10 @@
   "git.ignoreLimitWarning": true,
   "prettier.endOfLine": "lf",
   "typescript.tsdk": "node_modules\\typescript\\lib",
-  "editor.fontSize": 14
+  "editor.fontSize": 14,
+  "cSpell.words": [
+    "creater",
+    "creatername",
+    "postitem"
+  ]
 }
