@@ -28,9 +28,9 @@ export default function PostItem() {
     <>
       <Suspense fallback={<div>Loading</div>}>
         {posts.map((p, index) => (
-          <Card key={index} className="mb-3 postitem-card bg-light">
+          <Card key={index} className="postitem-card bg-light">
             <Row className="g-0">
-              <Col xs={12} md={12} className="align-self-center">
+              <Col xs={12} className="align-self-center">
                 <img
                   loading="lazy"
                   src={p.postThumbnail || 'https://picsum.photos/1500/500'}
@@ -43,7 +43,7 @@ export default function PostItem() {
                   }}
                 />
               </Col>
-              <Col xs={12} md={12}>
+              <Col xs={12}>
                 <Card.Header className="border-0 bg-light">
                   <Card.Title
                     onClick={() => {

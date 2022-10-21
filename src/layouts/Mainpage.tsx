@@ -18,7 +18,7 @@ const Profile = lazy(() => import('../pages/Profile/Profile'));
 
 export default function Mainpage() {
   return (
-    <Container fluid>
+    <Container>
       <Row>
         <AuthProvider>
           <Suspense fallback={<div>Loading</div>}>

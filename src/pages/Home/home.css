@@ -4,6 +4,7 @@
 
 .homepage-grid {
   display: grid;
+  grid-template-columns: 1fr;
 }
 
 .welcome-text {
@@ -23,14 +24,7 @@
     padding-left: 4rem !important;
     padding-right: 4rem !important;
   }
-
-  .homepage-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    gap: 1rem;
-    margin-left: 3rem;
-    margin-right: 3rem;
-  }
+  
   .homepage-container {
     margin-left: 4rem;
     margin-right: 4rem;
