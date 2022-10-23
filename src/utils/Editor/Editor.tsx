@@ -2,7 +2,12 @@ import React from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-export default function Editor({ story, setStory }) {
+interface IEditor {
+  story: string;
+  setStory: any;
+}
+
+export default function Editor({ story, setStory }: IEditor) {
   return (
     <ReactQuill
       className="postcreate-story"

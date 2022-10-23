@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { Modal, Button, Form, Alert } from 'react-bootstrap';
 import { uploadProfilePicture } from '../../utils/StorageCRUD/Storage';
 
-export default function UpdateProfilePicture(props) {
+interface IUpdateProfilePicture {
+  show: boolean;
+  onHide: () => void;
+}
+
+export default function UpdateProfilePicture(props: IUpdateProfilePicture) {
   const [picture, setPicture] = useState<Blob | null>(null);
   const [error, setError] = useState('');
   const uploadImage = (e: any) => {

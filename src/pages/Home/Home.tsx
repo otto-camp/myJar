@@ -10,12 +10,10 @@ const Home: React.FC = () => {
   const { currentUser } = useAuth();
   return (
     <>
-      <div className="navi-wrapper p-0 ">
-        <Navi />
-      </div>
-      <Container className="p-0 m-0 min-h" fluid>
-        <div className="w-100 pb-3">
-          <div className="homepage-container">
+      <Navi />
+      <Container className="p-0 m-0">
+        <div className="w-100">
+          <div className="homepage-container bt bi">
             <p className="welcome-text">
               Welcome to
               <span className="fs-1 fw-bold ms-1">myJar</span>

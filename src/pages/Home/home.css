@@ -1,5 +1,5 @@
 .homepage-container {
-  margin: 1rem;
+  padding: 1rem;
 }
 
 .homepage-grid {
@@ -19,17 +19,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  .navi-wrapper {
-    width: 100%;
-    padding-left: 4rem !important;
-    padding-right: 4rem !important;
-  }
-  
-  .homepage-container {
-    margin-left: 4rem;
-    margin-right: 4rem;
-  }
-
   .welcome-text {
     font-size: calc(1rem + 1vw);
   }

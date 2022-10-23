@@ -1,5 +1,5 @@
 import { collection, getDocs, limit, query, where } from 'firebase/firestore';
-import React, { useState, useEffect, useRef, Suspense } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Card } from 'react-bootstrap';
 import { db } from '../../services/firebase';
 import moment from 'moment';
@@ -31,29 +31,27 @@ export default function ProfilePost(props) {
           </div>
         </div>
         <hr />
-        <Suspense fallback={<div>Loading</div>}>
-          {posts.map((p, index) => (
-            <div className="border border-light p-2 mb-3" key={index}>
-              <div className="d-flex align-items-start">
-                <div className="w-100">
-                  <h5>
-                    {p.postTitle}
-                    <small className="text-black-50 float-end fs-6">
-                      {moment.utc(p.timestamp.seconds, 'X').fromNow()}
-                    </small>
-                  </h5>
-                  <div>
-                    {p.postSubTitle}
-                    <Link to={'/post/' + p.pid} className="readmore-text">
-                      ...read more
-                    </Link>
-                    <br />
-                  </div>
+        {posts.map((p, index) => (
+          <div className="border border-light p-2 mb-3" key={index}>
+            <div className="d-flex align-items-start">
+              <div className="w-100">
+                <h5>
+                  {p.postTitle}
+                  <small className="text-black-50 float-end fs-6">
+                    {moment.utc(p.timestamp.seconds, 'X').fromNow()}
+                  </small>
+                </h5>
+                <div>
+                  {p.postSubTitle}
+                  <Link to={'/post/' + p.pid} className="readmore-text">
+                    ...read more
+                  </Link>
+                  <br />
                 </div>
               </div>
             </div>
-          ))}
-        </Suspense>
+          </div>
+        ))}
       </Card.Body>
     </Card>
   );

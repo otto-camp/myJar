@@ -26,7 +26,7 @@ export default function Navi() {
         expand="lg"
         variant="light"
         fixed="top"
-        className="position-relative navi"
+        className="position-relative bi bt navi"
       >
         <Navbar.Brand href="/" className="fs-1 navi-logo fw-bolder">
           myJar

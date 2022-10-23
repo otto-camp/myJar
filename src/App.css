@@ -9,3 +9,31 @@ body {
 .min-h {
   min-height: 100vh !important;
 }
+
+.b {
+  border: 1rem solid green;
+}
+
+.bt {
+  border-top: 1rem solid green;
+}
+
+.bb {
+  border-bottom: 1rem solid green;
+}
+
+.bl {
+  border-left: 1rem solid green;
+}
+
+.br {
+  border-right: 1rem solid green;
+}
+
+.bi {
+  border-inline: 1rem solid green;
+}
+
+.bblock {
+  border-block: 1rem solid green;
+}

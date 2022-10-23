@@ -2,18 +2,16 @@
   "git.ignoreLimitWarning": true,
   "prettier.endOfLine": "lf",
   "typescript.tsdk": "node_modules\\typescript\\lib",
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "editor.fontSize": 16
-=======
   "editor.fontSize": 14,
   "cSpell.words": [
+    "buildci",
     "creater",
     "creatername",
-    "postitem"
+    "linebreak",
+    "postitem",
+    "textnodes"
+  ],
+  "eslint.workingDirectories": [
+    "src"
   ]
->>>>>>> 9f18ee1e9dd1dc929592b927d8b91c7efbe5f00d
-=======
-  "editor.fontSize": 14
->>>>>>> parent of 9f18ee1 (Add google analytics)
 }

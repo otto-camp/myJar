@@ -1,4 +1,4 @@
-import React, { Suspense, useState, useEffect, lazy } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navi from '../../layouts/Navi';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import './profile.css';
@@ -9,14 +9,15 @@ import { useAuth } from '../../services/AuthContext';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../services/firebase';
 import { UserType } from '../../global/types';
+import loadable from '@loadable/component';
 
-const UpdateProfilePictureModal = lazy(
+const UpdateProfilePictureModal = loadable(
   () => import('../../components/Profile/UpdateProfilePictureModal')
 );
-const ProfileActionButton = lazy(() => import('../../components/Button/ProfileActionButton'));
-const SocialsSection = lazy(() => import('../../components/Profile/SocialsSection'));
-const ProfilePost = lazy(() => import('../../components/Post/ProfilePost'));
-const UpdateProfileModal = lazy(() => import('../../components/Profile/UpdateProfileModal'));
+const ProfileActionButton = loadable(() => import('../../components/Button/ProfileActionButton'));
+const SocialsSection = loadable(() => import('../../components/Profile/SocialsSection'));
+const ProfilePost = loadable(() => import('../../components/Post/ProfilePost'));
+const UpdateProfileModal = loadable(() => import('../../components/Profile/UpdateProfileModal'));
 
 const Profile: React.FC = () => {
   const [profileModalShow, setProfileModalShow] = useState(false);
@@ -60,8 +61,7 @@ const Profile: React.FC = () => {
                       className="float-end rounded-pill"
                       onClick={() => {
                         setProfileModalShow(true);
-                      }}
-                    >
+                      }}>
                       <FontAwesomeIcon icon={faPenToSquare} />
                     </Button>
                     <UpdateProfileModal
@@ -113,9 +113,7 @@ const Profile: React.FC = () => {
             {user && <SocialsSection user={user} />}
           </Col>
 
-          <Suspense fallback={<div>Loading</div>}>
-            <Col lg={7}>{user && <ProfilePost user={user} uid={id} />}</Col>
-          </Suspense>
+          <Col lg={7}>{user && <ProfilePost user={user} uid={id} />}</Col>
         </Row>
       </Container>
     </>

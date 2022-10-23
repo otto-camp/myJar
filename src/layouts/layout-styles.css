@@ -3,46 +3,23 @@
 }
 
 .navi-logo {
-  margin-left: 1rem;
+  margin-inline: auto;
 }
 
 .navi-toggle {
-  margin-right: 1rem;
-}
-
-.footer-border {
-  border: 2px solid #000;
-  width: 100%;
+  position: absolute;
+  right: 5%;
 }
 
 @media screen and (min-width: 768px) {
-  .navi-wrapper {
-    width: 100%;
-    padding-left: 4rem !important;
-    padding-right: 4rem !important;
-  }
-
-  .navi-logo {
-    margin-left: 0rem;
-  }
-  .navi-toggle {
-    margin-right: 0rem;
-  }
-
-  .footer-left {
-    margin-left: 3.5rem;
-  }
-
-  .footer-right {
-    margin-right: 3.5rem;
-  }
 }
 
 @media screen and (min-width: 992px) {
   .nav-space {
     margin-left: auto !important;
   }
-  .navi {
-    margin: 0rem;
+  .navi-logo{
+    margin-left: 1rem;
+    padding-right: 1rem;
   }
 }
