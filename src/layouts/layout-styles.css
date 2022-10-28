@@ -3,22 +3,15 @@
 }
 
 .navi-logo {
-  margin-inline: auto;
-}
-
-.navi-toggle {
-  position: absolute;
-  right: 5%;
-}
-
-@media screen and (min-width: 768px) {
+  margin-left: 1rem;
+  padding: 0.5rem;
 }
 
 @media screen and (min-width: 992px) {
   .nav-space {
     margin-left: auto !important;
   }
-  .navi-logo{
+  .navi-logo {
     margin-left: 1rem;
     padding-right: 1rem;
   }

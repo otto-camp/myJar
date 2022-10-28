@@ -15,7 +15,9 @@ const config = {
   entry: "./src/index.tsx",
   devtool: false,
   output: {
-    path: path.resolve(__dirname, "build")
+    path: path.resolve(__dirname, "build"),
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   devServer: {
     open: true,
@@ -63,7 +65,7 @@ const config = {
     ],
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".jsx", ".js", "..."],
+    extensions: [".tsx", ".ts", ".jsx", ".js", "..."],
   },
 };
 

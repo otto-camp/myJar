@@ -3,12 +3,18 @@
 }
 
 .postitem-card {
-  border-radius: 0;
+  border: none;
   padding: 1rem;
-}
-
-.postitem-card:first-child {
-  border-top: 1.5px solid green;
+  border-radius: 0.375rem;
+  backdrop-filter: blur(1rem) saturate(200%);
+  -webkit-backdrop-filter: blur(1rem) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  -webkit-border-radius: 0.375rem;
+  -moz-border-radius: 0.375rem;
+  -ms-border-radius: 0.375rem;
+  -o-border-radius: 0.375rem;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .postitem-title {
@@ -21,50 +27,50 @@
   -o-text-overflow: ellipsis;
   font-size: 1em;
   cursor: pointer;
+  color: #000;
+  transition-duration: 0.5s;
+}
+
+.postitem-title:hover {
+  color: #ff0074;
 }
 
 .postitem-image {
   cursor: pointer;
-  box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
-  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 0.375rem;
+  -webkit-border-radius: 0.375rem;
+  -moz-border-radius: 0.375rem;
+  -ms-border-radius: 0.375rem;
+  -o-border-radius: 0.375rem;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: all;
+  transition-duration: 0.5s;
 }
 
-.postitem-username {
-  color: #000;
-  display: flex;
-  cursor: pointer;
-}
-
-.postitem-creater-photo {
-  display: inline-block;
-  width: 3rem;
-  height: 3rem;
-  object-fit: scale-down;
+.postitem-category {
+  font-size: 0.8em;
+  text-transform: capitalize;
 }
 
 .postitem-creatername {
   font-size: var(--postitem-creater);
-  height: fit-content;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: 0.75rem;
+  cursor: pointer;
+  color: #555;
+  margin-bottom: 0rem;
+  line-height: 1.8rem;
+  transition-duration: 0.5s;
+}
+
+.postitem-creatername:hover {
+  color: #ff0074;
 }
 
 .postitem-date {
   width: max-content;
   font-size: var(--postitem-creater);
   color: rgba(0, 0, 0, 0.72);
-  margin-top: auto;
-  margin-bottom: auto;
-  height: fit-content;
-}
-
-.postitem-text {
-  cursor: pointer;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  margin: 0rem;
 }
 
 .postitem-subheader {
@@ -72,28 +78,71 @@
   align-content: center;
   justify-content: space-between;
   flex-direction: row;
-  vertical-align: middle;
 }
 
-@media only screen and (min-width: 500px) {
-  .postitem-text {
-    font-size: 100%;
-  }
+.featured-post {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 1rem;
+  background: var(--bs-indigo);
+}
 
-  .postitem-date {
-    margin-top: 0.5rem;
-  }
+.featured-post-image {
+  width: 85%;
+  height: auto;
+  aspect-ratio: 4/4;
+  object-fit: cover;
+  border-radius: 0.375rem;
+  -webkit-border-radius: 0.375rem;
+  -moz-border-radius: 0.375rem;
+  -ms-border-radius: 0.375rem;
+  -o-border-radius: 0.375rem;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: all;
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+
+.featured-post-title {
+  color: #fff;
+  margin-inline: auto;
+  width: 75%;
+  font-size: calc(1.2em + 1vw);
+  word-break: break-all;
+  line-height: 1.6em;
+  cursor: pointer;
+  transition-duration: 0.5s;
+}
+
+.featured-post-title:hover {
+  color: #f9f871;
+}
+
+.featured-post-creatername {
+  color: #fff;
+  cursor: pointer;
+}
+
+.featured-post-category {
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.image-zoom:hover {
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
 }
 
 @media only screen and (min-width: 600px) {
-  .postitem-title {
-    font-size: calc(1rem + 1vw);
+  .postitem-card {
+    margin-inline: calc(1rem + 2vw);
   }
 
-  .postitem-image {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+  .postitem-title {
+    font-size: calc(1rem + 1vw);
   }
 
   .postitem-creatername {
@@ -104,19 +153,33 @@
     font-size: 1.2rem;
   }
 
-  .postitem-text {
-    -webkit-line-clamp: 3;
+  .featured-post-image {
+    max-width: 75%;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .postitem-title {
-    height: 3em;
+  .postitem-card {
+    margin-inline: calc(2rem + 3vw);
   }
 
   .postitem-image {
-    width: 100%;
-    height: 15rem !important;
-    object-fit: cover;
+    aspect-ratio: 16/9;
+  }
+
+  .featured-post {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .postitem-card {
+    margin-inline: 0rem;
+  }
+
+  .postitem-title,
+  .postitem-subheader,
+  .postitem-category {
+    margin-left: 1rem;
   }
 }

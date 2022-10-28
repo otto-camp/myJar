@@ -1,6 +1,7 @@
 import { Timestamp } from 'firebase/firestore';
 
 export type PostType = {
+  pid?: string | undefined;
   postTitle?: string;
   postSubTitle?: string;
   postText?: string;

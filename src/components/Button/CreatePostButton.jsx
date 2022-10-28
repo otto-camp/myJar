@@ -8,7 +8,7 @@ export default function CreatePostButton({ text, className }) {
   return (
     <>
       {currentUser && (
-        <Link to={'/create-post'}>
+        <Link to={'/post/create-post'}>
           <Button className={className}>{text}</Button>
         </Link>
       )}

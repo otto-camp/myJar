@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Navbar, Nav, NavDropdown, Form, Button } from 'react-bootstrap';
+import { Container, Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../services/AuthContext';
 import { auth } from '../services/firebase';
@@ -26,27 +26,17 @@ export default function Navi() {
         expand="lg"
         variant="light"
         fixed="top"
-        className="position-relative bi bt navi"
+        className="position-relative navi"
       >
         <Navbar.Brand href="/" className="fs-1 navi-logo fw-bolder">
           myJar
         </Navbar.Brand>
         {currentUser && (
           <>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" className="navi-toggle" />
+            <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-4"/>
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="w-100">
-                <Form className="d-flex mx-2 ">
-                  <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2 rounded-pill"
-                    aria-label="Search"
-                  />
-                  <Button variant="primary" className="rounded-pill px-3">
-                    Search
-                  </Button>
-                </Form>
+                
                 <Link to={'/'} className="me-2 ms-2 fs-5 nav-space nav-link">
                   Home
                 </Link>

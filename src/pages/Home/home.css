@@ -1,29 +1,14 @@
 .homepage-container {
-  padding: 1rem;
-}
-
-.homepage-grid {
   display: grid;
   grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
-.welcome-text {
-  font-size: 1.2rem;
-  font-weight: 500;
-}
-
-.welcome-subtext {
-  margin: 0rem;
-  color: var(--bs-gray-800);
-  display: inline-flex;
-}
-
-@media screen and (min-width: 768px) {
-  .welcome-text {
-    font-size: calc(1rem + 1vw);
+@media screen and (min-width: 992px) {
+  .homepage-container {
+    grid-template-columns: repeat(2, 1fr);
   }
-
-  .welcome-subtext {
-    font-size: calc(0.7rem + 0.7vw);
+  .featured-post {
+    grid-column: 1/-1;
   }
 }
