@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden !important;
+}
+
+.resize-none {
+  resize: none;
+}
+
+.min-h {
+  min-height: 100vh !important;
+}
+
+a {
+  text-decoration: none !important;
+}

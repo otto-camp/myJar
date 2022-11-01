@@ -1,0 +1,4 @@
+.category-button {
+  font-size: calc(1em + 0.5vw);
+  text-transform: capitalize;
+}

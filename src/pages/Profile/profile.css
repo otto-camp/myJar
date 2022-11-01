@@ -1,0 +1,50 @@
+.avatar-lg {
+  height: 4.5rem;
+  width: 4.5rem;
+}
+
+.avatar-md {
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+.bg-transparent {
+  --bs-bg-opacity: 1;
+  background-color: transparent !important;
+}
+
+.li-height {
+  min-height: 3rem;
+}
+
+.link-button {
+  width: fit-content;
+  background: transparent;
+  color: var(--bs-dark) !important;
+}
+
+.link-button:hover,
+::after,
+::before {
+  background: var(--bs-gray-300) !important;
+}
+
+.img-thumbnail:hover {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .profile-m {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .m-left {
+    margin-right: 0rem;
+  }
+  .m-right {
+    margin-left: 0rem;
+  }
+}

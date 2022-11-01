@@ -1,0 +1,98 @@
+{
+  "name": "my-webpack-project",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.2",
+    "@fortawesome/free-brands-svg-icons": "^6.2.0",
+    "@fortawesome/free-solid-svg-icons": "^6.1.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "bootstrap": "^5.2.0",
+    "dotenv": "^16.0.3",
+    "firebase": "^9.9.3",
+    "html-react-parser": "^3.0.4",
+    "invert-color": "^2.0.0",
+    "moment": "^2.29.4",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.5.0",
+    "react-datepicker": "^4.8.0",
+    "react-dom": "^18.2.0",
+    "react-error-overlay": "^6.0.11",
+    "react-quill": "^2.0.0",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.8.4",
+    "unimported": "^1.22.0",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "analyze": "webpack --profile --json > stats.json",
+    "start": "webpack-dev-server --open --mode development --hot",
+    "build": "webpack --mode=production --node-env=production",
+    "buildci": "CI='' react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.js src/**/*.jsx",
+    "pretty": "prettier --write \"./**/*.{ts,tsx,json}\"",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch",
+    "serve": "webpack serve"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.6",
+    "@babel/preset-env": "^7.19.4",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
+    "@firebase/rules-unit-testing": "^2.0.4",
+    "@loadable/component": "^5.15.2",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest": "^29.1.1",
+    "@types/loadable__component": "^5.13.4",
+    "@types/node": "^18.8.0",
+    "@types/react": "^18.0.21",
+    "@types/react-datepicker": "^4.4.2",
+    "@types/react-dom": "^18.0.6",
+    "@types/react-router-dom": "^5.3.3",
+    "@webpack-cli/generators": "^2.5.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.5",
+    "compression-webpack-plugin": "^10.0.0",
+    "css-loader": "^6.7.1",
+    "eslint": "^8.23.1",
+    "eslint-plugin-react": "^7.31.8",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "msw": "^0.47.4",
+    "prettier": "2.7.1",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.4.1",
+    "webpack": "^5.74.0",
+    "webpack-bundle-analyzer": "^4.7.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1",
+    "workbox-webpack-plugin": "^6.5.4"
+  },
+  "description": "My webpack project"
+}

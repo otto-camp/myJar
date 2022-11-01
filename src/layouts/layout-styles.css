@@ -1,0 +1,17 @@
+.nav-link {
+  color: #252525;
+}
+
+.navi-logo {
+  margin-left: 1rem;
+}
+
+@media screen and (min-width: 992px) {
+  .nav-space {
+    margin-left: auto !important;
+  }
+  .navi-logo {
+    margin-left: 1rem;
+    padding-right: 1rem;
+  }
+}
