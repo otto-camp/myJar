@@ -1,8 +1,13 @@
 import moment from 'moment';
 import React, { useRef } from 'react';
+<<<<<<< HEAD
 import { Card, Col, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import CategoryButton from '../Button/CategoryButton';
+=======
+import { Button, Card, Col, Row } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
+>>>>>>> fae0ef1ccfee9a1dea83072e7c0622b02efb3ec5
 import './post.css';
 
 export default function PostItem({ posts }) {
@@ -32,9 +37,15 @@ export default function PostItem({ posts }) {
                 <Link to={'/post/' + postRef.current.pid}>
                   <h5 className="postitem-title">{postRef.current.postTitle}</h5>
                 </Link>
+<<<<<<< HEAD
                 <div className="ms-lg-3">
                   <CategoryButton text={postRef.current.category} />
                 </div>
+=======
+                <Button variant="none" className="postitem-category">
+                  {postRef.current.category}
+                </Button>
+>>>>>>> fae0ef1ccfee9a1dea83072e7c0622b02efb3ec5
               </Card.Title>
               <div className="postitem-subheader">
                 <Link to={'profile/' + postRef.current.createrId}>

@@ -4,6 +4,10 @@
 
 .navi-logo {
   margin-left: 1rem;
+<<<<<<< HEAD
+=======
+  padding: 0.5rem;
+>>>>>>> fae0ef1ccfee9a1dea83072e7c0622b02efb3ec5
 }
 
 @media screen and (min-width: 992px) {

@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import { Alert, Button, Col, Form, Row } from 'react-bootstrap';
+=======
+import { Alert, Button, Form } from 'react-bootstrap';
+>>>>>>> fae0ef1ccfee9a1dea83072e7c0622b02efb3ec5
 import Navi from '../../layouts/Navi';
 import Editor from '../../utils/Editor/Editor';
 import './post.css';
 import { useNavigate } from 'react-router-dom';
 import { createPost } from '../../utils/PostCRUD/Post';
 
+<<<<<<< HEAD
 import categories from '../../assets/categories.json';
 
+=======
+>>>>>>> fae0ef1ccfee9a1dea83072e7c0622b02efb3ec5
 const CreatePost: React.FC = () => {
   const [title, setTitle] = useState<string>('');
   const [subTitle, setSubTitle] = useState<string>('');
@@ -54,6 +61,17 @@ const CreatePost: React.FC = () => {
         </header>
         <main className="margin-div postcreate-main">
           <Form>
+<<<<<<< HEAD
+=======
+            <Form.Group className="mb-3">
+              <Form.Label className="fs-3 fw-semibold">Thumbnail</Form.Label>
+              <Form.Control
+                type={'file'}
+                onChange={(e) => uploadImage(e)}
+                accept={'.jpg, .png, .jpeg'}
+              />
+            </Form.Group>
+>>>>>>> fae0ef1ccfee9a1dea83072e7c0622b02efb3ec5
             <Form.Group className="mb-2">
               <Form.Label className="fs-3 fw-semibold">Title</Form.Label>
               <Form.Control
@@ -73,6 +91,7 @@ const CreatePost: React.FC = () => {
                 className="postcreate-title resize-none overflow-hidden"
                 rows={1}
               />
+<<<<<<< HEAD
               <Form.Group>
                 <Row>
                   <Col xs={12} sm={6}>
@@ -96,6 +115,8 @@ const CreatePost: React.FC = () => {
                   </Col>
                 </Row>
               </Form.Group>
+=======
+>>>>>>> fae0ef1ccfee9a1dea83072e7c0622b02efb3ec5
             </Form.Group>
             <Form.Group className="mb-2">
               <Form.Label className="fs-3 fw-semibold">Story</Form.Label>
@@ -103,11 +124,19 @@ const CreatePost: React.FC = () => {
             </Form.Group>
           </Form>
         </main>
+<<<<<<< HEAD
         <div className="postcreate-footer">
           <Button variant="primary" className="rounded-pill fs-5" onClick={(e) => submitPost(e)}>
             Submit
           </Button>
         </div>
+=======
+        <footer className="postcreate-footer">
+          <Button variant="primary" className="rounded-pill fs-5" onClick={(e) => submitPost(e)}>
+            Submit
+          </Button>
+        </footer>
+>>>>>>> fae0ef1ccfee9a1dea83072e7c0622b02efb3ec5
       </section>
     </>
   );

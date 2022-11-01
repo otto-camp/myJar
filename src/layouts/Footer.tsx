@@ -27,7 +27,11 @@ export default function Footer() {
           <li className="ms-3">
             <a
               className="text-muted"
+<<<<<<< HEAD
               aria-label="LinkedIn link"
+=======
+              aria-label="LindkedIn link"
+>>>>>>> fae0ef1ccfee9a1dea83072e7c0622b02efb3ec5
               href="https://www.linkedin.com/in/ismail-yarar/"
               target={'_blank'}
               rel="noreferrer">

@@ -11,7 +11,10 @@
     "dotenv": "^16.0.3",
     "firebase": "^9.9.3",
     "html-react-parser": "^3.0.4",
+<<<<<<< HEAD
     "invert-color": "^2.0.0",
+=======
+>>>>>>> fae0ef1ccfee9a1dea83072e7c0622b02efb3ec5
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",

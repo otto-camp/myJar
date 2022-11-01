@@ -10,6 +10,7 @@ input[type='search']::-webkit-search-results-decoration {
   justify-content: center;
   position: relative;
   align-items: stretch;
+<<<<<<< HEAD
   padding-inline: 1.5rem;
   width: 100%;
 }
@@ -53,4 +54,14 @@ input[type='search']::-webkit-search-results-decoration {
     width: calc(75% - 0.5rem);
     margin-inline: auto;
   }
+=======
+  padding-inline: 2rem;
+  width: 100%;
+}
+
+.search-btn{
+    position: absolute;
+    right: 0;
+    margin-right: 2rem;
+>>>>>>> fae0ef1ccfee9a1dea83072e7c0622b02efb3ec5
 }
