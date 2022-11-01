@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
 import { useParams } from 'react-router-dom';
 import './category.css';
 import categories from '../../assets/categories.json';
@@ -36,12 +35,6 @@ const Category: React.FC = () => {
       </div>
     </>
   );
-=======
-import './category.css';
-
-const Category: React.FC = () => {
-  return <div>Categories</div>;
->>>>>>> fae0ef1ccfee9a1dea83072e7c0622b02efb3ec5
 };
 
 export default Category;

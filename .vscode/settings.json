@@ -12,7 +12,5 @@
     "postitem",
     "textnodes"
   ],
-  "eslint.workingDirectories": [
-    "src"
-  ]
+  "eslint.workingDirectories": ["src"]
 }

@@ -11,7 +11,12 @@ import { useAuth } from '../../services/AuthContext';
 import { db } from '../../services/firebase';
 import { uploadPostImage } from '../StorageCRUD/Storage';
 
-export function createPost(postText:string, postTitle:string, postSubTitle:string, postThumbnail:Blob) {
+export function createPost(
+  postText: string,
+  postTitle: string,
+  postSubTitle: string,
+  postThumbnail: Blob
+) {
   const { currentUser, currentUserProfile } = useAuth();
 
   addDoc(collection(db, 'posts'), {
@@ -33,12 +38,12 @@ export function createPost(postText:string, postTitle:string, postSubTitle:strin
   });
 }
 
-export function deletePost(id:string) {
+export function deletePost(id: string) {
   const postDoc = doc(collection(db, 'posts'), id);
   deleteDoc(postDoc);
 }
 
-export function updatePost(id:string, updatedText:string) {
+export function updatePost(id: string, updatedText: string) {
   const postDoc = doc(collection(db, 'posts'), id);
   updateDoc(postDoc, {
     postText: updatedText,

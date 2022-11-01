@@ -3,7 +3,7 @@ import { updateDoc, doc } from 'firebase/firestore';
 import { db, storage } from '../../services/firebase';
 import { useAuth } from '../../services/AuthContext';
 
-export function uploadPostImage(postId:string, image:Blob) {
+export function uploadPostImage(postId: string, image: Blob) {
   const { currentUser } = useAuth();
   uploadBytes(ref(storage, currentUser.uid + '/' + postId), image).then(() => {
     const urlRef = ref(storage, 'gs://myjar-8ff23.appspot.com/' + currentUser.uid + '/' + postId);

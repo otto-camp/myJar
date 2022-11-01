@@ -33,14 +33,9 @@ export default function Navi() {
         </Navbar.Brand>
         {currentUser && (
           <>
-<<<<<<< HEAD
-            <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-3"/>
-=======
-            <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-4"/>
->>>>>>> fae0ef1ccfee9a1dea83072e7c0622b02efb3ec5
+            <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-3" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="w-100">
-                
                 <Link to={'/'} className="me-2 ms-2 fs-5 nav-space nav-link">
                   Home
                 </Link>

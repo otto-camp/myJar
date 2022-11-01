@@ -39,11 +39,7 @@ export default function Mainpage() {
             </Route>
             <Route path="/messages/:id" element={<Messages />} />
             <Route path="/settings" element={<Settings />} />
-<<<<<<< HEAD
             <Route path="/category/:category" element={<Category />} />
-=======
-            <Route path="category/name" element={<Category />} />
->>>>>>> fae0ef1ccfee9a1dea83072e7c0622b02efb3ec5
           </Routes>
         </AuthProvider>
       </Row>

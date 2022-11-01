@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "categories": [
     {
       "name": "food",
@@ -116,84 +115,4 @@
       "image": "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/categories%2Fpolitical.jpg?alt=media&token=0180c490-39db-4ad6-8ea0-5ef75ee9f1da"
     }
   ]
-=======
-  "categories": {
-    "food": {
-      "name": "food",
-      "color": "#000000"
-    },
-    "travel": {
-      "name": "travel",
-      "color": "#000000"
-    },
-    "health": {
-      "name": "health",
-      "color": "#000000"
-    },
-    "fitness": {
-      "name": "fitness",
-      "color": "#000000"
-    },
-    "lifestyle": {
-      "name": "lifestyle",
-      "color": "#000000"
-    },
-    "fashion": {
-      "name": "fashion",
-      "color": "#000000"
-    },
-    "photography": {
-      "name": "photography",
-      "color": "#000000"
-    },
-    "personal": {
-      "name": "personal",
-      "color": "#000000"
-    },
-    "DIY": {
-      "name": "DIY",
-      "color": "#000000"
-    },
-    "music": {
-      "name": "music",
-      "color": "#000000"
-    },
-    "business": {
-      "name": "business",
-      "color": "#000000"
-    },
-    "art and design": {
-      "name": "art and design",
-      "color": "#000000"
-    },
-    "books": {
-      "name": "book",
-      "color": "#000000"
-    },
-    "economy": {
-      "name": "economy",
-      "color": "#000000"
-    },
-    "sports": {
-      "name": "sports",
-      "color": "#000000"
-    },
-    "news": {
-      "name": "news",
-      "color": "#000000"
-    },
-    "movie": {
-      "name": "movie",
-      "color": "#000000"
-    },
-    "religion": {
-      "name": "religion",
-      "color": "#000000"
-    },
-    "political": {
-      "name": "political",
-      "color": "#000000"
-    }
-  }
->>>>>>> fae0ef1ccfee9a1dea83072e7c0622b02efb3ec5
 }

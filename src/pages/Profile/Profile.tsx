@@ -61,7 +61,8 @@ const Profile: React.FC = () => {
                       className="float-end rounded-pill"
                       onClick={() => {
                         setProfileModalShow(true);
-                      }}>
+                      }}
+                    >
                       <FontAwesomeIcon icon={faPenToSquare} />
                     </Button>
                     <UpdateProfileModal
