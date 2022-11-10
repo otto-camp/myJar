@@ -8,7 +8,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.1.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "bootstrap": "^5.2.0",
-    "dotenv": "^16.0.3",
+    "dotenv-webpack": "^8.0.1",
     "firebase": "^9.9.3",
     "html-react-parser": "^3.0.4",
     "invert-color": "^2.0.0",

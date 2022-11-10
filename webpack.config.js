@@ -4,6 +4,7 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const Dotenv = require('dotenv-webpack')
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -27,7 +28,8 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public", "index.html"),
-    })
+    }),
+    new Dotenv()
   ],
   module: {
     rules: [
