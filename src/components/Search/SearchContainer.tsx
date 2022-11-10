@@ -16,7 +16,9 @@ const SearchContainer: React.FC = () => {
 
   return (
     <Row>
-      <Searchbox />
+      <div className="px-4">
+        <Searchbox />
+      </div>
       <Nav variant="pills" fill className="category-link-wrapper">
         {getRandom(categoryArr, 5).map((c) => (
           <Nav.Item key={c} className="rounded-1 fs-5 d-inline-block">

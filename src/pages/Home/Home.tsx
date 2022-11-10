@@ -3,8 +3,8 @@ import './home.css';
 import { Container } from 'react-bootstrap';
 import Navi from '../../layouts/Navi';
 import { collection, getDocs, limit, orderBy, query } from 'firebase/firestore';
-import { db } from '../../services/firebase';
-import { UserType } from '../../global/types';
+import { db } from '../../services/firebase.js';
+import { PostType } from '../../global/types';
 import loadable from '@loadable/component';
 
 const FeaturedPost = loadable(() => import('../../components/Post/FeaturedPost'));
@@ -12,7 +12,7 @@ const SearchContainer = loadable(() => import('../../components/Search/SearchCon
 const PostItem = loadable(() => import('../../components/Post/PostItem'));
 
 const Home: React.FC = () => {
-  const [posts, setPosts] = useState<UserType | any>([]);
+  const [posts, setPosts] = useState<PostType | any>([]);
 
   useEffect(() => {
     const getPosts = async () => {

@@ -10,14 +10,12 @@ input[type='search']::-webkit-search-results-decoration {
   justify-content: center;
   position: relative;
   align-items: stretch;
-  padding-inline: 1.5rem;
   width: 100%;
 }
 
 .search-btn {
   position: absolute;
   right: 0;
-  margin-right: 2rem;
 }
 
 .category-link-wrapper {

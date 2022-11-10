@@ -8,7 +8,7 @@ import {
   deleteDoc
 } from 'firebase/firestore';
 import { useAuth } from '../../services/AuthContext';
-import { db } from '../../services/firebase';
+import { db } from '../../services/firebase.js';
 import { uploadPostImage } from '../StorageCRUD/Storage';
 
 export function createPost(

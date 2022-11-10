@@ -21,7 +21,6 @@
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "typescript": "^4.8.4",
     "unimported": "^1.22.0",
     "web-vitals": "^2.1.4"
   },
@@ -60,7 +59,6 @@
   "devDependencies": {
     "@babel/core": "^7.19.6",
     "@babel/preset-env": "^7.19.4",
-    "@babel/preset-es2015": "^7.0.0-beta.53",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
     "@firebase/rules-unit-testing": "^2.0.4",
@@ -70,6 +68,7 @@
     "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^29.1.1",
     "@types/loadable__component": "^5.13.4",
+    "@types/lodash": "^4.14.188",
     "@types/node": "^18.8.0",
     "@types/react": "^18.0.21",
     "@types/react-datepicker": "^4.4.2",
@@ -88,6 +87,7 @@
     "prettier": "2.7.1",
     "style-loader": "^3.3.1",
     "ts-loader": "^9.4.1",
+    "typescript": "^4.8.4",
     "webpack": "^5.74.0",
     "webpack-bundle-analyzer": "^4.7.0",
     "webpack-cli": "^4.10.0",

@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { register } from './serviceWorker';
 import { SSRProvider } from 'react-bootstrap';
 import Mainpage from './layouts/Mainpage';
+import { disableReactDevTools } from './DisableReactDevTools';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
@@ -21,3 +22,5 @@ root.render(
 
 register();
 reportWebVitals();
+
+if (process.env.NODE_ENV === 'production') disableReactDevTools();

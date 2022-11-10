@@ -1,6 +1,6 @@
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { updateDoc, doc } from 'firebase/firestore';
-import { db, storage } from '../../services/firebase';
+import { db, storage } from '../../services/firebase.js';
 import { useAuth } from '../../services/AuthContext';
 
 export function uploadPostImage(postId: string, image: Blob) {

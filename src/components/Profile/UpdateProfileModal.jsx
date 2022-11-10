@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
 import { useAuth } from '../../services/AuthContext';
-import { db } from '../../services/firebase';
+import { db } from '../../services/firebase.js';
 
 const UpdateProfileModal = (props) => {
   const [fname, setFname] = useState('');

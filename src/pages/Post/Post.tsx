@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { Col, Image, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import Navi from '../../layouts/Navi';
-import { db } from '../../services/firebase';
+import { db } from '../../services/firebase.js';
 import './post.css';
 import { PostType } from '../../global/types';
 import HTMLReactParser from 'html-react-parser';

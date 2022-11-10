@@ -1,7 +1,7 @@
 import { doc, setDoc } from 'firebase/firestore';
 import React, { useRef, useState } from 'react';
 import { Alert, Button, Card, Col, Form, Navbar, Row } from 'react-bootstrap';
-import { db } from '../services/firebase';
+import { db } from '../services/firebase.js';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useAuth } from '../services/AuthContext';

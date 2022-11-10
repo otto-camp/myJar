@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../services/AuthContext';
-import { auth } from '../services/firebase';
+import { auth } from '../services/firebase.js';
 import './layout-styles.css';
 
 export default function Navi() {

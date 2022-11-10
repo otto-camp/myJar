@@ -2,7 +2,7 @@ import { updateDoc, doc } from 'firebase/firestore';
 import React, { useRef } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
 import { useAuth } from '../../services/AuthContext';
-import { db } from '../../services/firebase';
+import { db } from '../../services/firebase.js';
 
 interface ISocialModal {
   show: boolean;

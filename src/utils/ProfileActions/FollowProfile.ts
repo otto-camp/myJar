@@ -1,6 +1,6 @@
 import { updateDoc, doc, arrayUnion, arrayRemove } from 'firebase/firestore';
 import { UserType } from '../../global/types';
-import { db } from '../../services/firebase';
+import { db } from '../../services/firebase.js';
 
 export function follow(targetUser: UserType, user: UserType) {
   if (!user.follows?.includes(targetUser.id!)) {

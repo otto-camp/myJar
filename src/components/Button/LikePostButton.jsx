@@ -3,7 +3,7 @@ import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from 'react-bootstrap';
 import { arrayRemove, arrayUnion, doc, increment, updateDoc } from 'firebase/firestore';
-import { db } from '../../services/firebase';
+import { db } from '../../services/firebase.js';
 
 export default class LikePostButton extends Component {
   constructor(props) {

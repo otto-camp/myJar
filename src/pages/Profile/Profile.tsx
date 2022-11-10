@@ -7,7 +7,7 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../../services/AuthContext';
 import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../../services/firebase';
+import { db } from '../../services/firebase.js';
 import { UserType } from '../../global/types';
 import loadable from '@loadable/component';
 
