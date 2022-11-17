@@ -2,61 +2,61 @@
   "categories": [
     {
       "name": "food",
-      "color": "#000000",
+      "color": "#086228",
       "description": "Food is any substance consumed to provide nutritional support for an organism. Food is usually of plant, animal, or fungal origin, and contains essential nutrients, such as carbohydrates, fats, proteins, vitamins, or minerals. The substance is ingested by an organism and assimilated by the organism's cells to provide energy, maintain life, or stimulate growth. Different species of animals have different feeding behaviors that satisfy the needs of their unique metabolisms, often evolved to fill a specific ecological niche within specific geographical contexts.",
       "image": "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/categories%2Ffood.jpg?alt=media&token=0dec39bd-5480-479c-991c-9622053649d2"
     },
     {
       "name": "travel",
-      "color": "#000000",
+      "color": "#767b6a",
       "description": "Travel is the movement of people between distant geographical locations. Travel can be done by foot, bicycle, automobile, train, boat, bus, airplane, ship or other means, with or without luggage, and can be one way or round trip. Travel can also include relatively short stays between successive movements, as in the case of tourism.",
       "image": "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/categories%2Ftravel.jpg?alt=media&token=ef685946-1342-4114-b608-0b89468097d4"
     },
     {
       "name": "health",
-      "color": "#000000",
+      "color": "#f17485",
       "description": "Health, according to the World Health Organization, is 'a state of complete physical, mental and social well-being and not merely the absence of disease and infirmity'. A variety of definitions have been used for different purposes over time. Health can be promoted by encouraging healthful activities, such as regular physical exercise and adequate sleep, and by reducing or avoiding unhealthful activities or situations, such as smoking or excessive stress. Some factors affecting health are due to individual choices, such as whether to engage in a high-risk behavior, while others are due to structural causes, such as whether the society is arranged in a way that makes it easier or harder for people to get necessary healthcare services. Still, other factors are beyond both individual and group choices, such as genetic disorders.",
       "image": "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/categories%2Fhealth.jpg?alt=media&token=05de3151-3bca-4021-abb9-6172c5b91fbe"
     },
     {
       "name": "fitness",
-      "color": "#000000",
+      "color": "#c6bad4",
       "description": "Physical fitness is a state of health and well-being and, more specifically, the ability to perform aspects of sports, occupations and daily activities. Physical fitness is generally achieved through proper nutrition, moderate-vigorous physical exercise, and sufficient rest along with a formal recovery plan. Before the Industrial Revolution, fitness was defined as the capacity to carry out the day's activities without undue fatigue or lethargy. However, with automation and changes in lifestyles, physical fitness is now considered a measure of the body's ability to function efficiently and effectively in work and leisure activities, to be healthy, to resist hyperkinetic diseases, improve immune system and to meet emergency situations.",
       "image": "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/categories%2Ffitness.jpg?alt=media&token=e43ee097-18a9-4877-a780-c347ddf3b721"
     },
     {
       "name": "lifestyle",
-      "color": "#000000",
+      "color": "#644fd8",
       "description": "",
       "image": "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/categories%2Flifestyle.jpg?alt=media&token=99a3c5ff-e79a-49bd-8755-ab021dc29654"
     },
     {
       "name": "fashion",
-      "color": "#000000",
+      "color": "#dc2136",
       "description": "Fashion is a form of self-expression and autonomy at a particular period and place and in a specific context, of clothing, footwear, lifestyle, accessories, makeup, hairstyle, and body posture. The term implies a look defined by the fashion industry as that which is trending. Everything that is considered fashion is available and popularized by the fashion system (industry and media).",
       "image": "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/categories%2Ffashion.jpg?alt=media&token=1fc36d9a-1cd3-4011-9685-83ed7065bd83"
     },
     {
       "name": "photography",
-      "color": "#000000",
+      "color": "#4e2b7f",
       "description": "Photography is the art, application, and practice of creating durable images by recording light, either electronically by means of an image sensor, or chemically by means of a light-sensitive material such as photographic film. It is employed in many fields of science, manufacturing (e.g., photolithography), and business, as well as its more direct uses for art, film and video production, recreational purposes, hobby, and mass communication.",
       "image": "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/categories%2Fphotography.jpg?alt=media&token=07facdb7-9347-435e-9f55-5d59166215df"
     },
     {
       "name": "personal",
-      "color": "#000000",
+      "color": "#eed1cd",
       "description": "",
       "image": "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/categories%2Fpersonal.jpg?alt=media&token=ff6cdd5f-148b-4f15-8deb-7c4dba8e38e2"
     },
     {
       "name": "DIY",
-      "color": "#000000",
+      "color": "#9c7657",
       "description": "'Do it yourself' ('DIY') is the method of building, modifying, or repairing things by oneself without the direct aid of professionals or certified experts. Academic research has described DIY as behaviors where 'individuals use raw and semi-raw materials and parts to produce, transform, or reconstruct material possessions, including those drawn from the natural environment (e.g., landscaping)'. DIY behavior can be triggered by various motivations previously categorized as marketplace motivations (economic benefits, lack of product availability, lack of product quality, need for customization), and identity enhancement (craftsmanship, empowerment, community seeking, uniqueness).",
       "image": "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/categories%2Fdiy.jpg?alt=media&token=94a8c2d1-a674-48ed-9bc4-f8fd3bab36e5"
     },
     {
       "name": "music",
-      "color": "#000000",
+      "color": "#4ecaa8",
       "description": "Music is generally defined as the art of arranging sound to create some combination of form, harmony, melody, rhythm or otherwise expressive content. Exact definitions of music vary considerably around the world, though it is an aspect of all human societies, a cultural universal. While scholars agree that music is defined by a few specific elements, there is no consensus on their precise definitions. The creation of music is commonly divided into musical composition, musical improvisation, and musical performance, though the topic itself extends into academic disciplines, criticism, philosophy, and psychology. Music may be performed or improvised using a vast range of instruments, including the human voice.",
       "image": "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/categories%2Fmusic.jpg?alt=media&token=88c0e088-0de4-40fe-bfc2-04cad2dfa1de"
     },
@@ -68,49 +68,49 @@
     },
     {
       "name": "art and design",
-      "color": "#000000",
+      "color": "#59293d",
       "description": "A design is a plan or specification for the construction of an object or system or for the implementation of an activity or process or the result of that plan or specification in the form of a prototype, product, or process. The verb to design expresses the process of developing a design. In some cases, the direct construction of an object without an explicit prior plan (such as in craftwork, some engineering, coding, and graphic design) may also be considered to be a design activity. The design usually has to satisfy certain goals and constraints; may take into account aesthetic, functional, economic, or socio-political considerations; and is expected to interact with a certain environment. Typical examples of designs include architectural and engineering drawings, circuit diagrams, sewing patterns and less tangible artefact such as business process models.",
       "image": "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/categories%2Fartanddesignjpg.jpg?alt=media&token=8e9fb017-ee72-42f7-830c-3725b01cfbcd"
     },
     {
       "name": "book",
-      "color": "#000000",
+      "color": "#aba766",
       "description": "A book is a medium for recording information in the form of writing or images, typically composed of many pages (made of papyrus, parchment, vellum, or paper) bound together and protected by a cover. The technical term for this physical arrangement is codex (plural, codices). In the history of hand-held physical supports for extended written compositions or records, the codex replaces its predecessor, the scroll. A single sheet in a codex is a leaf and each side of a leaf is a page.",
       "image": "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/categories%2Fbook.jpg?alt=media&token=ff5eb63d-d7ab-422d-b7ab-24ac0633fbb6"
     },
     {
       "name": "economy",
-      "color": "#000000",
+      "color": "#a84470",
       "description": "An economy is defined by the production, distribution, and consumption of goods and services.  The decisions of individuals and firms interacting in this process determine how economic resources are allocated.  The quality of a region’s economy reflects the opportunities available to individuals and businesses.  Strong economies typically result in a high standard of living, higher wages, and consistent job growth.  Stable economies include a diverse mix of industries offering a wide range of jobs with varying skill requirements. Improving the economic performance and opportunities within a region are often the primary goal of civic leaders and elected officials. The economic indicators included in this section help identify where Southern Arizona stands in comparison to other economic regions in the western United States.",
       "image": "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/categories%2Feconomy.jpg?alt=media&token=f8df2fef-2336-4c79-8f56-b05dad90dbb0"
     },
     {
       "name": "sports",
-      "color": "#000000",
+      "color": "#d8526f",
       "description": "Sport pertains to any form of competitive physical activity or game that aims to use, maintain, or improve physical ability and skills while providing enjoyment to participants and, in some cases, entertainment to spectators. Sports can, through casual or organized participation, improve participants' physical health. Hundreds of sports exist, from those between single contestants, through to those with hundreds of simultaneous participants, either in teams or competing as individuals. In certain sports such as racing, many contestants may compete, simultaneously or consecutively, with one winner; in others, the contest (a match) is between two sides, each attempting to exceed the other. Some sports allow a 'tie' or 'draw', in which there is no single winner; others provide tie-breaking methods to ensure one winner and one loser. A number of contests may be arranged in a tournament producing a champion. Many sports leagues make an annual champion by arranging games in a regular sports season, followed in some cases by playoffs.",
       "image": "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/categories%2Fsports.jpg?alt=media&token=b17d5856-16eb-4c89-8a09-d40ec50a4dd4"
     },
     {
       "name": "news",
-      "color": "#000000",
+      "color": "#38e810",
       "description": "News is information about current events. This may be provided through many different media: word of mouth, printing, postal systems, broadcasting, electronic communication, or through the testimony of observers and witnesses to events. News is sometimes called 'hard news' to differentiate it from soft media. Common topics for news reports include war, government, politics, education, health, the environment, economy, business, fashion, entertainment, and sport, as well as quirky or unusual events. Government proclamations, concerning royal ceremonies, laws, taxes, public health, and criminals, have been dubbed news since ancient times. Technological and social developments, often driven by government communication and espionage networks, have increased the speed with which news can spread, as well as influenced its content. The genre of news as we know it today is closely associated with the newspaper.",
       "image": "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/categories%2Fnews.jpg?alt=media&token=abeff486-a26c-42ed-a5a7-202341898b7e"
     },
     {
       "name": "movie",
-      "color": "#000000",
+      "color": "#d488c7",
       "description": "A film also called a movie, motion picture, moving picture, picture or photoplay is a work of visual art that simulates experiences and otherwise communicates ideas, stories, perceptions, feelings, beauty, or atmosphere through the use of moving images. These images are generally accompanied by sound and, more rarely, other sensory stimulations. The word 'cinema', short for cinematography, is often used to refer to filmmaking and the film industry, and to the art form that is the result of it.",
       "image": "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/categories%2Fmovie.jpg?alt=media&token=44155d6e-66ab-432f-9574-b480768d3f69"
     },
     {
       "name": "religion",
-      "color": "#000000",
+      "color": "#e3a3ae",
       "description": "Religion is usually defined as a social-cultural system of designated behaviors and practices, morals, beliefs, worldviews, texts, sanctified places, prophecies, ethics, or organizations, that generally relates humanity to supernatural, transcendental, and spiritual elements; however, there is no scholarly consensus over what precisely constitutes a religion.",
       "image": "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/categories%2Freligion.jpg?alt=media&token=3a89ac0d-2892-4e5c-ab7a-4163b28b0962"
     },
     {
       "name": "political",
-      "color": "#000000",
+      "color": "#353535",
       "description": "Politics (from Greek: Πολιτικά, politiká, 'affairs of the cities') is the set of activities that are associated with making decisions in groups, or other forms of power relations among individuals, such as the distribution of resources or status. The branch of social science that studies politics and government is referred to as political science. It may be used positively in the context of a 'political solution' which is compromising and nonviolent, or descriptively as 'the art or science of government', but also often carries a negative connotation. The concept has been defined in various ways, and different approaches have fundamentally differing views on whether it should be used extensively or limitedly, empirically or normatively, and on whether conflict or co-operation is more essential to it.",
       "image": "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/categories%2Fpolitical.jpg?alt=media&token=0180c490-39db-4ad6-8ea0-5ef75ee9f1da"
     }

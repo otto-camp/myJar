@@ -36,16 +36,16 @@ export default function Navi() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-3" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="w-100">
-                <Link to={'/'} className="me-2 ms-2 fs-5 nav-space nav-link">
+                <Link to={'/'} className="mx-3 fs-5 nav-space nav-link">
                   Home
                 </Link>
-                <Link to={'/profile/' + currentUser.uid} className="mx-2  fs-5 nav-link">
+                <Link to={'/profile/' + currentUser.uid} className="mx-3 fs-5 nav-link">
                   Profile
                 </Link>
-                <Link to={'/messages/' + currentUser.uid} className="mx-2  fs-5 nav-link">
+                <Link to={'/messages/' + currentUser.uid} className="mx-3 fs-5 nav-link">
                   Messages
                 </Link>
-                <NavDropdown title="Account" id="basic-nav-dropdown" className="mx-2 fs-5">
+                <NavDropdown title="Account" id="basic-nav-dropdown" className="mx-3 fs-5">
                   <NavDropdown.Item href="/settings">Settings</NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item onClick={handleSignOut}>Sign Out</NavDropdown.Item>

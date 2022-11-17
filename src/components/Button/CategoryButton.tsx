@@ -12,7 +12,7 @@ interface ICategoryButton {
 const CategoryButton: React.FC<ICategoryButton> = ({ text }) => {
   const categoryIndex = categories.categories.findIndex((c) => c.name === text);
   const bgColor = categories.categories[categoryIndex].color;
-  const textColor = invert(bgColor);
+  const textColor = invert(bgColor, { black: '#000', white: '#fff' });
 
   return (
     <Button className="category-button" variant="none" style={{ backgroundColor: bgColor }}>

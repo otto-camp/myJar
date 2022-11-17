@@ -3,9 +3,9 @@ import Navi from '../../layouts/Navi';
 import './search.css';
 import Searchbox from '../../components/Search/Searchbox';
 import { Col, Nav, Button, Dropdown, Offcanvas, Row } from 'react-bootstrap';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import categories from '../../assets/categories.json';
-import { getDocs, collection, query, where, orderBy } from 'firebase/firestore';
+import { getDocs, collection, query, orderBy } from 'firebase/firestore';
 import { db } from '../../services/firebase.js';
 import { PostType } from '../../global/types';
 import PostItem from '../../components/Post/PostItem';
@@ -16,18 +16,6 @@ const Search: React.FC = () => {
   const toggleCategory = () => (!showCategory ? setShowCategory(true) : setShowCategory(false));
   const [searchParams] = useSearchParams();
   const postRef = collection(db, 'posts');
-
-  const filterPosts = async (category: string) => {
-    if (posts !== null) {
-      setPosts([]);
-    } else {
-      const q = query(postRef, where('category', '==', category));
-      const snapshot = await getDocs(q);
-      snapshot.forEach((doc) => {
-        setPosts((prevPosts: any) => [...prevPosts, { ...doc.data(), pid: doc.id }]);
-      });
-    }
-  };
 
   const sortDesc = async () => {
     setPosts([]);
@@ -88,13 +76,14 @@ const Search: React.FC = () => {
               <Offcanvas.Body>
                 <Nav variant="pills" className="flex-column ms-3">
                   {categories.categories.map((c, i) => (
-                    <Button
-                      variant="none"
-                      key={i}
-                      className="fs-5 text-black mt-2 text-capitalize text-start"
-                      onClick={() => filterPosts(c.name)}>
-                      {c.name}
-                    </Button>
+                    <Link to={'/category/' + c.name} key={i}>
+                      <Button
+                        variant="none"
+                        className="w-100 fs-5 text-black mt-2 text-capitalize text-start"
+                      >
+                        {c.name}
+                      </Button>
+                    </Link>
                   ))}
                 </Nav>
               </Offcanvas.Body>

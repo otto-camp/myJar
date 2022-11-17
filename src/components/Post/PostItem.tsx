@@ -4,9 +4,10 @@ import { Card, Col, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import CategoryButton from '../Button/CategoryButton';
 import './post.css';
+import { PostType } from '../../global/types';
 
-export default function PostItem({ posts }) {
-  const postRef = useRef(posts);
+export default function PostItem({ posts }: { posts: PostType }) {
+  const postRef = useRef<PostType>(posts);
   const navigate = useNavigate();
 
   return (
@@ -41,7 +42,7 @@ export default function PostItem({ posts }) {
                   <h4 className="postitem-creatername">{postRef.current.createrName}</h4>
                 </Link>
                 <p className="postitem-date ">
-                  {moment.utc(postRef.current.timestamp.seconds, 'X').fromNow()}
+                  {moment.utc(postRef.current.timestamp?.seconds, 'X').fromNow()}
                 </p>
               </div>
             </Card.Header>

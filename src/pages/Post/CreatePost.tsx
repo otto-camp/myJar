@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { Alert, Button, Col, Form, Row } from 'react-bootstrap';
+import { Alert, Button, Col, Form, Image, Row } from 'react-bootstrap';
 import Navi from '../../layouts/Navi';
 import Editor from '../../utils/Editor/Editor';
 import './post.css';
 import { useNavigate } from 'react-router-dom';
 import { createPost } from '../../utils/PostCRUD/Post';
-
 import categories from '../../assets/categories.json';
 
 const CreatePost: React.FC = () => {
   const [title, setTitle] = useState<string>('');
   const [subTitle, setSubTitle] = useState<string>('');
   const [thumbnail, setThumbnail] = useState<Blob | null>(null);
+  const [preview, setPreview] = useState<string>('');
   const [story, setStory] = useState<string>('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -87,15 +87,18 @@ const CreatePost: React.FC = () => {
                   <Col xs={12} sm={6}>
                     <Form.Label className="fs-3 fw-semibold">Category</Form.Label>
                     <Form.Select aria-label="Category select">
-                      {Object.keys(categories.categories).map((c, i) => (
-                        <option value={c} key={i}>
-                          {c}
+                      {categories.categories.map((c, i) => (
+                        <option value={c.name} key={i}>
+                          {c.name}
                         </option>
                       ))}
                     </Form.Select>
                   </Col>
                 </Row>
               </Form.Group>
+              <div>
+                <Image src={preview} />
+              </div>
             </Form.Group>
             <Form.Group className="mb-2">
               <Form.Label className="fs-3 fw-semibold">Story</Form.Label>
@@ -104,7 +107,10 @@ const CreatePost: React.FC = () => {
           </Form>
         </main>
         <div className="postcreate-footer">
-          <Button variant="primary" className="rounded-pill fs-5" onClick={(e) => submitPost(e)}>
+          <Button
+            variant="primary"
+            className="rounded-pill fs-5 px-4"
+            onClick={(e) => submitPost(e)}>
             Submit
           </Button>
         </div>

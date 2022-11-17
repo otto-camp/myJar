@@ -21,5 +21,12 @@
     "jsx": "react-jsx",
     "noImplicitAny": true
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "src/services/firebase.js", "src/pages/Search/Search.tsx"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "src/services/firebase.js",
+    "src/pages/Search/Search.tsx"
+  ]
 }
