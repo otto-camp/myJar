@@ -2,9 +2,10 @@ import { collection, getDocs, limit, query, where } from 'firebase/firestore';
 import React, { useState, useEffect, useRef } from 'react';
 import { Card } from 'react-bootstrap';
 import { db } from '../../services/firebase.js';
-import moment from 'moment';
+import moment from 'moment/moment';
 import { Link } from 'react-router-dom';
 import CreatePostButton from '../Button/CreatePostButton';
+import EmptyPostDialog from '../Dialog/EmptyPostDialog';
 
 export default function ProfilePost(props) {
   const uid = useRef(props.uid);
@@ -31,27 +32,31 @@ export default function ProfilePost(props) {
           </div>
         </div>
         <hr />
-        {posts.map((p, index) => (
-          <div className="border border-light p-2 mb-3" key={index}>
-            <div className="d-flex align-items-start">
-              <div className="w-100">
-                <h5>
-                  {p.postTitle}
-                  <small className="text-black-50 float-end fs-6">
-                    {moment.utc(p.timestamp.seconds, 'X').fromNow()}
-                  </small>
-                </h5>
-                <div>
-                  {p.postSubTitle}
-                  <Link to={'/post/' + p.pid} className="readmore-text">
-                    ...read more
-                  </Link>
-                  <br />
+        {posts.length === 0 ? (
+          <EmptyPostDialog />
+        ) : (
+          posts.map((p, index) => (
+            <div className="border border-light p-2 mb-3" key={index}>
+              <div className="d-flex align-items-start">
+                <div className="w-100">
+                  <h5>
+                    {p.postTitle}
+                    <small className="text-black-50 float-end fs-6">
+                      {moment.utc(p.timestamp.seconds, 'X').fromNow()}
+                    </small>
+                  </h5>
+                  <div>
+                    {p.postSubTitle}
+                    <Link to={'/post/' + p.pid} className="readmore-text">
+                      ...read more
+                    </Link>
+                    <br />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </Card.Body>
     </Card>
   );

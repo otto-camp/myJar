@@ -1,4 +1,4 @@
-import moment from 'moment';
+import moment from 'moment/moment';
 import React, { useRef } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';

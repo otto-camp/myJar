@@ -1,5 +1,5 @@
 import { doc, getDoc } from 'firebase/firestore';
-import moment from 'moment';
+import moment from 'moment/moment';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { Col, Image, Row } from 'react-bootstrap';
@@ -30,34 +30,32 @@ const Post: React.FC = () => {
   return (
     <>
       <Navi />
-      <Row className="post-container min-h">
-        <Col className="h-100 m-0 p-0">
+      <Row className="g-0 w-100 min-h">
+        <Col className="h-100">
           {post && (
-            <>
-              <div className="mx-3 mt-lg-5">
-                <h1 className="post-title">{post.postTitle}</h1>
-                <h3 className="post-subtitle">{post.postSubTitle}</h3>
-                <div className="py-2 d-flex justify-content-between">
-                  <CategoryButton text={post.category} />
-                  <div className="d-flex flex-row align-items-center">
-                    <h5 className="fs-1em me-2">
-                      <span className="fs-6 fw-normal me-1">by</span>
-                      {post.createrName}
-                    </h5>
-                    <h6 className="fs-1em ms-2">
-                      {moment.utc(post.timestamp?.seconds, 'X').fromNow()}
-                    </h6>
-                  </div>
-                </div>
-                <Image
-                  src={post.postThumbnail || 'https://picsum.photos/1500/500'}
-                  className="post-thumbnail"
-                />
-                <div className="py-2">
-                  <div className="post-text">{HTMLReactParser(post.postText!)}</div>
+            <div className="post-container">
+              <h1 className="post-title">{post.postTitle}</h1>
+              <h3 className="post-subtitle">{post.postSubTitle}</h3>
+              <div className="py-2 d-flex justify-content-between">
+                <CategoryButton text={post.category} />
+                <div className="d-flex flex-row align-items-center">
+                  <h5 className="fs-1em me-2">
+                    <span className="fs-6 fw-normal me-1">by</span>
+                    {post.createrName}
+                  </h5>
+                  <h6 className="fs-1em ms-2">
+                    {moment.utc(post.timestamp?.seconds, 'X').fromNow()}
+                  </h6>
                 </div>
               </div>
-            </>
+              <Image
+                src={post.postThumbnail || 'https://picsum.photos/1500/500'}
+                className="post-thumbnail"
+              />
+              <div className="py-2">
+                <div className="post-text">{HTMLReactParser(post.postText!)}</div>
+              </div>
+            </div>
           )}
         </Col>
       </Row>

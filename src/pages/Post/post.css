@@ -1,7 +1,5 @@
 .post-container {
-  width: 100vw;
-  margin: 0;
-  padding: 0;
+  margin-inline: 1rem;
 }
 
 .post-thumbnail {
@@ -140,4 +138,11 @@ div {
   div {
     font-size: calc(1em + 0.05vw);
   }
+}
+
+@media (min-width:992px) {
+ .post-container{
+  width: 75%;
+  margin-inline: auto;
+ } 
 }

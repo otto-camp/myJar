@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
 import './category.css';
 import categories from '../../assets/categories.json';
@@ -30,12 +31,15 @@ const Category: React.FC = () => {
     };
     getPostByCategory();
   }, [category]);
-  console.log(posts);
 
   return (
     <>
+      <Helmet>
+        <title>{category}</title>
+        <meta name="description" content={description} />
+      </Helmet>
       <Navi />
-      <div className="min-h">
+      <div className="min-h p-0">
         <div className="category-wrapper" style={{ backgroundColor: bgColor }}>
           <div className="category-header">
             <h2

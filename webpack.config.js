@@ -5,6 +5,9 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Dotenv = require('dotenv-webpack')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const TerserPlugin = require("terser-webpack-plugin");
+
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -17,8 +20,9 @@ const config = {
   devtool: false,
   output: {
     path: path.resolve(__dirname, "build"),
-    filename: 'bundle.js',
-    publicPath: '/'
+    filename: '[name].js',
+    publicPath: '/',
+    chunkFilename: '[id].[chunkhash].js'
   },
   devServer: {
     open: true,
@@ -29,7 +33,8 @@ const config = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public", "index.html"),
     }),
-    new Dotenv()
+    new Dotenv(),
+    new BundleAnalyzerPlugin()
   ],
   module: {
     rules: [
@@ -68,7 +73,10 @@ const config = {
   },
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", "..."]
-  },
+  }, optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()]
+  }
 
 };
 
