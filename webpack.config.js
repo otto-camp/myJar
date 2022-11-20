@@ -33,8 +33,7 @@ const config = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public", "index.html"),
     }),
-    new Dotenv(),
-    new BundleAnalyzerPlugin()
+    new Dotenv()
   ],
   module: {
     rules: [
@@ -85,7 +84,7 @@ module.exports = () => {
     config.mode = "production";
 
     config.plugins.push(new MiniCssExtractPlugin());
-
+    config.plugins.push(new BundleAnalyzerPlugin());
     config.plugins.push(new WorkboxWebpackPlugin.GenerateSW());
   } else {
     config.mode = "development";

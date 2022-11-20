@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
 import './category.css';
 import categories from '../../assets/categories.json';
@@ -11,6 +10,7 @@ import { db } from '../../services/firebase';
 import PostItem from '../../components/Post/PostItem';
 import CreatePostButton from '../../components/Button/CreatePostButton';
 import EmptyCategoryDialog from '../../components/Dialog/EmptyCategoryDialog';
+import SEO from '../../utils/SEO/SEO';
 
 const Category: React.FC = () => {
   const { category } = useParams();
@@ -18,6 +18,7 @@ const Category: React.FC = () => {
 
   const categoryIndex = categories.categories.findIndex((c) => c.name === category);
   const description = categories.categories[categoryIndex].description;
+  const image = categories.categories[categoryIndex].image;
   const bgColor = categories.categories[categoryIndex].color;
   const textColor = invert(bgColor, { black: '#000', white: '#fff' });
 
@@ -34,10 +35,14 @@ const Category: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{category}</title>
-        <meta name="description" content={description} />
-      </Helmet>
+      <SEO
+        title={category}
+        description={description}
+        type="article"
+        url={'https://myjar-8ff23.web.app/category/' + category}
+        image={image}
+      />
+
       <Navi />
       <div className="min-h p-0">
         <div className="category-wrapper" style={{ backgroundColor: bgColor }}>

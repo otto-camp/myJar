@@ -6,6 +6,7 @@ import { collection, getDocs, limit, orderBy, query } from 'firebase/firestore';
 import { db } from '../../services/firebase.js';
 import { PostType } from '../../global/types';
 import loadable from '@loadable/component';
+import SEO from '../../utils/SEO/SEO';
 
 const FeaturedPost = loadable(() => import('../../components/Post/FeaturedPost'));
 const SearchContainer = loadable(() => import('../../components/Search/SearchContainer'));
@@ -27,6 +28,12 @@ const Home: React.FC = () => {
 
   return (
     <>
+      <SEO
+        title="myJar"
+        description="Blog website users can create stories from various categories. Users can follow and message each other."
+        type='website'
+        url='https://myjar-8ff23.web.app/'
+      />
       <Navi />
       <Container className="p-0 m-0">
         <SearchContainer />

@@ -10,6 +10,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../services/firebase.js';
 import { UserType } from '../../global/types';
 import loadable from '@loadable/component';
+import SEO from '../../utils/SEO/SEO';
 
 const UpdateProfilePictureModal = loadable(
   () => import('../../components/Profile/UpdateProfilePictureModal')
@@ -47,6 +48,13 @@ const Profile: React.FC = () => {
 
   return (
     <>
+      <SEO
+        title={user ? user.fname + ' ' + user.lname : 'Profile'}
+        description={user?.about}
+        type="profile"
+        url={'https:/myjar-8ff23.web.app/profile/' + user?.id}
+        image={user?.photoURL}
+      />
       <div className="navi-wrapper p-0">
         <Navi />
       </div>
@@ -61,8 +69,7 @@ const Profile: React.FC = () => {
                       className="float-end rounded-pill"
                       onClick={() => {
                         setProfileModalShow(true);
-                      }}
-                    >
+                      }}>
                       <FontAwesomeIcon icon={faPenToSquare} />
                     </Button>
                     <UpdateProfileModal

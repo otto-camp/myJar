@@ -10,6 +10,7 @@ import './post.css';
 import { PostType } from '../../global/types';
 import HTMLReactParser from 'html-react-parser';
 import CategoryButton from '../../components/Button/CategoryButton';
+import SEO from '../../utils/SEO/SEO';
 
 const Post: React.FC = () => {
   const [post, setPost] = useState<PostType>();
@@ -29,6 +30,13 @@ const Post: React.FC = () => {
 
   return (
     <>
+      <SEO
+        title={post?.postTitle}
+        description={post?.postSubTitle}
+        type="article"
+        url={'https://myjar-8ff23.web.app/post/' + post?.pid}
+        image={post?.postThumbnail}
+      />
       <Navi />
       <Row className="g-0 w-100 min-h">
         <Col className="h-100">

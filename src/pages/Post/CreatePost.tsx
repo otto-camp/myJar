@@ -6,6 +6,7 @@ import './post.css';
 import { useNavigate } from 'react-router-dom';
 import { createPost } from '../../utils/PostCRUD/Post';
 import categories from '../../assets/categories.json';
+import SEO from '../../utils/SEO/SEO';
 
 const CreatePost: React.FC = () => {
   const [title, setTitle] = useState<string>('');
@@ -44,6 +45,13 @@ const CreatePost: React.FC = () => {
 
   return (
     <>
+      <SEO
+        title="Create Post"
+        description="Start writing with the title and subtitle. Add the most suitable thumbnail for the story and choose a category. "
+        type="website"
+        url="https:/myjar-8ff23.web.app/post/create-post"
+        image="https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/typewriter.jpg?alt=media&token=b95cea35-decc-4c0e-be7f-898660da970d"
+      />
       <div className="navi-wrapper p-0">
         <Navi />
       </div>
