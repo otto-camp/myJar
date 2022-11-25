@@ -4,7 +4,6 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { register } from './serviceWorker';
 import { SSRProvider } from 'react-bootstrap';
 import Mainpage from './layouts/Mainpage';
 import { disableReactDevTools } from './DisableReactDevTools';
@@ -20,7 +19,6 @@ root.render(
   </React.StrictMode>
 );
 
-register();
 reportWebVitals();
 
 if (process.env.NODE_ENV === 'production') disableReactDevTools();

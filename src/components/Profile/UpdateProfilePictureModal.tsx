@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form, Alert } from 'react-bootstrap';
-import { uploadProfilePicture } from '../../utils/StorageCRUD/Storage';
+import { uploadProfilePicture } from '../../utils/CRUD/Storage';
 
 interface IUpdateProfilePicture {
   show: boolean;

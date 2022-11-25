@@ -29,7 +29,7 @@ const Profile: React.FC = () => {
 
   const getProfile = async () => {
     const docSnap = await getDoc(doc(db, 'profile', id as string));
-    setUser(docSnap.data());
+    setUser(docSnap.data() as any);
   };
 
   useEffect(() => {

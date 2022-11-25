@@ -4,7 +4,7 @@ import Navi from '../../layouts/Navi';
 import Editor from '../../utils/Editor/Editor';
 import './post.css';
 import { useNavigate } from 'react-router-dom';
-import { createPost } from '../../utils/PostCRUD/Post';
+import { createPost } from '../../utils/CRUD/Post';
 import categories from '../../assets/categories.json';
 import SEO from '../../utils/SEO/SEO';
 

@@ -42,9 +42,9 @@ export default function Navi() {
                 <Link to={'/profile/' + currentUser.uid} className="mx-3 fs-5 nav-link">
                   Profile
                 </Link>
-                <Link to={'/messages/' + currentUser.uid} className="mx-3 fs-5 nav-link">
+                {/* <Link to={'/messages/' + currentUser.uid} className="mx-3 fs-5 nav-link">
                   Messages
-                </Link>
+                </Link> */}
                 <NavDropdown title="Account" id="basic-nav-dropdown" className="mx-3 fs-5">
                   <NavDropdown.Item href="/settings">Settings</NavDropdown.Item>
                   <NavDropdown.Divider />

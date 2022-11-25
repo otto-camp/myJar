@@ -27,7 +27,8 @@ const config = {
   devServer: {
     open: true,
     host: "localhost",
-    historyApiFallback: true
+    historyApiFallback: true,
+    hot: true
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -85,7 +86,18 @@ module.exports = () => {
 
     config.plugins.push(new MiniCssExtractPlugin());
     config.plugins.push(new BundleAnalyzerPlugin());
-    config.plugins.push(new WorkboxWebpackPlugin.GenerateSW());
+    config.plugins.push(new WorkboxWebpackPlugin.GenerateSW({
+      cleanupOutdatedCaches: true,
+      skipWaiting: true,
+      clientsClaim: true,
+      exclude: [/\.map$/, /asset-manifest\.json$/, /^(?!.*\.test\.js$).*\.js$/, /\.css$/],
+      runtimeCaching: [
+        {
+          urlPattern: /\.js$/,
+          handler: 'NetworkFirst',
+        },
+      ],
+    }));
   } else {
     config.mode = "development";
   }

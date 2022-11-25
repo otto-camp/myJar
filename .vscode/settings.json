@@ -8,11 +8,13 @@
     "creater",
     "creatername",
     "fname",
+    "forgotpassword",
     "ISEO",
     "linebreak",
     "lname",
     "Mainpage",
     "postitem",
+    "signup",
     "textnodes"
   ],
   "eslint.workingDirectories": ["src"]

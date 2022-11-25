@@ -9,7 +9,7 @@ import {
 } from 'firebase/firestore';
 import { useAuth } from '../../services/AuthContext';
 import { db } from '../../services/firebase.js';
-import { uploadPostImage } from '../StorageCRUD/Storage';
+import { uploadPostImage } from './Storage';
 
 export function createPost(
   postText: string,

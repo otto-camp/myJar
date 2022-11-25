@@ -1,32 +1,19 @@
-import { doc, getDoc } from 'firebase/firestore';
-import moment from 'moment/moment';
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import moment from 'moment';
+import React from 'react';
 import { Col, Image, Row } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Navi from '../../layouts/Navi';
-import { db } from '../../services/firebase.js';
 import './post.css';
-import { PostType } from '../../global/types';
 import HTMLReactParser from 'html-react-parser';
 import CategoryButton from '../../components/Button/CategoryButton';
 import SEO from '../../utils/SEO/SEO';
+import useProfile from '../../hooks/useProfile';
+import usePost from '../../hooks/usePost';
 
 const Post: React.FC = () => {
-  const [post, setPost] = useState<PostType>();
-  const id = useParams();
-
-  useEffect(() => {
-    const getPost = async () => {
-      const postId: any = id.id;
-      const postSnap = await getDoc(doc(db, 'posts', postId));
-      if (postSnap.exists()) {
-        const d: PostType = postSnap.data();
-        setPost(d);
-      }
-    };
-    getPost();
-  }, [id]);
+  const { id } = useParams() as { id: string };
+  const { post } = usePost(id);
+  const { user } = useProfile(post?.createrId);
 
   return (
     <>
@@ -39,7 +26,7 @@ const Post: React.FC = () => {
       />
       <Navi />
       <Row className="g-0 w-100 min-h">
-        <Col className="h-100">
+        <Col className="h-100" xs={12} lg={8}>
           {post && (
             <div className="post-container">
               <h1 className="post-title">{post.postTitle}</h1>
@@ -52,7 +39,7 @@ const Post: React.FC = () => {
                     {post.createrName}
                   </h5>
                   <h6 className="fs-1em ms-2">
-                    {moment.utc(post.timestamp?.seconds, 'X').fromNow()}
+                    {moment.utc(post.timestamp.seconds, 'X').fromNow()}
                   </h6>
                 </div>
               </div>
@@ -61,10 +48,28 @@ const Post: React.FC = () => {
                 className="post-thumbnail"
               />
               <div className="py-2">
-                <div className="post-text">{HTMLReactParser(post.postText!)}</div>
+                <div className="post-text">{HTMLReactParser(post.postText)}</div>
               </div>
             </div>
           )}
+        </Col>
+        <Col xs={12} lg={4}>
+          <div className="post-creater-card">
+            <Image
+              src={post?.createrPhotoURL}
+              alt={post?.createrName}
+              className="d-inline-block rounded me-5 ms-3"
+              width="64"
+              height="64"
+            />
+            <h5 className="d-inline-block ps-auto pe-3">
+              <Link to={'/profile' + post?.createrId}>{post?.createrName}</Link>
+            </h5>
+            <div className="mx-3 mt-3">
+              <p className="fs-5 fw-bold m-0 mb-2">Followers:{user?.followers.length}</p>
+              <p className="m-0 mb-2">{user?.about}</p>
+            </div>
+          </div>
         </Col>
       </Row>
     </>
