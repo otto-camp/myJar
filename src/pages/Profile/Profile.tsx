@@ -12,9 +12,7 @@ import { UserType } from '../../global/types';
 import loadable from '@loadable/component';
 import SEO from '../../utils/SEO/SEO';
 
-const UpdateProfilePictureModal = loadable(
-  () => import('../../components/Profile/UpdateProfilePictureModal')
-);
+const UpdateProfilePictureModal = loadable(() => import('../../components/Profile/UpdateProfilePictureModal'));
 const ProfileActionButton = loadable(() => import('../../components/Button/ProfileActionButton'));
 const SocialsSection = loadable(() => import('../../components/Profile/SocialsSection'));
 const ProfilePost = loadable(() => import('../../components/Post/ProfilePost'));
@@ -69,7 +67,8 @@ const Profile: React.FC = () => {
                       className="float-end rounded-pill"
                       onClick={() => {
                         setProfileModalShow(true);
-                      }}>
+                      }}
+                    >
                       <FontAwesomeIcon icon={faPenToSquare} />
                     </Button>
                     <UpdateProfileModal
@@ -90,10 +89,7 @@ const Profile: React.FC = () => {
                     onClick={updateProfilePicture}
                     className="rounded-circle avatar-lg img-thumbnail"
                   />
-                  <UpdateProfilePictureModal
-                    show={pictureModalShow}
-                    onHide={() => setPictureModalShow(false)}
-                  />
+                  <UpdateProfilePictureModal show={pictureModalShow} onHide={() => setPictureModalShow(false)} />
                   <div className="w-100 ms-3">
                     <h4>{user ? user.fname + ' ' + user.lname : 'Name'}</h4>
                     <p className="text-secondary mb-1 d-inline-block">
@@ -111,8 +107,7 @@ const Profile: React.FC = () => {
                     <strong>Email :</strong> <span className="ms-2">{user ? user.email : ''}</span>
                   </p>
                   <p className="text-muted mb-2 fs-6">
-                    <strong>Birth Date :</strong>{' '}
-                    <span className="ms-2">{user ? user.birthDate : ''}</span>
+                    <strong>Birth Date :</strong> <span className="ms-2">{user ? user.birthDate : ''}</span>
                   </p>
                 </div>
                 {user !== currentUserProfile ? <ProfileActionButton user={user} /> : ''}

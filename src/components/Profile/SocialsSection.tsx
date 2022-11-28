@@ -30,46 +30,31 @@ const SocialsSection: React.FC<ISocials> = ({ user }) => {
         <Row className="justify-content-between mt-1">
           <ul className="list-group list-group-flush">
             <ul className="list-group-item">
-              <a
-                className="btn link-button w-100"
-                href={user?.website ? 'https://' + user?.website : void 0}
-              >
+              <a className="btn link-button w-100" href={user?.website ? 'https://' + user?.website : void 0}>
                 <FontAwesomeIcon icon={faGlobe} className="fa-xl float-start" />
                 <span className="ms-4">{user?.website ? user?.website : 'Not available'}</span>
               </a>
             </ul>
             <ul className="list-group-item">
-              <a
-                className="btn link-button w-100"
-                href={user?.github ? 'https://' + user?.github : void 0}
-              >
+              <a className="btn link-button w-100" href={user?.github ? 'https://' + user?.github : void 0}>
                 <FontAwesomeIcon icon={faGithub} className="fa-xl float-start" />
                 <span className="ms-4">{user?.github ? user?.github : 'Not available'}</span>
               </a>
             </ul>
             <ul className="list-group-item">
-              <a
-                className="btn link-button w-100"
-                href={user?.twitter ? 'https://' + user?.twitter : void 0}
-              >
+              <a className="btn link-button w-100" href={user?.twitter ? 'https://' + user?.twitter : void 0}>
                 <FontAwesomeIcon icon={faTwitter} className="fa-xl float-start" />
                 <span className="ms-4">{user?.twitter ? user?.twitter : 'Not available'}</span>
               </a>
             </ul>
             <ul className="list-group-item">
-              <a
-                className="btn link-button w-100"
-                href={user?.facebook ? 'https://' + user?.facebook : void 0}
-              >
+              <a className="btn link-button w-100" href={user?.facebook ? 'https://' + user?.facebook : void 0}>
                 <FontAwesomeIcon icon={faFacebook} className="fa-xl float-start" />
                 <span className="ms-4">{user?.facebook ? user?.facebook : 'Not available'}</span>
               </a>
             </ul>
             <ul className="list-group-item">
-              <a
-                className="btn link-button w-100"
-                href={user?.instagram ? 'https://' + user?.instagram : void 0}
-              >
+              <a className="btn link-button w-100" href={user?.instagram ? 'https://' + user?.instagram : void 0}>
                 <FontAwesomeIcon icon={faInstagram} className="fa-xl float-start" />
                 <span className="ms-4">{user?.instagram ? user?.instagram : 'Not available'}</span>
               </a>

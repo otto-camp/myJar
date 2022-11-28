@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Alert, Button, Col, Form, Image, Row } from 'react-bootstrap';
+import React, { useRef, useState } from 'react';
+import { Alert, Button, Col, Form, Row } from 'react-bootstrap';
 import Navi from '../../layouts/Navi';
 import Editor from '../../utils/Editor/Editor';
 import './post.css';
@@ -7,18 +7,20 @@ import { useNavigate } from 'react-router-dom';
 import { createPost } from '../../utils/CRUD/Post';
 import categories from '../../assets/categories.json';
 import SEO from '../../utils/SEO/SEO';
+import { useAuth } from '../../services/AuthContext';
 
-const CreatePost: React.FC = () => {
+function CreatePost() {
+  const [story, setStory] = useState<string>('');
   const [title, setTitle] = useState<string>('');
   const [subTitle, setSubTitle] = useState<string>('');
   const [thumbnail, setThumbnail] = useState<Blob | null>(null);
-  const [preview, setPreview] = useState<string>('');
-  const [story, setStory] = useState<string>('');
+  const categoryRef = useRef<HTMLSelectElement | null>(null);
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { currentUser, currentUserProfile } = useAuth();
 
-  const uploadImage = (e: any) => {
-    setThumbnail(e.target.files[0]);
+  const uploadImage = async (e: any) => {
+    await setThumbnail(e.target.files[0]);
   };
 
   const submitPost = async (e: any) => {
@@ -34,11 +36,14 @@ const CreatePost: React.FC = () => {
         setError('Subtitle must be more than 30 characters');
       } else if (story.length < 300) {
         setError('Story must be more than 300 characters');
+      } else if (categoryRef.current === null) {
+        setError('You must choose a category');
       } else {
-        await createPost(story, title, subTitle, thumbnail);
+        await createPost(story, title, subTitle, thumbnail, categoryRef.current.value, currentUser, currentUserProfile);
         navigate('/');
       }
     } catch (err: any) {
+      console.error(err);
       setError(err);
     }
   };
@@ -81,32 +86,24 @@ const CreatePost: React.FC = () => {
                 className="postcreate-title resize-none overflow-hidden"
                 rows={1}
               />
-              <Form.Group>
-                <Row>
-                  <Col xs={12} sm={6}>
-                    <Form.Label className="fs-3 fw-semibold">Thumbnail</Form.Label>
-                    <Form.Control
-                      type={'file'}
-                      onChange={(e) => uploadImage(e)}
-                      accept={'.jpg, .png, .jpeg'}
-                    />
-                  </Col>
-
-                  <Col xs={12} sm={6}>
-                    <Form.Label className="fs-3 fw-semibold">Category</Form.Label>
-                    <Form.Select aria-label="Category select">
-                      {categories.categories.map((c, i) => (
-                        <option value={c.name} key={i}>
-                          {c.name}
-                        </option>
-                      ))}
-                    </Form.Select>
-                  </Col>
-                </Row>
-              </Form.Group>
-              <div>
-                <Image src={preview} />
-              </div>
+            </Form.Group>
+            <Form.Group>
+              <Row>
+                <Col xs={12} sm={6}>
+                  <Form.Label className="fs-3 fw-semibold">Thumbnail</Form.Label>
+                  <Form.Control type={'file'} onChange={(e) => uploadImage(e)} accept={'.jpg, .png, .jpeg'} />
+                </Col>
+                <Col xs={12} sm={6}>
+                  <Form.Label className="fs-3 fw-semibold">Category</Form.Label>
+                  <Form.Select aria-label="Category select" ref={categoryRef}>
+                    {categories.categories.map((c, i) => (
+                      <option value={c.name} key={i}>
+                        {c.name}
+                      </option>
+                    ))}
+                  </Form.Select>
+                </Col>
+              </Row>
             </Form.Group>
             <Form.Group className="mb-2">
               <Form.Label className="fs-3 fw-semibold">Story</Form.Label>
@@ -115,15 +112,12 @@ const CreatePost: React.FC = () => {
           </Form>
         </main>
         <div className="postcreate-footer">
-          <Button
-            variant="primary"
-            className="rounded-pill fs-5 px-4"
-            onClick={(e) => submitPost(e)}>
+          <Button variant="primary" className="rounded-pill fs-5 px-4" onClick={(e) => submitPost(e)}>
             Submit
           </Button>
         </div>
       </section>
     </>
   );
-};
+}
 export default CreatePost;

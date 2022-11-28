@@ -21,13 +21,7 @@ export default function Navi() {
 
   return (
     <Container fluid className="m-0 p-0 navi-container">
-      <Navbar
-        color="light"
-        expand="lg"
-        variant="light"
-        fixed="top"
-        className="position-relative navi"
-      >
+      <Navbar color="light" expand="lg" variant="light" fixed="top" className="position-relative navi">
         <Navbar.Brand href="/" className="fs-1 navi-logo fw-bolder">
           myJar
         </Navbar.Brand>

@@ -26,7 +26,7 @@ const Post: React.FC = () => {
       />
       <Navi />
       <Row className="g-0 w-100 min-h">
-        <Col className="h-100" xs={12} lg={8}>
+        <Col xs={12} lg={8}>
           {post && (
             <div className="post-container">
               <h1 className="post-title">{post.postTitle}</h1>
@@ -38,15 +38,10 @@ const Post: React.FC = () => {
                     <span className="fs-6 fw-normal me-1">by</span>
                     {post.createrName}
                   </h5>
-                  <h6 className="fs-1em ms-2">
-                    {moment.utc(post.timestamp.seconds, 'X').fromNow()}
-                  </h6>
+                  <h6 className="fs-1em ms-2">{moment.utc(post.timestamp.seconds, 'X').fromNow()}</h6>
                 </div>
               </div>
-              <Image
-                src={post.postThumbnail || 'https://picsum.photos/1500/500'}
-                className="post-thumbnail"
-              />
+              <Image src={post.postThumbnail || 'https://picsum.photos/1500/500'} className="post-thumbnail" />
               <div className="py-2">
                 <div className="post-text">{HTMLReactParser(post.postText)}</div>
               </div>
@@ -58,7 +53,7 @@ const Post: React.FC = () => {
             <Image
               src={post?.createrPhotoURL}
               alt={post?.createrName}
-              className="d-inline-block rounded me-5 ms-3"
+              className="rounded-circle avatar-lg img-thumbnail me-5 ms-3"
               width="64"
               height="64"
             />
@@ -66,7 +61,7 @@ const Post: React.FC = () => {
               <Link to={'/profile' + post?.createrId}>{post?.createrName}</Link>
             </h5>
             <div className="mx-3 mt-3">
-              <p className="fs-5 fw-bold m-0 mb-2">Followers:{user?.followers.length}</p>
+              <p className="fs-5 fw-bold m-0 mb-2">{user?.followers.length} Followers</p>
               <p className="m-0 mb-2">{user?.about}</p>
             </div>
           </div>

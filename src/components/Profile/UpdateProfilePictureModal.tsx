@@ -37,11 +37,7 @@ export default function UpdateProfilePicture(props: IUpdateProfilePicture) {
         {error && <Alert variant="danger">{error}</Alert>}
         <Form>
           <Form.Group className="m-3">
-            <Form.Control
-              type={'file'}
-              accept={'.jpg, .png, .jpeg'}
-              onChange={(e) => uploadImage(e)}
-            />
+            <Form.Control type={'file'} accept={'.jpg, .png, .jpeg'} onChange={(e) => uploadImage(e)} />
           </Form.Group>
         </Form>
       </Modal.Body>

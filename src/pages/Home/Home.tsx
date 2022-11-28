@@ -26,13 +26,7 @@ const Home: React.FC = () => {
         <SearchContainer />
         <div className="homepage-container">
           {posts.map((p: any, index: React.Key) => (
-            <>
-              {index === 0 ? (
-                <FeaturedPost key={index} post={p} />
-              ) : (
-                <PostItem key={index} posts={p} />
-              )}
-            </>
+            <>{index === 0 ? <FeaturedPost key={index} post={p} /> : <PostItem key={index} posts={p} />}</>
           ))}
         </div>
       </Container>

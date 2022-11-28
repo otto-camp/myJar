@@ -41,9 +41,7 @@ export default function PostItem({ posts }: { posts: PostType }) {
                 <Link to={'profile/' + postRef.current.createrId}>
                   <h4 className="postitem-creatername">{postRef.current.createrName}</h4>
                 </Link>
-                <p className="postitem-date ">
-                  {moment.utc(postRef.current.timestamp?.seconds, 'X').fromNow()}
-                </p>
+                <p className="postitem-date ">{moment.utc(postRef.current.timestamp?.seconds, 'X').fromNow()}</p>
               </div>
             </Card.Header>
           </Col>

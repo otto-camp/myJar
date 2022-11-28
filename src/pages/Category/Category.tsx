@@ -47,9 +47,7 @@ const Category: React.FC = () => {
       <div className="min-h p-0">
         <div className="category-wrapper" style={{ backgroundColor: bgColor }}>
           <div className="category-header">
-            <h2
-              style={{ color: textColor }}
-              className="text-capitalize text-center p-3 fs-1 fw-bolder">
+            <h2 style={{ color: textColor }} className="text-capitalize text-center p-3 fs-1 fw-bolder">
               {category}
             </h2>
           </div>

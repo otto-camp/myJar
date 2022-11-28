@@ -9,13 +9,15 @@
     "creatername",
     "fname",
     "forgotpassword",
+    "grecaptcha",
     "ISEO",
     "linebreak",
     "lname",
     "Mainpage",
     "postitem",
     "signup",
-    "textnodes"
+    "textnodes",
+    "unfollow"
   ],
   "eslint.workingDirectories": ["src"]
 }

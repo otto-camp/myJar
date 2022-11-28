@@ -103,8 +103,7 @@ div {
 }
 
 .post-creater-card {
-  margin-inline: 1.75rem;
-  margin-bottom: 5rem;
+  margin-inline: 1rem;
   border: 1px solid cadetblue;
   border-radius: 0.375rem;
   -webkit-border-radius: 0.375rem;

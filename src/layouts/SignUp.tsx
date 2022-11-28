@@ -48,24 +48,14 @@ export default function SignUp() {
 
               <Form.Group id="password" className="mt-2">
                 <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  ref={passwordRef}
-                  required
-                  aria-describedby="passwordHelpBlock"
-                />
+                <Form.Control type="password" ref={passwordRef} required aria-describedby="passwordHelpBlock" />
                 <Form.Text id="passwordHelpBlock" muted>
                   Password should be at least 6 characters
                 </Form.Text>
               </Form.Group>
               <Form.Group id="password-confirm" className="mt-2">
                 <Form.Label>Password Confirmation</Form.Label>
-                <Form.Control
-                  type="password"
-                  ref={passwordConfirmRef}
-                  required
-                  aria-describedby="passwordHelpBlock"
-                />
+                <Form.Control type="password" ref={passwordConfirmRef} required aria-describedby="passwordHelpBlock" />
                 <Form.Text id="passwordHelpBlock" muted>
                   Password should be at least 6 characters
                 </Form.Text>

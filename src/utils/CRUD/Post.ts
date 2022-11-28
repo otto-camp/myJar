@@ -1,24 +1,17 @@
-import {
-  collection,
-  Timestamp,
-  updateDoc,
-  arrayUnion,
-  doc,
-  addDoc,
-  deleteDoc
-} from 'firebase/firestore';
-import { useAuth } from '../../services/AuthContext';
+import { collection, Timestamp, updateDoc, arrayUnion, doc, addDoc, deleteDoc } from 'firebase/firestore';
 import { db } from '../../services/firebase.js';
 import { uploadPostImage } from './Storage';
+import { UserType } from '../../global/types';
 
 export function createPost(
   postText: string,
   postTitle: string,
   postSubTitle: string,
-  postThumbnail: Blob
+  postThumbnail: Blob,
+  postCategory: string,
+  currentUser: any,
+  currentUserProfile: UserType
 ) {
-  const { currentUser, currentUserProfile } = useAuth();
-
   addDoc(collection(db, 'posts'), {
     postTitle: postTitle,
     postSubTitle: postSubTitle,
@@ -29,9 +22,9 @@ export function createPost(
     createrPhotoURL: currentUserProfile.photoURL,
     timestamp: new Date(Timestamp.now().seconds * 1000),
     likes: 0,
-    category: ''
+    category: postCategory
   }).then(async (d) => {
-    await uploadPostImage(d.id, postThumbnail);
+    await uploadPostImage(d.id, postThumbnail,currentUser);
     await updateDoc(doc(db, 'profile', currentUser.uid), {
       createdPosts: arrayUnion(d.id)
     });

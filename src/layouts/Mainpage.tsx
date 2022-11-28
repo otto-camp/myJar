@@ -22,7 +22,7 @@ const Search = loadable(() => import('../pages/Search/Search'));
 
 export default function Mainpage() {
   return (
-    <Container fluid className='d-flex flex-column '>
+    <Container fluid className="d-flex flex-column ">
       <Row>
         <HelmetProvider>
           <AuthProvider>

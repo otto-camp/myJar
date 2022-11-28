@@ -73,11 +73,7 @@ export default function CreateProfile() {
                 <Form.Control type="text" ref={lnameRef} required aria-describedby="lname" />
               </Form.Group>
               <p>Birth Date</p>
-              <DatePicker
-                dateFormat={'yyyy/MM/dd'}
-                selected={birthDate}
-                onChange={(d: any) => setBirthDate(d)}
-              />
+              <DatePicker dateFormat={'yyyy/MM/dd'} selected={birthDate} onChange={(d: any) => setBirthDate(d)} />
               <Form.Group id="phone" className="mt-2">
                 <Form.Label>Phone Number</Form.Label>
                 <Form.Control type="tel" ref={phoneRef} required aria-describedby="phone" />

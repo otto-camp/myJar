@@ -77,10 +77,7 @@ const Search: React.FC = () => {
                 <Nav variant="pills" className="flex-column ms-3">
                   {categories.categories.map((c, i) => (
                     <Link to={'/category/' + c.name} key={i}>
-                      <Button
-                        variant="none"
-                        className="w-100 fs-5 text-black mt-2 text-capitalize text-start"
-                      >
+                      <Button variant="none" className="w-100 fs-5 text-black mt-2 text-capitalize text-start">
                         {c.name}
                       </Button>
                     </Link>
