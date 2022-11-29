@@ -2,12 +2,10 @@
 
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Dotenv = require('dotenv-webpack')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const TerserPlugin = require("terser-webpack-plugin");
-
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -32,7 +30,11 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, "public", "index.html"),
+      template: "public/index.html",
+      filename: "index.html",
+      inject: true,
+      favicon: "public/favicon.ico",
+      manifest: "public/manifest.json",
     }),
     new Dotenv()
   ],
@@ -86,18 +88,6 @@ module.exports = () => {
 
     config.plugins.push(new MiniCssExtractPlugin());
     config.plugins.push(new BundleAnalyzerPlugin());
-    config.plugins.push(new WorkboxWebpackPlugin.GenerateSW({
-      cleanupOutdatedCaches: true,
-      skipWaiting: true,
-      clientsClaim: true,
-      exclude: [/\.map$/, /asset-manifest\.json$/, /^(?!.*\.test\.js$).*\.js$/, /\.css$/],
-      runtimeCaching: [
-        {
-          urlPattern: /\.js$/,
-          handler: 'NetworkFirst',
-        },
-      ],
-    }));
   } else {
     config.mode = "development";
   }

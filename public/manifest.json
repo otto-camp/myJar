@@ -1,6 +1,8 @@
 {
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
   "short_name": "myJar",
-  "name": "blogwebsite",
+  "name": "BlogWebsite",
+  "description": "Blog website users can create stories from various categories. Users can follow and message each other.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -23,7 +25,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "./",
+  "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"

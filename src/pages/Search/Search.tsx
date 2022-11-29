@@ -83,11 +83,11 @@ const Search: React.FC = () => {
             </Offcanvas>
           </Col>
 
-          <Col md={10}>
+          <Col md={10} className="pe-0">
             <div className="m-0 me-lg-3">
               {posts.map(
                 (p: PostType, i: React.Key) =>
-                  p.postTitle?.includes(searchParams.get('q')!) && <PostItem posts={p} key={i} />
+                  p.postTitle.includes(searchParams.get('q')!) && <PostItem posts={p} key={i} />
               )}
             </div>
           </Col>

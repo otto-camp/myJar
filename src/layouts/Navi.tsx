@@ -19,7 +19,6 @@ export default function Navi() {
       console.error(e);
     }
   };
-  console.log('Navi rendered');
   
   return (
     <Container fluid className="m-0 p-0 navi-container">
