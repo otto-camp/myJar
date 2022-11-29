@@ -9,7 +9,7 @@ import { db } from '../services/firebase';
  * @returns An object with a user property.
  */
 const useProfile = (id: string | undefined) => {
-  const [user, setUser] = useState<UserType>();
+  const [user, setUser] = useState<UserType | null>(null);
 
   const getUserProfile = async () => {
     if (id !== undefined) {
