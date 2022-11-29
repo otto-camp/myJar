@@ -109,7 +109,6 @@
   margin-inline: auto;
   width: 75%;
   font-size: calc(1.2em + 1vw);
-  word-break: break-all;
   line-height: 1.6em;
   cursor: pointer;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

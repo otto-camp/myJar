@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../services/AuthContext';
 import { auth } from '../services/firebase.js';
 import './layout-styles.css';
+import Searchbox from './Search/Searchbox';
 
 export default function Navi() {
   const { currentUser } = useAuth();
@@ -18,21 +19,23 @@ export default function Navi() {
       console.error(e);
     }
   };
-
+  console.log('Navi rendered');
+  
   return (
     <Container fluid className="m-0 p-0 navi-container">
       <Navbar color="light" expand="lg" variant="light" fixed="top" className="position-relative navi">
         <Navbar.Brand href="/" className="fs-1 navi-logo fw-bolder">
           myJar
         </Navbar.Brand>
-        {currentUser && (
-          <>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-3" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="w-100">
-                <Link to={'/'} className="mx-3 fs-5 nav-space nav-link">
-                  Home
-                </Link>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-3" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="w-100">
+            <Searchbox />
+            <Link to={'/'} className="mx-3 fs-5 nav-space nav-link">
+              Home
+            </Link>
+            {currentUser && (
+              <>
                 <Link to={'/profile/' + currentUser.uid} className="mx-3 fs-5 nav-link">
                   Profile
                 </Link>
@@ -44,10 +47,10 @@ export default function Navi() {
                   <NavDropdown.Divider />
                   <NavDropdown.Item onClick={handleSignOut}>Sign Out</NavDropdown.Item>
                 </NavDropdown>
-              </Nav>
-            </Navbar.Collapse>
-          </>
-        )}
+              </>
+            )}
+          </Nav>
+        </Navbar.Collapse>
         {!currentUser && (
           <>
             <Button variant="primary" className="fs-5 mx-3 px-4 ms-auto" href="/login">

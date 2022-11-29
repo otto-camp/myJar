@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Navi from '../../layouts/Navi';
 import './search.css';
-import Searchbox from '../../components/Search/Searchbox';
 import { Col, Nav, Button, Dropdown, Offcanvas, Row } from 'react-bootstrap';
 import { Link, useSearchParams } from 'react-router-dom';
 import categories from '../../assets/categories.json';
 import { getDocs, collection, query, orderBy } from 'firebase/firestore';
 import { db } from '../../services/firebase.js';
 import { PostType } from '../../global/types';
-import PostItem from '../../components/Post/PostItem';
+import PostItem from '../../layouts/Post/PostItem';
 
 const Search: React.FC = () => {
   const [showCategory, setShowCategory] = useState(false);
@@ -52,9 +51,6 @@ const Search: React.FC = () => {
     <>
       <Navi />
       <main className="min-h p-0">
-        <div className="mx-3">
-          <Searchbox />
-        </div>
         <div className="d-flex flex-row">
           <Button onClick={toggleCategory} className="mt-3 ms-3 d-md-none">
             Categories
@@ -67,7 +63,7 @@ const Search: React.FC = () => {
             </Dropdown.Menu>
           </Dropdown>
         </div>
-        <Row>
+        <Row className='m-0 p-0'>
           <Col md={2}>
             <Offcanvas show={showCategory} onHide={() => setShowCategory(false)} responsive="md">
               <Offcanvas.Header closeButton>

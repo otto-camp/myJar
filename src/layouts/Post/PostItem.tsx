@@ -1,10 +1,12 @@
-import moment from 'moment/moment';
 import React, { useRef } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import CategoryButton from '../Button/CategoryButton';
+import CategoryButton from '../../components/Buttons/CategoryButton';
 import './post.css';
 import { PostType } from '../../global/types';
+import loadable from '@loadable/component';
+
+const Moment = loadable.lib(() => import('moment'));
 
 export default function PostItem({ posts }: { posts: PostType }) {
   const postRef = useRef<PostType>(posts);
@@ -41,7 +43,11 @@ export default function PostItem({ posts }: { posts: PostType }) {
                 <Link to={'profile/' + postRef.current.createrId}>
                   <h4 className="postitem-creatername">{postRef.current.createrName}</h4>
                 </Link>
-                <p className="postitem-date ">{moment.utc(postRef.current.timestamp?.seconds, 'X').fromNow()}</p>
+                <p className="postitem-date ">
+                  <Moment fallback={postRef.current.timestamp.seconds as any}>
+                    {({ default: moment }) => moment.utc(postRef.current.timestamp?.seconds, 'X').fromNow()}
+                  </Moment>
+                </p>
               </div>
             </Card.Header>
           </Col>

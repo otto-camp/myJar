@@ -4,11 +4,10 @@ import { Container } from 'react-bootstrap';
 import Navi from '../../layouts/Navi';
 import loadable from '@loadable/component';
 import SEO from '../../utils/SEO/SEO';
-import FeaturedPost from '../../components/Post/FeaturedPost';
 import usePosts from '../../hooks/usePosts';
 
-const SearchContainer = loadable(() => import('../../components/Search/SearchContainer'));
-const PostItem = loadable(() => import('../../components/Post/PostItem'));
+const FeaturedPost = loadable(() => import('../../layouts/Post/FeaturedPost'));
+const PostItem = loadable(() => import('../../layouts/Post/PostItem'));
 
 const Home: React.FC = () => {
   const { posts } = usePosts();
@@ -22,8 +21,7 @@ const Home: React.FC = () => {
         url="https://myjar-8ff23.web.app/"
       />
       <Navi />
-      <Container className="p-0 m-0">
-        <SearchContainer />
+      <Container className="p-0 m-0" fluid>
         <div className="homepage-container">
           {posts.map((p: any, index: React.Key) => (
             <>{index === 0 ? <FeaturedPost key={index} post={p} /> : <PostItem key={index} posts={p} />}</>

@@ -32,19 +32,3 @@
 .img-thumbnail:hover {
   cursor: pointer;
 }
-
-@media screen and (min-width: 768px) {
-  .profile-m {
-    margin-left: 3rem;
-    margin-right: 3rem;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .m-left {
-    margin-right: 0rem;
-  }
-  .m-right {
-    margin-left: 0rem;
-  }
-}

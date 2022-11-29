@@ -12,11 +12,11 @@ import { UserType } from '../../global/types';
 import loadable from '@loadable/component';
 import SEO from '../../utils/SEO/SEO';
 
-const UpdateProfilePictureModal = loadable(() => import('../../components/Profile/UpdateProfilePictureModal'));
-const ProfileActionButton = loadable(() => import('../../components/Button/ProfileActionButton'));
-const SocialsSection = loadable(() => import('../../components/Profile/SocialsSection'));
-const ProfilePost = loadable(() => import('../../components/Post/ProfilePost'));
-const UpdateProfileModal = loadable(() => import('../../components/Profile/UpdateProfileModal'));
+const UpdateProfilePictureModal = loadable(() => import('../../layouts/Profile/UpdateProfilePictureModal'));
+const ProfileActionButton = loadable(() => import('../../components/Buttons/ProfileActionButton'));
+const SocialsSection = loadable(() => import('../../layouts/Profile/SocialsSection'));
+const ProfilePost = loadable(() => import('../../layouts/Post/ProfilePost'));
+const UpdateProfileModal = loadable(() => import('../../layouts/Profile/UpdateProfileModal'));
 
 const Profile: React.FC = () => {
   const [profileModalShow, setProfileModalShow] = useState(false);
@@ -56,10 +56,10 @@ const Profile: React.FC = () => {
       <div className="navi-wrapper p-0">
         <Navi />
       </div>
-      <Container className="min-h">
+      <Container className="min-h" fluid>
         <Row>
           <Col lg={5}>
-            <Card className="profile-m m-left ">
+            <Card>
               <Card.Body>
                 {currentUser !== null && currentUser.uid === id ? (
                   <>
@@ -67,8 +67,7 @@ const Profile: React.FC = () => {
                       className="float-end rounded-pill"
                       onClick={() => {
                         setProfileModalShow(true);
-                      }}
-                    >
+                      }}>
                       <FontAwesomeIcon icon={faPenToSquare} />
                     </Button>
                     <UpdateProfileModal

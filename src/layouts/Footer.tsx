@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
+  console.log('Footer rerender');
+  
   return (
     <footer className="d-flex flex-wrap justify-content-between align-items-center footer-border p-2 gx-0 position-relative mt-auto">
       <div className="col-md-4 d-flex align-items-center footer-left">

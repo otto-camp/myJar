@@ -1,0 +1,33 @@
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  display: none;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: stretch;
+  width: 100%;
+  padding-inline: 1rem;
+}
+
+.search-btn {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+@media screen and (min-width: 992px) {
+  .form-container {
+    width: calc(75% - 0.5rem);
+    margin-inline: auto;
+  }
+}

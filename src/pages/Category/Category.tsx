@@ -7,9 +7,9 @@ import invert from 'invert-color';
 import { query, where, getDocs, collection } from 'firebase/firestore';
 import { PostType } from '../../global/types';
 import { db } from '../../services/firebase';
-import PostItem from '../../components/Post/PostItem';
-import CreatePostButton from '../../components/Button/CreatePostButton';
-import EmptyCategoryDialog from '../../components/Dialog/EmptyCategoryDialog';
+import PostItem from '../../layouts/Post/PostItem';
+import CreatePostButton from '../../components/Buttons/CreatePostButton';
+import EmptyCategoryDialog from '../../components/Dialogs/EmptyCategoryDialog';
 import SEO from '../../utils/SEO/SEO';
 
 const Category: React.FC = () => {

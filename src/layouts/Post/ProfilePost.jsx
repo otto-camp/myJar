@@ -2,10 +2,12 @@ import { collection, getDocs, limit, query, where } from 'firebase/firestore';
 import React, { useState, useEffect, useRef } from 'react';
 import { Card } from 'react-bootstrap';
 import { db } from '../../services/firebase.js';
-import moment from 'moment/moment';
 import { Link } from 'react-router-dom';
-import CreatePostButton from '../Button/CreatePostButton';
-import EmptyPostDialog from '../Dialog/EmptyPostDialog';
+import CreatePostButton from '../../components/Buttons/CreatePostButton';
+import EmptyPostDialog from '../../components/Dialogs/EmptyPostDialog';
+import loadable from '@loadable/component';
+
+const Moment = loadable.lib(() => import('moment'));
 
 export default function ProfilePost(props) {
   const uid = useRef(props.uid);
@@ -42,7 +44,9 @@ export default function ProfilePost(props) {
                   <h5>
                     {p.postTitle}
                     <small className="text-black-50 float-end fs-6">
-                      {moment.utc(p.timestamp.seconds, 'X').fromNow()}
+                      <Moment fallback={p.timestamp.seconds}>
+                        {({ default: moment }) => moment.utc(p.timestamp.seconds, 'X').fromNow()}
+                      </Moment>
                     </small>
                   </h5>
                   <div>
