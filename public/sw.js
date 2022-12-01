@@ -1,20 +1,20 @@
 /* eslint-disable no-undef */
-importScripts(
+self.importScripts(
   'https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js'
 );
 
 if (workbox) {
   workbox.googleAnalytics.initialize();
 
-  var defaultStrategy = workbox.strategies.networkFirst({
+  var defaultStrategy = new workbox.strategies.NetworkFirst({
     cacheName: "fallback",
     plugins: [
-      new workbox.expiration.Plugin({
+      new workbox.expiration.ExpirationPlugin({
         maxEntries: 128,
         maxAgeSeconds: 30 * 24 * 60 * 60,
         purgeOnQuotaError: true,
       }),
-      new workbox.cacheableResponse.Plugin({
+      new workbox.cacheableResponse.CacheableResponsePlugin({
         statuses: [0, 200]
       }),
     ],
@@ -31,12 +31,12 @@ if (workbox) {
 
   workbox.routing.registerRoute(
     new RegExp(/.*\.(?:js|css)/g),
-    workbox.strategies.networkFirst()
+    new workbox.strategies.NetworkFirst()
   );
 
   workbox.routing.registerRoute(
     new RegExp(/.*\.(?:png|jpg|jpeg|svg|gif|webp)/g),
-    workbox.strategies.cacheFirst()
+    new workbox.strategies.CacheFirst()
   );
 } else {
   console.log(`No workbox on this browser 😬`);

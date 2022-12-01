@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Dotenv = require('dotenv-webpack')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const TerserPlugin = require("terser-webpack-plugin");
+const CopyPlugin = require('copy-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -36,7 +37,15 @@ const config = {
       favicon: "public/favicon.ico",
       manifest: "public/manifest.json",
     }),
-    new Dotenv()
+    new Dotenv(),
+    new CopyPlugin({
+      patterns: [
+        {from:"./public/robots.txt", to:"robots.txt"},
+        {from:"./public/manifest.json", to:"manifest.json"},
+        {from:"./public/favicon.ico", to:"favicon.ico"},
+        {from:"./public/sw.js", to:"sw.js"}
+      ]
+    })
   ],
   module: {
     rules: [

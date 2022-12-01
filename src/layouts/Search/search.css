@@ -16,7 +16,9 @@ input[type='search']::-webkit-search-results-decoration {
 
 .search-btn {
   position: absolute;
-  padding: 0.75rem 1rem;
+  padding: 0.7rem 1rem;
+  outline: none;
+  border: none !important;
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
