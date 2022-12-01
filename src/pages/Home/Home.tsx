@@ -5,6 +5,7 @@ import Navi from '../../layouts/Navi';
 import loadable from '@loadable/component';
 import SEO from '../../utils/SEO/SEO';
 import usePosts from '../../hooks/usePosts';
+import Poster from '../../components/Containers/Poster';
 
 const FeaturedPost = loadable(() => import('../../layouts/Post/FeaturedPost'));
 const PostItem = loadable(() => import('../../layouts/Post/PostItem'));
@@ -22,6 +23,7 @@ const Home: React.FC = () => {
       />
       <Navi />
       <Container className="p-0 m-0" fluid>
+        <Poster />
         <div className="homepage-container">
           {posts.map((p: any, index: React.Key) => (
             <>{index === 0 ? <FeaturedPost key={index} post={p} /> : <PostItem key={index} posts={p} />}</>

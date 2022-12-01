@@ -15,7 +15,7 @@ export default function CreatePostButton({ text, className, variant, style }: IC
   return (
     <>
       {currentUser && (
-        <Link to={'/post/create-post'}>
+        <Link to={'/post/create-post'} style={{ width: 'fit-content' }}>
           <Button variant={variant} className={className} style={style}>
             {text}
           </Button>

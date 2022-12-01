@@ -1,0 +1,76 @@
+.poster {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.poster-title {
+  margin: 0;
+  padding-bottom: 1rem;
+  padding-inline: 1rem;
+  font-size: calc(3rem + 3vw);
+  font-weight: 400;
+  width: 100%;
+}
+
+.poster-image {
+  display: none;
+}
+
+.poster-btn {
+  font-size: calc(1.5rem + 2vw);
+  font-weight: 300;
+  transition: all 300ms ease;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  border: none !important;
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.poster-btn::before,
+.poster-btn::after {
+  content: '';
+  position: absolute;
+  background-color: var(--bs-indigo);
+  z-index: -1;
+  height: 5%;
+}
+
+.poster-btn::before {
+  width: 0%;
+  left: 0;
+  bottom: 0;
+  transition: width ease 0.4s;
+}
+
+.poster-btn::after {
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  transition: all ease 0.6s;
+}
+
+.poster-btn:hover::before,
+.poster-btn:focus::before {
+  width: 100%;
+}
+
+.poster-btn:hover::after,
+.poster-btn:focus::after {
+  left: 100%;
+  width: 0%;
+  transition: all ease 0.2s;
+}
+
+@media (min-width: 992px) {
+  .poster {
+    height: calc(95vh - 5em);
+  }
+}
