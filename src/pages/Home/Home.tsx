@@ -5,7 +5,7 @@ import Navi from '../../layouts/Navi';
 import loadable from '@loadable/component';
 import SEO from '../../utils/SEO/SEO';
 import usePosts from '../../hooks/usePosts';
-import Poster from '../../components/Containers/Poster';
+import logo from '../../../public/logo.png';
 
 const FeaturedPost = loadable(() => import('../../layouts/Post/FeaturedPost'));
 const PostItem = loadable(() => import('../../layouts/Post/PostItem'));
@@ -20,10 +20,11 @@ const Home: React.FC = () => {
         description="Blog website users can create stories from various categories. Users can follow and message each other."
         type="website"
         url="https://myjar-8ff23.web.app/"
+        image={logo}
       />
       <Navi />
       <Container className="p-0 m-0" fluid>
-        <Poster />
+        {/* <Poster /> */}
         <div className="homepage-container">
           {posts.map((p: any, index: React.Key) => (
             <>{index === 0 ? <FeaturedPost key={index} post={p} /> : <PostItem key={index} posts={p} />}</>

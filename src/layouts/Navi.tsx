@@ -19,7 +19,7 @@ export default function Navi() {
       console.error(e);
     }
   };
-  
+
   return (
     <Container fluid className="m-0 p-0 navi-container">
       <Navbar color="light" expand="lg" variant="light" fixed="top" className="position-relative navi">
@@ -30,33 +30,30 @@ export default function Navi() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="w-100">
             <Searchbox />
-            <Link to={'/'} className="mx-3 fs-5 nav-space nav-link">
-              Home
+            <Link to={'/about'} className="mx-3 fs-5 nav-space nav-link" aria-label='about page'>
+              About
             </Link>
-            {currentUser && (
+            {currentUser ? (
               <>
-                <Link to={'/profile/' + currentUser.uid} className="mx-3 fs-5 nav-link">
+                <Link to={'/profile/' + currentUser.uid} className="mx-3 fs-5 nav-link" aria-label='profile page'>
                   Profile
                 </Link>
-                {/* <Link to={'/messages/' + currentUser.uid} className="mx-3 fs-5 nav-link">
+                {/* <Link to={'/messages/' + currentUser.uid} className="mx-3 fs-5 nav-link" aria-label='message page'>
                   Messages
                 </Link> */}
                 <NavDropdown title="Account" id="basic-nav-dropdown" className="mx-3 fs-5">
-                  <NavDropdown.Item href="/settings">Settings</NavDropdown.Item>
+                  <NavDropdown.Item href="/settings" aria-label='settings page'>Settings</NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item onClick={handleSignOut}>Sign Out</NavDropdown.Item>
+                  <NavDropdown.Item onClick={handleSignOut} aria-label='sign out'>Sign Out</NavDropdown.Item>
                 </NavDropdown>
               </>
+            ) : (
+              <Button variant="primary" className="fs-5 mx-3 px-4 ms-lg-auto" href="/login" aria-label='login'>
+                Login
+              </Button>
             )}
           </Nav>
         </Navbar.Collapse>
-        {!currentUser && (
-          <>
-            <Button variant="primary" className="fs-5 mx-3 px-4 ms-auto" href="/login">
-              Login
-            </Button>
-          </>
-        )}
       </Navbar>
     </Container>
   );

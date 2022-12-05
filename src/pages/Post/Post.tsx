@@ -5,10 +5,10 @@ import Navi from '../../layouts/Navi';
 import './post.css';
 import HTMLReactParser from 'html-react-parser';
 import CategoryButton from '../../components/Buttons/CategoryButton';
-import SEO from '../../utils/SEO/SEO';
 import useProfile from '../../hooks/useProfile';
 import usePost from '../../hooks/usePost';
 import loadable from '@loadable/component';
+import ArticleSEO from '../../utils/SEO/ArticleSEO';
 
 const Moment = loadable.lib(() => import('moment'));
 
@@ -19,12 +19,14 @@ const Post: React.FC = () => {
 
   return (
     <>
-      <SEO
+      <ArticleSEO
         title={post?.postTitle}
         description={post?.postSubTitle}
         type="article"
         url={'https://myjar-8ff23.web.app/post/' + post?.pid}
         image={post?.postThumbnail}
+        typeSection={post?.category}
+        typeTag={['Story', 'Story with image', 'Post', 'myJar']}
       />
       <Navi />
       <Row className="g-0 w-100 min-h">

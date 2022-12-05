@@ -9,6 +9,7 @@ import { HelmetProvider } from 'react-helmet-async';
 const CreatePost = loadable(() => import('../pages/Post/CreatePost'));
 const Post = loadable(() => import('../pages/Post/Post'));
 const Home = loadable(() => import('../pages/Home/Home'));
+const About = loadable(() => import('../pages/common/About'));
 const Login = loadable(() => import('./Login'));
 const SignUp = loadable(() => import('./SignUp'));
 const ForgotPassword = loadable(() => import('./ForgotPassword'));
@@ -28,6 +29,7 @@ export default function Mainpage() {
           <Routes>
             <Route index element={<Home />} />
             <Route path="*" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/create-profile" element={<CreateProfile />} />
