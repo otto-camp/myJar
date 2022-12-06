@@ -40,10 +40,11 @@ const config = {
     new Dotenv(),
     new CopyPlugin({
       patterns: [
-        {from:"./public/robots.txt", to:"robots.txt"},
-        {from:"./public/manifest.json", to:"manifest.json"},
-        {from:"./public/favicon.ico", to:"favicon.ico"},
-        {from:"./public/sw.js", to:"sw.js"}
+        { from: "./public/robots.txt", to: "robots.txt" },
+        { from: "./public/manifest.json", to: "manifest.json" },
+        { from: "./public/favicon.ico", to: "favicon.ico" },
+        { from: "./public/sw.js", to: "sw.js" },
+        { from: "./public/sitemap.xml", to: "sitemap.xml" }
       ]
     })
   ],
