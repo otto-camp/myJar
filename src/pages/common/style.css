@@ -1,0 +1,14 @@
+.contact-title {
+  font-size: calc(3rem + 1vw);
+}
+
+.contact-form {
+  width: 95%;
+  margin-bottom: auto;
+}
+
+@media (min-width: 768px) {
+  .contact-form {
+    width: 60%;
+  }
+}

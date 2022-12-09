@@ -17,7 +17,7 @@ const ArticleSEO: React.FC<ISEO> = ({ title, description, type, url, image, type
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
       <meta property="og:image" content={image} />
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:text:title" content={title} />
       <meta name="twitter:description" content={description} />

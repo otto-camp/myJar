@@ -1,7 +1,6 @@
 import React from 'react';
 import { Col, Image, Row } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
-import Navi from '../../layouts/Navi';
 import './post.css';
 import HTMLReactParser from 'html-react-parser';
 import CategoryButton from '../../components/Buttons/CategoryButton';
@@ -28,7 +27,6 @@ const Post: React.FC = () => {
         typeSection={post?.category}
         typeTag={['Story', 'Story with image', 'Post', 'myJar']}
       />
-      <Navi />
       <Row className="g-0 w-100 min-h">
         {post && (
           <>

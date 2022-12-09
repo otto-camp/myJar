@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../services/AuthContext';
 import { auth } from '../services/firebase.js';
 import './layout-styles.css';
-import Searchbox from './Search/Searchbox';
+const Searchbox = React.lazy(() => import('./Search/Searchbox'));
 
 export default function Navi() {
   const { currentUser } = useAuth();
@@ -30,25 +30,31 @@ export default function Navi() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="w-100">
             <Searchbox />
-            <Link to={'/about'} className="mx-3 fs-5 nav-space nav-link" aria-label='about page'>
-              About
-            </Link>
+
             {currentUser ? (
               <>
-                <Link to={'/profile/' + currentUser.uid} className="mx-3 fs-5 nav-link" aria-label='profile page'>
+                <Link to={'/profile/' + currentUser.uid} className="mx-3 fs-5 nav-link" aria-label="profile page">
                   Profile
                 </Link>
                 {/* <Link to={'/messages/' + currentUser.uid} className="mx-3 fs-5 nav-link" aria-label='message page'>
                   Messages
                 </Link> */}
                 <NavDropdown title="Account" id="basic-nav-dropdown" className="mx-3 fs-5">
-                  <NavDropdown.Item href="/settings" aria-label='settings page'>Settings</NavDropdown.Item>
+                  <NavDropdown.Item href="/settings" aria-label="settings page">
+                    Settings
+                  </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item onClick={handleSignOut} aria-label='sign out'>Sign Out</NavDropdown.Item>
+                  <NavDropdown.Item onClick={handleSignOut} aria-label="sign out">
+                    Sign Out
+                  </NavDropdown.Item>
                 </NavDropdown>
               </>
             ) : (
-              <Button variant="primary" className="fs-5 mx-3 px-4 ms-lg-auto" href="/login" aria-label='login'>
+              <Button
+                variant="primary"
+                className="fs-5 mx-3 px-4 mt-3 mt-lg-0 ms-lg-auto"
+                href="/login"
+                aria-label="login">
                 Login
               </Button>
             )}

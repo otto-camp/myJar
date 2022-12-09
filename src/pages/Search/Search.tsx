@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Navi from '../../layouts/Navi';
 import './search.css';
 import { Col, Nav, Button, Dropdown, Offcanvas, Row } from 'react-bootstrap';
 import { Link, useSearchParams } from 'react-router-dom';
@@ -49,7 +48,6 @@ const Search: React.FC = () => {
 
   return (
     <>
-      <Navi />
       <main className="min-h p-0">
         <div className="d-flex flex-row">
           <Button onClick={toggleCategory} className="mt-3 ms-3 d-md-none">
@@ -63,7 +61,7 @@ const Search: React.FC = () => {
             </Dropdown.Menu>
           </Dropdown>
         </div>
-        <Row className='m-0 p-0'>
+        <Row className="m-0 p-0">
           <Col md={2}>
             <Offcanvas show={showCategory} onHide={() => setShowCategory(false)} responsive="md">
               <Offcanvas.Header closeButton>

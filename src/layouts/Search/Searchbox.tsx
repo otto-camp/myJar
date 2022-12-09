@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
+import './search.css';
 import { Button, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import './search.css';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const Searchbox: React.FC = () => {
@@ -23,7 +23,7 @@ const Searchbox: React.FC = () => {
   return (
     <div className="form-container">
       <Form.Control type="search" placeholder="Search" aria-label="Search" ref={searchRef} />
-      <Button variant="none" className="search-btn" onClick={handleSearch}>
+      <Button variant="none" className="search-btn" onClick={handleSearch} aria-label="search">
         <FontAwesomeIcon icon={faSearch} />
       </Button>
     </div>

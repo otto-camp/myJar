@@ -37,7 +37,7 @@ export default function Footer() {
           <Row className="mt-3 ">
             <Col className="mx-auto mb-4">
               <h5 className="fw-bold mb-4 text-center">myJar</h5>
-              <p className="text-center">
+              <p className="text-center w-50 mx-auto">
                 Blog website users can create stories from various categories. Users can follow and message each other.
               </p>
             </Col>

@@ -6,10 +6,12 @@ import { AuthProvider } from '../services/AuthContext';
 import loadable from '@loadable/component';
 import { HelmetProvider } from 'react-helmet-async';
 
+const Navi = loadable(() => import('./Navi'));
 const CreatePost = loadable(() => import('../pages/Post/CreatePost'));
 const Post = loadable(() => import('../pages/Post/Post'));
 const Home = loadable(() => import('../pages/Home/Home'));
 const About = loadable(() => import('../pages/common/About'));
+const Contact = loadable(() => import('../pages/common/Contact'));
 const Login = loadable(() => import('./Login'));
 const SignUp = loadable(() => import('./SignUp'));
 const ForgotPassword = loadable(() => import('./ForgotPassword'));
@@ -26,10 +28,12 @@ export default function Mainpage() {
     <Container fluid className="d-flex flex-column m-0 p-0">
       <HelmetProvider>
         <AuthProvider>
+          <Navi />
           <Routes>
             <Route index element={<Home />} />
             <Route path="*" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/create-profile" element={<CreateProfile />} />
@@ -46,9 +50,9 @@ export default function Mainpage() {
             <Route path="/category/:category" element={<Category />} />
             <Route path="/search" element={<Search />} />
           </Routes>
+          <Footer />
         </AuthProvider>
       </HelmetProvider>
-      <Footer />
     </Container>
   );
 }

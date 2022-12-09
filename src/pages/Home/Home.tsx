@@ -1,7 +1,6 @@
 import React from 'react';
 import './home.css';
 import { Container } from 'react-bootstrap';
-import Navi from '../../layouts/Navi';
 import loadable from '@loadable/component';
 import SEO from '../../utils/SEO/SEO';
 import usePosts from '../../hooks/usePosts';
@@ -22,7 +21,6 @@ const Home: React.FC = () => {
         url="https://myjar-8ff23.web.app/"
         image={logo}
       />
-      <Navi />
       <Container className="p-0 m-0" fluid>
         {/* <Poster /> */}
         <div className="homepage-container">

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './category.css';
 import categories from '../../assets/categories.json';
-import Navi from '../../layouts/Navi';
 import invert from 'invert-color';
 import { query, where, getDocs, collection } from 'firebase/firestore';
 import { PostType } from '../../global/types';
@@ -43,7 +42,6 @@ const Category: React.FC = () => {
         image={image}
       />
 
-      <Navi />
       <div className="min-h p-0">
         <div className="category-wrapper" style={{ backgroundColor: bgColor }}>
           <div className="category-header">

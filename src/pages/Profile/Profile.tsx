@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navi from '../../layouts/Navi';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import './profile.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -30,7 +29,7 @@ const Profile: React.FC = () => {
       setPictureModalShow(true);
     }
   };
-  
+
   return (
     <>
       <SEO
@@ -40,9 +39,6 @@ const Profile: React.FC = () => {
         url={'https:/myjar-8ff23.web.app/profile/' + user?.id}
         image={user?.photoURL}
       />
-      <div className="navi-wrapper p-0">
-        <Navi />
-      </div>
       <Container className="min-h" fluid>
         <Row>
           {user && (

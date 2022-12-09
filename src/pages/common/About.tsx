@@ -1,5 +1,4 @@
 import React from 'react';
-import Navi from '../../layouts/Navi';
 import ArticleSEO from '../../utils/SEO/ArticleSEO';
 import './style.css';
 
@@ -15,7 +14,6 @@ function About() {
         typeSection='About'
         typeTag={['About','Blog','Professional Blog','Enjoyment','myJar']}
       />
-      <Navi />
       <div className="display-2">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores, deleniti nemo consectetur fuga, suscipit
         excepturi vitae quia earum dignissimos rerum eos dicta ab porro ducimus fugiat. Aut quod ducimus itaque
