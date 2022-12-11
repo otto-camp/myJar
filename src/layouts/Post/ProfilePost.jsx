@@ -1,4 +1,4 @@
-import { collection, getDocs, limit, query, where } from 'firebase/firestore';
+import { collection, getDocs, limit, query, where } from 'firebase/firestore/lite';
 import React, { useState, useEffect, useRef } from 'react';
 import { Card } from 'react-bootstrap';
 import { db } from '../../services/firebase.js';

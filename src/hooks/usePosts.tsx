@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { PostType } from '../global/types';
-import { query, collection, orderBy, limit, getDocs } from 'firebase/firestore';
+import { query, collection, orderBy, limit, getDocs } from 'firebase/firestore/lite';
 import { db } from '../services/firebase';
 
 /**

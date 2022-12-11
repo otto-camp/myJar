@@ -1,17 +1,13 @@
 import React from 'react';
 import './style.css';
-import CreatePostButton from '../Buttons/CreatePostButton';
+import poster from '../../assets/poster.svg';
 
-//TODO:Add background to the poster.
 function Poster() {
   return (
     <>
       <header className="poster">
-        <h1 className="poster-title">
-          Discover, learn, and share your{' '}
-          <span className="text-danger fw-bolder border-bottom border-danger">stories</span>
-        </h1>
-        <CreatePostButton text="Start Writing &#8680;" variant="none" className="poster-btn" />
+        <img src={poster} className="poster-bg" width="100%" height="100%" alt='' />
+        <h1 className="poster-title">Lorem ipsum dolor sit amet consectetur.</h1>
       </header>
     </>
   );

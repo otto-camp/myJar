@@ -1,4 +1,4 @@
-import { doc, getDoc, } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore/lite';
 import React, { useContext, useState, useEffect } from 'react';
 import { auth, db } from './firebase.js';
 

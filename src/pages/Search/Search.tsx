@@ -3,7 +3,7 @@ import './search.css';
 import { Col, Nav, Button, Dropdown, Offcanvas, Row } from 'react-bootstrap';
 import { Link, useSearchParams } from 'react-router-dom';
 import categories from '../../assets/categories.json';
-import { getDocs, collection, query, orderBy } from 'firebase/firestore';
+import { getDocs, collection, query, orderBy } from 'firebase/firestore/lite';
 import { db } from '../../services/firebase.js';
 import { PostType } from '../../global/types';
 import PostItem from '../../layouts/Post/PostItem';

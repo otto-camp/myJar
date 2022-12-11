@@ -1,4 +1,4 @@
-import { updateDoc, doc, arrayUnion, arrayRemove } from 'firebase/firestore';
+import { updateDoc, doc, arrayUnion, arrayRemove } from 'firebase/firestore/lite';
 import { UserType } from '../../global/types';
 import { db } from '../../services/firebase.js';
 

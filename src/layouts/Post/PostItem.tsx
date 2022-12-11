@@ -1,11 +1,12 @@
 import React from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import CategoryButton from '../../components/Buttons/CategoryButton';
 import './post.css';
 import { PostType } from '../../global/types';
 import loadable from '@loadable/component';
-import Image from '../../components/Images/Image';
+
+const CategoryButton = loadable(() => import('../../components/Buttons/CategoryButton'));
+const Image = loadable(() => import('../../components/Images/Image'));
 
 const Moment = loadable.lib(() => import('moment'));
 

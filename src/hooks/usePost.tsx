@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { PostType } from '../global/types';
-import { getDoc, doc } from 'firebase/firestore';
+import { getDoc, doc } from 'firebase/firestore/lite';
 import { db } from '../services/firebase';
 
 /**

@@ -1,5 +1,5 @@
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
-import { updateDoc, doc } from 'firebase/firestore';
+import { updateDoc, doc } from 'firebase/firestore/lite';
 import { db, storage } from '../../services/firebase.js';
 
 export function uploadPostImage(postId: string, image: Blob, currentUser: any) {

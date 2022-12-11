@@ -1,4 +1,4 @@
-import { collection, Timestamp, updateDoc, arrayUnion, doc, addDoc, deleteDoc } from 'firebase/firestore';
+import { collection, Timestamp, updateDoc, arrayUnion, doc, addDoc, deleteDoc } from 'firebase/firestore/lite';
 import { db } from '../../services/firebase.js';
 import { uploadPostImage } from './Storage';
 import { UserType } from '../../global/types';

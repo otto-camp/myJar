@@ -1,4 +1,4 @@
-import { doc, updateDoc } from 'firebase/firestore';
+import { doc, updateDoc } from 'firebase/firestore/lite';
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';

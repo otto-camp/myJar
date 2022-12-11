@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import './category.css';
 import categories from '../../assets/categories.json';
 import invert from 'invert-color';
-import { query, where, getDocs, collection } from 'firebase/firestore';
+import { query, where, getDocs, collection } from 'firebase/firestore/lite';
 import { PostType } from '../../global/types';
 import { db } from '../../services/firebase';
 import PostItem from '../../layouts/Post/PostItem';

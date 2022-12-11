@@ -2,9 +2,11 @@ import React from 'react';
 import { PostType } from '../../global/types';
 import { useNavigate, Link } from 'react-router-dom';
 import { Col, Row } from 'react-bootstrap';
-import CategoryButton from '../../components/Buttons/CategoryButton';
-import SkeletonCard from '../../components/Cards/SkeletonCard';
-import Image from '../../components/Images/Image';
+import loadable from '@loadable/component';
+
+const CategoryButton = loadable(() => import('../../components/Buttons/CategoryButton'));
+const SkeletonCard = loadable(() => import('../../components/Cards/SkeletonCard'));
+const Image = loadable(() => import('../../components/Images/Image'));
 
 interface IFeaturedPost {
   post: PostType;

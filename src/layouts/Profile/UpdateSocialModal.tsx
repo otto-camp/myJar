@@ -1,4 +1,4 @@
-import { updateDoc, doc } from 'firebase/firestore';
+import { updateDoc, doc } from 'firebase/firestore/lite';
 import React, { useRef } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
 import { useAuth } from '../../services/AuthContext';
