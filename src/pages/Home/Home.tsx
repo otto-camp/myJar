@@ -6,6 +6,7 @@ import SEO from '../../utils/SEO/SEO';
 import usePosts from '../../hooks/usePosts';
 import logo from '../../../public/logo.png';
 
+const CategoryContainer = loadable(() => import('../../components/Containers/CategoryContainer'));
 const Poster = loadable(() => import('../../components/Containers/Poster'));
 const FeaturedPost = loadable(() => import('../../layouts/Post/FeaturedPost'));
 const PostItem = loadable(() => import('../../layouts/Post/PostItem'));
@@ -24,6 +25,7 @@ const Home: React.FC = () => {
       />
       <Container className="p-0 m-0" fluid>
         <Poster />
+        <CategoryContainer />
         <div className="homepage-container">
           {posts.map((p: any, index: React.Key) => (
             <>{index === 0 ? <FeaturedPost key={index} post={p} /> : <PostItem key={index} posts={p} />}</>

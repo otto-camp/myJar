@@ -14,12 +14,20 @@ export default function CreatePostButton({ text, className, variant, style }: IC
   const { currentUser } = useAuth();
   return (
     <>
-      {currentUser && (
+      {currentUser ? (
         <Link to={'/post/create-post'} style={{ width: 'fit-content' }}>
           <Button variant={variant} className={className} style={style}>
             {text}
           </Button>
         </Link>
+      ) : (
+        <h5>
+          You need to
+          <Button variant={variant} style={style} className={className}>
+            Login
+          </Button>
+          to create a post.
+        </h5>
       )}
     </>
   );

@@ -6,10 +6,11 @@ import invert from 'invert-color';
 import { query, where, getDocs, collection } from 'firebase/firestore/lite';
 import { PostType } from '../../global/types';
 import { db } from '../../services/firebase';
-import PostItem from '../../layouts/Post/PostItem';
-import CreatePostButton from '../../components/Buttons/CreatePostButton';
-import EmptyCategoryDialog from '../../components/Dialogs/EmptyCategoryDialog';
 import SEO from '../../utils/SEO/SEO';
+
+const CreatePostButton = React.lazy(() => import('../../components/Buttons/CreatePostButton'));
+const PostItem = React.lazy(() => import('../../layouts/Post/PostItem'));
+const EmptyCategoryDialog = React.lazy(() => import('../../components/Dialogs/EmptyCategoryDialog'));
 
 const Category: React.FC = () => {
   const { category } = useParams();

@@ -4,6 +4,7 @@
   "typescript.tsdk": "node_modules\\typescript\\lib",
   "editor.fontSize": 14,
   "cSpell.words": [
+    "blogosphere",
     "buildci",
     "creater",
     "creatername",

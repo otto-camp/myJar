@@ -3,106 +3,158 @@
   <url>
     <loc>https://myjar-8ff23.web.app/</loc>
     <lastmod>2022-12-09</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/contact</loc>
     <lastmod>2022-12-09</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/search</loc>
     <lastmod>2022-12-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/settings</loc>
     <lastmod>2022-12-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/about</loc>
     <lastmod>2022-12-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/signup</loc>
     <lastmod>2022-12-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/login</loc>
     <lastmod>2022-12-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/category/Food</loc>
     <lastmod>2022-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/category/Travel</loc>
     <lastmod>2022-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/category/Health</loc>
     <lastmod>2022-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/category/Fitness</loc>
     <lastmod>2022-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/category/Lifestyle</loc>
     <lastmod>2022-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/category/Fashion</loc>
     <lastmod>2022-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/category/Photography</loc>
     <lastmod>2022-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/category/Personal</loc>
     <lastmod>2022-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/category/DIY</loc>
     <lastmod>2022-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/category/Music</loc>
     <lastmod>2022-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/category/Business</loc>
     <lastmod>2022-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/category/Art%20and%20Design</loc>
     <lastmod>2022-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/category/Book</loc>
     <lastmod>2022-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/category/Economy</loc>
     <lastmod>2022-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/category/Sports</loc>
     <lastmod>2022-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/category/News</loc>
     <lastmod>2022-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/category/Movie</loc>
     <lastmod>2022-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/category/Religion</loc>
     <lastmod>2022-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://myjar-8ff23.web.app/category/Political</loc>
     <lastmod>2022-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
- 
+
 </urlset>

@@ -1,11 +1,9 @@
 .poster {
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   display: flex;
   flex-direction: column;
-  align-content: space-between;
-  margin-bottom: 2rem;
-  padding-inline: 1rem;
+  margin-inline: -1rem;
 }
 
 .poster-bg {
@@ -14,10 +12,89 @@
   top: 0;
   left: 0;
   z-index: -1;
-  opacity: 0.2;
+  opacity: 0.35;
+}
+
+.poster-wrapper {
+  min-height: 100vh;
+  margin-inline: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-block: 2rem;
 }
 
 .poster-title {
-  font-size: calc(2rem + 1.5vw);
-  margin-block: auto;
+  font-size: calc(2rem + 2vw);
+}
+
+.poster-subtitle {
+  font-size: calc(1rem + 1.5vw);
+}
+
+.poster-feature-title {
+  font-size: calc(1rem + 1vw);
+}
+
+.poster-button {
+  font-size: 1rem;
+  padding: 0 0.3em;
+  font-weight: 700;
+  position: relative;
+  border: none;
+}
+
+.poster-button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0px;
+  background-color: #312;
+  transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+}
+
+.poster-button:hover::before {
+  color: var(--bs-pink);
+  height: 2px;
+}
+
+.category-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-auto-rows: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* TODO:ADD CAROUSEL TO THIS GRID */
+
+.category-card {
+  width: 100%;
+}
+
+.category-card-title {
+  margin: 0;
+  padding: 1.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+}
+
+@media (min-width: 600px) {
+  .category-card-title {
+    padding: 2rem 1.5rem;
+    font-size: 1.5rem;
+  }
 }

@@ -1,80 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="1440" height="560" preserveAspectRatio="none" viewBox="0 0 1440 560">
-    <g mask="url(&quot;#SvgjsMask1118&quot;)" fill="none">
-        <g transform="translate(0, 0)" stroke-linecap="round" stroke="url(#SvgjsLinearGradient1119)">
-            <path d="M176 190.17 L176 215.67" stroke-width="25.5"></path>
-            <path d="M176 253.92 L176 279.41999999999996" stroke-width="25.5"></path>
-            <path d="M176 317.66999999999996 L176 369.83" stroke-width="25.5"></path>
-            <path d="M210 267.49 L210 292.51" stroke-width="25.5"></path>
-            <path d="M244 150.38 L244 252.38" stroke-width="25.5"></path>
-            <path d="M244 290.63 L244 341.63" stroke-width="25.5"></path>
-            <path d="M244 379.88 L244 409.62" stroke-width="25.5"></path>
-            <path d="M278 165.02 L278 292.52" stroke-width="25.5"></path>
-            <path d="M278 330.77 L278 394.98" stroke-width="25.5"></path>
-            <path d="M312 161.62 L312 238.12" stroke-width="25.5"></path>
-            <path d="M312 276.37 L312 398.38" stroke-width="25.5"></path>
-            <path d="M346 181.48 L346 257.98" stroke-width="25.5"></path>
-            <path d="M346 296.23 L346 378.52" stroke-width="25.5"></path>
-            <path d="M380 102.47 L380 153.47" stroke-width="25.5"></path>
-            <path d="M380 191.72 L380 319.22" stroke-width="25.5"></path>
-            <path d="M380 357.47 L380 457.53" stroke-width="25.5"></path>
-            <path d="M414 84.68 L414 314.18" stroke-width="25.5"></path>
-            <path d="M414 352.43 L414 403.43" stroke-width="25.5"></path>
-            <path d="M414 441.68 L414 475.32" stroke-width="25.5"></path>
-            <path d="M448 95.44 L448 299.44" stroke-width="25.5"></path>
-            <path d="M448 337.69 L448 464.56" stroke-width="25.5"></path>
-            <path d="M482 186.98 L482 373.02" stroke-width="25.5"></path>
-            <path d="M516 231.44 L516 328.56" stroke-width="25.5"></path>
-            <path d="M550 177.13 L550 228.13" stroke-width="25.5"></path>
-            <path d="M550 266.38 L550 382.87" stroke-width="25.5"></path>
-            <path d="M584 175 L584 251.5" stroke-width="25.5"></path>
-            <path d="M584 289.75 L584 315.25" stroke-width="25.5"></path>
-            <path d="M584 353.5 L584 385" stroke-width="25.5"></path>
-            <path d="M618 155.28 L618 231.78" stroke-width="25.5"></path>
-            <path d="M618 270.03 L618 321.03" stroke-width="25.5"></path>
-            <path d="M618 359.28 L618 404.72" stroke-width="25.5"></path>
-            <path d="M652 174.86 L652 251.36" stroke-width="25.5"></path>
-            <path d="M652 289.61 L652 315.11" stroke-width="25.5"></path>
-            <path d="M652 353.36 L652 385.14" stroke-width="25.5"></path>
-            <path d="M686 93.88 L686 466.12" stroke-width="25.5"></path>
-            <path d="M720 135.99 L720 237.99" stroke-width="25.5"></path>
-            <path d="M720 276.24 L720 327.24" stroke-width="25.5"></path>
-            <path d="M720 365.49 L720 424.01" stroke-width="25.5"></path>
-            <path d="M754 121.99 L754 438.01" stroke-width="25.5"></path>
-            <path d="M788 265.06 L788 294.94" stroke-width="25.5"></path>
-            <path d="M822 241.84 L822 318.16" stroke-width="25.5"></path>
-            <path d="M856 162.93 L856 239.43" stroke-width="25.5"></path>
-            <path d="M856 277.68 L856 397.07" stroke-width="25.5"></path>
-            <path d="M890 219.69 L890 245.19" stroke-width="25.5"></path>
-            <path d="M890 283.44 L890 340.31" stroke-width="25.5"></path>
-            <path d="M924 111.25 L924 213.25" stroke-width="25.5"></path>
-            <path d="M924 251.5 L924 448.75" stroke-width="25.5"></path>
-            <path d="M958 177.2 L958 253.7" stroke-width="25.5"></path>
-            <path d="M958 291.95 L958 317.45" stroke-width="25.5"></path>
-            <path d="M958 355.7 L958 382.8" stroke-width="25.5"></path>
-            <path d="M992 230.16 L992 329.85" stroke-width="25.5"></path>
-            <path d="M1026 77.69 L1026 103.19" stroke-width="25.5"></path>
-            <path d="M1026 141.44 L1026 482.31" stroke-width="25.5"></path>
-            <path d="M1060 226.87 L1060 252.37" stroke-width="25.5"></path>
-            <path d="M1060 290.62 L1060 333.13" stroke-width="25.5"></path>
-            <path d="M1094 236.05 L1094 323.95" stroke-width="25.5"></path>
-            <path d="M1128 250.63 L1128 309.38" stroke-width="25.5"></path>
-            <path d="M1162 244.16 L1162 315.83" stroke-width="25.5"></path>
-            <path d="M1196 147.67 L1196 249.67" stroke-width="25.5"></path>
-            <path d="M1196 287.91999999999996 L1196 338.91999999999996" stroke-width="25.5"></path>
-            <path d="M1196 377.16999999999996 L1196 412.33" stroke-width="25.5"></path>
-            <path d="M1230 110.51 L1230 238.01" stroke-width="25.5"></path>
-            <path d="M1230 276.26 L1230 327.26" stroke-width="25.5"></path>
-            <path d="M1230 365.51 L1230 449.49" stroke-width="25.5"></path>
-            <path d="M1264 218.75 L1264 341.25" stroke-width="25.5"></path>
-        </g>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="2000" height="500" preserveAspectRatio="none" viewBox="0 0 2000 500">
+    <g mask="url(&quot;#SvgjsMask1095&quot;)" fill="none">
+        <rect width="2000" height="500" x="0" y="0" fill="rgba(11, 10, 95, 1)"></rect>
+        <path d="M0,645.458C119.235,634.667,214.445,554.886,318.069,494.925C427.24,431.754,574.709,401.051,623.434,284.713C672.159,168.375,610.255,34.88,559.02,-80.375C516.822,-175.301,429.915,-235.184,358.702,-310.817C290.941,-382.784,240.128,-471.356,150.88,-513.849C53.007,-560.449,-58.459,-582.865,-164.395,-559.878C-274.098,-536.074,-369.955,-469.1,-444.035,-384.758C-518.431,-300.057,-572.535,-196.048,-582.583,-83.763C-592.366,25.568,-535.298,124.277,-498.85,227.817C-458.47,342.525,-450.597,477.989,-357.353,556.053C-261.257,636.505,-124.818,656.754,0,645.458" fill="#351e3e"></path>
+        <path d="M2000 1185.576C2125.619 1172.3890000000001 2224.34 1081.534 2323.225 1002.948 2413.291 931.371 2491.299 850.38 2547.8469999999998 750.193 2608.581 642.5889999999999 2684.825 526.19 2660.718 405.003 2636.763 284.58000000000004 2497.323 230.97699999999998 2424.848 131.86700000000002 2343.257 20.288999999999987 2334.395-153.875 2209.197-212.46000000000004 2084.1-270.99699999999996 1939.017-197.88400000000001 1807.018-157.23800000000006 1676.621-117.08500000000004 1539.757-79.29499999999996 1448.2089999999998 21.87099999999998 1355.786 124.005 1294.7820000000002 262.279 1302.958 399.78 1310.675 529.547 1433.8600000000001 615.673 1490.478 732.691 1545.353 846.105 1535.836 992.019 1630.0059999999999 1075.721 1728.152 1162.9569999999999 1869.406 1199.286 2000 1185.576" fill="#6d3e80"></path>
     </g>
     <defs>
-        <mask id="SvgjsMask1118">
-            <rect width="1440" height="560" fill="#ffffff"></rect>
+        <mask id="SvgjsMask1095">
+            <rect width="2000" height="500" fill="#ffffff"></rect>
         </mask>
-        <linearGradient x1="144" y1="280" x2="1296" y2="280" gradientUnits="userSpaceOnUse" id="SvgjsLinearGradient1119">
-            <stop stop-color="#3a7cc3" offset="0"></stop>
-            <stop stop-color="#dd1133" offset="1"></stop>
-        </linearGradient>
     </defs>
 </svg>
