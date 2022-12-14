@@ -7,20 +7,15 @@ function CategoryContainer() {
   const invertColor = (bg: string) => {
     return invert(bg, { black: '#000', white: '#fff' });
   };
-
+  //TODO:FIX HORIZONTAL SCROLL BAR. 
   return (
     <div className="category-container">
       {categories.categories.map((c) => (
-        <div key={c.name} className="category-card">
-          <div style={{ backgroundColor: c.color }}>
-            <h4
-              className="category-card-title"
-              style={{
-                color: invertColor(c.color)
-              }}>
-              {c.name}
-            </h4>
-          </div>
+        <div
+          key={c.name}
+          style={{ backgroundColor: invertColor(c.color), color: c.color }}
+          className="category-card-title">
+          {c.name}
         </div>
       ))}
     </div>

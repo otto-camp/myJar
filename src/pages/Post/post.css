@@ -104,15 +104,9 @@ div {
 
 .post-creater-card {
   margin-inline: 1rem;
-  border: 1px solid cadetblue;
-  border-radius: 0.375rem;
-  -webkit-border-radius: 0.375rem;
-  -moz-border-radius: 0.375rem;
-  -ms-border-radius: 0.375rem;
-  -o-border-radius: 0.375rem;
 }
 
-.fs-sm{
+.fs-sm {
   font-size: 0.85em;
   color: rgba(0, 0, 0, 0.75);
   height: max-content;
@@ -154,12 +148,5 @@ div {
   span,
   div {
     font-size: calc(1em + 0.05vw);
-  }
-}
-
-@media (min-width: 992px) {
-  .post-container {
-    width: 75%;
-    margin-inline: auto;
   }
 }

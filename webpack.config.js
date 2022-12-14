@@ -12,7 +12,7 @@ const isProduction = process.env.NODE_ENV === "production";
 
 const config = {
   entry: "./src/index.tsx",
-  devtool: 'source-map',
+  devtool: isProduction ? 'inline-source-map' : 'source-map',
   output: {
     path: path.resolve(__dirname, "build"),
     filename: '[name].js',

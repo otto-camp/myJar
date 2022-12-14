@@ -26,75 +26,55 @@
 
 .poster-title {
   font-size: calc(2rem + 2vw);
+  font-weight: 700;
+}
+
+.poster-story-button {
+  font-size: calc(2rem + 2vw);
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+  border: none !important;
+  position: relative;
+}
+
+.poster-story-button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--bs-pink);
 }
 
 .poster-subtitle {
   font-size: calc(1rem + 1.5vw);
 }
 
-.poster-feature-title {
-  font-size: calc(1rem + 1vw);
-}
-
-.poster-button {
-  font-size: 1rem;
-  padding: 0 0.3em;
-  font-weight: 700;
-  position: relative;
-  border: none;
-}
-
-.poster-button::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0px;
-  background-color: #312;
-  transition: all 0.1s linear;
-  -webkit-transition: all 0.1s linear;
-  -moz-transition: all 0.1s linear;
-  -ms-transition: all 0.1s linear;
-  -o-transition: all 0.1s linear;
-}
-
-.poster-button:hover::before {
-  color: var(--bs-pink);
-  height: 2px;
-}
-
 .category-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  grid-auto-rows: 0;
-  position: relative;
-  overflow: hidden;
-}
-
-/* TODO:ADD CAROUSEL TO THIS GRID */
-
-.category-card {
-  width: 100%;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: repeat(1fr);
+  grid-auto-flow: column;
+  overflow-x: auto;
+  overflow-y: hidden;
+  justify-items: stretch;
+  scroll-snap-type: x mandatory;
 }
 
 .category-card-title {
-  margin: 0;
-  padding: 1.5rem 1rem;
-  font-size: 1rem;
+  scroll-snap-align: start;
+  font-size: 1.5rem;
   font-weight: 700;
   text-align: center;
-  transition: all 0.1s linear;
-  -webkit-transition: all 0.1s linear;
-  -moz-transition: all 0.1s linear;
-  -ms-transition: all 0.1s linear;
-  -o-transition: all 0.1s linear;
+  height: 2rem;
+  width: 100vw;
+  max-width: 1400px;
 }
 
 @media (min-width: 600px) {
   .category-card-title {
-    padding: 2rem 1.5rem;
     font-size: 1.5rem;
   }
 }

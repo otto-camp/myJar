@@ -19,9 +19,10 @@ function FollowButton(user: IFollowButton) {
       return true;
     }
   };
+  console.log(user.user);
 
   useEffect(() => {
-    if (currentUserProfile.follows?.includes(user.user.id)) {
+    if (currentUserProfile.follows.includes(user.user.id)) {
       setIsFriend(true);
     }
     if (!checkUserIsNull(user.user) && !checkUserIsNull(currentUserProfile)) {
@@ -50,11 +51,11 @@ function FollowButton(user: IFollowButton) {
   return (
     <>
       {!isFriend ? (
-        <Button className="rounded-pill me-4 w-50" onClick={handleFollow}>
+        <Button className="rounded-pill me-4" onClick={handleFollow}>
           Follow
         </Button>
       ) : (
-        <Button className="rounded-pill me-4 w-50" onClick={handleUnfollow}>
+        <Button className="rounded-pill me-4" onClick={handleUnfollow}>
           Unfollow
         </Button>
       )}

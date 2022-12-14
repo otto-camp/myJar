@@ -75,7 +75,7 @@ const Profile: React.FC = () => {
                       />
                       <UpdateProfilePictureModal show={pictureModalShow} onHide={() => setPictureModalShow(false)} />
                       <div className="w-100 ms-3">
-                        <h4>{user ? user.fname + ' ' + user.lname : 'Name'}</h4>
+                        <h1>{user ? user.fname + ' ' + user.lname : 'Name'}</h1>
                         <p className="text-secondary mb-1 d-inline-block">
                           Follows:{user ? ' ' + user.follows?.length : '0'}
                         </p>

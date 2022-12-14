@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="text-center text-lg-start bg-light text-muted">
+    <footer className="text-center text-lg-start text-muted">
       <section className="d-flex justify-content-center justify-content-md-between p-4 border-bottom">
         <div className="me-3 d-none d-md-block">
           <span>Get connected with us on social networks:</span>
@@ -37,7 +37,7 @@ export default function Footer() {
           <Row className="mt-3 ">
             <Col className="mx-auto mb-4">
               <h5 className="fw-bold mb-4 text-center">myJar</h5>
-              <p className="text-center w-50 mx-auto">
+              <p className="text-center">
                 Blog website users can create stories from various categories. Users can follow and message each other.
               </p>
             </Col>
