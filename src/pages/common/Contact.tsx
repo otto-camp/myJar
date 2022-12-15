@@ -1,38 +1,23 @@
-import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import React from 'react';
 import SEO from '../../utils/SEO/SEO';
-import './style.css';
 import image from '../../../public/logo.webp';
+import { TextInput, Textarea, SimpleGrid, Group, Title, Button, Container } from '@mantine/core';
+import { useForm } from '@mantine/form';
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+  const form = useForm({
+    initialValues: {
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    },
+    validate: {
+      name: (value) => value.trim().length < 2,
+      email: (value) => !/^\S+@\S+$/.test(value),
+      subject: (value) => value.trim().length === 0
+    }
   });
-  const [formErrors, setFormErrors] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const validateForm = async (formData: any) => {
-    const errors: any = {};
-    if (!formData.name) {
-      errors.name = 'Please enter your name';
-    }
-    if (!formData.email) {
-      errors.email = 'Please enter your email address';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      errors.email = 'Please enter a valid email address';
-    }
-    if (!formData.message) {
-      errors.message = 'Please enter a message';
-    }
-    return errors;
-  };
-  //TODO:CREATE A FUNCTIONAL CONTACT PAGE.
   return (
     <>
       <SEO
@@ -42,28 +27,56 @@ function Contact() {
         url="https://myjar-8ff23.web.app/contact"
         image={image}
       />
-      <div className="min-h d-flex flex-column flex-wrap justify-content-center align-items-center">
-        <h1 className="contact-title">Contact Us</h1>
-        <Form className="contact-form">
-          <Form.Group className="mb-3" controlId="formBasicName">
-            <Form.Label>Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter email" />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-            <Form.Text className="text-muted">We will never share your email with anyone else.</Form.Text>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Message</Form.Label>
-            <Form.Control type="text" placeholder="Enter email" as="textarea" />
-          </Form.Group>
+      <Container>
+        <form>
+          <Title order={2} size="h1" weight={900} align="center">
+            Get in touch
+          </Title>
 
-          <Button variant="primary" className="px-auto p-2" type="submit">
-            Submit
-          </Button>
-        </Form>
-      </div>
+          <SimpleGrid cols={2} mt="xl" breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
+            <TextInput
+              label="Name"
+              placeholder="Your name"
+              name="name"
+              variant="filled"
+              {...form.getInputProps('name')}
+            />
+            <TextInput
+              label="Email"
+              placeholder="Your email"
+              name="email"
+              variant="filled"
+              {...form.getInputProps('email')}
+            />
+          </SimpleGrid>
+
+          <TextInput
+            label="Subject"
+            placeholder="Subject"
+            mt="md"
+            name="subject"
+            variant="filled"
+            {...form.getInputProps('subject')}
+          />
+          <Textarea
+            mt="md"
+            label="Message"
+            placeholder="Your message"
+            maxRows={10}
+            minRows={5}
+            autosize
+            name="message"
+            variant="filled"
+            {...form.getInputProps('subject')}
+          />
+
+          <Group position="center" mt="xl">
+            <Button type="submit" size="md">
+              Send message
+            </Button>
+          </Group>
+        </form>
+      </Container>
     </>
   );
 }

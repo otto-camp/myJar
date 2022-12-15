@@ -1,14 +1,11 @@
 import React from 'react';
-import './home.css';
-import { Container } from 'react-bootstrap';
 import loadable from '@loadable/component';
 import SEO from '../../utils/SEO/SEO';
 import usePosts from '../../hooks/usePosts';
 import logo from '../../../public/logo.png';
+import { Container, SimpleGrid } from '@mantine/core';
 
-// const CategoryContainer = loadable(() => import('../../components/Containers/CategoryContainer'));
 const Poster = loadable(() => import('../../components/Containers/Poster'));
-const FeaturedPost = loadable(() => import('../../layouts/Post/FeaturedPost'));
 const PostItem = loadable(() => import('../../layouts/Post/PostItem'));
 
 const Home: React.FC = () => {
@@ -23,14 +20,13 @@ const Home: React.FC = () => {
         url="https://myjar-8ff23.web.app/"
         image={logo}
       />
-      <Container className="p-0 m-0" fluid>
-        <Poster />
-        {/* <CategoryContainer /> */}
-        <div className="homepage-container">
+      <Poster />
+      <Container>
+        <SimpleGrid cols={1}>
           {posts.map((p: any, index: React.Key) => (
-            <>{index === 0 ? <FeaturedPost key={index} post={p} /> : <PostItem key={index} posts={p} />}</>
+            <PostItem key={index} post={p} />
           ))}
-        </div>
+        </SimpleGrid>
       </Container>
     </>
   );

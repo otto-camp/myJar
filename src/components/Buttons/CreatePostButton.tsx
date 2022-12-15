@@ -1,33 +1,29 @@
+import { Button, MantineSize } from '@mantine/core';
 import React, { CSSProperties } from 'react';
-import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../services/AuthContext';
 
 interface ICreatePost {
   text: string;
   className?: string;
-  variant?: string;
   style?: CSSProperties;
+  size: MantineSize;
 }
 
-export default function CreatePostButton({ text, className, variant, style }: ICreatePost) {
+export default function CreatePostButton({ text, className, style, size }: ICreatePost) {
   const { currentUser } = useAuth();
   return (
     <>
       {currentUser ? (
         <Link to={'/post/create-post'} style={{ width: 'fit-content' }}>
-          <Button variant={variant} className={className} style={style}>
+          <Button fullWidth variant="default" className={className} style={style} size={size}>
             {text}
           </Button>
         </Link>
       ) : (
-        <h5>
-          You need to
-          <Button variant={variant} style={style} className={className}>
-            Login
-          </Button>
-          to create a post.
-        </h5>
+        <Button fullWidth size={size} variant="default" style={style} className={className}>
+          Login
+        </Button>
       )}
     </>
   );

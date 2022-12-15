@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import { Alert, Button, Col, Form, Row } from 'react-bootstrap';
-import Navi from '../../layouts/Navi';
 import Editor from '../../utils/Editor/Editor';
 import './post.css';
 import { useNavigate } from 'react-router-dom';
@@ -57,9 +56,6 @@ function CreatePost() {
         url="https:/myjar-8ff23.web.app/post/create-post"
         image="https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/typewriter.jpg?alt=media&token=b95cea35-decc-4c0e-be7f-898660da970d"
       />
-      <div className="navi-wrapper p-0">
-        <Navi />
-      </div>
       <section className="mt-2 min-h p-0 post-create-section">
         <header className="postcreate-header margin-div">
           <h1>Write a story</h1>
