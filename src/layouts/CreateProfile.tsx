@@ -2,7 +2,7 @@ import { doc, setDoc } from 'firebase/firestore/lite';
 import React, { useRef, useState } from 'react';
 import { Alert, Button, Card, Col, Form, Navbar, Row } from 'react-bootstrap';
 import { db } from '../services/firebase.js';
-import DatePicker from 'react-datepicker';//TODO:FIND NEW DATEPICKER
+import DatePicker from 'react-datepicker'; //TODO:FIND NEW DATEPICKER
 import 'react-datepicker/dist/react-datepicker.css';
 import { useAuth } from '../services/AuthContext';
 import { useNavigate } from 'react-router-dom';

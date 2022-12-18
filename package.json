@@ -60,7 +60,10 @@
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
-    "serve": "webpack serve"
+    "serve": "webpack serve",
+    "emulator:storage": " firebase emulators:start --only storage",
+    "emulator:firestore": " firebase emulators:start --only firestore",
+    "emulator": " firebase emulators:start"
   },
   "eslintConfig": {
     "extends": [

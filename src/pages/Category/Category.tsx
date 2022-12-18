@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import './category.css';
 import categories from '../../assets/categories.json';
-import invert from 'invert-color';
 import { query, where, getDocs, collection } from 'firebase/firestore/lite';
 import { PostType } from '../../global/types';
 import { db } from '../../services/firebase';
 import SEO from '../../utils/SEO/SEO';
+import { Badge, Box, Container, Group, Spoiler, Title } from '@mantine/core';
 
 const CreatePostButton = React.lazy(() => import('../../components/Buttons/CreatePostButton'));
 const PostItem = React.lazy(() => import('../../layouts/Post/PostItem'));
-const EmptyCategoryDialog = React.lazy(() => import('../../components/Dialogs/EmptyCategoryDialog'));
 
 const Category: React.FC = () => {
   const { category } = useParams();
@@ -19,8 +17,6 @@ const Category: React.FC = () => {
   const categoryIndex = categories.categories.findIndex((c) => c.name === category);
   const description = categories.categories[categoryIndex].description;
   const image = categories.categories[categoryIndex].image;
-  const bgColor = categories.categories[categoryIndex].color;
-  const textColor = invert(bgColor, { black: '#000', white: '#fff' });
 
   useEffect(() => {
     const getPostByCategory = async () => {
@@ -43,35 +39,40 @@ const Category: React.FC = () => {
         image={image}
       />
 
-      <div className="min-h p-0">
-        <div className="category-wrapper" style={{ backgroundColor: bgColor }}>
-          <div className="category-header">
-            <h2 style={{ color: textColor }} className="text-capitalize text-center p-3 fs-1 fw-bolder">
-              {category}
-            </h2>
-          </div>
-          <div className="category-subheader">
-            <div className="category-detail-container">
-              <p className="story-counter" style={{ color: textColor }}>
-                {posts.length} posts
-              </p>
-              <CreatePostButton style={{ color: textColor }} variant="none" text="Start Writing" />
-            </div>
-            <p className="category-description" style={{ color: textColor }}>
-              {description}
-            </p>
-          </div>
-        </div>
-        <div className="category-post-container">
-          {posts.length === 0 ? (
-            <div className="mx-3">
-              <EmptyCategoryDialog category={category} />
-            </div>
-          ) : (
-            posts.map((p: PostType, i: React.Key) => <PostItem key={i} posts={p} />)
-          )}
-        </div>
-      </div>
+      <Container>
+        <Box
+          mt="lg"
+          mb="lg"
+          sx={(theme) => ({
+            backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+            textAlign: 'center',
+            padding: theme.spacing.xl,
+            borderRadius: theme.radius.md,
+            cursor: 'pointer',
+
+            '&:hover': {
+              backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1]
+            }
+          })}
+        >
+          <Title mb="lg">{category}</Title>
+          <Group position="apart">
+            <Badge py="auto" size="lg">
+              {posts.length} Posts
+            </Badge>
+            <CreatePostButton size="lg" />
+          </Group>
+          <Spoiler showLabel="Show more" hideLabel="Hide" maxHeight={120} style={{ textAlign: 'start' }}>
+            {description}
+          </Spoiler>
+        </Box>
+
+        <Box>
+          {posts.map((post: PostType, index: React.Key) => (
+            <PostItem key={index} post={post} />
+          ))}
+        </Box>
+      </Container>
     </>
   );
 };

@@ -18,7 +18,7 @@ const useStyles = createStyles((theme) => ({
 
   inner: {
     position: 'relative',
-    zIndex: 1
+    zIndex: 0
   },
 
   dots: {
@@ -120,7 +120,8 @@ function Poster() {
               variant="gradient"
               gradient={{ from: 'teal', to: 'blue', deg: 60 }}
               className={classes.control}
-              onClick={() => navigate('/post/create-post')}>
+              onClick={() => navigate('/post/create-post')}
+            >
               Start writing
             </Button>
           ) : (
@@ -129,7 +130,8 @@ function Poster() {
               gradient={{ from: 'indigo', to: 'cyan' }}
               className={classes.control}
               size="lg"
-              onClick={() => navigate('login')}>
+              onClick={() => navigate('login')}
+            >
               Login
             </Button>
           )}

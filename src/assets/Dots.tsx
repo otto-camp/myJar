@@ -14,7 +14,8 @@ export function Dots({ size = 185, radius = 2.5, ...others }: DotsProps) {
       viewBox="0 0 185 185"
       width={size}
       height={size}
-      {...others}>
+      {...others}
+    >
       <rect width="5" height="5" rx={radius} />
       <rect width="5" height="5" x="60" rx={radius} />
       <rect width="5" height="5" x="120" rx={radius} />

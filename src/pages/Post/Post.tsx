@@ -59,14 +59,14 @@ const Post: React.FC = () => {
             <Col xs={12} lg={4}>
               <div className="post-creater-card">
                 <Image
-                  src={post.createrPhotoURL}
-                  alt={post.createrName}
+                  src={user.photoURL}
+                  alt={user.fname + ' ' + user.lname}
                   className="rounded-circle avatar-lg img-thumbnail me-5 ms-3"
                   width="64"
                   height="64"
                 />
                 <h5 className="d-inline-block ps-auto pe-3">
-                  <Link to={'/profile/' + post.createrId}>{post.createrName}</Link>
+                  <Link to={'/profile/' + post.createrId}>{user.fname + ' ' + user.lname}</Link>
                 </h5>
                 <div className="mx-3 mt-3">
                   <div className="d-flex justify-content-between">

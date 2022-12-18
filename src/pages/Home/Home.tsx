@@ -3,7 +3,7 @@ import loadable from '@loadable/component';
 import SEO from '../../utils/SEO/SEO';
 import usePosts from '../../hooks/usePosts';
 import logo from '../../../public/logo.png';
-import { Container, SimpleGrid } from '@mantine/core';
+import { Container } from '@mantine/core';
 
 const Poster = loadable(() => import('../../components/Containers/Poster'));
 const PostItem = loadable(() => import('../../layouts/Post/PostItem'));
@@ -22,11 +22,9 @@ const Home: React.FC = () => {
       />
       <Poster />
       <Container>
-        <SimpleGrid cols={1}>
-          {posts.map((p: any, index: React.Key) => (
-            <PostItem key={index} post={p} />
-          ))}
-        </SimpleGrid>
+        {posts.map((p: any, index: React.Key) => (
+          <PostItem key={index} post={p} />
+        ))}
       </Container>
     </>
   );
