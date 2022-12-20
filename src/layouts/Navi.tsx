@@ -14,7 +14,8 @@ const useStyles = createStyles((theme) => ({
   root: {
     position: 'relative',
     zIndex: 1,
-    maxWidth: '100%'
+    maxWidth: '100%',
+    marginBottom: '2rem'
   },
 
   dropdown: {
@@ -97,7 +98,7 @@ export default function Navi() {
   };
 
   return (
-    <Header height={HEADER_HEIGHT} className={classes.root}>
+    <Header role="navigation" height={HEADER_HEIGHT} className={classes.root}>
       <Container className={classes.header}>
         <Title>myJar</Title>
         <Group spacing={5} className={classes.links}>

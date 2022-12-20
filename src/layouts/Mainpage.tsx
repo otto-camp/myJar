@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from '../services/AuthContext';
 import loadable from '@loadable/component';
 import { HelmetProvider } from 'react-helmet-async';
-import { ColorScheme, ColorSchemeProvider, MantineProvider } from '@mantine/core';
+import { ColorScheme, ColorSchemeProvider, MantineProvider, createEmotionCache } from '@mantine/core';
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
 
 const Error = loadable(() => import('./Error'));
@@ -35,9 +35,11 @@ export default function Mainpage() {
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
   useHotkeys([['mod+J', () => toggleColorScheme()]]);
+
+  const myCache = createEmotionCache({ key: 'mantine' });
   return (
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-      <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
+      <MantineProvider emotionCache={myCache} theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
         <HelmetProvider>
           <AuthProvider>
             <Navi />

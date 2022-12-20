@@ -34,7 +34,7 @@ export default function CreatePostButton({ style, size }: ICreatePost) {
   return (
     <>
       {currentUser ? (
-        <Button size="lg" variant="outline" className={classes.control} onClick={() => navigate('/post/create-post')}>
+        <Button size={size} variant="outline" className={classes.control} onClick={() => navigate('/post/create-post')}>
           Start writing
         </Button>
       ) : (

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './profile.css';
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../../services/AuthContext';
 import { IconPencil } from '@tabler/icons';
@@ -7,8 +6,7 @@ import { IconPencil } from '@tabler/icons';
 import loadable from '@loadable/component';
 import SEO from '../../utils/SEO/SEO';
 import useProfile from '../../hooks/useProfile';
-import { ActionIcon, Avatar, Container, FileButton, Group, Paper, Stack, Text, Title } from '@mantine/core';
-import { Col } from 'react-bootstrap';
+import { ActionIcon, Avatar, Container, FileButton, Group, Paper, SimpleGrid, Stack, Text, Title } from '@mantine/core';
 import { uploadProfilePicture } from '../../utils/CRUD/Storage';
 
 const ProfileActionButton = loadable(() => import('../../components/Buttons/ProfileActionButtonGroup'));
@@ -20,10 +18,9 @@ function Profile() {
   const [profileModalShow, setProfileModalShow] = useState(false);
   const [picture, setPicture] = useState<File | null>(null);
   const { currentUser, currentUserProfile } = useAuth();
-  const { id } = useParams();
+  const { id } = useParams() as { id: string };
 
   const { user } = useProfile(id);
-  console.log(picture);
 
   const fileToBlob = (file: File) => {
     return new Promise<Blob>((resolve, reject) => {
@@ -54,11 +51,16 @@ function Profile() {
         url={'https:/myjar-8ff23.web.app/profile/' + user?.id}
         image={user?.photoURL}
       />
-      <Container>
+      <Container mih="100vh">
         {user && (
-          <>
-            <Col lg={5}>
-              <Paper>
+          <SimpleGrid cols={2} breakpoints={[{ maxWidth: 768, cols: 1 }]}>
+            <div>
+              <Paper
+                sx={(theme) => ({
+                  backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[1],
+                  padding: '1rem',
+                  marginBottom: '1rem'
+                })}>
                 <Group position="apart">
                   <Group>
                     <FileButton onChange={setPicture} accept="image/png,image/jpeg">
@@ -79,8 +81,7 @@ function Profile() {
                       <ActionIcon
                         onClick={() => {
                           setProfileModalShow(true);
-                        }}
-                      >
+                        }}>
                         <IconPencil size={36} stroke={1.5} />
                       </ActionIcon>
                       <UpdateProfileModal
@@ -107,12 +108,11 @@ function Profile() {
                 </Group>
                 {currentUser !== null && currentUserProfile.id !== user.id ? <ProfileActionButton user={user} /> : ''}
               </Paper>
+              {user && <SocialsSection user={user} />}
+            </div>
 
-              {/* {user && <SocialsSection user={user} />} */}
-            </Col>
-
-            {/* <Col lg={7}>{user && <ProfilePost user={user} uid={id} />}</Col> */}
-          </>
+            {user && <ProfilePost user={user} id={id} />}
+          </SimpleGrid>
         )}
       </Container>
     </>

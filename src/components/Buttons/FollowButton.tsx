@@ -19,7 +19,6 @@ function FollowButton(user: IFollowButton) {
       return true;
     }
   };
-  console.log(user.user);
 
   useEffect(() => {
     if (currentUserProfile.follows.includes(user.user.id)) {
