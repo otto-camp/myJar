@@ -100,7 +100,9 @@ export default function Navi() {
   return (
     <Header role="navigation" height={HEADER_HEIGHT} className={classes.root}>
       <Container className={classes.header}>
-        <Title>myJar</Title>
+        <Title order={3} size="h1">
+          myJar
+        </Title>
         <Group spacing={5} className={classes.links}>
           <Link to="/" className={classes.link}>
             Home
@@ -130,7 +132,7 @@ export default function Navi() {
         </Group>
         <Group className={classes.responsiveMenu}>
           <ThemeSwitch />
-          <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
+          <Burger aria-label='toggle navbar' opened={opened} onClick={toggle} className={classes.burger} size="sm" />
 
           <Transition transition="pop-top-right" duration={200} mounted={opened}>
             {(styles) => (

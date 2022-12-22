@@ -10,6 +10,7 @@ const Moment = loadable.lib(() => import('moment'));
 const useStyles = createStyles((theme) => ({
   card: {
     transition: 'transform 150ms ease, box-shadow 150ms ease',
+    cursor: 'pointer',
 
     '&:hover': {
       transform: 'scale(1.01)',

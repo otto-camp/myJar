@@ -1,16 +1,28 @@
 import React from 'react';
-import { Col, Image, Row } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
-import './post.css';
-import HTMLReactParser from 'html-react-parser';
-import useProfile from '../../hooks/useProfile';
-import usePost from '../../hooks/usePost';
+import { useParams } from 'react-router-dom';
+import useProfile from '../hooks/useProfile';
+import usePost from '../hooks/usePost';
 import loadable from '@loadable/component';
-import ArticleSEO from '../../utils/SEO/ArticleSEO';
-import { useAuth } from '../../services/AuthContext';
+import ArticleSEO from '../utils/SEO/ArticleSEO';
+import { useAuth } from '../services/AuthContext';
+import {
+  Avatar,
+  Badge,
+  Card,
+  Container,
+  Divider,
+  Grid,
+  Group,
+  Image,
+  Paper,
+  Skeleton,
+  Text,
+  Title,
+  TypographyStylesProvider
+} from '@mantine/core';
 
-const FollowButton = loadable(() => import('../../components/Buttons/FollowButton'));
-const CategoryButton = loadable(() => import('../../components/Buttons/CategoryButton'));
+const FollowButton = loadable(() => import('../components/Buttons/FollowButton'));
+const CategoryButton = loadable(() => import('../components/Buttons/CategoryButton'));
 const Moment = loadable.lib(() => import('moment'));
 
 const Post: React.FC = () => {
@@ -30,7 +42,48 @@ const Post: React.FC = () => {
         typeSection={post?.category}
         typeTag={['Story', 'Story with image', 'Post', 'myJar']}
       />
-      <Row className="g-0 w-100 min-h">
+      <Container>
+        {post && user ? (
+          <Grid columns={12}>
+            <Grid.Col xs={12} sm={8}>
+              <Paper>
+                <Image src={post.postThumbnail} alt={post.postTitle} withPlaceholder />
+                <Title>{post.postTitle}</Title>
+                <Title order={2} size="h5">
+                  {post.postSubTitle}
+                </Title>
+                <TypographyStylesProvider>
+                  <div dangerouslySetInnerHTML={{ __html: post.postText }} />
+                </TypographyStylesProvider>
+              </Paper>
+            </Grid.Col>
+            <Grid.Col xs={12} sm={4}>
+              <Card withBorder>
+                <Group>
+                  <Avatar src={user.photoURL} alt={user.fname + ' ' + user.lname} size={50} />
+                  <Title order={3}>{user.fname + ' ' + user.lname}</Title>
+                </Group>
+                <Text mt="lg">{user.about}</Text>
+                <Divider my="lg" size="md" />
+                <Group position="apart">
+                  <CategoryButton text={post.category} />
+                  <Badge>
+                    {
+                      <Moment fallback={post.timestamp.seconds as any}>
+                        {({ default: moment }) => moment.utc(post.timestamp.seconds, 'X').fromNow()}
+                      </Moment>
+                    }
+                  </Badge>
+                </Group>
+                <Group mt="lg">{currentUser.uid !== user.id ? <FollowButton user={user} /> : ''}</Group>
+              </Card>
+            </Grid.Col>
+          </Grid>
+        ) : (
+          <Skeleton />
+        )}
+      </Container>
+      {/* <Row className="g-0 w-100 min-h">
         {post && user ? (
           <>
             <Col xs={12} lg={8}>
@@ -82,7 +135,7 @@ const Post: React.FC = () => {
         ) : (
           <div>Loading</div>
         )}
-      </Row>
+      </Row> */}
     </>
   );
 };

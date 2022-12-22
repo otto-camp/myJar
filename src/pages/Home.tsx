@@ -1,12 +1,12 @@
 import React from 'react';
 import loadable from '@loadable/component';
-import SEO from '../../utils/SEO/SEO';
-import usePosts from '../../hooks/usePosts';
-import logo from '../../../public/logo.png';
+import SEO from '../utils/SEO/SEO';
+import usePosts from '../hooks/usePosts';
+import logo from '../../public/logo.png';
 import { Container } from '@mantine/core';
 
-const Poster = loadable(() => import('../../components/Containers/Poster'));
-const PostItem = loadable(() => import('../../layouts/Post/PostItem'));
+const Poster = loadable(() => import('../components/Containers/Poster'));
+const PostItem = loadable(() => import('../layouts/Post/PostItem'));
 
 const Home: React.FC = () => {
   const { posts } = usePosts();

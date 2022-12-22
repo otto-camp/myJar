@@ -99,7 +99,9 @@ export default function Footer() {
     <footer className={classes.footer}>
       <Container className={classes.inner}>
         <div className={classes.logo}>
-          <Title size="2.5rem">myJar</Title>
+          <Title order={3} size="h1">
+            myJar
+          </Title>
           <Text size="sm" color="dimmed" className={classes.description}>
             Build fully functional accessible web applications faster than ever
           </Text>
@@ -129,8 +131,7 @@ export default function Footer() {
             component="a"
             target="_blank"
             rel="noreferrer"
-            href="https://www.linkedin.com/in/ismail-yarar/"
-          >
+            href="https://www.linkedin.com/in/ismail-yarar/">
             <IconBrandLinkedin size={24} stroke={1.5} />
           </ActionIcon>
         </Group>

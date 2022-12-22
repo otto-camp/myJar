@@ -1,14 +1,9 @@
 import React from 'react';
-import './style.css';
 import categories from '../../assets/categories.json';
 import invert from 'invert-color';
 import { Button } from '@mantine/core';
 
-interface ICategoryButton {
-  text: string | undefined;
-}
-
-const CategoryButton: React.FC<ICategoryButton> = ({ text }) => {
+const CategoryButton = ({ text }:{text:string | undefined}) => {
   const categoryIndex = categories.categories.findIndex((c) => c.name === text);
   const bgColor = categories.categories[categoryIndex].color;
   const textColor = invert(bgColor, { black: '#000', white: '#fff' });

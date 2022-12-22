@@ -5,7 +5,7 @@ import { IconSun, IconMoon } from '@tabler/icons';
 function ThemeSwitch() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   return (
-    <Group position="center" my="xl">
+    <Group position="center" my="xl" aria-label='Theme Switch'>
       <ActionIcon
         onClick={() => toggleColorScheme()}
         size="lg"

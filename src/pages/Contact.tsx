@@ -1,6 +1,6 @@
 import React from 'react';
-import SEO from '../../utils/SEO/SEO';
-import image from '../../../public/logo.webp';
+import SEO from '../utils/SEO/SEO';
+import image from '../../public/logo.webp';
 import { TextInput, Textarea, SimpleGrid, Group, Title, Button, Container } from '@mantine/core';
 import { useForm } from '@mantine/form';
 

@@ -8,20 +8,19 @@ import { useHotkeys, useLocalStorage } from '@mantine/hooks';
 
 const Error = loadable(() => import('./Error'));
 const Navi = loadable(() => import('./Navi'));
-const CreatePost = loadable(() => import('../pages/Post/CreatePost'));
-const Post = loadable(() => import('../pages/Post/Post'));
-const Home = loadable(() => import('../pages/Home/Home'));
+const CreatePost = loadable(() => import('../pages/CreatePost'));
+const Post = loadable(() => import('../pages/Post'));
+const Home = loadable(() => import('../pages/Home'));
 const About = loadable(() => import('../pages/common/About'));
-const Contact = loadable(() => import('../pages/common/Contact'));
+const Contact = loadable(() => import('../pages/Contact'));
 const Login = loadable(() => import('./Login'));
 const SignUp = loadable(() => import('./SignUp'));
 const ForgotPassword = loadable(() => import('./ForgotPassword'));
 const Footer = loadable(() => import('./Footer'));
-const Messages = loadable(() => import('../pages/Message/Messages'));
-const Settings = loadable(() => import('../pages/Settings/Settings'));
+const Settings = loadable(() => import('../pages/Settings'));
 const CreateProfile = loadable(() => import('./CreateProfile'));
-const Profile = loadable(() => import('../pages/Profile/Profile'));
-const Category = loadable(() => import('../pages/Category/Category'));
+const Profile = loadable(() => import('../pages/Profile'));
+const Category = loadable(() => import('../pages/Category'));
 const Search = loadable(() => import('../pages/Search/Search'));
 
 export default function Mainpage() {
@@ -59,7 +58,6 @@ export default function Mainpage() {
               <Route path="/profile">
                 <Route path=":id" element={<Profile />} />
               </Route>
-              <Route path="/messages/:id" element={<Messages />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/category/:category" element={<Category />} />
               <Route path="/search" element={<Search />} />

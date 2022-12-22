@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import categories from '../../assets/categories.json';
+import categories from '../assets/categories.json';
 import { query, where, getDocs, collection } from 'firebase/firestore/lite';
-import { PostType } from '../../global/types';
-import { db } from '../../services/firebase';
-import SEO from '../../utils/SEO/SEO';
+import { PostType } from '../global/types';
+import { db } from '../services/firebase';
+import SEO from '../utils/SEO/SEO';
 import { Badge, Box, Container, Group, Spoiler, Title } from '@mantine/core';
 
-const CreatePostButton = React.lazy(() => import('../../components/Buttons/CreatePostButton'));
-const PostItem = React.lazy(() => import('../../layouts/Post/PostItem'));
+const CreatePostButton = React.lazy(() => import('../components/Buttons/CreatePostButton'));
+const PostItem = React.lazy(() => import('../layouts/Post/PostItem'));
 
-const Category: React.FC = () => {
+const Category = () => {
   const { category } = useParams();
   const [posts, setPosts] = useState<PostType | any>([]);
 
@@ -48,13 +48,11 @@ const Category: React.FC = () => {
             textAlign: 'center',
             padding: theme.spacing.xl,
             borderRadius: theme.radius.md,
-            cursor: 'pointer',
 
             '&:hover': {
               backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1]
             }
-          })}
-        >
+          })}>
           <Title mb="lg">{category}</Title>
           <Group position="apart">
             <Badge py="auto" size="lg">
