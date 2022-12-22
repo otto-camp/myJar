@@ -1,7 +1,6 @@
 import { collection, Timestamp, updateDoc, arrayUnion, doc, addDoc, deleteDoc } from 'firebase/firestore/lite';
 import { db } from '../../services/firebase.js';
 import { uploadPostImage } from './Storage';
-import { UserType } from '../../global/types';
 
 export function createPost(
   postText: string,
@@ -9,8 +8,7 @@ export function createPost(
   postSubTitle: string,
   postThumbnail: Blob,
   postCategory: string,
-  currentUser: any,
-  currentUserProfile: UserType
+  currentUser: any
 ) {
   addDoc(collection(db, 'posts'), {
     postTitle: postTitle,
@@ -18,13 +16,11 @@ export function createPost(
     postText: postText,
     postThumbnail: '',
     createrId: currentUser.uid,
-    createrName: currentUserProfile.fname + ' ' + currentUserProfile.lname,
-    createrPhotoURL: currentUserProfile.photoURL,
     timestamp: new Date(Timestamp.now().seconds * 1000),
     likes: 0,
     category: postCategory
   }).then(async (d) => {
-    await uploadPostImage(d.id, postThumbnail,currentUser);
+    await uploadPostImage(d.id, postThumbnail, currentUser);
     await updateDoc(doc(db, 'profile', currentUser.uid), {
       createdPosts: arrayUnion(d.id)
     });

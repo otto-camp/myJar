@@ -12,7 +12,6 @@
     <link rel="dns-prefetch" href="https://storage.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://images.unsplash.com " />
-    <meta name="google-site-verification" content="L6Z4PnBfMIha-kQyh4cKJZJ3rpx22naNqKfolpDp4j4" />
     <link rel="apple-touch-icon" href="logo192.png" />
     <link rel="canonical" href="https://myjar-8ff23.web.app/" />
     <link rel="manifest" href="manifest.json" />
@@ -21,10 +20,12 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('sw.js');
-        });
+      if (process.env.NODE_ENV === production) {
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js');
+          });
+        }
       }
     </script>
     <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-G6M6KF1H28"></script>

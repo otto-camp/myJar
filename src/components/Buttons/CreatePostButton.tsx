@@ -1,33 +1,46 @@
+import { Button, MantineSize, createStyles } from '@mantine/core';
 import React, { CSSProperties } from 'react';
-import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { useAuth } from '../../services/AuthContext';
+import { useNavigate } from 'react-router-dom';
+
+const useStyles = createStyles((theme) => ({
+  control: {
+    color: theme.colorScheme === 'dark' ? theme.colors.gray[0] : theme.colors.dark[9],
+    '&:not(:first-of-type)': {
+      marginLeft: theme.spacing.md
+    },
+
+    '@media (max-width: 520px)': {
+      height: 42,
+      fontSize: theme.fontSizes.md,
+
+      '&:not(:first-of-type)': {
+        marginTop: theme.spacing.md,
+        marginLeft: 0
+      }
+    }
+  }
+}));
 
 interface ICreatePost {
-  text: string;
-  className?: string;
-  variant?: string;
   style?: CSSProperties;
+  size: MantineSize;
 }
 
-export default function CreatePostButton({ text, className, variant, style }: ICreatePost) {
+export default function CreatePostButton({ style, size }: ICreatePost) {
   const { currentUser } = useAuth();
+  const navigate = useNavigate();
+  const { classes } = useStyles();
   return (
     <>
       {currentUser ? (
-        <Link to={'/post/create-post'} style={{ width: 'fit-content' }}>
-          <Button variant={variant} className={className} style={style}>
-            {text}
-          </Button>
-        </Link>
+        <Button size={size} variant="outline" className={classes.control} onClick={() => navigate('/post/create-post')}>
+          Start writing
+        </Button>
       ) : (
-        <h5>
-          You need to
-          <Button variant={variant} style={style} className={className}>
-            Login
-          </Button>
-          to create a post.
-        </h5>
+        <Button fullWidth size={size} variant="default" style={style}>
+          Login
+        </Button>
       )}
     </>
   );

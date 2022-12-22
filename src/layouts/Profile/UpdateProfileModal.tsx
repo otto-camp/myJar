@@ -1,32 +1,23 @@
 import { doc, updateDoc } from 'firebase/firestore/lite';
 import React from 'react';
-import { useEffect } from 'react';
 import { useState } from 'react';
-import { Button, Form, Modal } from 'react-bootstrap';
 import { useAuth } from '../../services/AuthContext';
 import { db } from '../../services/firebase.js';
+import { Button, Group, Modal, TextInput, Textarea } from '@mantine/core';
+import { UserType } from '../../global/types';
 
-const UpdateProfileModal = (props) => {
-  const [fname, setFname] = useState('');
-  const [lname, setLname] = useState('');
-  const [about, setAbout] = useState('');
+interface IUpdateProfileModal {
+  user: UserType;
+  opened: boolean;
+  setOpened: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const UpdateProfileModal = ({ user, opened, setOpened }: IUpdateProfileModal) => {
+  const [fname, setFname] = useState(user.fname);
+  const [lname, setLname] = useState(user.lname);
+  const [about, setAbout] = useState(user.about);
   const [count, setCount] = useState(0);
   const { currentUser } = useAuth();
-
-  useEffect(() => {
-    function getUser() {
-      if (props.user === undefined) {
-        return () => {
-          getUser();
-        };
-      } else {
-        setFname(props.user.fname);
-        setLname(props.user.lname);
-        setAbout(props.user.about);
-      }
-    }
-    getUser();
-  }, [props.user]);
 
   const updateProfile = async () => {
     await updateDoc(doc(db, 'profile', currentUser.uid), {
@@ -38,29 +29,35 @@ const UpdateProfileModal = (props) => {
   };
 
   return (
-    <Modal size="lg" aria-labelledby="contained-modal-title-vcenter" centered {...props}>
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Update Profile</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
+    <Modal opened={opened} onClose={() => setOpened(false)} size="xl" centered>
+      <TextInput label="First name" value={fname} onChange={(e) => setFname(e.currentTarget.value)} />
+      <TextInput label="Last name" value={lname} onChange={(e) => setLname(e.currentTarget.value)} />
+      <Textarea
+        label="About"
+        value={about}
+        onChange={(e) => {
+          setAbout(e.currentTarget.value);
+          setCount(e.currentTarget.value.length);
+        }}
+        autosize
+        minRows={3}
+        maxRows={5}
+        maxLength={255}
+      />
+      <p>{count}/255</p>
+      <Group grow>
+        <Button onClick={() => setOpened(false)}>Close</Button>
+        <Button onClick={updateProfile}>Save</Button>
+      </Group>
+      {/* <Modal.Body>
         <Form>
           <Form.Group className="mb-3">
             <Form.Label>First Name</Form.Label>
-            <Form.Control
-              type="text"
-              value={fname}
-              id="fnameInput"
-              onChange={(e) => setFname(e.target.value)}
-            />
+            <Form.Control type="text" value={fname} id="fnameInput" onChange={(e) => setFname(e.target.value)} />
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Last Name</Form.Label>
-            <Form.Control
-              type="text"
-              value={lname}
-              id="lnameInput"
-              onChange={(e) => setLname(e.target.value)}
-            />
+            <Form.Control type="text" value={lname} id="lnameInput" onChange={(e) => setLname(e.target.value)} />
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>First Name</Form.Label>
@@ -86,7 +83,7 @@ const UpdateProfileModal = (props) => {
         <Button variant="primary" onClick={updateProfile}>
           Save
         </Button>
-      </Modal.Footer>
+      </Modal.Footer> */}
     </Modal>
   );
 };

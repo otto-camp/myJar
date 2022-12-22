@@ -7,17 +7,23 @@ const Dotenv = require('dotenv-webpack')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const TerserPlugin = require("terser-webpack-plugin");
 const CopyPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack')
 
 const isProduction = process.env.NODE_ENV === "production";
 
 const config = {
   entry: "./src/index.tsx",
-  devtool: isProduction ? 'inline-source-map' : 'source-map',
+  devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, "build"),
     filename: '[name].js',
     publicPath: '/',
     chunkFilename: '[id].[chunkhash].js'
+  },
+  performance: {
+    hints: false,
+    maxAssetSize: 300000,
+    maxEntrypointSize: 300000
   },
   devServer: {
     open: true,
@@ -41,7 +47,8 @@ const config = {
         { from: "./public/sw.js", to: "sw.js" },
         { from: "./public/sitemap.xml", to: "sitemap.xml" }
       ]
-    })
+    }),
+    new webpack.ContextReplacementPlugin(/moment[\\]locale$/, /^\.\/(en-us)$/)
   ],
   module: {
     rules: [

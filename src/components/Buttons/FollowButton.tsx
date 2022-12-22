@@ -5,11 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../services/AuthContext';
 import { follow, unfollow } from '../../utils/ProfileActions/FollowProfile';
 
-interface IFollowButton {
-  user: UserType;
-}
-
-function FollowButton(user: IFollowButton) {
+function FollowButton({ user }: { user: UserType }) {
   const { currentUserProfile } = useAuth();
   const [isFriend, setIsFriend] = useState(false);
   const navigate = useNavigate();
@@ -19,15 +15,14 @@ function FollowButton(user: IFollowButton) {
       return true;
     }
   };
-  console.log(user.user);
 
   useEffect(() => {
-    if (currentUserProfile.follows.includes(user.user.id)) {
+    if (currentUserProfile.follows.includes(user.id)) {
       setIsFriend(true);
     }
-    if (!checkUserIsNull(user.user) && !checkUserIsNull(currentUserProfile)) {
-      if (!checkUserIsNull(user.user)) {
-        if (currentUserProfile.follows?.includes(user.user.id)) {
+    if (!checkUserIsNull(user) && !checkUserIsNull(currentUserProfile)) {
+      if (!checkUserIsNull(user)) {
+        if (currentUserProfile.follows?.includes(user.id)) {
           setIsFriend(true);
         }
       }
@@ -38,24 +33,24 @@ function FollowButton(user: IFollowButton) {
     if (checkUserIsNull(currentUserProfile)) {
       navigate('/login');
     } else {
-      follow(user.user, currentUserProfile);
+      follow(user, currentUserProfile);
       setIsFriend(true);
     }
   };
 
   const handleUnfollow = () => {
-    unfollow(user.user, currentUserProfile);
+    unfollow(user, currentUserProfile);
     setIsFriend(false);
   };
 
   return (
     <>
       {!isFriend ? (
-        <Button className="rounded-pill me-4" onClick={handleFollow}>
+        <Button className="me-4" onClick={handleFollow}>
           Follow
         </Button>
       ) : (
-        <Button className="rounded-pill me-4" onClick={handleUnfollow}>
+        <Button className="me-4" onClick={handleUnfollow}>
           Unfollow
         </Button>
       )}

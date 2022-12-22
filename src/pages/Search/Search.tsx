@@ -85,7 +85,7 @@ const Search: React.FC = () => {
             <div className="m-0 me-lg-3">
               {posts.map(
                 (p: PostType, i: React.Key) =>
-                  p.postTitle.includes(searchParams.get('q')!) && <PostItem posts={p} key={i} />
+                  p.postTitle.includes(searchParams.get('q')!) && <PostItem post={p} key={i} />
               )}
             </div>
           </Col>
