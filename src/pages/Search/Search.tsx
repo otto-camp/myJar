@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './search.css';
 import { Col, Nav, Button, Dropdown, Offcanvas, Row } from 'react-bootstrap';
 import { Link, useSearchParams } from 'react-router-dom';
 import categories from '../../assets/categories.json';

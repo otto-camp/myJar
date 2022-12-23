@@ -11,7 +11,7 @@ const Navi = loadable(() => import('./Navi'));
 const CreatePost = loadable(() => import('../pages/CreatePost'));
 const Post = loadable(() => import('../pages/Post'));
 const Home = loadable(() => import('../pages/Home'));
-const About = loadable(() => import('../pages/common/About'));
+const About = loadable(() => import('../pages/About'));
 const Contact = loadable(() => import('../pages/Contact'));
 const Login = loadable(() => import('./Login'));
 const SignUp = loadable(() => import('./SignUp'));
