@@ -1,35 +1,40 @@
 import React from 'react';
-import { Container, Grid, Paper, Transition } from '@mantine/core';
-
+import { Anchor, Container, Grid, Paper, createStyles } from '@mantine/core';
 import categories from '../../assets/categories.json';
 
+const useStyles = createStyles((theme) => ({
+  grid: {
+    [theme.fn.smallerThan('sm')]: {
+      maxHeight: 400,
+      overflowY: 'scroll'
+    }
+  }
+}));
+
 function CategoryContainer() {
-  console.log(categories.categories);
+  const { classes } = useStyles();
 
   const categoryCard = categories.categories.map((c) => {
     const columnWidth = Math.floor(Math.random() * 2) + 2;
 
     return (
-      <Transition
-        key={c.name}
-        mounted={true}
-        transition={columnWidth % 2 === 0 ? 'rotate-left' : 'rotate-right'}
-        duration={400}
-        timingFunction="linear">
-        {(style) => (
-          <Grid.Col style={style} sm={columnWidth}>
-            <Paper sx={{ textAlign: 'center' }} withBorder>
-              {c.name}
-            </Paper>
-          </Grid.Col>
-        )}
-      </Transition>
+      <Grid.Col key={c.name} sm={columnWidth}>
+        <Paper radius="sm" sx={{ textAlign: 'center' }} withBorder>
+          <Anchor
+            href={'/category/' + c.name}
+            sx={(theme) => ({
+              color: theme.colorScheme === 'dark' ? theme.colors.blue[4] : theme.colors.grape[9]
+            })}>
+            {c.name}
+          </Anchor>
+        </Paper>
+      </Grid.Col>
     );
   });
 
   return (
-    <Container>
-      <Grid justify="center" columns={6}>
+    <Container mb="xl">
+      <Grid className={classes.grid} grow justify="center" columns={6}>
         {categoryCard}
       </Grid>
     </Container>
