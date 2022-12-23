@@ -7,6 +7,7 @@ import { Container } from '@mantine/core';
 
 const Poster = loadable(() => import('../components/Containers/Poster'));
 const PostItem = loadable(() => import('../layouts/Post/PostItem'));
+const CategoryContainer = loadable(() => import('../components/Containers/CategoryContainer'));
 
 const Home: React.FC = () => {
   const { posts } = usePosts();
@@ -21,6 +22,7 @@ const Home: React.FC = () => {
         image={logo}
       />
       <Poster />
+      <CategoryContainer />
       <Container>
         {posts.map((p: any, index: React.Key) => (
           <PostItem key={index} post={p} />

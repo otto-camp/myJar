@@ -2,7 +2,8 @@ module.exports = {
   env: {
     node: true,
     browser: true,
-    es2022: true
+    es2022: true,
+    jest: true
   },
   extends: ['eslint:recommended', 'plugin:react/recommended'],
   overrides: [{

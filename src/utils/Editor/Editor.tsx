@@ -12,8 +12,7 @@ import { Color } from '@tiptap/extension-color';
 import TextStyle from '@tiptap/extension-text-style';
 import { IconColorPicker } from '@tabler/icons';
 
-const content =
-  '<h1 style="text-align: center">Start writing with multiple styles</h1>';
+const content = '<h1 style="text-align: center">Start writing with multiple styles</h1>';
 
 export default function Editor({ setStory }: { setStory: React.Dispatch<React.SetStateAction<string>> }) {
   const editor = useEditor({

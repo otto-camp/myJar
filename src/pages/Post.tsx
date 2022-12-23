@@ -75,7 +75,7 @@ const Post: React.FC = () => {
                     }
                   </Badge>
                 </Group>
-                <Group mt="lg">{currentUser.uid !== user.id ? <FollowButton user={user} /> : ''}</Group>
+                <Group mt="lg">{currentUser && currentUser.uid !== user.id ? <FollowButton user={user} /> : ''}</Group>
               </Card>
             </Grid.Col>
           </Grid>

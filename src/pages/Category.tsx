@@ -52,7 +52,8 @@ const Category = () => {
             '&:hover': {
               backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1]
             }
-          })}>
+          })}
+        >
           <Title mb="lg">{category}</Title>
           <Group position="apart">
             <Badge py="auto" size="lg">

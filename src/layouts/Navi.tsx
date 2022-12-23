@@ -112,7 +112,9 @@ export default function Navi() {
               <Link to={'/profile/' + currentUser.uid} className={classes.link}>
                 Profile
               </Link>
-              <Button variant="default" onClick={(e) => handleSignOut(e)}>
+              <Button
+                variant="default"
+                onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleSignOut(e)}>
                 Sign Out
               </Button>
             </>
@@ -132,7 +134,7 @@ export default function Navi() {
         </Group>
         <Group className={classes.responsiveMenu}>
           <ThemeSwitch />
-          <Burger aria-label='toggle navbar' opened={opened} onClick={toggle} className={classes.burger} size="sm" />
+          <Burger aria-label="toggle navbar" opened={opened} onClick={toggle} className={classes.burger} size="sm" />
 
           <Transition transition="pop-top-right" duration={200} mounted={opened}>
             {(styles) => (
@@ -145,7 +147,9 @@ export default function Navi() {
                     <Link to={'/profile/' + currentUser.uid} className={classes.link}>
                       Profile
                     </Link>
-                    <Button variant="default" onClick={(e) => handleSignOut(e)}>
+                    <Button
+                      variant="default"
+                      onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleSignOut(e)}>
                       Sign Out
                     </Button>
                   </>

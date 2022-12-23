@@ -49,7 +49,8 @@ function Profile() {
                   backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[1],
                   padding: '1rem',
                   marginBottom: '1rem'
-                })}>
+                })}
+              >
                 <Group position="apart">
                   <Group>
                     <FileButton onChange={setPicture} accept="image/png,image/jpeg">
@@ -70,7 +71,8 @@ function Profile() {
                       <ActionIcon
                         onClick={() => {
                           setProfileModalShow(true);
-                        }}>
+                        }}
+                      >
                         <IconPencil size={36} stroke={1.5} />
                       </ActionIcon>
                       <UpdateProfileModal

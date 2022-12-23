@@ -30,7 +30,8 @@ export default function ProfilePost({ user, id }: { user: UserType; id: string }
       sx={(theme) => ({
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[1],
         padding: '1rem'
-      })}>
+      })}
+    >
       <Group position="apart" mb="md">
         <Title order={3} size="h2">
           Posts
@@ -53,7 +54,8 @@ export default function ProfilePost({ user, id }: { user: UserType; id: string }
                 transition: 'transform 150ms ease'
               }
             }}
-            onClick={() => navigate('/post/' + p.pid)}>
+            onClick={() => navigate('/post/' + p.pid)}
+          >
             <Stack m="lg" spacing={0}>
               <Group position="apart" p={0}>
                 <Text transform="uppercase" color="dimmed" weight={700} td="underline" size="md">
