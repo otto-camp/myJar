@@ -1,24 +1,20 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
-import './style.css';
 import categories from '../../assets/categories.json';
-import { Link } from 'react-router-dom';
 import invert from 'invert-color';
+import { Button } from '@mantine/core';
 
-interface ICategoryButton {
-  text: string | undefined;
-}
-
-const CategoryButton: React.FC<ICategoryButton> = ({ text }) => {
+const CategoryButton = ({ text }:{text:string | undefined}) => {
   const categoryIndex = categories.categories.findIndex((c) => c.name === text);
   const bgColor = categories.categories[categoryIndex].color;
   const textColor = invert(bgColor, { black: '#000', white: '#fff' });
 
   return (
-    <Button className="category-button" variant="none" style={{ backgroundColor: bgColor }}>
-      <Link to={'/category/' + text} style={{ color: textColor }}>
-        {text}
-      </Link>
+    <Button
+      style={{ backgroundColor: bgColor, color: textColor, fontSize: '1rem' }}
+      component="a"
+      href={'/category/' + text}
+    >
+      {text}
     </Button>
   );
 };

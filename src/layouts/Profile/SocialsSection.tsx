@@ -1,58 +1,96 @@
 import React, { useState } from 'react';
-import { Button, Card, Row } from 'react-bootstrap';
-import { faFacebook, faGithub, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faGlobe, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import UpdateSocialModal from './UpdateSocialModal';
 import { useAuth } from '../../services/AuthContext';
 import { UserType } from '../../global/types';
-import SocialButton from '../../components/Buttons/SocialButton';
+import { ActionIcon, Anchor, Group, List, Paper, ThemeIcon, Title } from '@mantine/core';
+import {
+  IconBrandFacebook,
+  IconBrandGithub,
+  IconBrandInstagram,
+  IconBrandTwitter,
+  IconPencil,
+  IconWorld
+} from '@tabler/icons';
 
-interface ISocials {
-  user: UserType | undefined;
-}
-
-const SocialsSection: React.FC<ISocials> = ({ user }) => {
+const SocialsSection = ({ user }: { user: UserType }) => {
   const [socialModalShow, setSocialModalShow] = useState(false);
   const { currentUser } = useAuth();
 
   return (
-    <Card className=" my-3 profile-m m-left ">
-      <Card.Body>
-        {user && (
+    <Paper
+      sx={(theme) => ({
+        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[1],
+        padding: '1rem'
+      })}>
+      <Group position="apart">
+        <Title order={2}>Socials</Title>
+        {currentUser !== null && currentUser.uid === user.id && (
           <>
-            {currentUser !== null && currentUser.uid === user?.id && (
-              <>
-                <Button className="float-end rounded-pill" onClick={() => setSocialModalShow(true)}>
-                  <FontAwesomeIcon icon={faPenToSquare} />
-                </Button>
-                <UpdateSocialModal show={socialModalShow} onHide={() => setSocialModalShow(false)} />
-              </>
-            )}
-            <h4 className="header-title mb-3">Social Links</h4>
-            <Row className="justify-content-between mt-1">
-              <ul className="list-group list-group-flush">
-                <ul className="list-group-item">
-                  <SocialButton url={user.website} icon={faGlobe} label="Website Button" />
-                </ul>
-                <ul className="list-group-item">
-                  <SocialButton url={user.github} icon={faGithub} label="Github Button" />
-                </ul>
-                <ul className="list-group-item">
-                  <SocialButton url={user.twitter} icon={faTwitter} label="Twitter Button" />
-                </ul>
-                <ul className="list-group-item">
-                  <SocialButton url={user.facebook} icon={faFacebook} label="Facebook Button" />
-                </ul>
-                <ul className="list-group-item">
-                  <SocialButton url={user.instagram} icon={faInstagram} label="Instagram Button" />
-                </ul>
-              </ul>
-            </Row>
+            <ActionIcon onClick={() => setSocialModalShow(true)}>
+              <IconPencil size={36} stroke={1.5} />
+            </ActionIcon>
+            <UpdateSocialModal
+              opened={socialModalShow}
+              setOpened={setSocialModalShow}
+              user={user}
+              id={currentUser.uid}
+            />
           </>
         )}
-      </Card.Body>
-    </Card>
+      </Group>
+      <List mt="md" spacing="md">
+        <List.Item
+          icon={
+            <ThemeIcon color="blue" size="xl" radius="md">
+              <IconWorld />
+            </ThemeIcon>
+          }>
+          <Anchor size="xl" href={'//' + user.website} target="_blank">
+            {user.website ?? ''}
+          </Anchor>
+        </List.Item>
+        <List.Item
+          icon={
+            <ThemeIcon color="dark" size="xl" radius="md">
+              <IconBrandGithub />
+            </ThemeIcon>
+          }>
+          <Anchor size="xl" href={'//' + user.github} target="_blank" rel="noreferrer">
+            {user.github ?? ''}
+          </Anchor>
+        </List.Item>
+        <List.Item
+          icon={
+            <ThemeIcon color="blue" size="xl" radius="md">
+              <IconBrandTwitter />
+            </ThemeIcon>
+          }>
+          <Anchor size="xl" href={'//' + user.twitter} target="_blank">
+            {user.twitter ?? ''}
+          </Anchor>
+        </List.Item>
+        <List.Item
+          icon={
+            <ThemeIcon color="teal" size="xl" radius="md">
+              <IconBrandFacebook />
+            </ThemeIcon>
+          }>
+          <Anchor size="xl" href={'//' + user.facebook} target="_blank">
+            {user.facebook ?? ''}
+          </Anchor>
+        </List.Item>
+        <List.Item
+          icon={
+            <ThemeIcon color="red" size="xl" radius="md">
+              <IconBrandInstagram />
+            </ThemeIcon>
+          }>
+          <Anchor size="xl" href={'//' + user.instagram} target="_blank">
+            {user.instagram ?? ''}
+          </Anchor>
+        </List.Item>
+      </List>
+    </Paper>
   );
 };
 
