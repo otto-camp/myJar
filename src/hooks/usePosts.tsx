@@ -10,16 +10,17 @@ import { db } from '../services/firebase';
 const usePosts = () => {
   const [posts, setPosts] = useState<PostType | any>([]);
 
-  const getPosts = async () => {
-    const q = query(collection(db, 'posts'), orderBy('timestamp', 'desc'), limit(10));
-    const postSnap = await getDocs(q);
-    postSnap.forEach((doc) => {
-      setPosts((prevPosts: any) => [...prevPosts, { ...doc.data(), pid: doc.id }]);
-    });
-  };
-
   useEffect(() => {
-    getPosts();
+    const getPosts = async () => {
+      const q = query(collection(db, 'posts'), orderBy('timestamp', 'desc'), limit(10));
+      const postSnap = await getDocs(q);
+      postSnap.forEach((doc) => {
+        setPosts((prevPosts: any) => [...prevPosts, { ...doc.data(), pid: doc.id }]);
+      });
+    };
+    return () => {
+      getPosts();
+    };
   }, []);
 
   return { posts };

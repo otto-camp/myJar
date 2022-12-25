@@ -11,17 +11,17 @@ import { db } from '../services/firebase';
 const useProfile = (id: string | undefined) => {
   const [user, setUser] = useState<UserType | null>(null);
 
-  const getUserProfile = async () => {
-    if (id !== undefined) {
-      const docSnap = await getDoc(doc(db, 'profile', id));
-      if (docSnap.exists()) {
-        const doc = docSnap.data() as UserType;
-        setUser(doc);
-      }
-    }
-  };
-
   useEffect(() => {
+    const getUserProfile = async () => {
+      if (id !== undefined) {
+        const docSnap = await getDoc(doc(db, 'profile', id));
+        if (docSnap.exists()) {
+          const doc = docSnap.data() as UserType;
+          setUser(doc);
+        }
+      }
+    };
+
     getUserProfile();
   }, [id]);
   return { user };

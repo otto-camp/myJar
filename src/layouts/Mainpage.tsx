@@ -34,7 +34,7 @@ export default function Mainpage() {
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
   useHotkeys([['mod+J', () => toggleColorScheme()]]);
-
+  
   const myCache = createEmotionCache({ key: 'mantine' });
   return (
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>

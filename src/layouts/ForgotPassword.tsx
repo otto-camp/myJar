@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../services/AuthContext';
 import SEO from '../utils/SEO/SEO';
 import {
+  Alert,
   Anchor,
   Box,
   Button,
@@ -15,7 +16,7 @@ import {
   Title,
   createStyles
 } from '@mantine/core';
-import { IconArrowLeft, IconCheck } from '@tabler/icons';
+import { IconAlertCircle, IconArrowLeft, IconCheck } from '@tabler/icons';
 import { useForm } from '@mantine/form';
 import { EMAIL_REGEX } from '../global/Constants';
 
@@ -37,6 +38,7 @@ const useStyles = createStyles((theme) => ({
 export default function ForgotPassword() {
   const { forgotPassword } = useAuth();
   const [isSent, setIsSent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const { classes } = useStyles();
 
   const fpForm = useForm({
@@ -45,13 +47,16 @@ export default function ForgotPassword() {
     },
     validate: {
       email: (val) => (EMAIL_REGEX.test(val) ? null : 'Invalid Email')
-    },
-    validateInputOnChange: true
+    }
   });
 
   async function handleSubmit(val: { email: string }) {
-    await forgotPassword(val.email);
-    setIsSent(true);
+    try {
+      await forgotPassword(val.email);
+      setIsSent(true);
+    } catch (error: any) {
+      setError(error.message);
+    }
   }
 
   return (
@@ -69,6 +74,18 @@ export default function ForgotPassword() {
         <Text color="dimmed" size="sm" align="center">
           Enter your email to get a reset link
         </Text>
+
+        {error && (
+          <Alert
+            icon={<IconAlertCircle size={16} />}
+            title="Bummer!"
+            color="red"
+            withCloseButton
+            closeButtonLabel="Close alert"
+            variant="filled">
+            {error}
+          </Alert>
+        )}
 
         <Paper withBorder shadow="md" p={30} radius="md" mt="xl">
           <form onSubmit={fpForm.onSubmit((val) => handleSubmit(val))}>

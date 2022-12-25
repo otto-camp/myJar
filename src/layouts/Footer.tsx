@@ -1,4 +1,4 @@
-import { createStyles, Text, Container, ActionIcon, Group, Title } from '@mantine/core';
+import { createStyles, Text, Container, ActionIcon, Group } from '@mantine/core';
 import { IconBrandGithub, IconBrandLinkedin } from '@tabler/icons';
 import React from 'react';
 
@@ -23,6 +23,7 @@ const useStyles = createStyles((theme) => ({
 
   description: {
     marginTop: 5,
+    color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.dark[7],
 
     [theme.fn.smallerThan('sm')]: {
       marginTop: theme.spacing.xs,
@@ -61,12 +62,13 @@ const useStyles = createStyles((theme) => ({
     paddingBottom: 3,
 
     '&:hover': {
-      textDecoration: 'underline'
+      textDecoration: 'underline',
+      color: theme.colorScheme === 'dark' ? theme.colors.grape[1] : theme.colors.grape[8]
     }
   },
 
   title: {
-    fontSize: theme.fontSizes.lg,
+    fontSize: '2rem',
     fontWeight: 700,
     marginBottom: theme.spacing.xs / 2,
     color: theme.colorScheme === 'dark' ? theme.white : theme.black
@@ -80,6 +82,7 @@ const useStyles = createStyles((theme) => ({
     paddingTop: theme.spacing.xl,
     paddingBottom: theme.spacing.xl,
     borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]}`,
+    color: theme.colorScheme === 'dark' ? theme.colors.gray[1] : theme.colors.dark[7],
 
     [theme.fn.smallerThan('sm')]: {
       flexDirection: 'column'
@@ -99,9 +102,7 @@ export default function Footer() {
     <footer className={classes.footer}>
       <Container className={classes.inner}>
         <div className={classes.logo}>
-          <Title order={3} size="h1">
-            myJar
-          </Title>
+          <Text className={classes.title}>myJar</Text>
           <Text size="sm" color="dimmed" className={classes.description}>
             Build fully functional accessible web applications faster than ever
           </Text>
@@ -118,12 +119,16 @@ export default function Footer() {
         </div>
       </Container>
       <Container className={classes.afterFooter}>
-        <Text color="dimmed" size="sm">
-          © 2022 İsmail Yarar. All rights reserved.
-        </Text>
+        <Text size="sm">© 2022 İsmail Yarar. All rights reserved.</Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>
-          <ActionIcon size="lg" component="a" target="_blank" rel="noreferrer" href="https://github.com/otto-camp">
+          <ActionIcon
+            size="lg"
+            component="a"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+            href="https://github.com/otto-camp">
             <IconBrandGithub size={24} stroke={1.5} />
           </ActionIcon>
           <ActionIcon
@@ -131,8 +136,8 @@ export default function Footer() {
             component="a"
             target="_blank"
             rel="noreferrer"
-            href="https://www.linkedin.com/in/ismail-yarar/"
-          >
+            aria-label="LinkedIn"
+            href="https://www.linkedin.com/in/ismail-yarar/">
             <IconBrandLinkedin size={24} stroke={1.5} />
           </ActionIcon>
         </Group>

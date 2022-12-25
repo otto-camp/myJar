@@ -41,4 +41,3 @@ if (workbox) {
 } else {
   console.log(`No workbox on this browser 😬`);
 }
-

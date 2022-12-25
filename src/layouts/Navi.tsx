@@ -1,4 +1,4 @@
-import { Header, Container, Title, Group, Burger, Transition, Paper, createStyles, Button } from '@mantine/core';
+import { Header, Container, Group, Burger, Transition, Paper, createStyles, Button, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -40,6 +40,11 @@ const useStyles = createStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     height: '100%'
+  },
+
+  logo: {
+    fontSize: '2.5rem',
+    fontWeight: 600
   },
 
   links: {
@@ -100,9 +105,7 @@ export default function Navi() {
   return (
     <Header role="navigation" height={HEADER_HEIGHT} className={classes.root}>
       <Container className={classes.header}>
-        <Title order={3} size="h1">
-          myJar
-        </Title>
+        <Text className={classes.logo}>myJar</Text>
         <Group spacing={5} className={classes.links}>
           <Link to="/" className={classes.link}>
             Home

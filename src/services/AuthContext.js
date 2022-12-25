@@ -1,7 +1,12 @@
 import { doc, getDoc } from 'firebase/firestore/lite';
 import React, { useContext, useState, useEffect } from 'react';
 import { auth, db } from './firebase.js';
-import { createUserWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword } from 'firebase/auth';
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword
+} from 'firebase/auth';
 
 const AuthContext = React.createContext();
 

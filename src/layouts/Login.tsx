@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../services/AuthContext';
-import { Anchor, Button, Container, Paper, PasswordInput, Text, TextInput, Title } from '@mantine/core';
+import { Alert, Anchor, Button, Container, Paper, PasswordInput, Text, TextInput, Title } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import SEO from '../utils/SEO/SEO';
 import { EMAIL_REGEX } from '../global/Constants';
+import { IconAlertCircle } from '@tabler/icons';
 
 export default function Login() {
   const { login } = useAuth();
+  const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
   const loginForm = useForm({
@@ -22,8 +24,12 @@ export default function Login() {
   });
 
   async function handleLogin(val: { email: string; password: string }) {
-    await login(val.email, val.password);
-    navigate('/');
+    try {
+      await login(val.email, val.password);
+      navigate('/');
+    } catch (error: any) {
+      setError(error.message);
+    }
   }
 
   return (
@@ -44,6 +50,18 @@ export default function Login() {
             Create account
           </Anchor>
         </Text>
+
+        {error && (
+          <Alert
+            icon={<IconAlertCircle size={16} />}
+            title="Bummer!"
+            color="red"
+            withCloseButton
+            closeButtonLabel="Close alert"
+            variant="filled">
+            {error}
+          </Alert>
+        )}
 
         <Paper withBorder shadow="md" p={30} mt={30} radius="md">
           <form onSubmit={loginForm.onSubmit((val) => handleLogin(val))}>

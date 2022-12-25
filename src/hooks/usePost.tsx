@@ -11,16 +11,17 @@ import { db } from '../services/firebase';
 const usePost = (id: string) => {
   const [post, setPost] = useState<PostType>();
 
-  const getPost = async () => {
-    const postSnap = await getDoc(doc(db, 'posts', id));
-    if (postSnap.exists()) {
-      const doc = postSnap.data() as PostType;
-      setPost(doc);
-    }
-  };
-
   useEffect(() => {
-    getPost();
+    const getPost = async () => {
+      const postSnap = await getDoc(doc(db, 'posts', id));
+      if (postSnap.exists()) {
+        const doc = postSnap.data() as PostType;
+        setPost(doc);
+      }
+    };
+    return () => {
+      getPost();
+    };
   }, [id]);
 
   return { post };
