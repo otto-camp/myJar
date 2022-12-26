@@ -19,9 +19,8 @@ const usePost = (id: string) => {
         setPost(doc);
       }
     };
-    return () => {
-      getPost();
-    };
+
+    getPost();
   }, [id]);
 
   return { post };

@@ -8,12 +8,13 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const TerserPlugin = require("terser-webpack-plugin");
 const CopyPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === "production";
 
 const config = {
   entry: "./src/index.tsx",
-  devtool: 'source-map',
+  devtool: false,
   output: {
     path: path.resolve(__dirname, "build"),
     filename: '[name].js',
@@ -39,7 +40,20 @@ const config = {
     }),
     new Dotenv(),
     new MiniCssExtractPlugin(),
-    new webpack.ContextReplacementPlugin(/moment[\\]locale$/, /^\.\/(en-us)$/)
+    new CopyPlugin({
+      patterns: [
+        { from: "./public/robots.txt", to: "robots.txt" },
+        { from: "./public/manifest.json", to: "manifest.json" },
+        { from: "./public/favicon.ico", to: "favicon.ico" },
+        { from: "./public/apple-touch-icon.png", to: "apple-touch-icon.png" },
+        { from: "./public/android-chrome-192x192.png", to: "android-chrome-192x192.png" },
+        { from: "./public/android-chrome-512x512.png", to: "android-chrome-512x512.png" },
+        { from: "./public/sw.js", to: "sw.js" },
+        { from: "./public/sitemap.xml", to: "sitemap.xml" }
+      ]
+    }),
+    new CleanWebpackPlugin(),
+    new webpack.ContextReplacementPlugin(/moment[\\]locale$/, /^\.\/(en-us)$/),
   ],
   module: {
     rules: [
@@ -112,17 +126,15 @@ module.exports = () => {
     config.mode = "production";
 
     config.plugins.push(new BundleAnalyzerPlugin());
+    config.plugins.push(new webpack.SourceMapDevToolPlugin({
+      append: '\n//# sourceMappingURL=https://myjar-8ff23.web.app/sourcemap/[url]',
+      filename: 'sourcemap/[file].map',
+      publicPath: 'https://myjar-8ff23.web.app/',
+      fileContext: 'public',
+    }))
   } else {
     config.mode = "development";
-    config.plugins.push(new CopyPlugin({
-      patterns: [
-        { from: "./public/robots.txt", to: "robots.txt" },
-        { from: "./public/manifest.json", to: "manifest.json" },
-        { from: "./public/favicon.ico", to: "favicon.ico" },
-        { from: "./public/sw.js", to: "sw.js" },
-        { from: "./public/sitemap.xml", to: "sitemap.xml" }
-      ]
-    }))
+
   }
   return config;
 };

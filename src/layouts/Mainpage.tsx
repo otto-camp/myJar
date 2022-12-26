@@ -18,7 +18,6 @@ const SignUp = loadable(() => import('./SignUp'));
 const ForgotPassword = loadable(() => import('./ForgotPassword'));
 const Footer = loadable(() => import('./Footer'));
 const Settings = loadable(() => import('../pages/Settings'));
-const CreateProfile = loadable(() => import('./CreateProfile'));
 const Profile = loadable(() => import('../pages/Profile'));
 const Category = loadable(() => import('../pages/Category'));
 const Search = loadable(() => import('../pages/Search/Search'));
@@ -49,7 +48,6 @@ export default function Mainpage() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
-              <Route path="/create-profile" element={<CreateProfile />} />
               <Route path="/forgotpassword" element={<ForgotPassword />} />
               <Route path="/post">
                 <Route path=":id" element={<Post />} />

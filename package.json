@@ -1,20 +1,13 @@
 {
-  "name": "my-webpack-project",
+  "name": "myjar",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",
-    "@mantine/carousel": "^5.9.4",
     "@mantine/core": "^5.9.4",
     "@mantine/dates": "^5.9.4",
-    "@mantine/dropzone": "^5.9.4",
     "@mantine/form": "^5.9.4",
     "@mantine/hooks": "^5.9.4",
-    "@mantine/modals": "^5.9.4",
-    "@mantine/notifications": "^5.9.4",
-    "@mantine/nprogress": "^5.9.4",
-    "@mantine/prism": "^5.9.4",
-    "@mantine/spotlight": "^5.9.4",
     "@mantine/tiptap": "^5.9.4",
     "@tabler/icons": "^1.117.0",
     "@tiptap/extension-color": "^2.0.0-beta.209",
@@ -27,14 +20,11 @@
     "@tiptap/extension-underline": "^2.0.0-beta.209",
     "@tiptap/react": "^2.0.0-beta.207",
     "@tiptap/starter-kit": "^2.0.0-beta.207",
-    "bootstrap": "^5.2.0",
     "dayjs": "^1.11.7",
     "embla-carousel-react": "^7.0.5",
     "invert-color": "^2.0.0",
     "moment": "^2.29.4",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.5.0",
-    "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
     "react-error-overlay": "^6.0.11",
     "react-helmet": "^6.1.0",
@@ -106,6 +96,7 @@
     "@webpack-cli/generators": "^2.5.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^4.0.0",
     "compression-webpack-plugin": "^10.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
@@ -130,5 +121,5 @@
     "webpack-nano": "^1.1.1",
     "workbox-webpack-plugin": "^6.5.4"
   },
-  "description": "My webpack project"
+  "description": "Blog website users can create stories from various categories. Users can follow and message each other."
 }

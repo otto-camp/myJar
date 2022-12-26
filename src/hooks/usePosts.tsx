@@ -18,9 +18,8 @@ const usePosts = () => {
         setPosts((prevPosts: any) => [...prevPosts, { ...doc.data(), pid: doc.id }]);
       });
     };
-    return () => {
-      getPosts();
-    };
+
+    getPosts();
   }, []);
 
   return { posts };

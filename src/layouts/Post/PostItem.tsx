@@ -44,6 +44,7 @@ export default function PostItem({ post }: { post: PostType }) {
                 height="100%"
                 radius="sm"
                 withPlaceholder
+                
               />
             </AspectRatio>
             <Box>
