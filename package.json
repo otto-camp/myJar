@@ -121,5 +121,5 @@
     "webpack-nano": "^1.1.1",
     "workbox-webpack-plugin": "^6.5.4"
   },
-  "description": "Blog website users can create stories from various categories. Users can follow and message each other."
+  "description": "Blog website users can create stories from various categories."
 }

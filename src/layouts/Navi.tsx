@@ -92,14 +92,8 @@ export default function Navi() {
   const { classes } = useStyles();
   const navigate = useNavigate();
 
-  const handleSignOut = async (e: any) => {
-    e.preventDefault();
-    try {
-      await auth.signOut();
-      navigate('/');
-    } catch {
-      console.error(e);
-    }
+  const handleSignOut = async () => {
+    await auth.signOut();
   };
 
   return (
@@ -115,9 +109,7 @@ export default function Navi() {
               <Link to={'/profile/' + currentUser.uid} className={classes.link}>
                 Profile
               </Link>
-              <Button
-                variant="default"
-                onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleSignOut(e)}>
+              <Button variant="default" onClick={() => handleSignOut()}>
                 Sign Out
               </Button>
             </>
@@ -150,9 +142,7 @@ export default function Navi() {
                     <Link to={'/profile/' + currentUser.uid} className={classes.link}>
                       Profile
                     </Link>
-                    <Button
-                      variant="default"
-                      onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleSignOut(e)}>
+                    <Button variant="default" onClick={() => handleSignOut()}>
                       Sign Out
                     </Button>
                   </>

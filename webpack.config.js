@@ -19,7 +19,7 @@ const config = {
     path: path.resolve(__dirname, "build"),
     filename: '[name].js',
     publicPath: '/',
-    chunkFilename: '[id].[chunkhash].js'
+    chunkFilename: '[name].[chunkhash].js',
   },
   performance: {
     hints: false,
@@ -42,14 +42,14 @@ const config = {
     new MiniCssExtractPlugin(),
     new CopyPlugin({
       patterns: [
-        { from: "./public/robots.txt", to: "robots.txt" },
         { from: "./public/manifest.json", to: "manifest.json" },
         { from: "./public/favicon.ico", to: "favicon.ico" },
+        { from: "./public/robots.txt", to: "robots.txt" },
+        { from: "./public/sitemap.xml", to: "sitemap.xml" },
         { from: "./public/apple-touch-icon.png", to: "apple-touch-icon.png" },
         { from: "./public/android-chrome-192x192.png", to: "android-chrome-192x192.png" },
         { from: "./public/android-chrome-512x512.png", to: "android-chrome-512x512.png" },
         { from: "./public/sw.js", to: "sw.js" },
-        { from: "./public/sitemap.xml", to: "sitemap.xml" }
       ]
     }),
     new CleanWebpackPlugin(),
@@ -87,7 +87,20 @@ const config = {
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif|webp)$/i,
         type: "asset",
+      }, {
+        test: /\.xml/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'sitemap.xml',
+        },
       },
+      {
+        test: /\.txt/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'robots.txt',
+        },
+      }
     ],
   },
   resolve: {
@@ -126,12 +139,6 @@ module.exports = () => {
     config.mode = "production";
 
     config.plugins.push(new BundleAnalyzerPlugin());
-    config.plugins.push(new webpack.SourceMapDevToolPlugin({
-      append: '\n//# sourceMappingURL=https://myjar-8ff23.web.app/sourcemap/[url]',
-      filename: 'sourcemap/[file].map',
-      publicPath: 'https://myjar-8ff23.web.app/',
-      fileContext: 'public',
-    }))
   } else {
     config.mode = "development";
 

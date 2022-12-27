@@ -23,6 +23,7 @@ const ArticleSEO: React.FC<ISEO> = ({ title, description, type, url, image, type
       <meta name="twitter:description" content={description} />
       <meta property="twitter:url" content={url} />
       <meta property="twitter:image" content={image} />
+      <link rel="canonical" href={url} />
     </Helmet>
   );
 };

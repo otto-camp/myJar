@@ -3,24 +3,54 @@ import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from '../services/AuthContext';
 import loadable from '@loadable/component';
 import { HelmetProvider } from 'react-helmet-async';
-import { ColorScheme, ColorSchemeProvider, MantineProvider, createEmotionCache } from '@mantine/core';
+import { ColorScheme, ColorSchemeProvider, MantineProvider, Skeleton, createEmotionCache } from '@mantine/core';
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
 
-const Error = loadable(() => import('./Error'));
-const Navi = loadable(() => import('./Navi'));
-const CreatePost = loadable(() => import('../pages/CreatePost'));
-const Post = loadable(() => import('../pages/Post'));
-const Home = loadable(() => import('../pages/Home'));
-const About = loadable(() => import('../pages/About'));
-const Contact = loadable(() => import('../pages/Contact'));
-const Login = loadable(() => import('./Login'));
-const SignUp = loadable(() => import('./SignUp'));
-const ForgotPassword = loadable(() => import('./ForgotPassword'));
-const Footer = loadable(() => import('./Footer'));
-const Settings = loadable(() => import('../pages/Settings'));
-const Profile = loadable(() => import('../pages/Profile'));
-const Category = loadable(() => import('../pages/Category'));
-const Search = loadable(() => import('../pages/Search/Search'));
+const Error = loadable(() => import('./Error'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
+const Navi = loadable(() => import('./Navi'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
+const CreatePost = loadable(() => import('../pages/CreatePost'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
+const Post = loadable(() => import('../pages/Post'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
+const Home = loadable(() => import('../pages/Home'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
+const About = loadable(() => import('../pages/About'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
+const Contact = loadable(() => import('../pages/Contact'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
+const Login = loadable(() => import('./Login'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
+const SignUp = loadable(() => import('./SignUp'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
+const ForgotPassword = loadable(() => import('./ForgotPassword'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
+const Footer = loadable(() => import('./Footer'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
+const Settings = loadable(() => import('../pages/Settings'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
+const Profile = loadable(() => import('../pages/Profile'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
+const Category = loadable(() => import('../pages/Category'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
+const Search = loadable(() => import('../pages/Search/Search'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
 
 export default function Mainpage() {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -33,7 +63,7 @@ export default function Mainpage() {
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
   useHotkeys([['mod+J', () => toggleColorScheme()]]);
-  
+
   const myCache = createEmotionCache({ key: 'mantine' });
   return (
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>

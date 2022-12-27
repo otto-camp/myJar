@@ -53,77 +53,79 @@ function Profile() {
   submitProfilePicture();
   return (
     <>
-      <SEO
-        title={user ? user.fname + ' ' + user.lname : 'Profile'}
-        description={user?.about}
-        type="profile"
-        url={'https:/myjar-8ff23.web.app/profile/' + user?.id}
-        image={user?.photoURL}
-      />
-      <Container mih="100vh">
-        {user && (
-          <SimpleGrid cols={2} breakpoints={[{ maxWidth: 768, cols: 1 }]}>
-            <div>
-              <Paper
-                sx={(theme) => ({
-                  backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[1],
-                  padding: '1rem',
-                  marginBottom: '1rem'
-                })}>
-                <Group position="apart">
-                  <Group>
-                    <FileButton onChange={setPicture} accept="image/png,image/jpeg">
-                      {(props) => (
-                        <Avatar {...props} src={user.photoURL} alt={user.fname + ' ' + user.lname} size="xl" />
-                      )}
-                    </FileButton>
-                    <Stack spacing="xs">
-                      <h1>{user.fname + ' ' + user.lname}</h1>
-                      <Group>
-                        <Text>Follows: {user.follows.length}</Text>
-                        <Text>Followers: {user.followers.length}</Text>
-                      </Group>
-                    </Stack>
+      {user && (
+        <>
+          <SEO
+            title={user.fname + ' ' + user.lname}
+            description={user.about}
+            type="profile"
+            url={'https:/myjar-8ff23.web.app/profile/' + id}
+            image={user.photoURL}
+          />
+          <Container mih="100vh">
+            <SimpleGrid cols={2} breakpoints={[{ maxWidth: 768, cols: 1 }]}>
+              <div>
+                <Paper
+                  sx={(theme) => ({
+                    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[1],
+                    padding: '1rem',
+                    marginBottom: '1rem'
+                  })}>
+                  <Group position="apart">
+                    <Group>
+                      <FileButton onChange={setPicture} accept="image/png,image/jpeg">
+                        {(props) => (
+                          <Avatar {...props} src={user.photoURL} alt={user.fname + ' ' + user.lname} size="xl" />
+                        )}
+                      </FileButton>
+                      <Stack spacing="xs">
+                        <h1>{user.fname + ' ' + user.lname}</h1>
+                        <Group>
+                          <Text>Follows: {user.follows.length}</Text>
+                          <Text>Followers: {user.followers.length}</Text>
+                        </Group>
+                      </Stack>
+                    </Group>
+                    {currentUser !== null && currentUser.uid === id ? (
+                      <>
+                        <ActionIcon
+                          onClick={() => {
+                            setProfileModalShow(true);
+                          }}>
+                          <IconPencil size={36} stroke={1.5} />
+                        </ActionIcon>
+                        <UpdateProfileModal
+                          user={currentUserProfile}
+                          opened={profileModalShow}
+                          setOpened={setProfileModalShow}
+                        />
+                      </>
+                    ) : (
+                      ''
+                    )}
                   </Group>
-                  {currentUser !== null && currentUser.uid === id ? (
-                    <>
-                      <ActionIcon
-                        onClick={() => {
-                          setProfileModalShow(true);
-                        }}>
-                        <IconPencil size={36} stroke={1.5} />
-                      </ActionIcon>
-                      <UpdateProfileModal
-                        user={currentUserProfile}
-                        opened={profileModalShow}
-                        setOpened={setProfileModalShow}
-                      />
-                    </>
-                  ) : (
-                    ''
-                  )}
-                </Group>
-                <Group>
-                  <Title order={2}>About: </Title>
-                  <Text>{user.about}</Text>
-                </Group>
-                <Group>
-                  <Title order={4}>Email: </Title>
-                  <Text>{user.email}</Text>
-                </Group>
-                <Group>
-                  <Title order={4}>Birth date: </Title>
-                  <Text>{user.birthDate.toString()}</Text>
-                </Group>
-                {currentUser !== null && currentUserProfile.id !== user.id ? <FollowButton user={user} /> : ''}
-              </Paper>
-              {user && <SocialsSection user={user} />}
-            </div>
+                  <Group>
+                    <Title order={2}>About: </Title>
+                    <Text>{user.about}</Text>
+                  </Group>
+                  <Group>
+                    <Title order={4}>Email: </Title>
+                    <Text>{user.email}</Text>
+                  </Group>
+                  <Group>
+                    <Title order={4}>Birth date: </Title>
+                    <Text>{user.birthDate.toString()}</Text>
+                  </Group>
+                  {currentUser !== null && currentUserProfile.id !== user.id ? <FollowButton user={user} /> : ''}
+                </Paper>
+                <SocialsSection user={user} />
+              </div>
 
-            {user && <ProfilePost id={id} />}
-          </SimpleGrid>
-        )}
-      </Container>
+              <ProfilePost id={id} />
+            </SimpleGrid>
+          </Container>
+        </>
+      )}
     </>
   );
 }

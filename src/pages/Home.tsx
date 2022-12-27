@@ -22,10 +22,11 @@ const Home: React.FC = () => {
     <>
       <SEO
         title="myJar"
-        description="Blog website users can create stories from various categories. Users can follow and message each other."
+        description="Blog website users can create stories from various categories. Users can follow each other."
         type="website"
         url="https://myjar-8ff23.web.app/"
         image={logo}
+        
       />
       <Poster />
       <CategoryContainer />

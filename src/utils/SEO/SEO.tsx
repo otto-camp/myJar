@@ -19,6 +19,7 @@ const SEO = ({ title, description, type, url, image }: ISEO) => {
       <meta name="twitter:description" content={description} />
       <meta property="twitter:url" content={url} />
       <meta property="twitter:image" content={image ?? logo} />
+      <link rel="canonical" href={url} />
     </Helmet>
   );
 };

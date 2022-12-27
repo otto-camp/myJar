@@ -6,13 +6,18 @@ import { PostType } from '../global/types';
 import { db } from '../services/firebase';
 import SEO from '../utils/SEO/SEO';
 import { Badge, Box, Container, Group, Spoiler, Title } from '@mantine/core';
+import { useAuth } from '../services/AuthContext';
+import loadable from '@loadable/component';
+import EmptyCategoryDialog from '../components/Dialogs/EmptyCategoryDialog';
 
-const CreatePostButton = React.lazy(() => import('../components/Buttons/CreatePostButton'));
-const PostItem = React.lazy(() => import('../layouts/Post/PostItem'));
+const LoginButton = loadable(() => import('../components/Buttons/LoginButton'));
+const CreatePostButton = loadable(() => import('../components/Buttons/CreatePostButton'));
+const PostItem = loadable(() => import('../layouts/Post/PostItem'));
 
 const Category = () => {
   const { category } = useParams();
   const [posts, setPosts] = useState<PostType | any>([]);
+  const { currentUser } = useAuth();
 
   const categoryIndex = categories.categories.findIndex((c) => c.name === category);
   const description = categories.categories[categoryIndex].description;
@@ -52,14 +57,13 @@ const Category = () => {
             '&:hover': {
               backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1]
             }
-          })}
-        >
+          })}>
           <Title mb="lg">{category}</Title>
           <Group position="apart">
             <Badge py="auto" size="lg">
               {posts.length} Posts
             </Badge>
-            <CreatePostButton size="lg" />
+            {currentUser ? <CreatePostButton size="md" /> : <LoginButton size="md" />}
           </Group>
           <Spoiler showLabel="Show more" hideLabel="Hide" maxHeight={120} style={{ textAlign: 'start' }}>
             {description}
@@ -67,8 +71,8 @@ const Category = () => {
         </Box>
 
         <Box>
-          {posts.map((post: PostType, index: React.Key) => (
-            <PostItem key={index} post={post} />
+          {posts.map((p: PostType, index: React.Key) => (
+            <PostItem key={index} post={p} />
           ))}
         </Box>
       </Container>
