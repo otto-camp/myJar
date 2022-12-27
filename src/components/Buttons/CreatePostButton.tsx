@@ -1,6 +1,5 @@
 import { Button, MantineSize, createStyles } from '@mantine/core';
-import React, { CSSProperties } from 'react';
-import { useAuth } from '../../services/AuthContext';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
@@ -22,26 +21,12 @@ const useStyles = createStyles((theme) => ({
   }
 }));
 
-interface ICreatePost {
-  style?: CSSProperties;
-  size: MantineSize;
-}
-
-export default function CreatePostButton({ style, size }: ICreatePost) {
-  const { currentUser } = useAuth();
+export default function CreatePostButton({ size }: { size: MantineSize }) {
   const navigate = useNavigate();
   const { classes } = useStyles();
   return (
-    <>
-      {currentUser ? (
-        <Button size={size} variant="outline" className={classes.control} onClick={() => navigate('/post/create-post')}>
-          Start writing
-        </Button>
-      ) : (
-        <Button fullWidth size={size} variant="default" style={style}>
-          Login
-        </Button>
-      )}
-    </>
+    <Button size={size} variant="outline" className={classes.control} onClick={() => navigate('/post/create-post')}>
+      Start writing
+    </Button>
   );
 }

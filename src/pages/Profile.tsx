@@ -6,14 +6,34 @@ import { IconPencil } from '@tabler/icons';
 import loadable from '@loadable/component';
 import SEO from '../utils/SEO/SEO';
 import useProfile from '../hooks/useProfile';
-import { ActionIcon, Avatar, Container, FileButton, Group, Paper, SimpleGrid, Stack, Text, Title } from '@mantine/core';
+import {
+  ActionIcon,
+  Avatar,
+  Container,
+  FileButton,
+  Group,
+  Paper,
+  SimpleGrid,
+  Skeleton,
+  Stack,
+  Text,
+  Title
+} from '@mantine/core';
 import { uploadProfilePicture } from '../utils/CRUD/Storage';
 import { fileToBlob } from '../utils/FileToBlob';
 
-const FollowButton = loadable(() => import('../components/Buttons/FollowButton'));
-const SocialsSection = loadable(() => import('../layouts/Profile/SocialsSection'));
-const ProfilePost = loadable(() => import('../layouts/Post/ProfilePost'));
-const UpdateProfileModal = loadable(() => import('../layouts/Profile/UpdateProfileModal'));
+const FollowButton = loadable(() => import('../components/Buttons/FollowButton'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
+const SocialsSection = loadable(() => import('../layouts/Profile/SocialsSection'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
+const ProfilePost = loadable(() => import('../layouts/Post/ProfilePost'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
+const UpdateProfileModal = loadable(() => import('../layouts/Profile/UpdateProfileModal'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
 
 function Profile() {
   const [profileModalShow, setProfileModalShow] = useState(false);
@@ -100,7 +120,7 @@ function Profile() {
               {user && <SocialsSection user={user} />}
             </div>
 
-            {user && <ProfilePost user={user} id={id} />}
+            {user && <ProfilePost id={id} />}
           </SimpleGrid>
         )}
       </Container>

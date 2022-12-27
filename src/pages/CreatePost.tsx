@@ -88,64 +88,6 @@ function CreatePost() {
           </Group>
         </form>
       </Container>
-
-      {/* <section className="mt-2 min-h p-0 post-create-section">
-        <header className="postcreate-header margin-div">
-          <h1>Write a story</h1>
-          {error && <Alert variant="danger">{error}</Alert>}
-        </header>
-        <main className="margin-div postcreate-main">
-          <Form>
-            <Form.Group className="mb-2">
-              <Form.Label className="fs-3 fw-semibold">Title</Form.Label>
-              <Form.Control
-                onChange={(e) => setTitle(e.target.value)}
-                required
-                as="textarea"
-                className="postcreate-title resize-none overflow-hidden"
-                rows={1}
-              />
-            </Form.Group>
-            <Form.Group className="mb-2">
-              <Form.Label className="fs-3 fw-semibold">Subtitle</Form.Label>
-              <Form.Control
-                onChange={(e) => setSubTitle(e.target.value)}
-                required
-                as="textarea"
-                className="postcreate-title resize-none overflow-hidden"
-                rows={1}
-              />
-            </Form.Group>
-            <Form.Group>
-              <Row>
-                <Col xs={12} sm={6}>
-                  <Form.Label className="fs-3 fw-semibold">Thumbnail</Form.Label>
-                  <Form.Control type={'file'} onChange={(e) => uploadImage(e)} accept={'.jpg, .png, .jpeg'} />
-                </Col>
-                <Col xs={12} sm={6}>
-                  <Form.Label className="fs-3 fw-semibold">Category</Form.Label>
-                  <Form.Select aria-label="Category select" ref={categoryRef}>
-                    {categories.categories.map((c, i) => (
-                      <option value={c.name} key={i}>
-                        {c.name}
-                      </option>
-                    ))}
-                  </Form.Select>
-                </Col>
-              </Row>
-            </Form.Group>
-            <Form.Group className="mb-2">
-              <Form.Label className="fs-3 fw-semibold">Story</Form.Label>
-              <Editor story={story} setStory={setStory} />
-            </Form.Group>
-          </Form>
-        </main>
-        <div className="postcreate-footer">
-          <Button variant="primary" className="rounded-pill fs-5 px-4" onClick={(e) => submitPost(e)}>
-            Submit
-          </Button>
-        </div>
-      </section> */}
     </>
   );
 }

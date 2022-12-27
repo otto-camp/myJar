@@ -3,11 +3,17 @@ import loadable from '@loadable/component';
 import SEO from '../utils/SEO/SEO';
 import usePosts from '../hooks/usePosts';
 import logo from '../../public/logo.png';
-import { Container } from '@mantine/core';
+import { Container, Skeleton } from '@mantine/core';
 
-const Poster = loadable(() => import('../components/Containers/Poster'));
-const PostItem = loadable(() => import('../layouts/Post/PostItem'));
-const CategoryContainer = loadable(() => import('../components/Containers/CategoryContainer'));
+const Poster = loadable(() => import('../components/Containers/Poster'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
+const PostItem = loadable(() => import('../layouts/Post/PostItem'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
+const CategoryContainer = loadable(() => import('../components/Containers/CategoryContainer'), {
+  fallback: <Skeleton height="100%" width="100%" />
+});
 
 const Home: React.FC = () => {
   const { posts } = usePosts();

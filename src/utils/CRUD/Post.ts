@@ -1,4 +1,13 @@
-import { collection, Timestamp, updateDoc, arrayUnion, doc, addDoc, deleteDoc } from 'firebase/firestore/lite';
+import {
+  collection,
+  Timestamp,
+  updateDoc,
+  arrayUnion,
+  doc,
+  addDoc,
+  deleteDoc,
+  arrayRemove
+} from 'firebase/firestore/lite';
 import { db } from '../../services/firebase.js';
 import { uploadPostImage } from './Storage';
 
@@ -27,15 +36,20 @@ export function createPost(
   });
 }
 
-export function deletePost(id: string) {
-  const postDoc = doc(collection(db, 'posts'), id);
+export function deletePost(postId: string, userId: string) {
+  const postDoc = doc(collection(db, 'posts'), postId);
   deleteDoc(postDoc);
+  updateDoc(doc(db, 'profile', userId), {
+    createdPosts: arrayRemove(postId)
+  });
 }
 
-export function updatePost(id: string, updatedText: string) {
+export function updatePost(id: string, updatedTitle: string, updatedSubTitle: string, updatedCategory: string) {
   const postDoc = doc(collection(db, 'posts'), id);
   updateDoc(postDoc, {
-    postText: updatedText,
+    postTitle: updatedTitle,
+    postSubTitle: updatedSubTitle,
+    category: updatedCategory,
     timestamp: new Date(Timestamp.now().seconds * 1000)
   });
 }
