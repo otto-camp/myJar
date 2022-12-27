@@ -5,6 +5,7 @@ import { Card, Group, Paper, Skeleton, Stack, Text, Title, UnstyledButton } from
 import { PostType } from '../../global/types';
 import { IconEdit, IconTrash } from '@tabler/icons';
 import loadable from '@loadable/component';
+import { useAuth } from '../../services/AuthContext';
 
 const EditPostModal = loadable(() => import('../../components/Modals/EditPostModal'), {
   fallback: <Skeleton height="100%" width="100%" />
@@ -23,6 +24,7 @@ export default function ProfilePost({ id }: { id: string }) {
   const [posts, setPosts] = useState<PostType | any>([]);
   const [deleteModal, setDeleteModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
+  const { currentUser } = useAuth();
 
   useEffect(() => {
     async function getUserPosts() {
@@ -51,20 +53,24 @@ export default function ProfilePost({ id }: { id: string }) {
           <Card p={0} withBorder key={i} mb="sm">
             <Stack m="lg" spacing={0}>
               <SimplePostCard post={p} />
-              <Group spacing="xl" mt="lg">
-                <UnstyledButton onClick={() => setEditModal(true)}>
-                  <Group spacing="xs">
-                    <IconEdit size={24} color="gray" />
-                    <Text fw={700}>Edit</Text>
-                  </Group>
-                </UnstyledButton>
-                <UnstyledButton onClick={() => setDeleteModal(true)}>
-                  <Group spacing="xs">
-                    <IconTrash size={24} color="red" />
-                    <Text fw={700}>Delete</Text>
-                  </Group>
-                </UnstyledButton>
-              </Group>
+              {currentUser.uid === id ? (
+                <Group spacing="xl" mt="lg">
+                  <UnstyledButton onClick={() => setEditModal(true)}>
+                    <Group spacing="xs">
+                      <IconEdit size={24} color="gray" />
+                      <Text fw={700}>Edit</Text>
+                    </Group>
+                  </UnstyledButton>
+                  <UnstyledButton onClick={() => setDeleteModal(true)}>
+                    <Group spacing="xs">
+                      <IconTrash size={24} color="red" />
+                      <Text fw={700}>Delete</Text>
+                    </Group>
+                  </UnstyledButton>
+                </Group>
+              ) : (
+                ''
+              )}
               <EditPostModal opened={editModal} onClose={setEditModal} post={p} />
               <DeletePostModal opened={deleteModal} onClose={setDeleteModal} post={p} userId={id} />
             </Stack>
