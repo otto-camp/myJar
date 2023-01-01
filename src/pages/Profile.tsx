@@ -120,7 +120,6 @@ function Profile() {
                 </Paper>
                 <SocialsSection user={user} />
               </div>
-
               <ProfilePost id={id} />
             </SimpleGrid>
           </Container>

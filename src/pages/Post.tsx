@@ -66,6 +66,9 @@ const Post: React.FC = () => {
                     <Title order={3}>{user.fname + ' ' + user.lname}</Title>
                   </Group>
                   <Text mt="lg">{user.about}</Text>
+                  <Group mt="lg">
+                    {currentUser && currentUser.uid !== user.id ? <FollowButton user={user} /> : ''}
+                  </Group>
                   <Divider my="lg" size="md" />
                   <Group position="apart">
                     <CategoryButton text={post.category} />
@@ -76,9 +79,6 @@ const Post: React.FC = () => {
                         </Moment>
                       }
                     </Badge>
-                  </Group>
-                  <Group mt="lg">
-                    {currentUser && currentUser.uid !== user.id ? <FollowButton user={user} /> : ''}
                   </Group>
                 </Card>
               </Grid.Col>

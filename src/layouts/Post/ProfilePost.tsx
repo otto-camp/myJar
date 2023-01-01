@@ -53,7 +53,7 @@ export default function ProfilePost({ id }: { id: string }) {
           <Card p={0} withBorder key={i} mb="sm">
             <Stack m="lg" spacing={0}>
               <SimplePostCard post={p} />
-              {currentUser.uid === id ? (
+              {currentUser != null && currentUser.uid === id ? (
                 <Group spacing="xl" mt="lg">
                   <UnstyledButton onClick={() => setEditModal(true)}>
                     <Group spacing="xs">
@@ -71,6 +71,7 @@ export default function ProfilePost({ id }: { id: string }) {
               ) : (
                 ''
               )}
+
               <EditPostModal opened={editModal} onClose={setEditModal} post={p} />
               <DeletePostModal opened={deleteModal} onClose={setDeleteModal} post={p} userId={id} />
             </Stack>

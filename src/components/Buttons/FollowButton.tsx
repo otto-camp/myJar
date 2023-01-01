@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from 'react-bootstrap';
 import { UserType } from '../../global/types';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../services/AuthContext';
 import { follow, unfollow } from '../../utils/ProfileActions/FollowProfile';
+import { Button } from '@mantine/core';
 
 function FollowButton({ user }: { user: UserType }) {
   const { currentUserProfile } = useAuth();
@@ -46,11 +46,11 @@ function FollowButton({ user }: { user: UserType }) {
   return (
     <>
       {!isFriend ? (
-        <Button className="me-4" onClick={handleFollow}>
+        <Button variant="filled" className="me-4" onClick={handleFollow}>
           Follow
         </Button>
       ) : (
-        <Button className="me-4" onClick={handleUnfollow}>
+        <Button variant="filled" color="gray" className="me-4" onClick={handleUnfollow}>
           Unfollow
         </Button>
       )}

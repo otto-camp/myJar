@@ -8,7 +8,6 @@ import SEO from '../utils/SEO/SEO';
 import { Badge, Box, Container, Group, Spoiler, Title } from '@mantine/core';
 import { useAuth } from '../services/AuthContext';
 import loadable from '@loadable/component';
-import EmptyCategoryDialog from '../components/Dialogs/EmptyCategoryDialog';
 
 const LoginButton = loadable(() => import('../components/Buttons/LoginButton'));
 const CreatePostButton = loadable(() => import('../components/Buttons/CreatePostButton'));

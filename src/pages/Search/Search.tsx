@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Nav, Button, Dropdown, Offcanvas, Row } from 'react-bootstrap';
 import { Link, useSearchParams } from 'react-router-dom';
 import categories from '../../assets/categories.json';
 import { getDocs, collection, query, orderBy } from 'firebase/firestore/lite';
@@ -47,7 +46,7 @@ const Search: React.FC = () => {
 
   return (
     <>
-      <main className="min-h p-0">
+      {/* <main className="min-h p-0">
         <div className="d-flex flex-row">
           <Button onClick={toggleCategory} className="mt-3 ms-3 d-md-none">
             Categories
@@ -89,7 +88,7 @@ const Search: React.FC = () => {
             </div>
           </Col>
         </Row>
-      </main>
+      </main> */}
     </>
   );
 };
