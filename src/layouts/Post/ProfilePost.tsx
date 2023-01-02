@@ -50,7 +50,7 @@ export default function ProfilePost({ id }: { id: string }) {
         <EmptyPostDialog />
       ) : (
         posts.map((p: PostType, i: React.Key) => (
-          <Card p={0} withBorder key={i} mb="sm">
+          <Card component='article' p={0} withBorder key={i} mb="sm">
             <Stack m="lg" spacing={0}>
               <SimplePostCard post={p} />
               {currentUser != null && currentUser.uid === id ? (

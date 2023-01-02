@@ -21,8 +21,7 @@ const SocialsSection = ({ user }: { user: UserType }) => {
       sx={(theme) => ({
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[1],
         padding: '1rem'
-      })}
-    >
+      })}>
       <Group position="apart">
         <Title order={2}>Socials</Title>
         {currentUser !== null && currentUser.uid === user.id && (
@@ -45,9 +44,12 @@ const SocialsSection = ({ user }: { user: UserType }) => {
             <ThemeIcon color="blue" size="xl" radius="md">
               <IconWorld />
             </ThemeIcon>
-          }
-        >
-          <Anchor size="xl" href={'//' + user.website} target="_blank">
+          }>
+          <Anchor
+            size="xl"
+            href={'//' + user.website}
+            target="_blank"
+            aria-label={`${user.fname} ${user.lname} website`}>
             {user.website ?? ''}
           </Anchor>
         </List.Item>
@@ -56,9 +58,13 @@ const SocialsSection = ({ user }: { user: UserType }) => {
             <ThemeIcon color="dark" size="xl" radius="md">
               <IconBrandGithub />
             </ThemeIcon>
-          }
-        >
-          <Anchor size="xl" href={'//' + user.github} target="_blank" rel="noreferrer">
+          }>
+          <Anchor
+            size="xl"
+            href={'//' + user.github}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${user.fname} ${user.lname} github`}>
             {user.github ?? ''}
           </Anchor>
         </List.Item>
@@ -67,9 +73,12 @@ const SocialsSection = ({ user }: { user: UserType }) => {
             <ThemeIcon color="blue" size="xl" radius="md">
               <IconBrandTwitter />
             </ThemeIcon>
-          }
-        >
-          <Anchor size="xl" href={'//' + user.twitter} target="_blank">
+          }>
+          <Anchor
+            size="xl"
+            href={'//' + user.twitter}
+            target="_blank"
+            aria-label={`${user.fname} ${user.lname} twitter`}>
             {user.twitter ?? ''}
           </Anchor>
         </List.Item>
@@ -78,9 +87,12 @@ const SocialsSection = ({ user }: { user: UserType }) => {
             <ThemeIcon color="teal" size="xl" radius="md">
               <IconBrandFacebook />
             </ThemeIcon>
-          }
-        >
-          <Anchor size="xl" href={'//' + user.facebook} target="_blank">
+          }>
+          <Anchor
+            size="xl"
+            href={'//' + user.facebook}
+            target="_blank"
+            aria-label={`${user.fname} ${user.lname} facebook`}>
             {user.facebook ?? ''}
           </Anchor>
         </List.Item>
@@ -89,9 +101,12 @@ const SocialsSection = ({ user }: { user: UserType }) => {
             <ThemeIcon color="red" size="xl" radius="md">
               <IconBrandInstagram />
             </ThemeIcon>
-          }
-        >
-          <Anchor size="xl" href={'//' + user.instagram} target="_blank">
+          }>
+          <Anchor
+            size="xl"
+            href={'//' + user.instagram}
+            target="_blank"
+            aria-label={`${user.fname} ${user.lname} instagram`}>
             {user.instagram ?? ''}
           </Anchor>
         </List.Item>

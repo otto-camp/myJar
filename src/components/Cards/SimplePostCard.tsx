@@ -35,7 +35,7 @@ function SimplePostCard({ post }: { post: PostType }) {
         />
       </AspectRatio>
       <Box>
-        <Text miw="100%" lineClamp={2} weight={500}>
+        <Text component="p" miw="100%" lineClamp={2} weight={500} aria-label="Post Title">
           {post.postTitle}
         </Text>
         <Group position="apart" mt="md" mb="xs">
@@ -46,7 +46,7 @@ function SimplePostCard({ post }: { post: PostType }) {
           </Badge>
           <CategoryButton text={post.category} />
         </Group>
-        <Text lineClamp={2} size="sm" color="dimmed">
+        <Text component="p" lineClamp={2} size="sm" color="dimmed" aria-label="Post Sub title">
           {post.postSubTitle}
         </Text>
       </Box>

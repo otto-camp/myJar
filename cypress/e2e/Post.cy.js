@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-describe('Article component', () => {
+describe('Post Page', () => {
     const post = {
         postTitle: 'SEO Optimization For Small Businesses',
         postSubTitle: 'Improve your small business\'s online visibility & drive sales with professional SEO optimization services.',
@@ -19,6 +19,7 @@ describe('Article component', () => {
             cy.get('h1').should('have.text', post.postTitle);
             cy.get('h2').should('have.text', post.postSubTitle);
             cy.get('img').should('have.attr', 'src', post.postThumbnail);
+            cy.get('[role=article]').should('not.be.empty')
             cy.get('h3').should('have.text', `${user.fname} ${user.lname}`);
         })
     });

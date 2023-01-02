@@ -75,7 +75,12 @@ function Profile() {
                     <Group>
                       <FileButton onChange={setPicture} accept="image/png,image/jpeg">
                         {(props) => (
-                          <Avatar {...props} src={user.photoURL} alt={user.fname + ' ' + user.lname} size="xl" />
+                          <Avatar
+                            {...props}
+                            src={user.photoURL}
+                            alt={user.fname + ' ' + user.lname}
+                            size="xl"
+                          />
                         )}
                       </FileButton>
                       <Stack spacing="xs">

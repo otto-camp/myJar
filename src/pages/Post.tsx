@@ -55,7 +55,7 @@ const Post: React.FC = () => {
                     {post.postSubTitle}
                   </Title>
                   <TypographyStylesProvider>
-                    <div dangerouslySetInnerHTML={{ __html: post.postText }} />
+                    <section dangerouslySetInnerHTML={{ __html: post.postText }} role="article" />
                   </TypographyStylesProvider>
                 </Paper>
               </Grid.Col>
@@ -66,9 +66,13 @@ const Post: React.FC = () => {
                     <Title order={3}>{user.fname + ' ' + user.lname}</Title>
                   </Group>
                   <Text mt="lg">{user.about}</Text>
-                  <Group mt="lg">
-                    {currentUser && currentUser.uid !== user.id ? <FollowButton user={user} /> : ''}
-                  </Group>
+                  {currentUser && currentUser.uid !== user.id ? (
+                    <Group mt="lg">
+                      <FollowButton user={user} />
+                    </Group>
+                  ) : (
+                    ''
+                  )}
                   <Divider my="lg" size="md" />
                   <Group position="apart">
                     <CategoryButton text={post.category} />
