@@ -23,7 +23,7 @@ function SimplePostCard({ post }: { post: PostType }) {
   const { classes } = useStyles();
   const navigate = useNavigate();
   return (
-    <div onClick={() => navigate('/post/' + post.pid)} className={classes.card}>
+    <div onClick={() => navigate('/post/' + post.pid)} className={classes.card} data-cy="simple-post-card">
       <AspectRatio ratio={1000 / 500}>
         <Image
           src={post.postThumbnail || 'https://picsum.photos/1000/500'}
@@ -32,21 +32,22 @@ function SimplePostCard({ post }: { post: PostType }) {
           height="100%"
           radius="sm"
           withPlaceholder
+          data-cy="image"
         />
       </AspectRatio>
       <Box>
-        <Text component="p" miw="100%" lineClamp={2} weight={500} aria-label="Post Title">
+        <Text component="p" miw="100%" lineClamp={2} weight={500} aria-label="Post Title" data-cy="title">
           {post.postTitle}
         </Text>
         <Group position="apart" mt="md" mb="xs">
-          <Badge color="violet" variant="dot">
+          <Badge color="violet" variant="dot" data-cy="date">
             <Moment fallback={post.timestamp.seconds as any}>
               {({ default: moment }) => moment.utc(post.timestamp.seconds, 'X').fromNow()}
             </Moment>
           </Badge>
-          <CategoryButton text={post.category} />
+          <CategoryButton text={post.category} data-cy="category" />
         </Group>
-        <Text component="p" lineClamp={2} size="sm" color="dimmed" aria-label="Post Sub title">
+        <Text component="p" lineClamp={2} size="sm" color="dimmed" aria-label="Post Sub title" data-cy="sub-title">
           {post.postSubTitle}
         </Text>
       </Box>

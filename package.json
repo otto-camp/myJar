@@ -53,7 +53,8 @@
     "emulator:storage": " firebase emulators:start --only storage",
     "emulator:firestore": " firebase emulators:start --only firestore",
     "emulator": " firebase emulators:start",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "cypress:run": "cypress run"
   },
   "eslintConfig": {
     "extends": [

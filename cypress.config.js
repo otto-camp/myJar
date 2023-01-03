@@ -5,7 +5,7 @@ module.exports = defineConfig({
 
     e2e: {
         baseUrl: "http://localhost:8080",
-        specPattern: "cypress/e2e/**/*.cy.js",
+        specPattern: "cypress/e2e/**/*.{cy,spec}.{js,jsx,ts,tsx}",
         supportFile: false,
     },
 
@@ -15,7 +15,7 @@ module.exports = defineConfig({
             framework: "create-react-app",
             bundler: "webpack",
         },
-        specPattern: "cypress/component/**/*.cy.js",
+        specPattern: "cypress/component/**/*.{cy,spec}.{js,jsx,ts,tsx}",
         supportFile: false,
 
     },

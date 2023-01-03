@@ -49,8 +49,9 @@ const SocialsSection = ({ user }: { user: UserType }) => {
             size="xl"
             href={'//' + user.website}
             target="_blank"
-            aria-label={`${user.fname} ${user.lname} website`}>
-            {user.website ?? ''}
+            aria-label={`${user.fname} ${user.lname} website`}
+            data-cy="website">
+            {user.website}
           </Anchor>
         </List.Item>
         <List.Item
@@ -64,8 +65,9 @@ const SocialsSection = ({ user }: { user: UserType }) => {
             href={'//' + user.github}
             target="_blank"
             rel="noreferrer"
-            aria-label={`${user.fname} ${user.lname} github`}>
-            {user.github ?? ''}
+            aria-label={`${user.fname} ${user.lname} github`}
+            data-cy="github">
+            {user.github}
           </Anchor>
         </List.Item>
         <List.Item
@@ -78,8 +80,9 @@ const SocialsSection = ({ user }: { user: UserType }) => {
             size="xl"
             href={'//' + user.twitter}
             target="_blank"
-            aria-label={`${user.fname} ${user.lname} twitter`}>
-            {user.twitter ?? ''}
+            aria-label={`${user.fname} ${user.lname} twitter`}
+            data-cy="twitter">
+            {user.twitter}
           </Anchor>
         </List.Item>
         <List.Item
@@ -92,8 +95,9 @@ const SocialsSection = ({ user }: { user: UserType }) => {
             size="xl"
             href={'//' + user.facebook}
             target="_blank"
-            aria-label={`${user.fname} ${user.lname} facebook`}>
-            {user.facebook ?? ''}
+            aria-label={`${user.fname} ${user.lname} facebook`}
+            data-cy="facebook">
+            {user.facebook}
           </Anchor>
         </List.Item>
         <List.Item
@@ -106,8 +110,9 @@ const SocialsSection = ({ user }: { user: UserType }) => {
             size="xl"
             href={'//' + user.instagram}
             target="_blank"
-            aria-label={`${user.fname} ${user.lname} instagram`}>
-            {user.instagram ?? ''}
+            aria-label={`${user.fname} ${user.lname} instagram`}
+            data-cy="instagram">
+            {user.instagram}
           </Anchor>
         </List.Item>
       </List>

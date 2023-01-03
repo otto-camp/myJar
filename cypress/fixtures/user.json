@@ -1,0 +1,17 @@
+{
+  "id": "U4CXI7PCE4dN1x2snku05kJpF7G2",
+  "fname": "Rick",
+  "lname": "Smith",
+  "photoUrl": "https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/U4CXI7PCE4dN1x2snku05kJpF7G2%2Fprofile-picture?alt=media&token=7c170995-751e-4e75-905b-57cf396370c3",
+  "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  "birthDate": "2000/07/30",
+  "createdPosts": ["9WbNEayqvB7iQNRxb4HG"],
+  "email": "qq@qq.com",
+  "facebook": "",
+  "followers": ["hie9wM3vi5fYlCKjzCEMphLJqSF3"],
+  "follows": ["hie9wM3vi5fYlCKjzCEMphLJqSF3"],
+  "github": "github.com/otto-camp",
+  "instagram": "",
+  "twitter": "",
+  "website": "myjar-8ff23.web.app"
+}

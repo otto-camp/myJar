@@ -49,21 +49,21 @@ const Post: React.FC = () => {
             <Grid columns={12}>
               <Grid.Col xs={12} sm={8}>
                 <Paper>
-                  <Image src={post.postThumbnail} alt={post.postTitle} withPlaceholder />
-                  <Title>{post.postTitle}</Title>
-                  <Title order={2} size="h5">
+                  <Image src={post.postThumbnail} alt={post.postTitle} withPlaceholder data-cy="post-image"/>
+                  <Title data-cy="post-title">{post.postTitle}</Title>
+                  <Title order={2} size="h5" data-cy="post-subtitle">
                     {post.postSubTitle}
                   </Title>
                   <TypographyStylesProvider>
-                    <section dangerouslySetInnerHTML={{ __html: post.postText }} role="article" />
+                    <section dangerouslySetInnerHTML={{ __html: post.postText }} role="article" data-cy="post-text"/>
                   </TypographyStylesProvider>
                 </Paper>
               </Grid.Col>
               <Grid.Col xs={12} sm={4}>
                 <Card withBorder>
                   <Group sx={{ '&:hover': { cursor: 'pointer' } }} onClick={() => navigate('/profile/' + user.id)}>
-                    <Avatar src={user.photoURL} alt={user.fname + ' ' + user.lname} size={50} />
-                    <Title order={3}>{user.fname + ' ' + user.lname}</Title>
+                    <Avatar src={user.photoURL} alt={user.fname + ' ' + user.lname} size={50} data-cy="post-creater-image"/>
+                    <Title order={3} data-cy="post-creater-name">{user.fname + ' ' + user.lname}</Title>
                   </Group>
                   <Text mt="lg">{user.about}</Text>
                   {currentUser && currentUser.uid !== user.id ? (
@@ -75,8 +75,8 @@ const Post: React.FC = () => {
                   )}
                   <Divider my="lg" size="md" />
                   <Group position="apart">
-                    <CategoryButton text={post.category} />
-                    <Badge>
+                    <CategoryButton text={post.category} data-cy="post-category"/>
+                    <Badge data-cy="post-date">
                       {
                         <Moment fallback={post.timestamp.seconds as any}>
                           {({ default: moment }) => moment.utc(post.timestamp.seconds, 'X').fromNow()}

@@ -17,9 +17,10 @@ const config = {
   devtool: false,
   output: {
     path: path.resolve(__dirname, "build"),
-    filename: '[name].js',
     publicPath: '/',
-    chunkFilename: '[name].[chunkhash].js',
+    filename: '[name].js',
+    chunkFilename: '[id].[contenthash:8].chunk.js'
+
   },
   performance: {
     hints: false,
@@ -121,14 +122,9 @@ const config = {
     })],
     splitChunks: {
       maxInitialRequests: Infinity,
+      chunks: 'all',
       cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all',
-          minSize: 0,
-          minChunks: 3,
-        }
+        venders: false
       }
     }
   },

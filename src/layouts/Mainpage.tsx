@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from '../services/AuthContext';
 import loadable from '@loadable/component';
 import { HelmetProvider } from 'react-helmet-async';
@@ -66,34 +66,36 @@ export default function Mainpage() {
 
   const myCache = createEmotionCache({ key: 'mantine' });
   return (
-    <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-      <MantineProvider emotionCache={myCache} theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
-        <HelmetProvider>
-          <AuthProvider>
-            <Navi />
-            <Routes>
-              <Route index element={<Home />} />
-              <Route path="*" element={<Error />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<SignUp />} />
-              <Route path="/forgotpassword" element={<ForgotPassword />} />
-              <Route path="/post">
-                <Route path=":id" element={<Post />} />
-                <Route path="create-post" element={<CreatePost />} />
-              </Route>
-              <Route path="/profile">
-                <Route path=":id" element={<Profile />} />
-              </Route>
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/category/:category" element={<Category />} />
-              <Route path="/search" element={<Search />} />
-            </Routes>
-            <Footer />
-          </AuthProvider>
-        </HelmetProvider>
-      </MantineProvider>
-    </ColorSchemeProvider>
+    <BrowserRouter>
+      <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+        <MantineProvider emotionCache={myCache} theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
+          <HelmetProvider>
+            <AuthProvider>
+              <Navi />
+              <Routes>
+                <Route index element={<Home />} />
+                <Route path="*" element={<Error />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/forgotpassword" element={<ForgotPassword />} />
+                <Route path="/post">
+                  <Route path=":id" element={<Post />} />
+                  <Route path="create-post" element={<CreatePost />} />
+                </Route>
+                <Route path="/profile">
+                  <Route path=":id" element={<Profile />} />
+                </Route>
+                <Route path="/settings" element={<Settings />} />
+                <Route path="/category/:category" element={<Category />} />
+                <Route path="/search" element={<Search />} />
+              </Routes>
+              <Footer />
+            </AuthProvider>
+          </HelmetProvider>
+        </MantineProvider>
+      </ColorSchemeProvider>
+    </BrowserRouter>
   );
 }

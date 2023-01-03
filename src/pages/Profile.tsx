@@ -50,6 +50,7 @@ function Profile() {
       });
     }
   };
+
   submitProfilePicture();
   return (
     <>
@@ -80,11 +81,12 @@ function Profile() {
                             src={user.photoURL}
                             alt={user.fname + ' ' + user.lname}
                             size="xl"
+                            data-cy="image"
                           />
                         )}
                       </FileButton>
                       <Stack spacing="xs">
-                        <h1>{user.fname + ' ' + user.lname}</h1>
+                        <h1 data-cy="username">{user.fname + ' ' + user.lname}</h1>
                         <Group>
                           <Text>Follows: {user.follows.length}</Text>
                           <Text>Followers: {user.followers.length}</Text>
@@ -111,15 +113,15 @@ function Profile() {
                   </Group>
                   <Group>
                     <Title order={2}>About: </Title>
-                    <Text>{user.about}</Text>
+                    <Text data-cy="about">{user.about}</Text>
                   </Group>
                   <Group>
                     <Title order={4}>Email: </Title>
-                    <Text>{user.email}</Text>
+                    <Text data-cy="email">{user.email}</Text>
                   </Group>
                   <Group>
                     <Title order={4}>Birth date: </Title>
-                    <Text>{user.birthDate.toString()}</Text>
+                    <Text data-cy="birth-date">{user.birthDate.toString()}</Text>
                   </Group>
                   {currentUser !== null && currentUserProfile.id !== user.id ? <FollowButton user={user} /> : ''}
                 </Paper>

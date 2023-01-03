@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../../services/firebase';
 import { collection, getDocs, limit, query, where } from 'firebase/firestore/lite';
-import { Card, Group, Paper, Skeleton, Stack, Text, Title, UnstyledButton } from '@mantine/core';
+import { Card, Group, Paper, Skeleton, Text, Title, UnstyledButton } from '@mantine/core';
 import { PostType } from '../../global/types';
 import { IconEdit, IconTrash } from '@tabler/icons';
 import loadable from '@loadable/component';
@@ -50,31 +50,29 @@ export default function ProfilePost({ id }: { id: string }) {
         <EmptyPostDialog />
       ) : (
         posts.map((p: PostType, i: React.Key) => (
-          <Card component='article' p={0} withBorder key={i} mb="sm">
-            <Stack m="lg" spacing={0}>
-              <SimplePostCard post={p} />
-              {currentUser != null && currentUser.uid === id ? (
-                <Group spacing="xl" mt="lg">
-                  <UnstyledButton onClick={() => setEditModal(true)}>
-                    <Group spacing="xs">
-                      <IconEdit size={24} color="gray" />
-                      <Text fw={700}>Edit</Text>
-                    </Group>
-                  </UnstyledButton>
-                  <UnstyledButton onClick={() => setDeleteModal(true)}>
-                    <Group spacing="xs">
-                      <IconTrash size={24} color="red" />
-                      <Text fw={700}>Delete</Text>
-                    </Group>
-                  </UnstyledButton>
-                </Group>
-              ) : (
-                ''
-              )}
+          <Card component="article" p="md" withBorder key={i} mb="sm">
+            <SimplePostCard post={p} />
+            {currentUser != null && currentUser.uid === id ? (
+              <Group spacing="xl" mt="lg">
+                <UnstyledButton onClick={() => setEditModal(true)}>
+                  <Group spacing="xs">
+                    <IconEdit size={24} color="gray" />
+                    <Text fw={700}>Edit</Text>
+                  </Group>
+                </UnstyledButton>
+                <UnstyledButton onClick={() => setDeleteModal(true)}>
+                  <Group spacing="xs">
+                    <IconTrash size={24} color="red" />
+                    <Text fw={700}>Delete</Text>
+                  </Group>
+                </UnstyledButton>
+              </Group>
+            ) : (
+              ''
+            )}
 
-              <EditPostModal opened={editModal} onClose={setEditModal} post={p} />
-              <DeletePostModal opened={deleteModal} onClose={setDeleteModal} post={p} userId={id} />
-            </Stack>
+            <EditPostModal opened={editModal} onClose={setEditModal} post={p} />
+            <DeletePostModal opened={deleteModal} onClose={setDeleteModal} post={p} userId={id} />
           </Card>
         ))
       )}

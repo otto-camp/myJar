@@ -9,6 +9,7 @@
     "buildci",
     "creater",
     "creatername",
+    "Eayqv",
     "fname",
     "forgotpassword",
     "ftest",
@@ -21,10 +22,12 @@
     "postitem",
     "signout",
     "signup",
+    "snku",
     "Storytel",
     "testid",
     "textnodes",
-    "unfollow"
+    "unfollow",
+    "zpkt"
   ],
   "eslint.workingDirectories": ["src"]
 }

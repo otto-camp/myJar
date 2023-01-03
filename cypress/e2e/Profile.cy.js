@@ -1,31 +1,33 @@
+import user from '../fixtures/user.json'
+import post from '../fixtures/post.json'
 /* eslint-disable no-undef */
 describe('Profile Page', () => {
-    const user = {
-        id: 'U4CXI7PCE4dN1x2snku05kJpF7G2',
-        fname: 'Rick',
-        lname: 'Smith',
-        photoUrl: 'https://firebasestorage.googleapis.com/v0/b/myjar-8ff23.appspot.com/o/U4CXI7PCE4dN1x2snku05kJpF7G2%2Fprofile-picture?alt=media&token=7c170995-751e-4e75-905b-57cf396370c3'
-    }
+    beforeEach(() => {
+        cy.visit('/profile/U4CXI7PCE4dN1x2snku05kJpF7G2');
+    });
 
+    it('renders the profile for non-login users', () => {
+        cy.get('[data-cy="image"]>img').should('have.attr', 'src', user.photoUrl);
+        cy.get('[data-cy="username"]').should('have.text', `${user.fname} ${user.lname}`);
+        cy.get('[data-cy="about"]').should('have.text', user.about);
+        cy.get('[data-cy="email"]').should('have.text', user.email);
+        cy.get('[data-cy="birth-date"]').should('have.text', user.birthDate);
 
-    it('renders the profile, social section, and post section', () => {
-        cy.visit('/profile/U4CXI7PCE4dN1x2snku05kJpF7G2').then(() => {
-            cy.get('h1').should('have.text', `${user.fname} ${user.lname}`);
-            cy.get('img[alt="Rick Smith"]').should('exist');
+    })
 
-            //social links
-            cy.get('a[aria-label="Rick Smith website"]').should('exist');
-            cy.get('a[aria-label="Rick Smith github"]').should('exist');
-            cy.get('a[aria-label="Rick Smith twitter"]').should('exist');
-            cy.get('a[aria-label="Rick Smith facebook"]').should('exist');
-            cy.get('a[aria-label="Rick Smith instagram"]').should('exist');
+    it('renders the social section for non-login users', () => {
+        cy.get('[data-cy="website"]').should('have.text', user.website);
+        cy.get('[data-cy="github"]').should('have.text', user.github);
+        cy.get('[data-cy="twitter"]').should('have.text', user.twitter);
+        cy.get('[data-cy="facebook"]').should('have.text', user.facebook);
+        cy.get('[data-cy="instagram"]').should('have.text', user.instagram);
+    })
 
-            //posts
-            cy.get('article').then(() => {
-                cy.get('p[aria-label="Post Title"]').should('exist');
-                cy.get('p[aria-label="Post Sub title"]').should('exist');
-                cy.get('img').should('exist');
-            })
+    it('renders the posts section for non-login users', () => {
+        cy.get('[data-cy="simple-post-card"]').then(() => {
+            cy.get('[data-cy="title"]').should('have.text', post.postTitle);
+            cy.get('[data-cy="date"]').should('have.text', post.timestamp.seconds);
+            cy.get('[data-cy="sub-title"]').should('have.text', post.postSubTitle);
         })
     })
 })
