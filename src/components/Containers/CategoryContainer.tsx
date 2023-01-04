@@ -24,7 +24,8 @@ function CategoryContainer() {
             href={'/category/' + c.name}
             sx={(theme) => ({
               color: theme.colorScheme === 'dark' ? theme.colors.blue[4] : theme.colors.grape[9]
-            })}>
+            })}
+            data-cy="home-category-link">
             {c.name}
           </Anchor>
         </Paper>
@@ -34,7 +35,7 @@ function CategoryContainer() {
 
   return (
     <Container mb="xl">
-      <Grid className={classes.grid} grow justify="center" columns={6}>
+      <Grid className={classes.grid} grow justify="center" columns={6} data-cy="home-category-grid">
         {categoryCard}
       </Grid>
     </Container>

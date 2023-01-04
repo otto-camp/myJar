@@ -89,7 +89,7 @@ export default function ForgotPassword() {
 
         <Paper withBorder shadow="md" p={30} radius="md" mt="xl">
           <form onSubmit={fpForm.onSubmit((val) => handleSubmit(val))}>
-            <TextInput {...fpForm.getInputProps('email')} label="Your email" placeholder="me@mantine.dev" />
+            <TextInput {...fpForm.getInputProps('email')} label="Your email" placeholder="example@email.com" />
             <Group position="apart" mt="lg" className={classes.controls}>
               <Anchor color="dimmed" href="/login" size="sm" className={classes.control}>
                 <Center inline>

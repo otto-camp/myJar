@@ -65,17 +65,18 @@ export default function Login() {
 
         <Paper withBorder shadow="md" p={30} mt={30} radius="md">
           <form onSubmit={loginForm.onSubmit((val) => handleLogin(val))}>
-            <TextInput {...loginForm.getInputProps('email')} label="Email" placeholder="you@mantine.dev" />
+            <TextInput {...loginForm.getInputProps('email')} label="Email" placeholder="example@email.com" data-cy="login-email"/>
             <PasswordInput
               {...loginForm.getInputProps('password')}
               label="Password"
               placeholder="Your password"
               mt="md"
+              data-cy="login-password"
             />
             <Anchor<'a'> href="/forgotpassword" size="sm" mt="lg">
               Forgot password?
             </Anchor>
-            <Button variant="gradient" gradient={{ from: 'blue', to: 'grape' }} type="submit" fullWidth mt="xl">
+            <Button variant="gradient" gradient={{ from: 'blue', to: 'grape' }} type="submit" fullWidth mt="xl" data-cy="login-button">
               Sign in
             </Button>
           </form>

@@ -7,25 +7,19 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://myjar-8ff23.web.app/about</loc>
+    <lastmod>2022-12-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://myjar-8ff23.web.app/contact</loc>
     <lastmod>2022-12-09</lastmod>
     <changefreq>never</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://myjar-8ff23.web.app/search</loc>
-    <lastmod>2022-12-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
     <loc>https://myjar-8ff23.web.app/settings</loc>
-    <lastmod>2022-12-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://myjar-8ff23.web.app/about</loc>
     <lastmod>2022-12-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>

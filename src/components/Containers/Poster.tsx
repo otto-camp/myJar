@@ -98,7 +98,7 @@ function Poster() {
       <Dots className={classes.dots} style={{ right: 0, top: 60 }} />
 
       <div className={classes.inner}>
-        <Title className={classes.title}>
+        <Title className={classes.title} data-cy="home-title">
           Create your own{' '}
           <Text component="span" variant="gradient" gradient={{ from: 'teal', to: 'blue', deg: 60 }} inherit>
             stories
@@ -106,7 +106,7 @@ function Poster() {
         </Title>
 
         <Container p={0} size={600}>
-          <Text size="lg" className={classes.description}>
+          <Text size="lg" className={classes.description} data-cy="home-text">
             myJar is a storytelling website that gives you the freedom to explore your creativity and tell your story!
             We are a community where writers of all levels come to express themselves as they find inspiration and share
             their stories.
@@ -121,6 +121,7 @@ function Poster() {
               gradient={{ from: 'teal', to: 'blue', deg: 60 }}
               className={classes.control}
               onClick={() => navigate('/post/create-post')}
+              data-cy="home-create-post-button"
             >
               Start writing
             </Button>
@@ -131,6 +132,7 @@ function Poster() {
               className={classes.control}
               size="lg"
               onClick={() => navigate('login')}
+              data-cy="home-login-button"
             >
               Login
             </Button>
