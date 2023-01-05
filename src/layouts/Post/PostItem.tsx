@@ -34,7 +34,7 @@ export default function PostItem({ post }: { post: PostType }) {
   return (
     <>
       {post ? (
-        <Card withBorder mb="xl" className={classes.card} onClick={() => navigate('/post/' + post.pid)}>
+        <Card withBorder mb="xl" className={classes.card} onClick={() => navigate('/post/' + post.pid)} data-cy="home-post">
           <SimpleGrid cols={1} breakpoints={[{ minWidth: 768, cols: 2 }]}>
             <AspectRatio ratio={1000 / 500}>
               <Image

@@ -109,7 +109,7 @@ export default function Navi() {
               <Link to={'/profile/' + currentUser.uid} className={classes.link}>
                 Profile
               </Link>
-              <Button variant="default" onClick={() => handleSignOut()}>
+              <Button variant="default" onClick={() => handleSignOut()} data-cy="sign-out">
                 Sign Out
               </Button>
             </>
@@ -142,7 +142,7 @@ export default function Navi() {
                     <Link to={'/profile/' + currentUser.uid} className={classes.link}>
                       Profile
                     </Link>
-                    <Button variant="default" onClick={() => handleSignOut()}>
+                    <Button variant="default" onClick={() => handleSignOut()} data-cy="sign-out">
                       Sign Out
                     </Button>
                   </>
@@ -151,7 +151,7 @@ export default function Navi() {
                     <Button variant="default" onClick={() => navigate('/login')}>
                       Login
                     </Button>
-                    <Button variant="default" onClick={() => navigate('/signup')}>
+                    <Button variant="default" onClick={() => navigate('/signup')} >
                       Sign Up
                     </Button>
                   </Group>

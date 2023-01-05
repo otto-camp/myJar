@@ -26,13 +26,12 @@ const Home: React.FC = () => {
         type="website"
         url="https://myjar-8ff23.web.app/"
         image={logo}
-        
       />
       <Poster />
       <CategoryContainer />
       <Container>
         {posts.map((p: any, index: React.Key) => (
-          <PostItem key={index} post={p} />
+          <PostItem key={index} post={p}/>
         ))}
       </Container>
     </>

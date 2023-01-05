@@ -3,6 +3,9 @@ describe('Home Page', () => {
     beforeEach(() => {
         cy.visit('/')
     })
+    afterEach(() => {
+        cy.wait(200);
+    })
 
     it('poster rendered for non-login users', () => {
         cy.get('[data-cy="home-title"]').should('have.text', 'Create your own stories');
@@ -23,12 +26,15 @@ describe('Home Page', () => {
         cy.get('[data-cy="login-email"]').type('qq@qq.com');
         cy.get('[data-cy="login-password"]').type('123456');
         cy.get('[data-cy="login-button"]').click().then(() => {
-            cy.wait(800);
-
             cy.get('[data-cy="home-create-post-button"]').should('be.visible')
             cy.get('[data-cy="home-create-post-button"]').click();
             cy.location('href', '/create-post/')
-
+            cy.get('[data-cy="sign-out"]').click();
         })
+    })
+
+    it('clicks post on home page', () => {
+        cy.get('[data-cy="home-post"]').eq(0).click();
+        cy.get('[data-cy="post-image"]').should('be.visible');
     })
 })
